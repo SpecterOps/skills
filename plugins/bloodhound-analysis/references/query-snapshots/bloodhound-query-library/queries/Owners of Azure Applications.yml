@@ -1,0 +1,13 @@
+name: Owners of Azure Applications
+guid: 3beb1260-61ad-42b5-819f-e1b619d28e22
+prebuilt: false
+platforms:
+- Azure
+category: General
+description: Return all Owners of Azure Applications to search for possible attack paths. Low privileged users should not be owners of applications.
+query: |-
+  MATCH p = (n)-[r:AZOwns]->(g:AZApp)
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel

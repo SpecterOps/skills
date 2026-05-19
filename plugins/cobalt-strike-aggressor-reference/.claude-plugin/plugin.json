@@ -1,0 +1,16 @@
+{
+  "name": "cobalt-strike-aggressor-reference",
+  "description": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+  "version": "0.1.0",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cobalt-strike",
+    "cobalt-strike-aggressor-development",
+    "red-team",
+    "c2",
+    "sleep"
+  ]
+}

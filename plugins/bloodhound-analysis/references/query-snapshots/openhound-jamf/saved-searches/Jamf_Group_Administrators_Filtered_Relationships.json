@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Group Administrators Filtered Relationships",
+  "description": "Targeted Filtering that limits results to starting jamf_Group nodes starting with 'TENANT' in the name and only show edges/relationships specified by r that are one of the three specified edges",
+  "query": "MATCH p=(s)-[r]->(t)\nWHERE s.name STARTS WITH 'TENANT'\nAND s.primarykind = 'jamf_Group'\nAND (t.name STARTS WITH 'UPDATE' OR t.name STARTS WITH 'SOL')\nAND (type(r) = 'jamf_UpdateAccounts' OR type(r) = 'jamf_CreateAccounts' OR type(r) = 'jamf_AdminTo')\nRETURN p\nLIMIT 1000"
+}

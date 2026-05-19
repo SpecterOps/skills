@@ -1,0 +1,15 @@
+{
+  "plugin": "payloads",
+  "purpose": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+  "agents": [
+    "poc-dev",
+    "exploit-dev",
+    "researcher"
+  ],
+  "skills": [
+    "electron-squirrel-repackage",
+    "electron-install-persistence",
+    "electron-candidate-discovery",
+    "electron-app-audit"
+  ]
+}

@@ -1,0 +1,13 @@
+name: Accounts with SID History to a same-domain account
+guid: 275d2d58-0cad-4cad-8103-e0874cece666
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
+  WHERE n.domainsid = m.domainsid
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

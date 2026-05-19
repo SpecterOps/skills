@@ -1,0 +1,24 @@
+name: Enabled Entra Tier Zero principals inactive for 60 days
+guid: 08c20218-f4bc-49be-bad7-498b1053b302
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Enabled Entra ID Tier Zero principals with no sign-in activity in 60 days, or that have never signed in. Stale privileged accounts should be reviewed and removed to reduce the attack surface.
+query: |-
+  MATCH (n:AZBase)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.enabled = true
+  AND (
+    // never signed in AND created more than 60+ days
+    (
+      coalesce(n.lastsuccessfulsignindatetime, '') = ''
+      AND n.whencreated < tostring(datetime() - duration('P60D'))
+    )
+
+    // OR not signed-in for more than 60+ days
+    OR n.lastsuccessfulsignindatetime < tostring(datetime() - duration('P60D'))
+  )
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#4-configure-recurring-access-reviews-to-revoke-unneeded-permissions-over-time
+acknowledgements: Martin Sohn Christensen, @martinsohndk

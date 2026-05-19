@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Account to Tenant Edges",
+  "description": "Show edges from Jamf Accounts to the Jamf Tenant",
+  "query": "MATCH p=(s:jamf_Account)-[]->(t:jamf_Tenant)\nRETURN p\nLIMIT 1000"
+}

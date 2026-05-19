@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: PATs with Access to All Repositories",
+  "query": "MATCH p=(:GH_User)-[:GH_HasPersonalAccessToken]->(token:GH_PersonalAccessToken {repository_selection: 'all'})\nRETURN p\nLIMIT 1000",
+  "description": "Finds fine-grained personal access tokens scoped to all repositories. A single compromised token grants access to every repository in the organization."
+}

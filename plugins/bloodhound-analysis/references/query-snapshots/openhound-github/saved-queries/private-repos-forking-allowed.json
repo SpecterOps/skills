@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Private Repositories with Forking Allowed",
+  "query": "MATCH (repo:GH_Repository {visibility: 'private', allow_forking: true})\nRETURN repo\nLIMIT 1000",
+  "description": "Finds private repositories that allow forking. Forked copies of private repositories can leave organizational governance and visibility."
+}

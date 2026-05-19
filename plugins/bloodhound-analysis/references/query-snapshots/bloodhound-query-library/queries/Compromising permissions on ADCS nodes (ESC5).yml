@@ -1,0 +1,17 @@
+name: Compromising permissions on ADCS nodes (ESC5)
+guid: 396c7b67-fb5d-4c04-bb13-8007f0dfc9b1
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (n:Base)-[:Owns|WriteOwner|WriteDacl|GenericAll|GenericWrite]->(m:Base)
+  WHERE m.distinguishedname CONTAINS "PUBLIC KEY SERVICES"
+  AND NOT n.objectid ENDS WITH "-512" // Domain Admins
+  AND NOT n.objectid ENDS WITH "-519" // Enterprise Admins
+  AND NOT n.objectid ENDS WITH "-544" // Administrators
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources: https://specterops.io/blog/2023/05/16/from-da-to-ea-with-esc5/
+acknowledgements:

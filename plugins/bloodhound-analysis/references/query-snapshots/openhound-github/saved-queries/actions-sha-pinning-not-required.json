@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Actions SHA Pinning Not Required",
+  "query": "MATCH (org:GH_Organization {actions_sha_pinning_required: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations that do not require SHA pinning for GitHub Actions. Without pinning, actions referenced by tag can be silently replaced with malicious versions."
+}

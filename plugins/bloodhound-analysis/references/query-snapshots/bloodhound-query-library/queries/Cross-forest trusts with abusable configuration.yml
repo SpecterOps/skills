@@ -1,0 +1,13 @@
+name: Cross-forest trusts with abusable configuration
+guid: 5cf1f354-80d4-420e-bc4b-424fabc21a56
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:Domain)-[:CrossForestTrust|SpoofSIDHistory|AbuseTGTDelegation]-(m:Domain)
+  WHERE (n)-[:SpoofSIDHistory|AbuseTGTDelegation]-(m)
+  RETURN p
+revision: 1
+resources:
+acknowledgements:

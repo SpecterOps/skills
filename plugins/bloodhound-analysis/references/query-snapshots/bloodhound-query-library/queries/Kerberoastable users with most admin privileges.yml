@@ -1,0 +1,21 @@
+name: Kerberoastable users with most admin privileges
+guid: 9907b208-494c-4ba6-846d-485e6de14e17
+prebuilt: true
+platforms: Active Directory
+category: Kerberos Interaction
+description:
+query: |-
+  MATCH (u:User)
+  WHERE u.hasspn = true
+    AND u.enabled = true
+    AND NOT u.objectid ENDS WITH '-502'
+    AND NOT COALESCE(u.gmsa, false) = true
+    AND NOT COALESCE(u.msa, false) = true
+  MATCH (u)-[:MemberOf|AdminTo*1..]->(c:Computer)
+  WITH DISTINCT u, COUNT(c) AS adminCount
+  RETURN u
+  ORDER BY adminCount DESC
+  LIMIT 100
+revision: 1
+resources: https://attack.mitre.org/techniques/T1558/003/
+acknowledgements:

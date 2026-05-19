@@ -1,0 +1,14 @@
+name: Enrollment rights on certificate templates published to Enterprise CA with User Specified SAN enabled (ESC6)
+guid: ab14e9dc-996c-4737-878c-583c19cdbf5a
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(eca:EnterpriseCA)
+  WHERE eca.isuserspecifiessanenabled = True
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

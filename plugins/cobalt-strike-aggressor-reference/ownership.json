@@ -1,0 +1,8 @@
+{
+  "plugin": "cobalt-strike-aggressor-reference",
+  "purpose": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+  "agents": [],
+  "skills": [
+    "cobalt-strike-aggressor-reference"
+  ]
+}

@@ -1,0 +1,14 @@
+name: Large default group added to computer-local group
+guid: dde133d2-b4d2-4de9-a656-905f3bf066f3
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Group)-[:MemberOfLocalGroup]->(m:ADLocalGroup)-[:LocalToComputer]->(:Computer)
+  WHERE n.objectid =~ ".*-(S-1-5-11|S-1-1-0|S-1-5-32-545|S-1-5-7|-513|-515)$" // Authenticated Users, Everyone, Users, Anonymous, Domain Users, Domain Computers
+  AND NOT m.objectid =~ ".*-(545|574|554)$" // Users, Certificate Service DCOM Access, Pre-Windows 2000 Compatible Access
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

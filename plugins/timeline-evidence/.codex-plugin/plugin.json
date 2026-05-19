@@ -1,0 +1,16 @@
+{
+  "name": "timeline-evidence",
+  "version": "0.1.0",
+  "description": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Timeline Evidence",
+    "category": "Productivity",
+    "shortDescription": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Timeline Evidence plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

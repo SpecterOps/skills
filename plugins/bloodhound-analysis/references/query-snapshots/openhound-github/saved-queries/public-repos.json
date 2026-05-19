@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Public Repositories",
+  "query": "MATCH (repo:GH_Repository {private: false})\nRETURN repo\nLIMIT 1000",
+  "description": "Returns all public repositories."
+}

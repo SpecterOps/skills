@@ -1,0 +1,13 @@
+name: CA administrators and CA managers
+guid: fd35e3d8-0c74-4b5a-a847-c0dd1f1c9f19
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:ManageCertificates|ManageCA]->(:EnterpriseCA)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

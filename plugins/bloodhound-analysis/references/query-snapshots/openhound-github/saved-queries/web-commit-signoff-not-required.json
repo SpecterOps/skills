@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Web Commit Signoff Not Required",
+  "query": "MATCH (org:GH_Organization {web_commit_signoff_required: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations that do not require sign-off for web-based commits. Without signoff, commit attribution cannot be verified."
+}

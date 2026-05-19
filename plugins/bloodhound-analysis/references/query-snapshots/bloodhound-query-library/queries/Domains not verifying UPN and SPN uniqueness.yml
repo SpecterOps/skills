@@ -1,0 +1,13 @@
+name: Domains not verifying UPN and SPN uniqueness
+guid: cb0b1591-5c3e-45f1-afb7-984e5ad865d0
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Checks the DoNotVerifyUPNAndOrSPNUniqueness flag of dSHeuristics.
+query: |-
+  MATCH (n:Domain)
+  WHERE n.dsheuristics =~ ".{20}[^0].*"
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e5899be4-862e-496f-9a38-33950617d2c5
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: All Nodes and Edges",
+  "description": "Retrieve all nodes and edges where either a JamfHound node has an inbound or outbound relationship, limits results to 1000",
+  "query": "MATCH p=(s)-[]->(t)\nWHERE s.primarykind STARTS WITH 'jamf' OR t.primarykind STARTS WITH 'jamf'\nRETURN p\nLIMIT 1000"
+}

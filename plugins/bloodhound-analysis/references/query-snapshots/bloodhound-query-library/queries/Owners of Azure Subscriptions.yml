@@ -1,0 +1,15 @@
+name: Owners of Azure Subscriptions
+guid: bd0daafd-4256-4ce6-9b7f-a9e38509d81c
+prebuilt: false
+platforms:
+- Azure
+category: General
+description: Return all Owners of Azure Subscriptions to search for possible attack paths. Low privileged users should not be owners of Subscriptions.
+query: |-
+  MATCH p=shortestPath((s:AZBase)-[:AZOwner*1..]->(t:AZSubscription))
+  WHERE s<>t
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel

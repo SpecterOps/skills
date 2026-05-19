@@ -1,0 +1,8 @@
+interface:
+  display_name: "AzureHound"
+  short_description: "Analyze Entra ID and Azure privilege or attack paths."
+  default_prompt: "Use $azurehound-analysis to analyze Entra ID and Azure privilege paths involving Global Admin, service principals, managed identities, subscriptions, or hybrid Azure links."
+  brand_color: "#991B1B"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,16 @@
+{
+  "name": "social-engineering",
+  "version": "0.1.0",
+  "description": "Social engineering research and phishing pretext workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Social Engineering",
+    "category": "Security",
+    "shortDescription": "Social engineering research and phishing pretext workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Social Engineering plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

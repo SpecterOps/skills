@@ -1,0 +1,15 @@
+name: Tier Zero / High Value external Entra ID users
+guid: 20e07417-d286-4dca-a962-568f2b262f65
+prebuilt: true
+platforms: Azure
+category: Azure Hygiene
+description:
+query: |-
+  MATCH (n:AZUser)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.name CONTAINS '#EXT#@'
+  RETURN n
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Devices",
+  "description": "List all devices, their owners, and any mobile admins.",
+  "query": "MATCH p = (:Okta_Device)-[:Okta_DeviceOf]->(:Okta_User)\nOPTIONAL MATCH q = (:Okta_User:Okta_Group:Okta_Application)-[:Okta_MobileAdmin]->(:Okta_Device)\nRETURN p,q\nLIMIT 1000"
+}

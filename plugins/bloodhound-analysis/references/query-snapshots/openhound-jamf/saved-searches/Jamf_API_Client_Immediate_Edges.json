@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: API Client Immediate Edges",
+  "description": "View immediate edges and impacted principals for Jamf API Clients",
+  "query": "MATCH p=(s:jamf_ApiClient)- [] ->(t)\nRETURN p\nLIMIT 1000"
+}

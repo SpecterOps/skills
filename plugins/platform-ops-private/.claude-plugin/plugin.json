@@ -1,0 +1,8 @@
+{
+  "name": "platform-ops-private",
+  "description": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,14 @@
+name: Non-Tier Zero owners of Tier Zero Entra groups
+guid: f02f57b9-ac94-4954-a698-4584457962eb
+prebuilt: false
+platforms: Azure
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:AZBase)-[:AZOwns]->(g:AZGroup)
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND ((g:Tag_Tier_Zero) OR COALESCE(g.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

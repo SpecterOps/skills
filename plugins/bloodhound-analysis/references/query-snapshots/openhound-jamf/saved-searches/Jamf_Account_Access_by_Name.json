@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Account Access by Name",
+  "description": "Filter to view access of a Jamf Account named or starting with 'LC' - increase the maximum edges to see more relationships (i.e. change 5 to 6 to see 1 more)",
+  "query": "MATCH p=(s:jamf_Account)-[*1..5]->(t)\nWHERE s.name STARTS WITH 'LC'\nRETURN p\nLIMIT 1000"
+}

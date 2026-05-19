@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Unrotated Active Access Keys on Privileged Apps",
+  "description": "Finds active JWKs or client secrets older than 365 days on applications that have role assignments.",
+  "query": "MATCH p = (s:Okta_JWK:Okta_ClientSecret)-[:Okta_KeyOf|Okta_SecretOf]->(:Okta_Application)-[:Okta_HasRoleAssignment]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nWHERE s.status = \"ACTIVE\" AND datetime(s.created) <= datetime() - duration(\"P365D\")\nRETURN p\nLIMIT 1000"
+}

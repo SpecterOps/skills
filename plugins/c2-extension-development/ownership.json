@@ -1,0 +1,11 @@
+{
+  "plugin": "c2-extension-development",
+  "purpose": "Cobalt Strike Aggressor and BOF development workflows.",
+  "agents": [
+    "exploit-dev"
+  ],
+  "skills": [
+    "cobalt-strike-aggressor-development",
+    "c2-bof-development"
+  ]
+}

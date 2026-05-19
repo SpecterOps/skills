@@ -1,0 +1,16 @@
+name: Map Azure Management structure
+guid: c1bb109e-e6a4-4c91-864f-f78e1e42615e
+prebuilt: false
+platforms: Azure
+category: General
+description: Maps the structure of the Azure resource hierarchy from Azure tenants to the resource group level
+query: |-
+  MATCH p = (:AZTenant)-[:AZContains*1..]->(n:AZBase)
+  WHERE (n:AZManagementGroup)
+  OR (n:AZSubscription)
+  OR (n:AZResourceGroup)
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources: https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
+acknowledgements: Martin Sohn Christensen, @martinsohndk

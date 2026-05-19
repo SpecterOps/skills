@@ -1,0 +1,17 @@
+name: Users with non-default Primary Group membership
+guid: 93890f88-df2c-4167-a945-a53961d08d00
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:User)-[r:MemberOf]->(g:Group)
+  WHERE NOT g.objectid ENDS WITH "-513" // Domain Users
+  AND r.isprimarygroup = true
+  AND NOT n.objectid ENDS WITH "-501" // Guests account, as it has primaryGroup to Guests
+  AND (n.gmsa IS NULL OR n.gmsa = false) // Not gMSA, as it has primaryGroup to Domain Computers
+  AND (n.msa IS NULL OR n.msa = false) // Not MSA, as it has primaryGroup to Domain Computers
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

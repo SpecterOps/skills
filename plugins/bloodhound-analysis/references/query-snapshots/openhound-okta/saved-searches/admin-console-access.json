@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Principals with Admin Console Access",
+  "description": "Identifies principals with access to the Okta Admin Console.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta)-[:Okta_AppAssignment]->(c:Okta_Application)\nWHERE c.appType = \"saasure\"\nRETURN p\nLIMIT 1000"
+}

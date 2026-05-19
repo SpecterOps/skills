@@ -1,0 +1,11 @@
+{
+  "plugin": "code-review-and-qa",
+  "purpose": "Code review and web application QA workflows for Specter Codex.",
+  "agents": [
+    "code-reviewer"
+  ],
+  "skills": [
+    "code-review",
+    "webapp-qa"
+  ]
+}

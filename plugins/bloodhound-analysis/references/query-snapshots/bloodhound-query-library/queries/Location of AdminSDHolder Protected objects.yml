@@ -1,0 +1,14 @@
+name: Location of AdminSDHolder Protected objects
+guid: 3408ccaf-1f42-4c10-b09a-e986661f84d7
+prebuilt: true
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p = (n:Base)<-[:Contains*1..]-(:Domain)
+  WHERE n.adminsdholderprotected = True
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

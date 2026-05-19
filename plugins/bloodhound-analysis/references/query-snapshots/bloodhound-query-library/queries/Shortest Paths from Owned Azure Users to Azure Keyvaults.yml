@@ -1,0 +1,14 @@
+name: Shortest Paths from Owned Azure Users to Azure Keyvaults
+guid: 53e73ae0-985e-4508-a82e-696d654f9538
+prebuilt: false
+platforms:
+- Azure
+category: Shortest Paths
+description: Return shortest paths from Owned Azure Users to Azure Keyvaults to check for attack vectors.
+query: |-
+  MATCH p = shortestPath((n:AZUser)-[:AZ_ATTACK_PATHS*..]->(g:AZKeyVault))
+  WHERE ((n:Tag_Owned) OR COALESCE(n.system_tags, '') CONTAINS 'owned')
+  RETURN p
+revision: 2
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel

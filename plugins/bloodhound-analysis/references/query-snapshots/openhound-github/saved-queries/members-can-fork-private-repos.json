@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Members Can Fork Private Repositories",
+  "query": "MATCH (org:GH_Organization {members_can_fork_private_repositories: true})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where members can fork private repositories to personal accounts. Forked copies leave organizational control and oversight."
+}

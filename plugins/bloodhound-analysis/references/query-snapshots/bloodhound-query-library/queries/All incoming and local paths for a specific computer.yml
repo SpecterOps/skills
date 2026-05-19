@@ -1,0 +1,15 @@
+name: All incoming and local paths for a specific computer
+guid: 1f67e538-19d4-4020-89c8-5b39b31571bd
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: All incoming and local paths for a specific computer; incoming from domain objects and paths local inside the computer.
+query: |-
+  // Replace 'HOSTNAME' with the computer's shortname eg. 'SRV01', not FQDN
+  MATCH p=(n:Base)-[:RemoteInteractiveLogonRight|AdminTo|CanRDP|LocalToComputer|MemberOfLocalGroup]-(m:Base)
+  WHERE m.name CONTAINS 'HOSTNAME'
+  AND m.name CONTAINS '.' // Only see computer-related objects (eg. not AD Groups)
+  RETURN p
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

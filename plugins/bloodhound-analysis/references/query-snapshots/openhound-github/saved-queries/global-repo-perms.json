@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Global Repo Permissions",
+  "query": "MATCH p=(:GH_User)-[:GH_HasBaseRole|GH_HasRole|GH_MemberOf*1..3]->(role:GH_OrgRole)\nWHERE role.short_name CONTAINS 'all_repo_'\nRETURN p\nLIMIT 1000",
+  "description": "Returns all users who hold a global repository permission role (i.e., roles that are not default)."
+}

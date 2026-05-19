@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: SAML Configuration Mapping",
+  "query": "MATCH p=(OIP:GH_SamlIdentityProvider)-[:GH_HasExternalIdentity]->(EI:GH_ExternalIdentity)\nMATCH p1=(OIP)<-[:GH_HasSamlIdentityProvider]-(:GH_Organization)\nMATCH p2=(EI)-[:GH_MapsToUser]->()\nRETURN p,p1,p2\nLIMIT 1000",
+  "description": "Finds SAML Identity Providers, their external identities, and mapped users."
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Matched Email Edges",
+  "description": "Show nodes with the edge jamfMatchedEdmail",
+  "query": "MATCH p=(s)-[:jamf_MatchedEmail]->(t)\nRETURN p\nLIMIT 1000"
+}

@@ -1,0 +1,15 @@
+name: Tier Zero Azure roles with more than 10 members
+guid: 04b34186-0a88-4b1c-90c1-2c4bea2adadd
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Entra ID Tier Zero roles individually holding more than 10 assigned principals, indicating over-provisioning of highly privileged role membership.
+query: |-
+  MATCH (m:AZBase)-[:AZHasRole|AZRoleEligible]->(r:AZRole)
+  WHERE (r:Tag_Tier_Zero) OR COALESCE(r.system_tags, '') CONTAINS 'admin_tier_0' // Tier Zero roles
+  WITH r, COUNT(m) AS memberCount
+  WHERE memberCount > 10 // more than 10 members assigned to a single Tier Zero role
+  RETURN r
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#6-limit-the-number-of-privileged-role-assignments-to-less-than-10
+acknowledgements: Martin Sohn Christensen, @martinsohndk

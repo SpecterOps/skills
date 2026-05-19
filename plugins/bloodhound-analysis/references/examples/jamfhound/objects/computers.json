@@ -1,0 +1,25 @@
+{
+  "computers": [
+    {
+      "alt_mac_address": "36:10:4C:65:9E:C0",
+      "asset_tag": "",
+      "bar_code_1": "",
+      "bar_code_2": "",
+      "building": "",
+      "building_name": "",
+      "department": "",
+      "department_name": "",
+      "email": "",
+      "email_address": "",
+      "id": 1,
+      "mac_address": "18:4A:53:02:EB:B7",
+      "name": "Mac mini",
+      "position": "",
+      "realname": "",
+      "room": "",
+      "serial_number": "W9THH4VCXV",
+      "udid": "EC20C8814FE65E901211",
+      "username": ""
+    }
+  ]
+}

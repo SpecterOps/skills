@@ -1,0 +1,17 @@
+name: Overprivileged Microsoft Entra Connect accounts
+guid: 9e6e75b4-9ecc-45d4-a39b-b6427b813f0a
+prebuilt: false
+platforms:
+- Active Directory
+- Azure
+category: Active Directory Hygiene
+description: Legacy MSOL accounts were by default deployed with Domain Admins or Enterprise Admins membership.
+query: |-
+  MATCH p=(n:User)-[:MemberOf*1..]->(g:Group)
+  WHERE n.name STARTS WITH "MSOL_"
+  AND (g.objectid ENDS WITH "-512" // Domain Admins
+  OR g.objectid ENDS WITH "-519") // Entterprise Admins
+  RETURN p
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-accounts-permissions
+acknowledgements: Martin Sohn Christensen, @martinsohndk

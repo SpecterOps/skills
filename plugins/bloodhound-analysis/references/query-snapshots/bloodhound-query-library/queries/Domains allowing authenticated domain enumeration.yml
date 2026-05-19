@@ -1,0 +1,14 @@
+name: Domains allowing authenticated domain enumeration
+guid: 1e1e6fdd-6973-4547-906c-a494b5fbdcba
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:Group)-[:MemberOf]->(m:Group)
+  WHERE n.objectid ENDS WITH "S-1-5-11" // Authenticated Users
+  AND m.objectid ENDS WITH "S-1-5-32-554" // Pre-Windows 2000 Compatible Access
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

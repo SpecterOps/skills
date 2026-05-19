@@ -1,0 +1,14 @@
+name: Shortest paths from Azure Applications to Tier Zero / High Value targets
+guid: 60ff7c58-a98e-4bc1-9e32-8378d2db0c43
+prebuilt: true
+platforms: Azure
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  MATCH p=shortestPath((s:AZApp)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))
+  WHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0') AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

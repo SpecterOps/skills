@@ -1,0 +1,15 @@
+name: Tier Zero computers with unsupported operating systems
+guid: a87b558c-5746-4a90-9f83-c86e7b924a52
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.operatingsystem =~ '(?i).*Windows.* (2000|2003|2008|2012|xp|vista|7|8|me|nt).*'
+  AND ((c:Tag_Tier_Zero) OR COALESCE(c.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN c
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

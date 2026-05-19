@@ -1,0 +1,14 @@
+name: Enrollment rights on certificate templates published to Enterprise CA with vulnerable HTTP(S) endpoint (ESC8)
+guid: 1c1435b1-bad0-49f2-ba7d-932e047c0af4
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(eca:EnterpriseCA)
+  WHERE eca.hasvulnerableendpoint = True
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Team Membership Admins",
+  "query": "MATCH p=(:GH_User)-[:GH_HasRole]->(:GH_TeamRole)-[:GH_AddMember]->(team:GH_Team)\nMATCH p1=(team)<-[:GH_MemberOf]-(:GH_Team)<-[:GH_AddMember]-(:GH_TeamRole)<-[:GH_HasRole]-(:GH_User)\nRETURN p,p1\nLIMIT 1000",
+  "description": "Returns all users who hold the maintainer role over a team, this also represents team nesting."
+}

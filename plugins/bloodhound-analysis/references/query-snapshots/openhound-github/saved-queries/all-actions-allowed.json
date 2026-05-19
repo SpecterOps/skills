@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: All GitHub Actions Allowed",
+  "query": "MATCH (org:GH_Organization {actions_allowed_actions: 'all'})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations that allow all GitHub Actions to run, including third-party actions from the marketplace. This creates supply chain risk if a malicious or compromised action is used."
+}

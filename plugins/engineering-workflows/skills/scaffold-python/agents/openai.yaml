@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scaffold Python"
+  short_description: "Create a Python project scaffold"
+  default_prompt: "Use $scaffold-python to create a new Python project scaffold with uv-first setup and fallback only if uv is unavailable."

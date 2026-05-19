@@ -1,0 +1,14 @@
+name: Shortest paths to privileged roles
+guid: 3dc73dd8-4873-4aeb-a88f-56a58c77f512
+prebuilt: true
+platforms: Azure
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  MATCH p=shortestPath((s:AZBase)-[:AZ_ATTACK_PATHS*1..]->(t:AZRole))
+  WHERE t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator|Privileged Role Administrator' AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

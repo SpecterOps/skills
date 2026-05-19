@@ -1,0 +1,48 @@
+name: Uncommon permission on containers
+guid: 018c2b45-e30f-47d8-a751-22419c3d0736
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: BloodHound typically identifies risk on Active Directory objects stored in OUs, however behind the scenes; Active Directory has a hieracy of containers e.g. CN=SYSTEM and CN=CONFIGURATION, on which control can lead to risk. Results are prone to false-positives but can assist auditing containers permissions.
+query: |-
+  MATCH p=(:Domain)-[:Contains*1..]->(c:Container)<-[r]-(n:Base)
+
+  // Exclude Tier Zero
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+
+  // Scope edges to ACLs
+  AND r.isacl
+
+  // Exclude CN=Users and CN=Computers containers
+  AND NOT c.distinguishedname STARTS WITH "CN=COMPUTERS,DC="
+  AND NOT c.distinguishedname STARTS WITH "CN=USERS,DC="
+
+  // Exclude same-domain unresolved SIDs
+  AND NOT (n.distinguishedname IS NULL AND n.domainsid = c.domainsid)
+
+  // Exclude default: Cert Publishers
+  AND NOT (c.distinguishedname CONTAINS ",CN=PUBLIC KEY SERVICES,CN=SERVICES,CN=CONFIGURATION,DC=" AND n.objectid ENDS WITH "-517")
+
+  // Exclude default: RAS and IAS Servers
+  AND NOT (c.distinguishedname CONTAINS "CN=RAS AND IAS SERVERS ACCESS CHECK,CN=SYSTEM,DC=" AND n.objectid ENDS WITH "-553")
+
+  // Exclude default: DNS
+  AND NOT (c.distinguishedname CONTAINS "CN=MICROSOFTDNS,CN=SYSTEM,DC=" AND n.name STARTS WITH "DNSADMINS@")
+
+  // Exclude default: ConfigMgr
+  AND NOT (c.distinguishedname STARTS WITH "CN=SYSTEM MANAGEMENT,CN=SYSTEM,DC=" AND n.samaccountname ENDS WITH "$")
+
+  // Exclude default: Exchange pt1
+  AND NOT (c.distinguishedname CONTAINS "CN=MICROSOFT EXCHANGE,CN=SERVICES,CN=CONFIGURATION,DC=" AND (n.name STARTS WITH "EXCHANGE TRUSTED SUBSYSTEM@" OR n.name STARTS WITH "ORGANIZATION MANAGEMENT@" OR n.name STARTS WITH "EXCHANGE SERVICES@"))
+
+  // Exclude default: Exchange pt2
+  AND NOT ((c.distinguishedname CONTAINS "CN=MONITORING MAILBOXES,CN=MICROSOFT EXCHANGE SYSTEM OBJECTS,DC=" OR c.distinguishedname CONTAINS "CN=MICROSOFT EXCHANGE SYSTEM OBJECTS,DC=") AND n.name STARTS WITH "EXCHANGE ENTERPRISE SERVERS@")
+
+  // Exclude default: Exchange pt3
+  AND NOT ((c.distinguishedname CONTAINS "CN=ACTIVE DIRECTORY CONNECTIONS,CN=MICROSOFT EXCHANGE,CN=SERVICES,CN=CONFIGURATION,DC=" OR c.distinguishedname CONTAINS "CN=MICROSOFT EXCHANGE SYSTEM OBJECTS,DC=" OR c.distinguishedname =~ "CN=RECIPIENT UPDATE SERVICES,CN=ADDRESS LISTS CONTAINER,CN=.*,CN=MICROSOFT EXCHANGE,CN=SERVICES,CN=CONFIGURATION,DC=") AND n.name STARTS WITH "EXCHANGE DOMAIN SERVERS@")
+
+  RETURN p
+  LIMIT 2000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

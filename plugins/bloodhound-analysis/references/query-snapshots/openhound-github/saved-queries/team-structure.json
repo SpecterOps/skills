@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Team Structure",
+  "query": "MATCH p=(:GH_User)-[:GH_HasRole]->(:GH_TeamRole)-[:GH_MemberOf*1..]->(:GH_Team)\nRETURN p\nLIMIT 1000",
+  "description": "Returns the structure of teams within organizations, including team roles and their members."
+}

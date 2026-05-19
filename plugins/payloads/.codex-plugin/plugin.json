@@ -1,0 +1,16 @@
+{
+  "name": "payloads",
+  "version": "0.1.0",
+  "description": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Payloads",
+    "category": "Security",
+    "shortDescription": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Payloads plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

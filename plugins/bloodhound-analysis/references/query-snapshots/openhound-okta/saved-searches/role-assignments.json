@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Role Assignments - Role Assignments and Scope",
+  "description": "Lists all role assignments and scope, including transitive group membership.",
+  "query": "MATCH p = (:Okta)-[:Okta_HasRoleAssignment|Okta_MemberOf*1..2]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nRETURN p\nLIMIT 1000"
+}

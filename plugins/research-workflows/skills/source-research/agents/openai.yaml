@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research"
+  short_description: "Source-backed topic source-research"
+  default_prompt: "Use $source-research to investigate this topic, compare reliable sources, and summarize key findings with citations."

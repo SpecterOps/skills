@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/MichaelGrafnetter/EntraAuthPolicyHound/refs/heads/main/bloodhound-opengraph.schema.json",
+  "graph": {
+    "nodes": [],
+    "edges": []
+  }
+}

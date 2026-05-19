@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Agents, Agent Pools, and Host Servers",
+  "description": "Lists Okta agents, their associated agent pools, and the AD servers hosting each agent.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_AgentPool)<-[:Okta_AgentMemberOf|Okta_HostsAgent*1..2]-(:Okta_Agent:Computer)\nRETURN p\nLIMIT 1000"
+}

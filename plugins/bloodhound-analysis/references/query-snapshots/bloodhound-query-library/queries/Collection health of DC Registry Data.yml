@@ -1,0 +1,16 @@
+name: Collection health of DC Registry Data
+guid: 3f0fa2f3-fbdf-42c0-9e7d-97e689009161
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: BloodHound's ADCS analysis requires collecting CA registry data to increase accuracy/enable more edges. Collection by default requires SharpHound has Administrators membership. Requires SharpHound v2.3.5 or above. It only requires one misconfigured DC to potentially a full forest compromise by any principal. DCs  returned by this query have an incomplete collection for one or more of the queried attributes.
+query: |-
+  MATCH p=(:Domain)<-[:DCFor]-(c:Computer)
+  WHERE c.strongcertificatebindingenforcementraw IS NULL
+  // Exclude inactive DCs
+  AND c.enabled = true
+  AND c.lastlogontimestamp > (datetime().epochseconds - (30 * 86400))
+  RETURN p
+revision: 2
+resources: https://bloodhound.specterops.io/collect-data/enterprise-collection/permissions#dc-registry
+acknowledgements: Martin Sohn Christensen, @martinsohndk

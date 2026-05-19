@@ -1,0 +1,235 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Properties": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "description": "Unique identifier for the policy."
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the policy."
+                            },
+                            "enabled": {
+                                "type": "boolean",
+                                "description": "Indicates if the policy is enabled."
+                            },
+                            "trigger": {
+                                "type": "string",
+                                "enum": ["CHECKIN", "LOGIN", "OTHER", "STARTUP", "ENROLLMENT_COMPLETE", "NETWORK_STATE_CHANGED"],
+                                "description": "The primary trigger for the policy."
+                            },
+                            "trigger_checkin": {
+                                "type": "boolean",
+                                "description": "Indicates if the check-in trigger is enabled."
+                            },
+                            "trigger_enrollment_complete": {
+                                "type": "boolean",
+                                "description": "Indicates if the enrollment complete trigger is enabled."
+                            },
+                            "trigger_login": {
+                                "type": "boolean",
+                                "description": "Indicates if the login trigger is enabled."
+                            },
+                            "trigger_network_state_changed": {
+                                "type": "boolean",
+                                "description": "Indicates if the network state changed trigger is enabled."
+                            },
+                            "trigger_startup": {
+                                "type": "boolean",
+                                "description": "Indicates if the startup trigger is enabled."
+                            },
+                            "trigger_other": {
+                                "type": "string",
+                                "description": "Custom trigger for the policy."
+                            },
+                            "frequency": {
+                                "type": "string",
+                                "enum": ["Once per computer", "Ongoing", "Once per user", "Custom"],
+                                "description": "The frequency of the policy execution."
+                            },
+                            "retry_event": {
+                                "type": "string",
+                                "enum": ["none", "immediate", "interval"],
+                                "description": "Retry event for the policy."
+                            },
+                            "retry_attempts": {
+                                "type": "integer",
+                                "description": "Number of retry attempts allowed."
+                            },
+                            "notify_on_each_failed_retry": {
+                                "type": "boolean",
+                                "description": "Indicates if notifications are sent for each failed retry."
+                            },
+                            "location_user_only": {
+                                "type": "boolean",
+                                "description": "Indicates if the policy is limited to location-specific users."
+                            },
+                            "target_drive": {
+                                "type": "string",
+                                "description": "The target drive for the policy."
+                            },
+                            "offline": {
+                                "type": "boolean",
+                                "description": "Indicates if the policy can run offline."
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "enabled",
+                            "trigger",
+                            "trigger_checkin",
+                            "trigger_enrollment_complete",
+                            "trigger_login",
+                            "trigger_network_state_changed",
+                            "trigger_startup",
+                            "trigger_other",
+                            "frequency",
+                            "retry_event",
+                            "retry_attempts",
+                            "notify_on_each_failed_retry",
+                            "location_user_only",
+                            "target_drive",
+                            "offline"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "scope": {
+                        "type": "object",
+                        "properties": {
+                            "all_computers": {
+                                "type": "boolean",
+                                "description": "Indicates if the policy applies to all computers."
+                            },
+                            "computers": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID of the computer."
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Name of the computer."
+                                        },
+                                        "udid": {
+                                            "type": "string",
+                                            "description": "UDID of the computer."
+                                        }
+                                    },
+                                    "required": ["id", "name", "udid"],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "computer_groups": {
+                                "type": "array",
+                                "description": "List of computer groups included in the scope.",
+                                "items": { "type": "string" }
+                            },
+                            "buildings": {
+                                "type": "array",
+                                "description": "List of buildings included in the scope.",
+                                "items": { "type": "string" }
+                            },
+                            "departments": {
+                                "type": "array",
+                                "description": "List of departments included in the scope.",
+                                "items": { "type": "string" }
+                            },
+                            "limit_to_users": {
+                                "type": "object",
+                                "properties": {
+                                    "user_groups": {
+                                        "type": "array",
+                                        "description": "User groups included in the scope.",
+                                        "items": { "type": "string" }
+                                    }
+                                },
+                                "required": ["user_groups"],
+                                "additionalProperties": false
+                            },
+                            "limitations": {
+                                "type": "object",
+                                "properties": {
+                                    "users": { "type": "array", "items": { "type": "string" } },
+                                    "user_groups": { "type": "array", "items": { "type": "string" } },
+                                    "network_segments": { "type": "array", "items": { "type": "string" } },
+                                    "ibeacons": { "type": "array", "items": { "type": "string" } }
+                                },
+                                "additionalProperties": false
+                            },
+                            "exclusions": {
+                                "type": "object",
+                                "properties": {
+                                    "computers": { "type": "array", "items": { "type": "string" } },
+                                    "computer_groups": { "type": "array", "items": { "type": "string" } },
+                                    "buildings": { "type": "array", "items": { "type": "string" } },
+                                    "departments": { "type": "array", "items": { "type": "string" } },
+                                    "users": { "type": "array", "items": { "type": "string" } },
+                                    "user_groups": { "type": "array", "items": { "type": "string" } },
+                                    "network_segments": { "type": "array", "items": { "type": "string" } },
+                                    "ibeacons": { "type": "array", "items": { "type": "string" } }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "required": ["all_computers", "computers", "computer_groups", "buildings", "departments", "limit_to_users", "limitations", "exclusions"],
+                        "additionalProperties": false
+                    },
+                    "scripts": {
+                        "type": "array",
+                        "description": "List of scripts associated with the policy.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": { "type": "integer", "description": "ID of the script." },
+                                "name": { "type": "string", "description": "Name of the script." },
+                                "priority": {
+                                    "type": "string",
+                                    "enum": ["Before", "After", "During"],
+                                    "description": "Execution priority of the script."
+                                },
+                                "parameter4": { "type": "string" },
+                                "parameter5": { "type": "string" },
+                                "parameter6": { "type": "string" },
+                                "parameter7": { "type": "string" },
+                                "parameter8": { "type": "string" },
+                                "parameter9": { "type": "string" },
+                                "parameter10": { "type": "string" },
+                                "parameter11": { "type": "string" }
+                            },
+                            "required": ["id", "name", "priority"],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["Properties", "scope", "scripts"],
+                "additionalProperties": false
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "methods": { "type": "integer", "description": "Number of API methods available." },
+                "type": { "type": "string", "description": "Type of data returned (e.g., policies)." },
+                "count": { "type": "integer", "description": "Count of items in the data." },
+                "version": { "type": "integer", "description": "Version of the API." }
+            },
+            "required": ["methods", "type", "count", "version"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "meta"],
+    "additionalProperties": false
+}

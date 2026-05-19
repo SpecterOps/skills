@@ -1,0 +1,17 @@
+{
+  "plugin": "bloodhound-analysis",
+  "purpose": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging.",
+  "agents": [
+    "bloodhound-analyst"
+  ],
+  "skills": [
+    "bloodhound-analysis",
+    "bloodhound-query",
+    "bloodhound-ad-analysis",
+    "azurehound-analysis",
+    "openhound-github",
+    "openhound-jamf",
+    "openhound-okta",
+    "bloodhound-opengraph"
+  ]
+}

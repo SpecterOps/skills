@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Privileged Hybrid Identities",
+  "query": "MATCH p=()-[:GH_SyncedTo]->(:GH_User)-[:GH_HasRole]->(:GH_OrgRole {short_name:'owners'})\nRETURN p\nLIMIT 1000",
+  "description": "Returns all hybrid identities (e.g., Azure or Okta users) that are associated with GitHub users who hold the organization owners role."
+}

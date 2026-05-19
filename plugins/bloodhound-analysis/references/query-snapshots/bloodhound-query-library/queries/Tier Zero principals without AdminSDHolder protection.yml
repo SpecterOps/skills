@@ -1,0 +1,15 @@
+name: Tier Zero principals without AdminSDHolder protection
+guid: 82ce5e2e-415b-489d-b891-304e8bb25998
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.adminsdholderprotected = false
+  RETURN n
+  LIMIT 500
+revision: 1
+resources:
+acknowledgements:

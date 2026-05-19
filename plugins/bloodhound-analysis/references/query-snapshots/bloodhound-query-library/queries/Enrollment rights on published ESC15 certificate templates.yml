@@ -1,0 +1,18 @@
+name: Enrollment rights on published ESC15 certificate templates
+guid: 78d59fe1-e1a0-4813-adc9-c3c96ac08b66
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Certificate Services
+description: Enrollment rights on certificate templates that meet the requirements for the ADCS ESC15 (EKUwu) attack.
+query: |-
+  MATCH p=(:Base)-[:Enroll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)-[:TrustedForNTAuth]->(:NTAuthStore)-[:NTAuthStoreFor]->(:Domain)
+  WHERE ct.enrolleesuppliessubject = True
+  AND ct.authenticationenabled = False
+  AND ct.requiresmanagerapproval = False
+  AND ct.schemaversion = 1
+  RETURN p
+revision: 1
+resources:
+- https://x.com/SpecterOps/status/1844800558151901639
+- https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-49019
+acknowledgements: Jonas Bülow Knudsen, @Jonas_B_K

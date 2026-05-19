@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: All Account Paths",
+  "description": "View paths originating from Jamf Accounts with up to 4 edges - increase edges to see more",
+  "query": "MATCH p=(s:jamf_Account)-[*1..4]->(t)\nRETURN p\nLIMIT 1000"
+}

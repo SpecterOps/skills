@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Identity Provider Assignments",
+  "description": "Lists all identity providers and the users and groups they are associated with, including per-user trust relationships and automatic group assignments.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_IdentityProvider)-[:Okta_IdentityProviderFor|Okta_IdpGroupAssignment]->(:Okta_User:Okta_Group)\nRETURN p\nLIMIT 1000"
+}

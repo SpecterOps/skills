@@ -1,0 +1,19 @@
+name: Tier Zero accounts that can be delegated
+guid: 4316eaf1-6af0-4879-8f55-ac2633a711c3
+prebuilt: false
+platforms: Active Directory
+category: Kerberos Interaction
+description: Delegation protection is achieved by either enabling "Account is sensitive and cannot be delegated" or making it a member of the Protected Users security group.
+query: |-
+  MATCH (m:Base)
+  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  AND m.enabled = true
+  AND m.sensitive = false
+  OPTIONAL MATCH (g:Group)<-[:MemberOf*1..]-(n:Base)
+  WHERE g.objectid ENDS WITH '-525'
+  WITH m, COLLECT(n) AS matchingNs
+  WHERE NONE(n IN matchingNs WHERE n.objectid = m.objectid)
+  RETURN m
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

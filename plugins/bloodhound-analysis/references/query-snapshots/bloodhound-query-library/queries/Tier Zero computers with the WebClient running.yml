@@ -1,0 +1,14 @@
+name: Tier Zero computers with the WebClient running
+guid: 27a6f917-8ed4-4e2e-9b38-41a4b6de1b14
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.webclientrunning = True
+  AND ((c:Tag_Tier_Zero) OR COALESCE(c.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN c LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

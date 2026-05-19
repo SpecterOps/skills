@@ -1,0 +1,21 @@
+name: All members of Operator groups
+guid: 3dfd0843-1ff9-4c21-aa67-feae08d109de
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p=(:Base)-[:MemberOf]->(n:Group)
+  WHERE (
+    n.objectid ENDS WITH 'S-1-5-32-551' OR // Backup Operators
+    n.objectid ENDS WITH 'S-1-5-32-556' OR // Network Configuration Operators
+    n.objectid ENDS WITH 'S-1-5-32-549' OR // Server Operators
+    n.objectid ENDS WITH 'S-1-5-32-579' OR // Access Control Assistance Operators
+    n.objectid ENDS WITH 'S-1-5-32-548' OR // Account Operators
+    n.objectid ENDS WITH 'S-1-5-32-569' OR // Cryptographic Operators
+    n.objectid ENDS WITH 'S-1-5-32-550' // Print Operators
+  )
+  RETURN p
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

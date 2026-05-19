@@ -1,0 +1,13 @@
+name: Domains with List Object mode enabled
+guid: 05e2a94b-5ee6-47ec-b715-3982f30af01b
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: Checks the fDoListObject flag of dSHeuristics.
+query: |-
+  MATCH (n:Domain)
+  WHERE n.dsheuristics =~ ".{2}[^0].*"
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e5899be4-862e-496f-9a38-33950617d2c5
+acknowledgements: Martin Sohn Christensen, @martinsohndk

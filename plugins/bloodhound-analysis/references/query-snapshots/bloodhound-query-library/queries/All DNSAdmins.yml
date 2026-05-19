@@ -1,0 +1,13 @@
+name: All DNSAdmins
+guid: 183fb320-f3ae-4ab3-a090-3f9a7db692e1
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p=(n:Base)-[:MemberOf]->(g:Group)
+  WHERE n.name STARTS WITH "DNSADMINS@"
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

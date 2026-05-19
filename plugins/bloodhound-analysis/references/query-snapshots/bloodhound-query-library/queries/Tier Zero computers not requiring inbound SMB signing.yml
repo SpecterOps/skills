@@ -1,0 +1,14 @@
+name: Tier Zero computers not requiring inbound SMB signing
+guid: 13485477-f026-4b1f-906d-4f2e37364ba4
+prebuilt: false
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH (n:Computer)
+  WHERE n.smbsigning = False
+  AND ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

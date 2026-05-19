@@ -1,0 +1,14 @@
+name: Principals with DES-only Kerberos authentication
+guid: d03ea1ef-70f0-439b-b1ef-d7f94ceb2af3
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE n.enabled = true
+  AND n.usedeskeyonly = true
+  RETURN n
+revision: 1
+resources:
+acknowledgements:

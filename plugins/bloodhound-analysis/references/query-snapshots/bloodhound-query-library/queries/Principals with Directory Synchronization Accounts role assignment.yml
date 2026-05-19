@@ -1,0 +1,15 @@
+name: Principals with Directory Synchronization Accounts role assignment
+guid: c3f91e8b-4a72-4d5e-b6c1-9f3e2a8d7b04
+prebuilt: false
+platforms: Azure
+category: Dangerous Privileges
+description: The Directory Synchronization Accounts role is reserved for Entra Connect service accounts. Any principal holding this role gains highly privileged directory synchronization capabilities that can be abused for credential access, privilege escalation, and persistence.
+query: |-
+  MATCH p=(m:AZBase)-[:AZHasRole|AZRoleEligible]->(n:AZRole)
+  WHERE n.objectid STARTS WITH 'D29B2B05-8046-44BA-8758-1E26182FCF32' // Directory Synchronization Accounts role
+  RETURN p
+revision: 1
+resources:
+- https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#directory-synchronization-accounts
+- https://medium.com/tenable-techblog/stealthy-persistence-with-directory-synchronization-accounts-role-in-entra-id-63e56ce5871b
+acknowledgements: Martin Sohn Christensen, @martinsohndk

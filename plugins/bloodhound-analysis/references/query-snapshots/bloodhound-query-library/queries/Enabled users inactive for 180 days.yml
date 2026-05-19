@@ -1,0 +1,19 @@
+name: Enabled users inactive for 180 days
+guid: 71972f3c-b32d-4023-a841-5cc8cc1c1867
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  WITH 180 as inactive_days
+  MATCH (n:User)
+  WHERE n.enabled = true
+  AND n.lastlogontimestamp < (datetime().epochseconds - (inactive_days * 86400)) // Replicated value
+  AND n.lastlogon < (datetime().epochseconds - (inactive_days * 86400)) // Non-replicated value
+  AND n.whencreated < (datetime().epochseconds - (inactive_days * 86400)) // Exclude recently created principals
+  AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

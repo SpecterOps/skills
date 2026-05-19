@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - Self-Approval Allowed",
+  "query": "MATCH p=(:GH_BranchProtectionRule {require_last_push_approval: false})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branches where the author of the last push can approve their own pull request. This allows a single person to both write and approve code changes."
+}

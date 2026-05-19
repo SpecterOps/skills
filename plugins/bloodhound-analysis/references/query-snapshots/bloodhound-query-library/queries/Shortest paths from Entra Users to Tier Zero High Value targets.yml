@@ -1,0 +1,14 @@
+name: Shortest paths from Entra Users to Tier Zero / High Value targets
+guid: 58089b28-54e0-4fd2-bf66-3db480b00e2f
+prebuilt: true
+platforms: Azure
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  MATCH p=shortestPath((s:AZUser)-[:AZ_ATTACK_PATHS*1..]->(t:AZBase))
+  WHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

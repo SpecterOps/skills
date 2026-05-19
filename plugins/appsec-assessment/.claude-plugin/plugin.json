@@ -1,0 +1,8 @@
+{
+  "name": "appsec-assessment",
+  "description": "Application and code security assessment workflows for Specter Codex.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

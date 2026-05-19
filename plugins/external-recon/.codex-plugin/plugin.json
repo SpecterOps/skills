@@ -1,0 +1,16 @@
+{
+  "name": "external-recon",
+  "version": "0.1.0",
+  "description": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "External Recon",
+    "category": "Security",
+    "shortDescription": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the External Recon plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

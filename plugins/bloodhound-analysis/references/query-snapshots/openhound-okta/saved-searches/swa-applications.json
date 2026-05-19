@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Secure Web Authentication Applications",
+  "description": "Secure Web Authentication (SWA) relationships between Okta users and their linked accounts in external applications.",
+  "query": "MATCH p = (:Okta_User)-[:Okta_SWA]->(n)\nWHERE NOT n:Okta\nRETURN p\nLIMIT 1000"
+}

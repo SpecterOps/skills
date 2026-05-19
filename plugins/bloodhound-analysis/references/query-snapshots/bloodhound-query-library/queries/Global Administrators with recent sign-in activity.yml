@@ -1,0 +1,15 @@
+name: Global Administrators with recent sign-in activity
+guid: a9a78633-0cf1-4ab1-9152-dbfc8aab362f
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Entra ID principals assigned the Global Administrator role with sign-in activity in the past 14 days. Frequent use of the Global Administrator role indicates it is not being reserved for emergency access only.
+query: |-
+  MATCH p=(m:AZBase)-[:AZHasRole|AZRoleEligible]->(n:AZRole)
+  WHERE n.objectid STARTS WITH '62E90394-69F5-4237-9190-012177145E10' // Global Administrator role
+  AND coalesce(m.lastsuccessfulsignindatetime, '') <> '' // sign-in data must be present
+  AND m.lastsuccessfulsignindatetime > date() - duration('P14D') // signed in within last 14 days
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

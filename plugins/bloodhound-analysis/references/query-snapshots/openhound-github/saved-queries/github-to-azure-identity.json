@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: GitHub-to-Azure Identity Assumptions",
+  "query": "MATCH p=(src)-[:GH_CanAssumeIdentity]->(cred:AZFederatedIdentityCredential)\nRETURN p\nLIMIT 1000",
+  "description": "Finds GitHub entities (repositories, branches, environments) that can assume Azure identities via OIDC federation. Verify that each trust relationship is intentional and scoped appropriately."
+}

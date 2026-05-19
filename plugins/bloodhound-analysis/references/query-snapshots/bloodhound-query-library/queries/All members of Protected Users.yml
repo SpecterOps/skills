@@ -1,0 +1,13 @@
+name: All members of Protected Users
+guid: a26372f4-2e92-49f6-8993-6657fbc1569a
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH p = (:Base)-[:MemberOf*1..]->(g:Group)
+  WHERE g.objectid ENDS WITH '-525'
+  RETURN p LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

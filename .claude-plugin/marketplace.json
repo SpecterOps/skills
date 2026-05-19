@@ -1,0 +1,187 @@
+{
+  "name": "specterops-skills",
+  "owner": {
+    "name": "SpecterOps"
+  },
+  "metadata": {
+    "description": "SpecterOps skills, plugins, and agents for offensive security and engineering workflows",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "engineering-workflows",
+      "source": "./plugins/engineering-workflows",
+      "description": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "code-review-and-qa",
+      "source": "./plugins/code-review-and-qa",
+      "description": "Code review and web application QA workflows for Specter Codex.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "research-workflows",
+      "source": "./plugins/research-workflows",
+      "description": "Source-backed research and synthesis workflows for Specter Codex.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "external-recon",
+      "source": "./plugins/external-recon",
+      "description": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "appsec-assessment",
+      "source": "./plugins/appsec-assessment",
+      "description": "Application and code security assessment workflows for Specter Codex.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "identity-assessment-core",
+      "source": "./plugins/identity-assessment-core",
+      "description": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "sccm-assessment",
+      "source": "./plugins/sccm-assessment",
+      "description": "Microsoft Configuration Manager reconnaissance and takeover validation workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "bloodhound-analysis",
+      "source": "./plugins/bloodhound-analysis",
+      "description": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "offensive-tooling",
+      "source": "./plugins/offensive-tooling",
+      "description": "Security tool scaffolding and proof-of-concept development workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "payloads",
+      "source": "./plugins/payloads",
+      "description": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "c2-extension-development",
+      "source": "./plugins/c2-extension-development",
+      "description": "Cobalt Strike Aggressor and BOF development workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "report-writing",
+      "source": "./plugins/report-writing",
+      "description": "Finding and report drafting workflows for security assessment deliverables.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "timeline-evidence",
+      "source": "./plugins/timeline-evidence",
+      "description": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "codex-observability",
+      "source": "./plugins/codex-observability",
+      "description": "Codex activity reporting and telemetry workflows.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "platform-ops-private",
+      "source": "./plugins/platform-ops-private",
+      "description": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+      "version": "0.1.0",
+      "category": "infrastructure"
+    },
+    {
+      "name": "course-conversion-internal",
+      "source": "./plugins/course-conversion-internal",
+      "description": "Internal-only staged course wiki migration workflows.",
+      "version": "0.1.0",
+      "category": "productivity"
+    },
+    {
+      "name": "social-engineering",
+      "source": "./plugins/social-engineering",
+      "description": "Social engineering research and phishing pretext workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "ghostwriter-mcp",
+      "source": "./plugins/ghostwriter-mcp",
+      "description": "MCP integration for Ghostwriter security documentation platform",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "ghostwriter-oplog",
+      "source": "./plugins/ghostwriter-oplog",
+      "description": "Quick logging commands for GhostWriter operation logs",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "cobalt-strike-aggressor-reference",
+      "source": "./plugins/cobalt-strike-aggressor-reference",
+      "description": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "beacon-object-file-development",
+      "source": "./plugins/beacon-object-file-development",
+      "description": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "ludus",
+      "source": "./plugins/ludus",
+      "description": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+      "version": "0.2.0",
+      "category": "security"
+    },
+    {
+      "name": "binary-ninja-mcp",
+      "source": "./plugins/binary-ninja-mcp",
+      "description": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "mythic-implant",
+      "source": "./plugins/mythic-implant",
+      "description": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "openhound-collector-development",
+      "source": "./plugins/openhound-collector-development",
+      "description": "OpenHound collector template support package with the embedded OpenHound development skill.",
+      "version": "0.1.0",
+      "category": "security"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cobalt-strike-aggressor-reference",
+  "version": "0.1.0",
+  "description": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cobalt Strike Aggressor Reference",
+    "category": "Security",
+    "shortDescription": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Aggressor plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

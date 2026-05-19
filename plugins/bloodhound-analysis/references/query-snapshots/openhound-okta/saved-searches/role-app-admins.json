@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Application Administrators and Managers",
+  "description": "List all Application Administrators and Managers.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_User:Okta_Group:Okta_Application)-[:Okta_AppAdmin|Okta_ManageApp]->(:Okta_Application:Okta_ApiServiceIntegration)\nRETURN p\nLIMIT 1000"
+}

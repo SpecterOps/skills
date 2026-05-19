@@ -1,0 +1,13 @@
+name: Domains allowing unauthenticated rootDSE searches and binds
+guid: ebc79aa4-e816-4be8-93fe-a0b30dbc771d
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Checks the fLDAPBlockAnonOps flag of dSHeuristics.
+query: |-
+  MATCH (n:Domain)
+  WHERE n.dsheuristics =~ ".{6}2.*"
+  RETURN n
+revision: 2
+resources: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e5899be4-862e-496f-9a38-33950617d2c5
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,28 @@
+name: Tier Zero users with email
+guid: 9654c0d4-f1e8-4393-a2d1-53a5554a9de8
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Tier Zero accounts with email access have an increased attack surface.
+query: |-
+  MATCH (n)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.email <> ""
+  AND n.enabled = true
+  AND NOT toUpper(n.email) ENDS WITH ".ONMICROSOFT.COM"
+  AND NOT (
+      (toUpper(n.email) STARTS WITH "HEALTHMAILBOX"
+      OR toUpper(n.email) STARTS WITH "MSEXCHDISCOVERYMAILBOX"
+      OR toUpper(n.email) STARTS WITH "MSEXCHDISCOVERY"
+      OR toUpper(n.email) STARTS WITH "MSEXCHAPPROVAL"
+      OR toUpper(n.email) STARTS WITH "FEDERATEDEMAIL"
+      OR toUpper(n.email) STARTS WITH "SYSTEMMAILBOX"
+      OR toUpper(n.email) STARTS WITH "MIGRATION.")
+    AND
+      (n.name STARTS WITH "SM_"
+      OR n.name STARTS WITH "HEALTHMAILBOX")
+  )
+  RETURN n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

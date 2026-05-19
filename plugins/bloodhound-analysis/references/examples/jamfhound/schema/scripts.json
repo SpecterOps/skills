@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Properties": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "description": "Unique identifier for the script."
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the script."
+                            },
+                            "category": {
+                                "type": "string",
+                                "description": "Category assigned to the script."
+                            },
+                            "filename": {
+                                "type": "string",
+                                "description": "Filename of the script."
+                            },
+                            "info": {
+                                "type": "string",
+                                "description": "Information or description of the script."
+                            },
+                            "notes": {
+                                "type": "string",
+                                "description": "Additional notes about the script."
+                            },
+                            "priority": {
+                                "type": "string",
+                                "enum": ["Before", "After", "During"],
+                                "description": "Priority of the script execution."
+                            },
+                            "parameters": {
+                                "type": "object",
+                                "description": "Script parameters defined as key-value pairs."
+                            },
+                            "os_requirements": {
+                                "type": "string",
+                                "description": "Operating system requirements for the script."
+                            },
+                            "script_contents_encoded": {
+                                "type": "string",
+                                "description": "Base64-encoded contents of the script."
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "category",
+                            "filename",
+                            "info",
+                            "priority",
+                            "parameters",
+                            "script_contents_encoded"
+                        ],
+                        "additionalProperties": false
+                    }
+                },
+                "required": ["Properties"],
+                "additionalProperties": false
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "methods": {
+                    "type": "integer",
+                    "description": "Number of API methods available."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of data returned (e.g., scripts)."
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "Count of items in the data array."
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "Version of the API response."
+                }
+            },
+            "required": ["methods", "type", "count", "version"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "meta"],
+    "additionalProperties": false
+}

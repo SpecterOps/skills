@@ -1,0 +1,23 @@
+name: No break-glass test using built-in domain Administrator account in the last year
+guid: f906e689-7d04-4051-b726-4ef45213d82c
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies enabled built-in domain Administrator accounts (RID 500) with no logon activity in the past year, indicating break-glass testing is not being performed. Regular break-glass tests are critical to ensuring disaster recovery procedures are operational.
+query: |-
+  WITH 365 as maximum_days
+  MATCH (n:User)
+  WHERE n.objectid ENDS WITH "-500" // Built-in domain Administrator (RID 500)
+  AND n.enabled = true
+  AND n.whencreated < (datetime().epochseconds - (maximum_days * 86400)) // Account created more than 365 days ago
+  AND (
+    n.lastlogontimestamp < (datetime().epochseconds - (maximum_days * 86400))
+    AND n.lastlogon < (datetime().epochseconds - (maximum_days * 86400))
+  )
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources:
+  - https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access#validate-accounts-regularly
+  - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/monitoring-active-directory-for-signs-of-compromise
+acknowledgements: Martin Sohn Christensen, @martinsohndk

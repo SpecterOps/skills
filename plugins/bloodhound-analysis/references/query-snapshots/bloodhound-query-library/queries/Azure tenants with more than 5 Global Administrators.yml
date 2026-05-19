@@ -1,0 +1,15 @@
+name: Azure tenants with more than 5 Global Administrators
+guid: d527c445-aa1b-41cb-9a19-98cb24854528
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Global Administrator role with more than 5 assigned members, exceeding Microsoft's recommended maximum and unnecessarily expanding the blast radius of a tenant compromise.
+query: |-
+  MATCH (m:AZBase)-[:AZHasRole|AZRoleEligible]->(r:AZRole)
+  WHERE r.objectid STARTS WITH '62E90394-69F5-4237-9190-012177145E10' // Global Administrator role
+  WITH r, COUNT(m) AS gaCount
+  WHERE gaCount > 5 // exceeds recommended maximum of 5
+  RETURN r
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5
+acknowledgements: Martin Sohn Christensen, @martinsohndk

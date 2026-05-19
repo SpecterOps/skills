@@ -1,0 +1,17 @@
+name: All paths crossing a specific trust
+guid: 251fc893-7a6b-4a0a-8650-9d5408d38c3c
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: All paths crossing a specific trust from a trusted to a trusting domain.
+query: |-
+  // Replace the TRUSTED domain SID
+  // Replace the TRUSTING domain SID
+  MATCH p=(Trusted:Base)-[:AD_ATTACK_PATHS]->(Trusting:Base)
+  WHERE Trusted.domainsid = 'S-1-5-21-1111111111-1111111111-1111111111'
+  AND Trusting.domainsid = 'S-1-5-21-2222222222-2222222222-2222222222'
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

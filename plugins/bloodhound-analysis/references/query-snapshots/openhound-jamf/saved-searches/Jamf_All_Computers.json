@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: All Computers",
+  "description": "Get all Computers",
+  "query": "MATCH p=(s:jamf_Computer)\nRETURN p"
+}

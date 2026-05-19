@@ -1,0 +1,15 @@
+name: ACEs across trusts
+guid: c902d3b4-1a75-4335-acd7-28246dab746d
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: ACEs granted across a trust, the ACEs are set on trusting objects and the rights are granted to objects from trusted domains.
+query: |-
+  MATCH p=(trustedDomainPrincipal:Base)-[r]->(trustingDomainPrincipal:Base)
+  WHERE trustedDomainPrincipal.domainsid <> trustingDomainPrincipal.domainsid
+  AND r.isacl
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

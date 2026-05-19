@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Users with API Tokens",
+  "description": "Retrieves all (privileged) users who have been assigned API tokens.",
+  "query": "MATCH p = (:Okta_ApiToken)-[:Okta_ApiTokenFor]->(:Okta_User)<-[:Okta_Contains]-(:Okta_Organization)\nRETURN p\nLIMIT 1000"
+}

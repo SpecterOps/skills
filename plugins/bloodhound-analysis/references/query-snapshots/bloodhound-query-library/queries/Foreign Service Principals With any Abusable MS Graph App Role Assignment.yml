@@ -1,0 +1,16 @@
+name: Foreign Service Principals With any Abusable MS Graph App Role Assignment
+guid: d7a180c8-5624-4fc1-a407-deeb2ad3054c
+prebuilt: false
+platforms: Azure
+category: Dangerous Privileges
+description: MS Graph app role assignments provide significant power within an Entra ID tenant, similar to an Admin role.
+query: |-
+  MATCH p = (sp1:AZServicePrincipal)-[r:AZMGGroupMember_ReadWrite_All|AZMGServicePrincipalEndpoint_ReadWrite_All|AZMGAppRoleAssignment_ReadWrite_All|AZMGGroup_ReadWrite_All|AZMGDirectory_ReadWrite_All|AZMGRoleManagement_ReadWrite_Directory]->(sp2:AZServicePrincipal)
+  WHERE toUpper(sp1.appownerorganizationid) <> toUpper(sp1.tenantid)
+  // Ensure AZServicePrincipal has a valid appownerorganizationid
+  AND sp1.appownerorganizationid CONTAINS "-"
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources: https://posts.specterops.io/microsoft-breach-how-can-i-see-this-in-bloodhound-33c92dca4c65
+acknowledgements: Stephen Hinck

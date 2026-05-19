@@ -1,0 +1,13 @@
+name: Domains with functional level not the latest version
+guid: 3da9d14a-f1cb-4df7-b3da-8d73ff5c401b
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Domain)
+  WHERE toString(n.functionallevel) IN ['2008','2003','2003 Interim','2000 Mixed/Native']
+  RETURN  n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

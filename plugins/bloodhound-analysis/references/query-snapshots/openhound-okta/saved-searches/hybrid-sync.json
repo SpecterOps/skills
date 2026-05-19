@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Security Principal Synchronization",
+  "description": "Retrieves all users and groups that are synchronized TO or FROM Okta.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta)-[:Okta_UserPull|Okta_UserPush|Okta_GroupPull|Okta_GroupPush]->(:Okta)\nRETURN p\nLIMIT 1000"
+}

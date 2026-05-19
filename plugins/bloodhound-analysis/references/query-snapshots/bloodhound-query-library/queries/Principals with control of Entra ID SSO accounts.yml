@@ -1,0 +1,14 @@
+name: Principals with control of Entra ID SSO accounts
+guid: 215b98e2-14db-4d37-ba97-1467b42c5910
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:AD_ATTACK_PATHS]->(sso:Computer)
+  WHERE sso.name STARTS WITH "AZUREADSSOACC."
+  AND NOT (n:Computer OR n:User)
+  RETURN p
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sso-how-it-works
+acknowledgements: Martin Sohn Christensen, @martinsohndk

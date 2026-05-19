@@ -1,0 +1,12 @@
+name: All coerce and NTLM relay edges
+guid: 15c5ff3b-856c-44d1-a731-a8cb72512dd1
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH p = (n:Base)-[:CoerceAndRelayNTLMToLDAP|CoerceAndRelayNTLMToLDAPS|CoerceAndRelayNTLMToADCS|CoerceAndRelayNTLMToSMB]->(:Base)
+  RETURN p LIMIT 500
+revision: 1
+resources: https://specterops.io/blog/2025/04/08/the-renaissance-of-ntlm-relay-attacks-everything-you-need-to-know/
+acknowledgements:

@@ -1,0 +1,16 @@
+name: Non-default members in Pre-Windows 2000 Compatible Access
+guid: 091995b9-7254-473a-996f-6b8368d20431
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:Group)-[:MemberOf]->(m:Group)
+  WHERE NOT n.objectid ENDS WITH "S-1-5-11" // Authenticated Users
+  AND NOT (n.objectid ENDS WITH "S-1-5-7" // Anonymous
+  AND NOT n.objectid ENDS WITH "S-1-1-0") // Everyone
+  AND m.objectid ENDS WITH "S-1-5-32-554" // Pre-Windows 2000 Compatible Access
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,8 @@
+{
+  "plugin": "ludus",
+  "purpose": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+  "agents": [],
+  "skills": [
+    "ludus-development"
+  ]
+}

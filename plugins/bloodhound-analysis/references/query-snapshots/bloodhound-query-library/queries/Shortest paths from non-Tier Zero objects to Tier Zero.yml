@@ -1,0 +1,17 @@
+name: Shortest paths from non-Tier Zero objects to Tier Zero
+guid: 47845724-94bc-4b68-944b-1114d230fc0c
+prebuilt: false
+platforms: Active Directory
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  // MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+  MATCH p=shortestPath((s:Base)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  WHERE s<>t
+  AND NOT ((s:Tag_Tier_Zero) OR COALESCE(s.system_tags, '') CONTAINS 'admin_tier_0')
+  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: crusher, @chryzsh

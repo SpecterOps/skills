@@ -1,0 +1,21 @@
+name: Enabled Tier Zero / High Value principals inactive for 60 days
+guid: 72550bcb-3c4f-463d-8973-91a49163dc5a
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  WITH 60 as inactive_days
+  MATCH (n:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.enabled = true
+  AND n.lastlogontimestamp < (datetime().epochseconds - (inactive_days * 86400)) // Replicated value
+  AND n.lastlogon < (datetime().epochseconds - (inactive_days * 86400)) // Non-replicated value
+  AND n.whencreated < (datetime().epochseconds - (inactive_days * 86400)) // Exclude recently created principals
+  AND NOT n.name STARTS WITH 'AZUREADKERBEROS.' // Removes false positive, Azure KRBTGT
+  AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
+  AND NOT n.name STARTS WITH 'AZUREADSSOACC.' // Removes false positive, Entra Seamless SSO
+  RETURN n
+revision: 1
+resources:
+acknowledgements:

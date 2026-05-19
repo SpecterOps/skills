@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Users Who Can Bypass Pull Request Requirements",
+  "query": "MATCH p=(actor)-[:GH_BypassPullRequestAllowances]->(rule:GH_BranchProtectionRule)-[:GH_ProtectedBy]->(branch:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds users and teams that can bypass pull request review requirements on protected branches. These actors can merge code without any reviews."
+}

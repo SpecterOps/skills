@@ -1,0 +1,13 @@
+name: Computers not requiring inbound SMB signing
+guid: 6b1fcfb6-b010-41a2-9d31-f9872fe994ff
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH (n:Computer)
+  WHERE n.smbsigning = False
+  RETURN n
+revision: 1
+resources:
+acknowledgements:

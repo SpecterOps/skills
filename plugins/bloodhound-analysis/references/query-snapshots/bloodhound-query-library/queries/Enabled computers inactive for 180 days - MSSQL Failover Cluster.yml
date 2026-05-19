@@ -1,0 +1,22 @@
+name: Enabled computers inactive for 180 days - MSSQL Failover Cluster
+guid: d263e621-7f1b-4efb-ad25-098fc7d4fb72
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  WITH 180 as inactive_days
+  MATCH (n:Computer)
+  WHERE n.enabled = true
+  AND n.lastlogontimestamp < (datetime().epochseconds - (inactive_days * 86400)) // Replicated value
+  AND n.lastlogon < (datetime().epochseconds - (inactive_days * 86400)) // Non-replicated value
+  AND n.whencreated < (datetime().epochseconds - (inactive_days * 86400)) // Exclude recently created principals
+  AND ANY(type IN n.serviceprincipalnames WHERE
+      toLower(type) CONTAINS 'mssqlservercluster' OR
+      toLower(type) CONTAINS 'mssqlserverclustermgmtapi' OR
+      toLower(type) CONTAINS 'msclustervirtualserver')
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources: https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/troubleshoot-issues-accounts-used-failover-clusters#troubleshoot-password-issues-with-the-cluster-name-account
+acknowledgements: Martin Sohn Christensen, @martinsohndk

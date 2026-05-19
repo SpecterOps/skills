@@ -1,0 +1,15 @@
+name: DCs vulnerable to NTLM relay to LDAP attacks
+guid: 3f87e0b0-fc06-4986-a94c-e08781253dc8
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH p = (dc:Computer)-[:DCFor]->(:Domain)
+  WHERE (dc.ldapavailable = True AND dc.ldapsigning = False)
+  OR (dc.ldapsavailable = True AND dc.ldapsepa = False)
+  OR (dc.ldapavailable = True AND dc.ldapsavailable = True AND dc.ldapsigning = False and dc.ldapsepa = True)
+  RETURN p
+revision: 1
+resources:
+acknowledgements:

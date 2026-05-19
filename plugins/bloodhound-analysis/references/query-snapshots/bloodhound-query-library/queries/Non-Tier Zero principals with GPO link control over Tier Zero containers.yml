@@ -1,0 +1,17 @@
+name: Non-Tier Zero principals with GPO link control over Tier Zero containers
+guid: 41a9df23-99ab-40dd-a965-2ea89db96823
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Non-Tier Zero principals that can link, or gain the ability to link, GPOs on Tier Zero containers such as the domain head or Domain Controllers OU. This grants indirect control over all objects within those containers.
+query: |-
+  MATCH p = (n:Base)-[r:WriteGPLink|GenericAll|GenericWrite|WriteDacl|WriteOwner|Owns]->(t:Base)
+  WHERE (t:Domain OR t:OU)
+  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+  - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory#avoid-granting-excessive-privileges
+acknowledgements: Martin Sohn Christensen, @martinsohndk

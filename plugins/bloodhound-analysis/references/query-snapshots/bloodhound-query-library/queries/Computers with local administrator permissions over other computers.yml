@@ -1,0 +1,17 @@
+name: Computers with local administrator permissions over other computers
+guid: 093a8e04-4f79-4264-a64b-4e52a630cd0d
+prebuilt: false
+platforms: Active Directory
+category: NTLM Relay Attacks
+description: Finds computers with AdminTo edges over other computers, including rights derived through nested group memberships.
+query: |-
+  MATCH p1 = (s1:Computer)-[:AdminTo]->(d1:Computer)
+  WHERE s1<>d1
+  MATCH p2 = (s2:Computer)-[:MemberOf*1..]->()-[:AdminTo]->(d2:Computer)
+  WHERE s2<>d2
+  RETURN p1, p2
+revision: 1
+resources:
+ - https://specterops.io/blog/2025/04/08/the-renaissance-of-ntlm-relay-attacks-everything-you-need-to-know/
+ - https://github.com/subat0mik/Misconfiguration-Manager
+acknowledgements: "@stuk0v_"

@@ -1,0 +1,14 @@
+name: AD Groups nested more than 3 levels
+guid: 252ab5f8-0c96-470e-932a-66840914bdf6
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies Active Directory groups nested more than 3 levels deep. Excessive nesting complexity reduces auditability and increases the risk of misconfigured permissions.
+query: |-
+  MATCH p = (:Group)-[:MemberOf*3..]->(:Group)
+  // Matches groups with 3 or more MemberOf hops to another group
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

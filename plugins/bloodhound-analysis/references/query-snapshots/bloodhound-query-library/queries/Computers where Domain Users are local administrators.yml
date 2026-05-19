@@ -1,0 +1,14 @@
+name: Computers where Domain Users are local administrators
+guid: d43a7bdc-33c6-4a39-a3bb-24115749e595
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(s:Group)-[:AdminTo]->(:Computer)
+  WHERE s.objectid ENDS WITH '-513'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

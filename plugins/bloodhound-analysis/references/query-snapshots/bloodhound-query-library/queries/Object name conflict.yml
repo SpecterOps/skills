@@ -1,0 +1,13 @@
+name: Object name conflict
+guid: c561c4f8-ea45-453f-85a2-3fc2e20e7f8c
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: When two objects are created with the same Relative Distinguished Name (RDN) in the same parent Organizational Unit or container, the conflict is recognized by the system when one of the new objects replicates to another domain controller. When this happens, one of the objects is renamed with 'CNF'
+query: |-
+  MATCH (n:Base)
+  WHERE n.distinguishedname CONTAINS 'CNF:'
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/archive/technet-wiki/15435.active-directory-duplicate-object-name-resolution
+acknowledgements: Martin Sohn Christensen, @martinsohndk

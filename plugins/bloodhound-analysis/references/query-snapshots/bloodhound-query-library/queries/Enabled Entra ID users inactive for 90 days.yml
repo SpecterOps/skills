@@ -1,0 +1,23 @@
+name: Enabled Entra ID users inactive for 90 days
+guid: 43481dea-6c9c-47f0-8a3a-0c012c1a811e
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Enabled Entra ID user accounts with no sign-in activity in 90 days, or that have never signed in. Stale accounts expand the attack surface and may go unmonitored.
+query: |-
+  MATCH (n:AZUser)
+  WHERE n.enabled = true
+  AND (
+    // never signed in AND created more than 90+ days
+    (
+      coalesce(n.lastsuccessfulsignindatetime, '') = ''
+      AND n.whencreated < tostring(datetime() - duration('P90D'))
+    )
+
+    // OR not signed-in for more than 90+ days
+    OR n.lastsuccessfulsignindatetime < tostring(datetime() - duration('P90D'))
+  )
+  RETURN n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

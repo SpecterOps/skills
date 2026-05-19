@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Organizations without 2FA",
+  "query": "MATCH (o:GH_Organization)\nWHERE o.two_factor_requirement_enabled = false\nRETURN o\nLIMIT 1000",
+  "description": "Returns organizations that do not require two-factor authentication."
+}

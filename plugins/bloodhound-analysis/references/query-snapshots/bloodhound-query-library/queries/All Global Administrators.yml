@@ -1,0 +1,14 @@
+name: All Global Administrators
+guid: 94d7d765-6837-4eb8-aa33-e1c9ef262cdc
+prebuilt: true
+platforms: Azure
+category: General
+description:
+query: |-
+  MATCH p=(:AZBase)-[:AZHasRole*1..]->(t:AZRole)
+  WHERE t.name =~ '(?i)Global Administrator.*'
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

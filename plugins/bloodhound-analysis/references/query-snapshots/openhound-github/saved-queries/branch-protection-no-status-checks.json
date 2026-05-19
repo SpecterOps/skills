@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - No Status Checks Required",
+  "query": "MATCH p=(:GH_BranchProtectionRule {requires_status_checks: false})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branches where CI/CD status checks are not required before merging. Code with failing tests or security scans can be merged into protected branches."
+}

@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "bloodhound_mcp": {
+      "command": "bash",
+      "args": [
+        "./scripts/run-bloodhound-mcp.sh"
+      ],
+      "env_vars": [
+        "BLOODHOUND_MCP_DIR",
+        "BLOODHOUND_DOMAIN",
+        "BLOODHOUND_TOKEN_ID",
+        "BLOODHOUND_TOKEN_KEY",
+        "BLOODHOUND_SCHEME",
+        "BLOODHOUND_PORT"
+      ]
+    }
+  }
+}

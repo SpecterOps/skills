@@ -1,0 +1,8 @@
+{
+  "name": "payloads",
+  "description": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

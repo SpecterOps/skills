@@ -1,0 +1,13 @@
+name: Computers with the outgoing NTLM setting set to Deny all
+guid: a9ddca74-feeb-4dbf-8b0f-de08b3cfa8a6
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.restrictoutboundntlm = True
+  RETURN c LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

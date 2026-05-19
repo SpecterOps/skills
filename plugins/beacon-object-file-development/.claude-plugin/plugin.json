@@ -1,0 +1,16 @@
+{
+  "name": "beacon-object-file-development",
+  "description": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
+  "version": "0.1.0",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "c2-bof-development",
+    "beacon",
+    "cobalt-strike",
+    "red-team",
+    "c2"
+  ]
+}

@@ -1,0 +1,14 @@
+name: Domains affected by Exchange privilege escalation risk
+guid: f2d09c94-b6f2-4901-9a2d-f8bacd61edc7
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Group)-[r:WriteDacl|ForceChangePassword|AddMember]->(m:Base)
+  WHERE n.name STARTS WITH "EXCHANGE "
+  AND ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,14 @@
+name: Locations of Tier Zero / High Value objects
+guid: 18a83a17-b451-4343-acfe-7620516e2968
+prebuilt: true
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p = (t:Base)<-[:Contains*1..]-(:Domain)
+  WHERE ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

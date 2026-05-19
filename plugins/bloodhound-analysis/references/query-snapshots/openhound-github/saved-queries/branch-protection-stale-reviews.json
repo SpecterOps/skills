@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - Stale Reviews Not Dismissed",
+  "query": "MATCH p=(:GH_BranchProtectionRule {dismisses_stale_reviews: false})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branches where stale reviews are not dismissed when new commits are pushed. An attacker could get a review approved, then push additional malicious commits that inherit the stale approval."
+}

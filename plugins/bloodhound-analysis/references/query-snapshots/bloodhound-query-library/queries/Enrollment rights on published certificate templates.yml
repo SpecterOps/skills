@@ -1,0 +1,13 @@
+name: Enrollment rights on published certificate templates
+guid: a4ae2e54-aad3-4bfd-a12d-90cb8a9cbc86
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

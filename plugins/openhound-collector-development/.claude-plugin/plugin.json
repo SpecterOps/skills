@@ -1,0 +1,8 @@
+{
+  "name": "openhound-collector-development",
+  "description": "OpenHound collector template support package with the embedded OpenHound development skill.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,15 @@
+name: Shortest paths to Tier Zero / High Value targets
+guid: 237aac58-8641-4703-a9f7-001d69546fd8
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((s)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  WHERE ((t:Tag_Tier_Zero) OR (COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0'))
+  AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

@@ -1,0 +1,14 @@
+name: Public Key Services container
+guid: 07e94492-71aa-4665-ab8c-e7aec25906cd
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (c:Container)-[:Contains*..]->(:Base)
+  WHERE c.distinguishedname starts with 'CN=PUBLIC KEY SERVICES,CN=SERVICES,CN=CONFIGURATION,DC='
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

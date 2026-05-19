@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCCM Takeover Relay"
+  short_description: "Plan or validate SCCM NTLM relay takeover"
+  default_prompt: "Use $sccm-takeover-relay to plan or validate SCCM TAKEOVER-1 style NTLM coercion and relay to the site database. In C2 contexts, first determine whether the ntlmrelayx server is internal or external, ask how to SSH into it, and do not proceed to execution until the relay host, SSH method, and network reachability assumptions are explicit."

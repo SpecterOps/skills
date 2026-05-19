@@ -1,0 +1,4 @@
+interface:
+  display_name: "SSH Ops"
+  short_description: "Operate hosts over SSH safely"
+  default_prompt: "Use $ssh-ops to establish and operate scoped SSH sessions with safe prechecks, command/output evidence capture, and OPSEC-aware escalation."

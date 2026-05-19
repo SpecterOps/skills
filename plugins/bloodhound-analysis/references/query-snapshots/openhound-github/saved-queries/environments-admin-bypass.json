@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Environments Where Admins Can Bypass Protections",
+  "query": "MATCH p=(:GH_Repository)-[:GH_HasEnvironment]->(env:GH_Environment {can_admins_bypass: true})\nRETURN p\nLIMIT 1000",
+  "description": "Finds deployment environments where administrators can bypass protection rules such as required reviewers and wait timers. Admins can deploy to these environments without any approval."
+}

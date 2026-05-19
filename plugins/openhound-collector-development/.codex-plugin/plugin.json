@@ -1,0 +1,16 @@
+{
+  "name": "openhound-collector-development",
+  "version": "0.1.0",
+  "description": "OpenHound collector template support package with the embedded OpenHound development skill.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Openhound Collector Development",
+    "category": "Security",
+    "shortDescription": "OpenHound collector template support package with the embedded OpenHound development skill.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Openhound Template plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

@@ -1,0 +1,16 @@
+{
+  "name": "research-workflows",
+  "version": "0.1.0",
+  "description": "Source-backed research and synthesis workflows for Specter Codex.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Research Workflows",
+    "category": "Productivity",
+    "shortDescription": "Source-backed research and synthesis workflows for Specter Codex.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Research Workflows plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

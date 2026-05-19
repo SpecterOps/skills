@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - Deletions Allowed",
+  "query": "MATCH p=(:GH_BranchProtectionRule {allows_deletions: true})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds protected branches that can be deleted. Branch deletion can result in loss of code and removal of audit history."
+}

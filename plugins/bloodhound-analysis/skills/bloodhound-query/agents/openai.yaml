@@ -1,0 +1,8 @@
+interface:
+  display_name: "BloodHound Query Workflow"
+  short_description: "Write, code-review, and explain BloodHound Cypher across graph domains."
+  default_prompt: "Use $bloodhound-query to write, review, optimize, or explain a BloodHound Cypher query for this graph question."
+  brand_color: "#991B1B"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+name: Principals with control of Domain Controllers
+guid: 37854ce4-5ae3-4005-a2a7-40a729b316cf
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:AD_ATTACK_PATHS]->(dc:Computer)
+  WHERE dc.isdc = true
+  AND (n:Computer OR n:User)
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

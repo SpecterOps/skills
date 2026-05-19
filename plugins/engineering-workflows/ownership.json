@@ -1,0 +1,14 @@
+{
+  "plugin": "engineering-workflows",
+  "purpose": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+  "agents": [
+    "architect"
+  ],
+  "skills": [
+    "git-cleanup",
+    "git-preflight",
+    "git-merge",
+    "readme-generation",
+    "scaffold-python"
+  ]
+}

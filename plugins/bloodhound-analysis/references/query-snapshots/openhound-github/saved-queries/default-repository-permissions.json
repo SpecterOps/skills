@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Organizations with default repository permission",
+  "query": "MATCH (o:GH_Organization)\nWHERE o.default_repository_permission <> 'none'\nRETURN o\nLIMIT 1000",
+  "description": "Returns organizations that have a default repository permission other than 'none'."
+}

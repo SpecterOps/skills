@@ -1,0 +1,14 @@
+name: Domain Controllers allowing NTLMv1 or LM authentication
+guid: 4b42513c-f89d-47ff-8d98-908af49d2b48
+prebuilt: false
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH (dc:Computer)
+  WHERE dc.isdc = true
+  AND (dc.lmcompatibilitylevel IS NOT NULL AND NOT dc.lmcompatibilitylevel = 5)
+  RETURN dc
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

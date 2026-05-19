@@ -1,0 +1,308 @@
+{
+  "name": "specterops-skills",
+  "interface": {
+    "displayName": "SpecterOps Skills"
+  },
+  "plugins": [
+    {
+      "name": "engineering-workflows",
+      "source": {
+        "source": "local",
+        "path": "./plugins/engineering-workflows"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "code-review-and-qa",
+      "source": {
+        "source": "local",
+        "path": "./plugins/code-review-and-qa"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "research-workflows",
+      "source": {
+        "source": "local",
+        "path": "./plugins/research-workflows"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "external-recon",
+      "source": {
+        "source": "local",
+        "path": "./plugins/external-recon"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "appsec-assessment",
+      "source": {
+        "source": "local",
+        "path": "./plugins/appsec-assessment"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "identity-assessment-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/identity-assessment-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "sccm-assessment",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sccm-assessment"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "bloodhound-analysis",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bloodhound-analysis"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "offensive-tooling",
+      "source": {
+        "source": "local",
+        "path": "./plugins/offensive-tooling"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "payloads",
+      "source": {
+        "source": "local",
+        "path": "./plugins/payloads"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "c2-extension-development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/c2-extension-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "report-writing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/report-writing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "timeline-evidence",
+      "source": {
+        "source": "local",
+        "path": "./plugins/timeline-evidence"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "codex-observability",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-observability"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "platform-ops-private",
+      "source": {
+        "source": "local",
+        "path": "./plugins/platform-ops-private"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Infrastructure"
+    },
+    {
+      "name": "course-conversion-internal",
+      "source": {
+        "source": "local",
+        "path": "./plugins/course-conversion-internal"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "social-engineering",
+      "source": {
+        "source": "local",
+        "path": "./plugins/social-engineering"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "ghostwriter-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ghostwriter-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "ghostwriter-oplog",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ghostwriter-oplog"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "cobalt-strike-aggressor-reference",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cobalt-strike-aggressor-reference"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "beacon-object-file-development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/beacon-object-file-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "ludus",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ludus"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "binary-ninja-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/binary-ninja-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "mythic-implant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mythic-implant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "openhound-collector-development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/openhound-collector-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Unprotected Default Branches",
+  "query": "MATCH p=(repo:GH_Repository)-[:GH_HasBranch]-(branch:GH_Branch {protected: false})\nWHERE repo.default_branch = branch.short_name\nRETURN p\nLIMIT 1000",
+  "description": "Returns all default branches in repositories that are not protected."
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Group Edges to Accounts",
+  "description": "Get immediate edges impacting Jamf Accounts originating from Jamf Groups, swap jamfGroup for jamfTenant to see impact edges to the tenant from groups",
+  "query": "MATCH p=(s)-[]->(t:jamf_Account)\nWHERE s.primarykind ENDS WITH 'jamf_Group'\nRETURN p\nLIMIT 1000"
+}

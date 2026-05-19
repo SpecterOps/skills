@@ -1,0 +1,15 @@
+name: Principal with SPN keyword
+guid: 38a9c4c9-3d70-453f-a017-cbfd35ed9917
+prebuilt: false
+platforms: Active Directory
+category: Kerberos Interaction
+description: Finds service accounts used with a specific Kerberos-enabled service or all service accounts running on a Kerberos-enabled service on a specific server.
+query: |-
+  // Replace keyword with a service type or server name (not FQDN)
+  WITH "KEYWORD" as SPNKeyword
+  MATCH (n:User)
+  WHERE ANY(keyword IN n.serviceprincipalnames WHERE toUpper(keyword) CONTAINS toUpper(SPNKeyword))
+  RETURN n
+revision: 1
+resources: https://adsecurity.org/?page_id=183
+acknowledgements: Ryan, @haus3c

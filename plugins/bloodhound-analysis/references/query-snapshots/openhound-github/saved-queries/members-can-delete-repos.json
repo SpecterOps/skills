@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Members Can Delete Repositories",
+  "query": "MATCH (org:GH_Organization {members_can_delete_repositories: true})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where members can delete repositories. This poses a risk of accidental or malicious destruction of code and audit history."
+}

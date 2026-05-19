@@ -1,0 +1,15 @@
+name: Dangerous privileges for Domain Users groups
+guid: 9b8b9c18-f8c6-4c54-a20f-de0f7a7edbe0
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(s:Group)-[r:AD_ATTACK_PATHS]->(:Base)
+  WHERE s.objectid ENDS WITH '-513'
+  AND NOT r:MemberOf
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

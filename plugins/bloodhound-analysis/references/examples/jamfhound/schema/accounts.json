@@ -1,0 +1,117 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Properties": {
+                        "type": "object",
+                        "properties": {
+                            "user": {
+                                "type": "string",
+                                "description": "The username of the user."
+                            },
+                            "realname": {
+                                "type": "string",
+                                "description": "The real name of the user."
+                            },
+                            "email": {
+                                "type": "string",
+                                "format": "email",
+                                "description": "The email address of the user."
+                            },
+                            "multiSiteAdmin": {
+                                "type": "boolean",
+                                "description": "Indicates if the user is an admin across multiple sites."
+                            },
+                            "accessLevel": {
+                                "type": "string",
+                                "enum": ["FullAccess", "LimitedAccess"],
+                                "description": "The access level of the user."
+                            },
+                            "privilegeSet": {
+                                "type": "string",
+                                "enum": ["ADMINISTRATOR", "READ_ONLY", "CUSTOM"],
+                                "description": "The privilege set assigned to the user."
+                            },
+                            "privilegesBySite": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "patternProperties": {
+                                        "^.*$": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "description": "Privileges granted for this site."
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "description": "A list of privileges by site."
+                            },
+                            "groupIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "description": "IDs of groups the user belongs to."
+                                },
+                                "description": "A list of group IDs associated with the user."
+                            },
+                            "currentSiteId": {
+                                "type": "string",
+                                "description": "The ID of the current site the user is assigned to."
+                            },
+                            "sites": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The unique identifier of the site."
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "The name of the site."
+                                        }
+                                    },
+                                    "required": ["id", "name"],
+                                    "additionalProperties": false
+                                },
+                                "description": "A list of sites associated with the user."
+                            },
+                            "authenticationType": {
+                                "type": "string",
+                                "enum": ["JSS", "LDAP", "SAML"],
+                                "description": "The authentication type used by the user."
+                            }
+                        },
+                        "required": [
+                            "user",
+                            "realname",
+                            "email",
+                            "multiSiteAdmin",
+                            "accessLevel",
+                            "privilegeSet",
+                            "privilegesBySite",
+                            "groupIds",
+                            "currentSiteId",
+                            "sites",
+                            "authenticationType"
+                        ],
+                        "additionalProperties": false
+                    }
+                },
+                "required": ["Properties"],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": ["data"],
+    "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ghostwriter-mcp",
+  "version": "0.1.0",
+  "description": "MCP integration for Ghostwriter security documentation platform",
+  "mcpServers": ".mcp.json",
+  "interface": {
+    "displayName": "Ghostwriter MCP",
+    "category": "Security",
+    "shortDescription": "MCP integration for Ghostwriter security documentation platform",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Ghostwriter Mcp plugin."
+  },
+  "skills": "./skills/",
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

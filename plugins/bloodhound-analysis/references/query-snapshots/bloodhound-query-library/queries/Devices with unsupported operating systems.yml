@@ -1,0 +1,15 @@
+name: Devices with unsupported operating systems
+guid: e3f2b53a-7ce6-4e52-9c74-68b69338288b
+prebuilt: true
+platforms: Azure
+category: Azure Hygiene
+description:
+query: |-
+  MATCH (n:AZDevice)
+  WHERE n.operatingsystem CONTAINS 'WINDOWS'
+  AND n.operatingsystemversion =~ '(10.0.19044|10.0.22000|10.0.19043|10.0.19042|10.0.19041|10.0.18363|10.0.18362|10.0.17763|10.0.17134|10.0.16299|10.0.15063|10.0.14393|10.0.10586|10.0.10240|6.3.9600|6.2.9200|6.1.7601|6.0.6200|5.1.2600|6.0.6003|5.2.3790|5.0.2195).?.*'
+  RETURN n
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements:

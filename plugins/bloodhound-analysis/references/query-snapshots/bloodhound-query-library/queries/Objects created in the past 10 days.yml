@@ -1,0 +1,14 @@
+name: Objects created in the past 10 days
+guid: eeed0434-28e3-4d84-9dfb-9108d5997589
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE n.whencreated > (datetime().epochseconds - (10 * 86400))
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

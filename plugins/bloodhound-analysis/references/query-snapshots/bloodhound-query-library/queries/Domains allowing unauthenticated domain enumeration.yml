@@ -1,0 +1,15 @@
+name: Domains allowing unauthenticated domain enumeration
+guid: 41a08d76-f8a5-4296-ad19-464c4c5c69fe
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:Group)-[:MemberOf]->(m:Group)
+  WHERE (n.objectid ENDS WITH "S-1-5-7" // Anonymous
+  OR n.objectid ENDS WITH "S-1-1-0") // Everyone
+  AND m.objectid ENDS WITH "S-1-5-32-554" // Pre-Windows 2000 Compatible Access
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

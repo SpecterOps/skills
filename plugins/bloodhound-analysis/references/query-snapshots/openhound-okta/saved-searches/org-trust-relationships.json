@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Org Trust Relationships",
+  "description": "Lists all org-to-org trust relationships including inbound and outbound SSO federation, Secure Web Authentication (SWA), and Kerberos SSO relationships between Okta applications and supported external organizations or tenants.",
+  "query": "MATCH p = (:Okta_Application:Okta_IdentityProvider)-[:Okta_InboundOrgSSO|Okta_OutboundOrgSSO|Okta_OrgSWA|Okta_KerberosSSO]-()\nRETURN p\nLIMIT 1000"
+}

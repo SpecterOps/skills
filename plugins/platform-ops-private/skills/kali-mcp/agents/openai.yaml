@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kali MCP"
+  short_description: "Run Kali MCP offensive tooling"
+  default_prompt: "Use $kali-mcp to execute scoped Kali MCP tool workflows with evidence capture and OPSEC-aware approval gating."

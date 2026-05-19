@@ -1,0 +1,13 @@
+name: All service principals with Microsoft Graph privilege to grant arbitrary App Roles
+guid: e6d6b5da-89da-4514-a409-2d6e368397da
+prebuilt: true
+platforms: Azure
+category: Microsoft Graph
+description:
+query: |-
+  MATCH p=(:AZServicePrincipal)-[:AZMGGrantAppRoles]->(:AZTenant)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

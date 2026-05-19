@@ -1,0 +1,16 @@
+{
+  "name": "ludus",
+  "description": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+  "version": "0.2.0",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ludus",
+    "range",
+    "lab",
+    "infrastructure",
+    "proxmox"
+  ]
+}

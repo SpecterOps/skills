@@ -1,0 +1,12 @@
+name: Entra Users with Entra Admin Role direct eligibility
+guid: b87899ce-3a51-401a-ae39-ef271b566e3d
+prebuilt: true
+platforms: Azure
+category: General
+description:
+query: |-
+  MATCH p = (:AZUser)-[:AZRoleEligible]->(:AZRole)
+  RETURN p LIMIT 100
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Chained Targeted Filtering",
+  "description": "An example of chained targeted filtering with multiple conditions in series that creates multiple proprety filters such as restricting to nodes with specific strings in their name, kinds of nodes, and types of edge relationships existing between the nodes",
+  "query": "MATCH p=(s)-[r]->(t)\nWHERE s.name STARTS WITH 'TENANT_ADMIN'\nAND (t.name STARTS WITH 'UPDATE' OR t.name STARTS WITH 'SOL' OR t.name STARTS WITH 'JVM')\nAND (type(r) = 'jamf_UpdateAccounts' OR type(r) = 'jamf_CreateAccounts' OR type(r) = 'jamf_CreatePolicies' OR type(r) = 'jamf_AdminTo')\nOR\ns.primarykind = 'jamf_Account' AND (s.name IN ['EXAMPLE', 'REG', 'LCAIN'])\nAND type(r) = 'jamf_AdminTo'\nOR\nt.primarykind STARTS WITH 'jamf_Computer' AND s.primarykind = 'jamf_Account'\nAND s.name STARTS WITH 'AZURE'\nOR\ns.primarykind = 'jamf_Tenant'\nAND type(r) = 'jamf_Contains'\nAND (t.primarykind = 'jamf_Site' OR t.primarykind = 'jamf_Computer')\nOR\n(s.primarykind = 'jamf_Site' AND t.primarykind = 'jamf_Computer')\nRETURN p\nLIMIT 1000"
+}

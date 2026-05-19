@@ -1,0 +1,16 @@
+name: Non-Tier Zero principal with excessive control
+guid: 944cecfe-519b-4318-b226-e8520161b454
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Returns non-Tier Zero principals with >= 1000 direct rights to other principals. This does not include rights from group memberships.
+query: |-
+  MATCH (n:Base)-[r:AD_ATTACK_PATHS]->(m:Base)
+  WHERE NOT r:MemberOf
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WITH n, COLLECT(DISTINCT(m)) AS endNodes
+  WHERE SIZE(endNodes) >= 1000
+  RETURN n
+revision: 5
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

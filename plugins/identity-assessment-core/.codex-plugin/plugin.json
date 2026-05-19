@@ -1,0 +1,16 @@
+{
+  "name": "identity-assessment-core",
+  "version": "0.1.0",
+  "description": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Identity Assessment Core",
+    "category": "Security",
+    "shortDescription": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Identity Assessment Core plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

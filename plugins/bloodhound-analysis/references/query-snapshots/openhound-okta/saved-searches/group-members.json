@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Group Membership",
+  "description": "Retrieves all group membership relationships.",
+  "query": "MATCH p = (:Okta_User)-[:Okta_MemberOf]->(:Okta_Group)\nRETURN p\nLIMIT 1000"
+}

@@ -1,0 +1,9 @@
+{
+  "plugin": "codex-observability",
+  "purpose": "Codex activity reporting and telemetry workflows.",
+  "agents": [],
+  "skills": [
+    "codex-activity-report",
+    "opentelemetry-codex"
+  ]
+}

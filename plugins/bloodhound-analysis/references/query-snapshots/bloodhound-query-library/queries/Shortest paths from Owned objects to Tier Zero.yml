@@ -1,0 +1,16 @@
+name: Shortest paths from Owned objects to Tier Zero
+guid: dfaa8e8f-2c79-4e92-a291-b1347f6e83b0
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  // MANY TO MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+  MATCH p=shortestPath((s:Tag_Owned)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  WHERE s<>t
+  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 4
+resources:
+acknowledgements:

@@ -1,0 +1,16 @@
+name: Entra Users synced from On-Prem Users added to Domain Admins group
+guid: 62722d5f-bd93-4d11-beeb-9be261827e4e
+prebuilt: true
+platforms:
+- Active Directory
+- Azure
+category: Cross Platform Attack Paths
+description:
+query: |-
+  MATCH p = (:AZUser)-[:SyncedToADUser]->(:User)-[:MemberOf]->(t:Group)
+  WHERE t.objectid ENDS WITH '-512'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

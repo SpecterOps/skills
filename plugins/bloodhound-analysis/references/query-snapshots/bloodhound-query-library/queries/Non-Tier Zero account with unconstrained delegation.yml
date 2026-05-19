@@ -1,0 +1,21 @@
+name: Non-Tier Zero account with unconstrained delegation
+guid: e7e9a927-3f34-42c7-b921-d8bcf626011e
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE n.unconstraineddelegation = true
+
+  // The query excludes all Tier Zero objects by default
+  // Exclude only DCs by removing the line below and uncomment the 'NOT n.isdc' line after
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  //AND NOT n.isdc = true
+
+  RETURN n
+revision: 3
+resources:
+acknowledgements:
+- Martin Sohn Christensen, @martinsohndk
+- "@kaasimir"

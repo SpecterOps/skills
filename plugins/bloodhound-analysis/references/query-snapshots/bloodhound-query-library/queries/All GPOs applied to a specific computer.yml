@@ -1,0 +1,15 @@
+name: All GPOs applied to a specific computer
+guid: 1d75a21e-0d34-40c5-9360-281b60737d87
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: View all GPOs that are applied to any specific computer. This query identifies GPOs that are applied at both the Domain Level and the OU level, saving time in large Active Directory environments where GPO inheritance is complex. Replace "COMPUTER_NAME" with the target computer name or a substring. Note this does not take OU 'Block inheritance' and GPO 'No Override' into account.
+query: |-
+  // Replace "HOSTNAME/FQDN" with the computer's
+  MATCH p=(c:Computer)<-[:Contains*..]-(:Base)<-[:GPLink]-(:GPO)
+  WHERE toLower(c.name) CONTAINS toLower("HOSTNAME/FQDN")
+  RETURN p
+revision: 2
+resources:
+- https://learn.microsoft.com/en-us/previous-versions/windows/desktop/Policy/overriding-and-blocking-group-policy
+acknowledgements: Adnan Ullah Khan, @auk0x01

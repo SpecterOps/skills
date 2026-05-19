@@ -1,0 +1,14 @@
+name: Locations of Owned objects (AD)
+guid: c88bfab4-3da0-4b36-b71d-7b324ebd2243
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p = (t:Base)<-[:Contains*1..]-(:Domain)
+  WHERE ((t:Tag_Owned) OR COALESCE(t.system_tags, '') CONTAINS 'owned')
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

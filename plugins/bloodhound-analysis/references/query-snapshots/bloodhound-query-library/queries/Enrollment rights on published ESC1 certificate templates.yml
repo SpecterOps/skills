@@ -1,0 +1,17 @@
+name: Enrollment rights on published ESC1 certificate templates
+guid: 2af855bc-f48f-4b22-9839-627d8231e425
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
+  WHERE ct.enrolleesuppliessubject = True
+  AND ct.authenticationenabled = True
+  AND ct.requiresmanagerapproval = False
+  AND (ct.authorizedsignatures = 0 OR ct.schemaversion = 1)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

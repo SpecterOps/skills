@@ -1,0 +1,18 @@
+name: Non-Tier Zero Principals with ExecuteDCOM privileges on Domain Controllers
+guid: 2aeefd57-cbe7-4f0e-907f-86a97d7b723c
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p1=(n:Base)-[:ExecuteDCOM]->(c:Computer)
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND c.isdc
+  MATCH p2=(n)-[:MemberOf]->(g:Group)
+  WHERE g.objectid ENDS WITH "S-1-5-32-562" // Distributed COM Users
+  OR g.objectid ENDS WITH "S-1-5-32-559" // Performance Log Users
+  RETURN p1,p2
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

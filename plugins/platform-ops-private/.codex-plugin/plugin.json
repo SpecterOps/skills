@@ -1,0 +1,16 @@
+{
+  "name": "platform-ops-private",
+  "version": "0.1.0",
+  "description": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Platform Ops Private",
+    "category": "Infrastructure",
+    "shortDescription": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Platform Ops Private plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

@@ -1,0 +1,18 @@
+name: Domains without Protected Users group
+guid: 8c3e0811-a31b-45b4-a29d-1dce80fa2c5f
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH (n:Domain)
+  WHERE n.collected = true
+  OPTIONAL MATCH (m:Group)
+  WHERE m.name ENDS WITH n.name
+  AND m.objectid ENDS WITH '-525'
+  WITH n, m
+  WHERE m IS NULL
+  RETURN n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

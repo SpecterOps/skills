@@ -1,0 +1,11 @@
+{
+  "name": "ghostwriter-oplog",
+  "version": "0.1.0",
+  "description": "Quick logging commands for GhostWriter operation logs",
+  "keywords": [
+    "ghostwriter",
+    "oplog",
+    "pentest",
+    "logging"
+  ]
+}

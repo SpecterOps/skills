@@ -1,0 +1,18 @@
+{
+  "name": "offensive-tooling",
+  "version": "0.1.0",
+  "description": "Security tool scaffolding and proof-of-concept development workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Offensive Tooling",
+    "category": "Security",
+    "shortDescription": "Security tool scaffolding and proof-of-concept development workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Offensive Tooling plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [
+    "c2-extension-development"
+  ],
+  "conflictsWith": []
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - No Pull Request Reviews Required",
+  "query": "MATCH p=(:GH_BranchProtectionRule {required_pull_request_reviews: false})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branches where pull request reviews are not required. Code can be merged directly without peer code-review, increasing the risk of undetected vulnerabilities or malicious changes."
+}

@@ -1,0 +1,16 @@
+name: Computers without Windows LAPS
+guid: 7c50f724-c467-4005-8e3f-9a6ce1461db0
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.operatingsystem =~ '(?i).*WINDOWS (SERVER)? ?(10|11|2019|2022|2025).*'
+  AND c.haslaps = false
+  AND c.enabled = true
+  RETURN c
+  LIMIT 100
+revision: 1
+resources: https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview
+acknowledgements: Martin Sohn Christensen, @martinsohndk

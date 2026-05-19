@@ -1,0 +1,18 @@
+name: Tier Zero AD principals synchronized with Entra ID
+guid: a8b6ec67-21aa-4dd2-8906-47bb81bf5262
+prebuilt: true
+platforms: Azure
+category: Azure Hygiene
+description:
+query: |-
+  MATCH (ENTRA:AZBase)
+  MATCH (AD:Base)
+  WHERE ((AD:Tag_Tier_Zero) OR COALESCE(AD.system_tags, '') CONTAINS 'admin_tier_0')
+  AND ENTRA.onpremsyncenabled = true
+  AND ENTRA.onpremid = AD.objectid
+  RETURN ENTRA
+  // Replace 'RETURN ENTRA' with 'RETURN AD' to see the corresponding AD principals
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements:

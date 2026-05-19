@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Tier 1 to Tier 0 Attack Paths",
+  "description": "Retrieve attack paths between Tier 1 nodes and Tier 0 nodes that are fully traversable - excludes tenant and site nodes as starting points",
+  "query": "MATCH p=(s)-[r*1..5]->(t)\nWHERE s.Tier = 1 AND t.Tier = 0\nAND s.primarykind <> 'jamf_Tenant'\nAND s.primarykind <> 'jamf_Site'\nAND r.traversable = True\nRETURN p\nLIMIT 1000"
+}

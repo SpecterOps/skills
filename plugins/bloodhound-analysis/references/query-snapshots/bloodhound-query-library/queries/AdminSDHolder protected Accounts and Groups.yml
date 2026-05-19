@@ -1,0 +1,19 @@
+name: AdminSDHolder protected Accounts and Groups
+guid: 5ee2f40e-a55c-4140-ab8a-91746ba3752b
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: Objects whose permissions are set by SDProp to the template AdminSDHolder object as per MS-ADTS 3.1.1.6.1.2 Protected Objects. Does not exclude objects if specified in dSHeuristics dwAdminSDExMask
+query: |-
+  MATCH (n:Base)-[:MemberOf*0..]->(m:Group)
+  WHERE (
+    n.objectid =~ ".*-(S-1-5-32-544|S-1-5-32-548|S-1-5-32-549|S-1-5-32-550|S-1-5-32-551|S-1-5-32-552|518|512|519)$" // Groups
+    OR m.objectid =~ ".*-(S-1-5-32-544|S-1-5-32-548|S-1-5-32-549|S-1-5-32-550|S-1-5-32-551|S-1-5-32-552|518|512|519)$" // Members of groups
+    OR n.objectid =~ ".*-(500|502|516|521)$" // Direct objects
+  )
+  RETURN n
+revision: 1
+resources:
+- https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a0d0b4fa-2895-4c64-b182-ba64ad0f84b8
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory
+acknowledgements: Martin Sohn Christensen, @martinsohndk

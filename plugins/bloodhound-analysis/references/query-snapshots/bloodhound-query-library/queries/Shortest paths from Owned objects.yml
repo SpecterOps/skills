@@ -1,0 +1,15 @@
+name: Shortest paths from Owned objects
+guid: e370a01d-c129-4f19-b88d-9479cbe00028
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((s:Base)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  WHERE ((s:Tag_Owned) OR COALESCE(s.system_tags, '') CONTAINS 'owned')
+  AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

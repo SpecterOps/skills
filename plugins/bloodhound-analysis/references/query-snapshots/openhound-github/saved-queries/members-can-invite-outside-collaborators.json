@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Members Can Invite Outside Collaborators",
+  "query": "MATCH (org:GH_Organization {members_can_invite_outside_collaborators: true})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where any member can invite external users. This can lead to unauthorized third-party access to repositories without centralized oversight."
+}

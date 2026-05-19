@@ -1,0 +1,8 @@
+{
+  "plugin": "binary-ninja-mcp",
+  "purpose": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
+  "agents": [],
+  "skills": [
+    "binary-ninja-mcp-analysis"
+  ]
+}

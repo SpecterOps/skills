@@ -1,0 +1,181 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Properties": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "description": "Unique identifier for the user."
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "Username of the user."
+                            },
+                            "full_name": {
+                                "type": "string",
+                                "description": "Full name of the user."
+                            },
+                            "email": {
+                                "type": "string",
+                                "format": "email",
+                                "description": "Primary email address of the user."
+                            },
+                            "email_address": {
+                                "type": "string",
+                                "format": "email",
+                                "description": "Secondary or alternate email address of the user."
+                            },
+                            "phone_number": {
+                                "type": "string",
+                                "description": "Phone number of the user."
+                            },
+                            "position": {
+                                "type": "string",
+                                "description": "Position or role of the user."
+                            },
+                            "managed_apple_id": {
+                                "type": "string",
+                                "description": "Managed Apple ID associated with the user."
+                            },
+                            "ldap_server": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "description": "ID of the LDAP server associated with the user."
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of the LDAP server."
+                                    }
+                                },
+                                "required": ["id", "name"],
+                                "additionalProperties": false
+                            },
+                            "extension_attributes": {
+                                "type": "array",
+                                "description": "List of extension attributes for the user.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sites": {
+                                "type": "array",
+                                "description": "List of sites associated with the user.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "links": {
+                                "type": "object",
+                                "properties": {
+                                    "computers": {
+                                        "type": "array",
+                                        "description": "List of computers linked to the user.",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "peripherals": {
+                                        "type": "array",
+                                        "description": "List of peripherals linked to the user.",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "mobile_devices": {
+                                        "type": "array",
+                                        "description": "List of mobile devices linked to the user.",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "vpp_assignments": {
+                                        "type": "array",
+                                        "description": "List of VPP assignments for the user.",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "total_vpp_code_count": {
+                                        "type": "integer",
+                                        "description": "Total count of VPP codes assigned to the user."
+                                    }
+                                },
+                                "required": [
+                                    "computers",
+                                    "peripherals",
+                                    "mobile_devices",
+                                    "vpp_assignments",
+                                    "total_vpp_code_count"
+                                ],
+                                "additionalProperties": false
+                            },
+                            "user_groups": {
+                                "type": "object",
+                                "properties": {
+                                    "size": {
+                                        "type": "integer",
+                                        "description": "Number of user groups the user is part of."
+                                    }
+                                },
+                                "required": ["size"],
+                                "additionalProperties": false
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "full_name",
+                            "email",
+                            "email_address",
+                            "phone_number",
+                            "position",
+                            "managed_apple_id",
+                            "ldap_server",
+                            "extension_attributes",
+                            "sites",
+                            "links",
+                            "user_groups"
+                        ],
+                        "additionalProperties": false
+                    }
+                },
+                "required": ["Properties"],
+                "additionalProperties": false
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "methods": {
+                    "type": "string",
+                    "description": "API methods used in the response."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of data returned in the response."
+                },
+                "count": {
+                    "type": "string",
+                    "description": "Number of records in the response."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version of the API used for the response."
+                }
+            },
+            "required": ["methods", "type", "count", "version"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "meta"],
+    "additionalProperties": false
+}

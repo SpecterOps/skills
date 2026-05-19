@@ -1,0 +1,12 @@
+name: Principals with outbound constrained delegation
+guid: e569db13-ef1d-4b03-b3a2-5ee8efc8b283
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Enumerates all principals that have constrained delegation configured, indicating outbound AllowedToDelegate edges to one or more targets.
+query: |-
+  MATCH p = (n:Base)-[:AllowedToDelegate]->(m:Base)
+  RETURN p
+revision: 1
+resources: https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview
+acknowledgements: Martin Sohn Christensen, @martinsohndk

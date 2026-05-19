@@ -1,0 +1,13 @@
+name: CA Administrators and CA Managers (ESC7)
+guid: 77a708b8-962e-4c3d-ad70-e994126aaeba
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:ManageCertificates|ManageCA]->(:EnterpriseCA)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

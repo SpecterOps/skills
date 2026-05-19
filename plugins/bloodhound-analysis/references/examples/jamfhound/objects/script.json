@@ -1,0 +1,15 @@
+{
+  "script": {
+    "category": "No category assigned",
+    "filename": "test1",
+    "id": 1,
+    "info": "test1",
+    "name": "test1",
+    "notes": "",
+    "os_requirements": "",
+    "parameters": {},
+    "priority": "Before",
+    "script_contents": "#!/bin/bash\n\n# Define paths\ncompose_file_path=\"/tmp/docker-compose.yml\"\n\n# Get the hostname\nhost_username=$3\n\n# Write docker-compose.yml\ncompose_content=$(cat <<EOF\nservices:\n  api:\n    image: danielstairwell/ec2_api_test_data_arm_jammy:latest\n    network_mode: host\n    restart: always\n    volumes:\n      - /Users:/host_users\n      - /Volumes:/host_volumes\n      - /private:/host_private\n      - /tmp:/host_tmp\n      - /var/folders:/host_var_folders\n    environment:\n      - HOST_HOSTNAME=$host_hostname\nEOF\n)\n\n# Try to write the file\nif echo \"$compose_content\" > \"$compose_file_path\"; then\n    echo \"Wrote Docker Compose configuration to $compose_file_path.\"\n    chmod 666 \"$compose_file_path\"\n    echo \"Set permissions to read and write for everyone on $compose_file_path.\"\nelse\n    echo \"An error occurred while writing the Docker Compose file.\"\n    exit 1\nfi\n\nsudo -u \"$username\" zsh -c \"cd /tmp && docker compose up --detach\"\n",
+    "script_contents_encoded": "IyEvYmluL2Jhc2gKCiMgRGVmaW5lIHBhdGhzCmNvbXBvc2VfZmlsZV9wYXRoPSIvdG1wL2RvY2tlci1jb21wb3NlLnltbCIKCiMgR2V0IHRoZSBob3N0bmFtZQpob3N0X3VzZXJuYW1lPSQzCgojIFdyaXRlIGRvY2tlci1jb21wb3NlLnltbApjb21wb3NlX2NvbnRlbnQ9JChjYXQgPDxFT0YKc2VydmljZXM6CiAgYXBpOgogICAgaW1hZ2U6IGRhbmllbHN0YWlyd2VsbC9lYzJfYXBpX3Rlc3RfZGF0YV9hcm1famFtbXk6bGF0ZXN0CiAgICBuZXR3b3JrX21vZGU6IGhvc3QKICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgdm9sdW1lczoKICAgICAgLSAvVXNlcnM6L2hvc3RfdXNlcnMKICAgICAgLSAvVm9sdW1lczovaG9zdF92b2x1bWVzCiAgICAgIC0gL3ByaXZhdGU6L2hvc3RfcHJpdmF0ZQogICAgICAtIC90bXA6L2hvc3RfdG1wCiAgICAgIC0gL3Zhci9mb2xkZXJzOi9ob3N0X3Zhcl9mb2xkZXJzCiAgICBlbnZpcm9ubWVudDoKICAgICAgLSBIT1NUX0hPU1ROQU1FPSRob3N0X2hvc3RuYW1lCkVPRgopCgojIFRyeSB0byB3cml0ZSB0aGUgZmlsZQppZiBlY2hvICIkY29tcG9zZV9jb250ZW50IiA+ICIkY29tcG9zZV9maWxlX3BhdGgiOyB0aGVuCiAgICBlY2hvICJXcm90ZSBEb2NrZXIgQ29tcG9zZSBjb25maWd1cmF0aW9uIHRvICRjb21wb3NlX2ZpbGVfcGF0aC4iCiAgICBjaG1vZCA2NjYgIiRjb21wb3NlX2ZpbGVfcGF0aCIKICAgIGVjaG8gIlNldCBwZXJtaXNzaW9ucyB0byByZWFkIGFuZCB3cml0ZSBmb3IgZXZlcnlvbmUgb24gJGNvbXBvc2VfZmlsZV9wYXRoLiIKZWxzZQogICAgZWNobyAiQW4gZXJyb3Igb2NjdXJyZWQgd2hpbGUgd3JpdGluZyB0aGUgRG9ja2VyIENvbXBvc2UgZmlsZS4iCiAgICBleGl0IDEKZmkKCnN1ZG8gLXUgIiR1c2VybmFtZSIgenNoIC1jICJjZCAvdG1wICYmIGRvY2tlciBjb21wb3NlIHVwIC0tZGV0YWNoIgo="
+  }
+}

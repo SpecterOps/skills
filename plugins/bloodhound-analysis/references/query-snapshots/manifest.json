@@ -1,0 +1,64 @@
+{
+  "domain_counts": {
+    "azurehound-analysis": 64,
+    "bloodhound-ad-analysis": 173,
+    "openhound-github": 55,
+    "openhound-jamf": 18,
+    "openhound-okta": 45
+  },
+  "indexes": [
+    "references/query-indexes/bloodhound.md",
+    "references/query-indexes/azurehound.md",
+    "references/query-indexes/openhound-github.md",
+    "references/query-indexes/openhound-jamf.md",
+    "references/query-indexes/openhound-okta.md"
+  ],
+  "retrieved_at": "2026-04-17T00:26:42+00:00",
+  "sources": [
+    {
+      "branch": "main",
+      "commit": "93706e16b33d98f434e2b78de85ff00de23bfe65",
+      "file_count": 237,
+      "id": "bloodhound-query-library",
+      "license": "MIT",
+      "repo": "SpecterOps/BloodHoundQueryLibrary",
+      "snapshot_path": "references/query-snapshots/bloodhound-query-library/queries",
+      "source_path": "queries",
+      "upstream_url": "https://github.com/SpecterOps/BloodHoundQueryLibrary/tree/main/queries"
+    },
+    {
+      "branch": "main",
+      "commit": "7befb110fde1a3397871144e12b4327d794f239d",
+      "file_count": 55,
+      "id": "openhound-github",
+      "license": "Apache-2.0",
+      "repo": "SpecterOps/GitHound",
+      "snapshot_path": "references/query-snapshots/openhound-github/saved-queries",
+      "source_path": "saved-queries",
+      "upstream_url": "https://github.com/SpecterOps/GitHound/tree/main/saved-queries"
+    },
+    {
+      "branch": "main",
+      "commit": "baff9ddbdfb4b55696acd8aef2b59b17bee817e0",
+      "file_count": 18,
+      "id": "openhound-jamf",
+      "license": "Apache-2.0",
+      "repo": "SpecterOps/openhound-jamf",
+      "snapshot_path": "references/query-snapshots/openhound-jamf/saved-searches",
+      "source_path": "extension/saved_searches",
+      "upstream_url": "https://github.com/SpecterOps/openhound-jamf/tree/main/extension/saved_searches"
+    },
+    {
+      "branch": "main",
+      "commit": "69d3408997b067d9b0f1eff769f38a144cd2db48",
+      "file_count": 45,
+      "id": "openhound-okta",
+      "license": "Apache-2.0",
+      "repo": "SpecterOps/openhound-okta",
+      "snapshot_path": "references/query-snapshots/openhound-okta/saved-searches",
+      "source_path": "extension/saved_searches",
+      "upstream_url": "https://github.com/SpecterOps/openhound-okta/tree/main/extension/saved_searches"
+    }
+  ],
+  "total_files": 355
+}

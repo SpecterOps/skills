@@ -1,0 +1,15 @@
+name: Shortest paths from Domain Users to Tier Zero / High Value targets
+guid: 469dc0f3-71b8-41b0-a03b-b4af7874665d
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((s:Group)-[:AD_ATTACK_PATHS*1..]->(t:Base))
+  WHERE s.objectid ENDS WITH '-513' AND s<>t
+  AND ((t:Tag_Tier_Zero) OR COALESCE(t.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

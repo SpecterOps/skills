@@ -1,0 +1,16 @@
+name: AdminSDHolder protected objects without 'Admin Count' flag
+guid: f4b3243f-2a3c-497d-832f-352abde9b0a2
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: The lack of the 'Admin Count' flag on objects protected by AdminSDHolder could signal an issue with SDProp.
+query: |-
+  MATCH p=(n:Base)-[:ProtectAdminGroups]->(m:Base)
+  WHERE m.admincount = false
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:
+- Jim Sykora, @JimSycurity
+- Martin Sohn Christensen, @martinsohndk

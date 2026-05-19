@@ -1,0 +1,18 @@
+name: All Kerberoastable users
+guid: 14ab4eaa-b73b-49c4-b2d1-1e020757c995
+prebuilt: true
+platforms: Active Directory
+category: Kerberos Interaction
+description:
+query: |-
+  MATCH (u:User)
+  WHERE u.hasspn=true
+  AND u.enabled = true
+  AND NOT u.objectid ENDS WITH '-502'
+  AND NOT COALESCE(u.gmsa, false) = true
+  AND NOT COALESCE(u.msa, false) = true
+  RETURN u
+  LIMIT 100
+revision: 1
+resources: https://attack.mitre.org/techniques/T1558/003/
+acknowledgements:

@@ -1,0 +1,15 @@
+name: Tier Zero objects created in the past 10 days
+guid: 9c7c2b1d-6ffb-46ee-8b92-89237f7c7ef3
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE n.whencreated > (datetime().epochseconds - (10 * 86400))
+  AND ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

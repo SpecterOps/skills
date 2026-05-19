@@ -1,0 +1,16 @@
+{
+  "name": "mythic-implant",
+  "version": "0.1.0",
+  "description": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mythic Implant",
+    "category": "Security",
+    "shortDescription": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-ste...",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Mythic Implant plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

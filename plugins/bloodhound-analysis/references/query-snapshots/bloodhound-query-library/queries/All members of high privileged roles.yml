@@ -1,0 +1,14 @@
+name: All members of high privileged roles
+guid: 3df24d92-dd12-4125-811b-e696b098f60e
+prebuilt: true
+platforms: Azure
+category: General
+description:
+query: |-
+  MATCH p=(t:AZRole)<-[:AZHasRole|AZMemberOf*1..2]-(:AZBase)
+  WHERE t.name =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|Privileged Authentication Administrator|Privileged Role Administrator'
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

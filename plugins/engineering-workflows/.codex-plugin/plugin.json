@@ -1,0 +1,16 @@
+{
+  "name": "engineering-workflows",
+  "version": "0.1.0",
+  "description": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Engineering Workflows",
+    "category": "Productivity",
+    "shortDescription": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Engineering Workflows plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

@@ -1,0 +1,13 @@
+name: Map OU structure
+guid: 8f14084b-5065-43d8-865a-a6ac52da25d1
+prebuilt: true
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p = (:Domain)-[:Contains*1..]->(:OU)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

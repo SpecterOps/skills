@@ -1,0 +1,14 @@
+name: All direct Controllers of MS Graph
+guid: 45f949ca-ab69-43a4-adb2-796f9548beff
+prebuilt: false
+platforms:
+- Azure
+category: Microsoft Graph
+description: Return all direct Controllers of MS Graph.
+query: |-
+  MATCH p = (n)-[r:AZAddOwner|AZAddSecret|AZAppAdmin|AZCloudAppAdmin|AZMGAddOwner|AZMGAddSecret|AZOwns]->(g:AZServicePrincipal)
+  WHERE g.displayname = "MICROSOFT GRAPH"
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel

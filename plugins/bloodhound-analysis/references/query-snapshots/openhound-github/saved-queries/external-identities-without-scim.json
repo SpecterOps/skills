@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: External Identities Without SCIM Provisioning",
+  "query": "MATCH (ei:GH_ExternalIdentity)\nWHERE ei.scim_identity_username = ''\nRETURN ei\nLIMIT 1000",
+  "description": "Finds external identities that lack SCIM synchronization. Without SCIM, user deprovisioning in the identity provider will not automatically revoke GitHub access."
+}

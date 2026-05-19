@@ -1,0 +1,12 @@
+{
+  "plugin": "identity-assessment-core",
+  "purpose": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+  "agents": [
+    "domain-ops",
+    "internal-network-recon",
+    "winternals"
+  ],
+  "skills": [
+    "nmap-parse"
+  ]
+}

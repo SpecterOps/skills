@@ -1,0 +1,13 @@
+name: All Azure VMs with a tied Managed Identity
+guid: 3ceca01a-226e-4e61-8692-a4b4611f2af0
+prebuilt: false
+platforms:
+- Azure
+category: General
+description: Return all Azure VMs with a tied Managed Identity.
+query: |-
+  MATCH p=(:AZVM)-[:AZManagedIdentity]->(n)
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel

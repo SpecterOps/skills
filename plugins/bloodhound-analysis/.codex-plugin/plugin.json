@@ -1,0 +1,21 @@
+{
+  "name": "bloodhound-analysis",
+  "version": "0.1.0",
+  "description": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging.",
+  "skills": "./skills/",
+  "mcpServers": ".mcp.json",
+  "interface": {
+    "displayName": "Bloodhound Analysis",
+    "category": "Security",
+    "shortDescription": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, a...",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Bloodhound Analysis plugin."
+  },
+  "dependsOn": [
+    "identity-assessment-core"
+  ],
+  "optionalDependencies": [
+    "report-writing"
+  ],
+  "conflictsWith": []
+}

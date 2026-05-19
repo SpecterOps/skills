@@ -1,0 +1,25 @@
+name: Non-Tier Zero principals with BadSuccessor rights (with prerequisites check)
+guid: 74daaebe-6040-4f7a-9c9a-416faf73dcc3
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Finds non-Tier Zero principals with BadSuccessor rights after checking prerequisites check (DC2025 & KDC key).
+query: |-
+  // Find 2025 DCs
+  MATCH (dc:Computer)
+  WHERE dc.isdc = true AND dc.operatingsystem CONTAINS '2025'
+  // Find gMSAs
+  MATCH (m:User)
+  WHERE m.gmsa = true
+  // Find OU control
+  MATCH p = (ou:OU)<-[:WriteDacl|Owns|GenericAll|WriteOwner]-(n:Base)
+  // Confirm domain has a 2025 DC
+  WHERE ou.domain = dc.domain
+  // Confirm domain KDC key
+  AND ou.domain = m.domain
+  // Exclude Tier Zero
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p LIMIT 1000
+revision: 1
+resources: https://bsky.app/profile/specterops.io/post/3lpua65qeu22l
+acknowledgements: Martin Sohn Christensen, @martinsohndk

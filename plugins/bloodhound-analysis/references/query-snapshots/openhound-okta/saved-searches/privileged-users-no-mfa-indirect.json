@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Privileged Users without MFA (Indirect)",
+  "description": "Users who do not have multi-factor authentication enabled and hold privileged role assignments through group membership.",
+  "query": "MATCH p = (u:Okta_User)-[:Okta_MemberOf]->(:Okta_Group)-[:Okta_HasRoleAssignment]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nWHERE u.authenticationFactors = 0\nRETURN p\nLIMIT 1000"
+}

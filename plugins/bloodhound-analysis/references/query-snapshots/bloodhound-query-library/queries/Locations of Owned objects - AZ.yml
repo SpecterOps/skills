@@ -1,0 +1,14 @@
+name: Locations of Owned objects (AZ)
+guid: 350b8b8a-ea4c-44f3-874b-c9316de6c41b
+prebuilt: false
+platforms: Azure
+category: General
+description:
+query: |-
+  MATCH p = (t:AZBase)<-[:AZContains*1..]-(:AZTenant)
+  WHERE ((t:Tag_Owned) OR COALESCE(t.system_tags, '') CONTAINS 'owned')
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

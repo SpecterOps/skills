@@ -1,0 +1,17 @@
+name: Disabled Tier Zero / High Value principals (AD)
+guid: d65a801f-d3ef-4b7e-8030-99ebfd6dad12
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.enabled = false
+  AND NOT n.objectid ENDS WITH '-502' // Removes false positive, KRBTGT
+  AND NOT n.objectid ENDS WITH '-500' // Removes false positive, built-in Administrator
+  RETURN n
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements:

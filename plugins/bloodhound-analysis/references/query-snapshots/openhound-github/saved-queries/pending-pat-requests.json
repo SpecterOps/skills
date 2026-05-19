@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Pending PAT Requests",
+  "query": "MATCH p=(:GH_User)-[:GH_HasPersonalAccessTokenRequest]->(req:GH_PersonalAccessTokenRequest)\nRETURN p\nLIMIT 1000",
+  "description": "Finds pending fine-grained personal access token requests awaiting approval. Review these to ensure requested permissions are appropriate before granting access."
+}

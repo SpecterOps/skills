@@ -1,0 +1,17 @@
+name: Accounts related to AAD Entra Connect
+guid: 5993208e-6189-40e6-be03-c23c872d0ca4
+prebuilt: false
+platforms:
+- Active Directory
+- Azure
+category: Active Directory Hygiene
+description: Query to start reconnaissance about AADConnect / Entra Connect related accounts
+query: |-
+  MATCH (u)
+  WHERE (u:User OR u:AZUser)
+  AND (u.name =~ '(?i)^MSOL_|.*AADConnect.*|.*ADSyncMSA.*|.*AAD_.*|.*PROVAGENTGMSA.*'
+  OR u.userprincipalname =~ '(?i)^sync_.*')
+  RETURN u
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/concept-adsync-service-account
+acknowledgements: Daniel Scheidt, @theluemmel

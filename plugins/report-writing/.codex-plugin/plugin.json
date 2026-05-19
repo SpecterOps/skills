@@ -1,0 +1,16 @@
+{
+  "name": "report-writing",
+  "version": "0.1.0",
+  "description": "Finding and report drafting workflows for security assessment deliverables.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Report Writing",
+    "category": "Productivity",
+    "shortDescription": "Finding and report drafting workflows for security assessment deliverables.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Report Writing plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

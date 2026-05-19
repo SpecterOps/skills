@@ -1,0 +1,14 @@
+name: Shortest paths to Domain Admins
+guid: f40cb34b-5ec7-44bc-9aa8-a200a4a41f22
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((t:Group)<-[:AD_ATTACK_PATHS*1..]-(s:Base))
+  WHERE t.objectid ENDS WITH '-512' AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

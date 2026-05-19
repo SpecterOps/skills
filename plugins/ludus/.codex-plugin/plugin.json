@@ -1,0 +1,16 @@
+{
+  "name": "ludus",
+  "version": "0.2.0",
+  "description": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ludus",
+    "category": "Security",
+    "shortDescription": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Ludus plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

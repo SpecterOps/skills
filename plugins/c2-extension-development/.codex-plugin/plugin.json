@@ -1,0 +1,16 @@
+{
+  "name": "c2-extension-development",
+  "version": "0.1.0",
+  "description": "Cobalt Strike Aggressor and BOF development workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "C2 Extension Development",
+    "category": "Security",
+    "shortDescription": "Cobalt Strike Aggressor and BOF development workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the C2 Extension Development plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

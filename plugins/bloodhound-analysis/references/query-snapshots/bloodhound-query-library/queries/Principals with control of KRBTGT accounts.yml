@@ -1,0 +1,16 @@
+name: Principals with control of KRBTGT accounts
+guid: ef2eae0c-20e2-4c29-998f-faab9eb03b41
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:AD_ATTACK_PATHS]->(krbtgt:User)
+  WHERE (krbtgt.objectid ENDS WITH '-502'
+  OR krbtgt.name STARTS WITH 'AZUREADKERBEROS.'
+  OR krbtgt.name STARTS WITH 'KRBTGT_AZUREAD@')
+  AND (n:Computer OR n:User)
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

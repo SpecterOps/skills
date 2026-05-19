@@ -1,0 +1,19 @@
+name: Large default groups with outbound control of OUs
+guid: 310b3626-f8e6-4ab0-832c-72df6048597f
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Group)-[]->(:OU)
+  WHERE n.objectid ENDS WITH "-513" // DOMAIN USERS
+  OR n.objectid ENDS WITH "-515" // DOMAIN COMPUTERS
+  OR n.objectid ENDS WITH "-S-1-5-11" // AUTHENTICATED USERS
+  OR n.objectid ENDS WITH "-S-1-1-0" // EVERYONE
+  OR n.objectid ENDS WITH "S-1-5-32-545" // USERS
+  OR n.objectid ENDS WITH "S-1-5-32-546" // GUESTS
+  OR n.objectid ENDS WITH "S-1-5-7" // ANONYMOUS
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

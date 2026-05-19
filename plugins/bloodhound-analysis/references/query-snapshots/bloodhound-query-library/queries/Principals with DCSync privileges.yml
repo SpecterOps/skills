@@ -1,0 +1,13 @@
+name: Principals with DCSync privileges
+guid: 6e9beb8a-ad14-43de-bda1-644d174a5906
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(:Base)-[:DCSync|AllExtendedRights|GenericAll]->(:Domain)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

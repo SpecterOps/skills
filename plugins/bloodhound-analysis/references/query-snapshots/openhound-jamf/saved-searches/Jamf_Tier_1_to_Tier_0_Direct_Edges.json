@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Tier 1 to Tier 0 Direct Edges",
+  "description": "Retrieve direct edges between Tier 1 nodes and Tier 0 nodes",
+  "query": "MATCH p=(s)-[]->(t)\nWHERE s.Tier = 1 AND t.Tier = 0\nRETURN p\nLIMIT 1000"
+}

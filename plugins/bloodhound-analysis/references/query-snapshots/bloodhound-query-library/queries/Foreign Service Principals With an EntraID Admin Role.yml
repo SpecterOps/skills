@@ -1,0 +1,16 @@
+name: Foreign Service Principals With an EntraID Admin Role
+guid: b6235820-4e0d-4dfa-af5b-729b5644feb5
+prebuilt: false
+platforms: Azure
+category: Dangerous Privileges
+description: Entra ID admin roles grant significant control over a tenant environment, even if the role is not a default Tier Zero / High Value role
+query: |-
+  MATCH p = (sp:AZServicePrincipal)-[:AZHasRole]->(r:AZRole)
+  WHERE toUpper(sp.appownerorganizationid) <> toUpper(sp.tenantid)
+  // Ensure AZServicePrincipal has a valid appownerorganizationid
+  AND sp.appownerorganizationid CONTAINS "-"
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources: https://posts.specterops.io/microsoft-breach-how-can-i-see-this-in-bloodhound-33c92dca4c65
+acknowledgements: Stephen Hinck

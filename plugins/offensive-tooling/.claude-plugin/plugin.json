@@ -1,0 +1,8 @@
+{
+  "name": "offensive-tooling",
+  "description": "Security tool scaffolding and proof-of-concept development workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "plugin": "openhound-collector-development",
+  "purpose": "OpenHound collector template support package with the embedded OpenHound development skill.",
+  "agents": [],
+  "skills": [
+    "openhound-collector-development"
+  ]
+}

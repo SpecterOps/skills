@@ -1,0 +1,18 @@
+name: Principals With Direct Rights Assignment
+guid: 1d9c6ae3-38fc-4089-b5ad-fc3be0fa8eec
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies principals with rights assigned directly to them instead of to groups they are a member of. Active Directory best practice requires granting rights to groups, then adding users as group members. This role-based access control (RBAC) approach ensures permissions are easily auditable and manageable. Results include inherited rights, which must be modified at the parent container level.
+query: |-
+  MATCH p=(n:Base)-[r:GenericAll|GenericWrite|WriteOwner|WriteDacl|ForceChangePassword|AllExtendedRights|AddMember|AllowedToDelegate|AllowedToAct|AdminTo|CanPSRemote|CanRDP|ExecuteDCOM|AddSelf|DCSync|ReadLAPSPassword|ReadGMSAPassword|DumpSMSAPassword|AddAllowedToAct|WriteSPN|AddKeyCredentialLink|SyncLAPSPassword|WriteAccountRestrictions|WriteGPLink|ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a|ADCSESC10b|ADCSESC13|WriteOwnerLimitedRights|OwnsLimitedRights|CanApplyGPO|ManageCA|ManageCertificates]->(:Base)
+  WHERE (n:User OR n:Computer)
+
+  // Uncomment the below to only search enabled principals.
+  // AND n.enabled = true
+
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources: https://csrc.nist.gov/Projects/Role-Based-Access-Control
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,18 @@
+name: All ADCS ESC privilege escalation edges
+guid: 49db8edc-8421-438f-b97b-23c042959bef
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p=(:Base)-[:ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a|ADCSESC10b|ADCSESC13|GoldenCert|CoerceAndRelayNTLMToADCS]->(:Base)
+  RETURN p
+revision: 1
+resources:
+- https://posts.specterops.io/certified-pre-owned-d95910965cd2
+- https://posts.specterops.io/adcs-attack-paths-in-bloodhound-part-1-799f3d3b03cf
+- https://posts.specterops.io/adcs-attack-paths-in-bloodhound-part-2-ac7f925d1547
+- https://posts.specterops.io/adcs-attack-paths-in-bloodhound-part-3-33efb00856ac
+- https://posts.specterops.io/adcs-esc13-abuse-technique-fda4272fbd53
+- https://specterops.io/blog/2025/04/08/the-renaissance-of-ntlm-relay-attacks-everything-you-need-to-know/#:~:text=Introducing%20the%20CoerceAndRelayNTLMToADCS%20Edge
+acknowledgements: Jonas Bülow Knudsen, @Jonas_B_K

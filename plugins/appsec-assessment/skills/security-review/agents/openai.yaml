@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Review"
+  short_description: "Review code changes for security"
+  default_prompt: "Use $security-review to evaluate current git changes for security vulnerabilities and provide prioritized fixes."

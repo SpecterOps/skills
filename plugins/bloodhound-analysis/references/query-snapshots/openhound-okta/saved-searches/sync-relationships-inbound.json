@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Inbound User and Group Synchronization",
+  "description": "Lists all inbound user and group synchronization relationships to Okta, including password synchronization across Org2Org setups.",
+  "query": "MATCH p = (n)-[:Okta_UserSync|Okta_MembershipSync|Okta_PasswordSync]->(:Okta_User:Okta_Group)\nRETURN p\nLIMIT 1000"
+}

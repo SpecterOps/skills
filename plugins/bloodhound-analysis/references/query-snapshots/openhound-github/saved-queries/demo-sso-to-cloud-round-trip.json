@@ -1,0 +1,5 @@
+{
+  "name": "[Demo] SSO Round-Trip: Azure/Okta \u2192 GitHub \u2192 Cloud Identity",
+  "query": "MATCH p1=(extUser)-[:SyncedToGHUser]->(ghUser:GH_User)\nMATCH p2=(ghUser)-[:GH_HasRole|GH_HasBaseRole|GH_MemberOf*1..]->(:GH_RepoRole)-[:GH_WriteRepoContents]->(:GH_Repository)-[:GH_CanAssumeIdentity]->(cred:AZFederatedIdentityCredential)\nRETURN p1, p2\nLIMIT 1000",
+  "description": "The cloud-to-cloud pivot through GitHub: a compromised Azure or Okta identity syncs to a GitHub user via SSO. That GitHub user has write access to repositories configured with OIDC federation to Azure workload identities. The attacker pivots from one cloud identity through GitHub into a completely different Azure identity \u2014 crossing cloud boundaries twice in a single attack chain."
+}

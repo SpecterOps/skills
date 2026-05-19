@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Expanded Tier 1 to Tier 0 Paths",
+  "description": "Expand the graph by one edge showing nodes with edges to Tier 1 nodes with edges to Tier 0 nodes",
+  "query": "MATCH p=(a) - [] -> (s)-[r]->(t)\nWHERE s.Tier = 1 AND t.Tier = 0\nAND type(r) <> 'jamf_Contains'\nRETURN p\nLIMIT 1000"
+}

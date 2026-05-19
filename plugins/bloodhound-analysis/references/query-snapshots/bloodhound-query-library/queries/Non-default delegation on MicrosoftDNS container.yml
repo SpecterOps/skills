@@ -1,0 +1,16 @@
+name: Non-default delegation on MicrosoftDNS container
+guid: 008792c0-4458-46a1-a10d-50cdaf95af1e
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH p=(n:Base)-[r]->(m:Container)
+  WHERE m.distinguishedname STARTS WITH "CN=MICROSOFTDNS,CN=SYSTEM,DC="
+  AND NOT n.name STARTS WITH "DNSADMINS@"
+  AND NOT n.objectid =~ "-(512|544|519|9)$"
+  AND r.isacl
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

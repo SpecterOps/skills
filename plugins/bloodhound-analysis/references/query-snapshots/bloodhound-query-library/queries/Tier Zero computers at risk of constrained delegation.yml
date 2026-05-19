@@ -1,0 +1,13 @@
+name: Tier Zero computers at risk of constrained delegation
+guid: 8641e593-f2f2-48ba-bd45-fbc86e9f632a
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p = (n:Computer)<-[:AllowedToDelegate]-(:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

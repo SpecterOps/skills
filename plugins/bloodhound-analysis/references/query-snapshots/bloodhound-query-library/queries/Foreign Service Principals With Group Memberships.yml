@@ -1,0 +1,16 @@
+name: Foreign Service Principals With Group Memberships
+guid: 327ef6a5-bfa8-4c92-b35a-d3df85264a24
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Review each to validate whether their presence is expected and whether the assigned group memberships are appropriate for the foreign service principal.
+query: |-
+  MATCH p = (sp:AZServicePrincipal)-[:AZMemberOf]->(g:AZGroup)
+  WHERE toUpper(sp.appownerorganizationid) <> toUpper(g.tenantid)
+  // Ensure AZServicePrincipal has a valid appownerorganizationid
+  AND sp.appownerorganizationid CONTAINS "-"
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources: https://posts.specterops.io/microsoft-breach-how-can-i-see-this-in-bloodhound-33c92dca4c65
+acknowledgements: Stephen Hinck

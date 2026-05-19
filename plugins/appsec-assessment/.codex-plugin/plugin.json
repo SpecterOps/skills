@@ -1,0 +1,16 @@
+{
+  "name": "appsec-assessment",
+  "version": "0.1.0",
+  "description": "Application and code security assessment workflows for Specter Codex.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Appsec Assessment",
+    "category": "Security",
+    "shortDescription": "Application and code security assessment workflows for Specter Codex.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Appsec Assessment plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

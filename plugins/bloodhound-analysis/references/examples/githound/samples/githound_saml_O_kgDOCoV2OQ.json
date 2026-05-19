@@ -1,0 +1,116 @@
+{
+  "$schema": "https://raw.githubusercontent.com/MichaelGrafnetter/EntraAuthPolicyHound/refs/heads/main/bloodhound-opengraph.schema.json",
+  "graph": {
+    "nodes": [
+      {
+        "id": "OIP_kwDOCoV2Oc2WFg",
+        "kinds": [
+          "GH_SamlIdentityProvider"
+        ],
+        "properties": {
+          "name": "OIP_kwDOCoV2Oc2WFg",
+          "node_id": "OIP_kwDOCoV2Oc2WFg",
+          "environment_name": "SpecterTst",
+          "environmentid": "O_kgDOCoV2OQ",
+          "foreign_environmentid": "integrator-5415459.okta.com",
+          "digest_method": "http://www.w3.org/2001/04/xmlenc#sha256",
+          "idp_certificate": "-----BEGIN CERTIFICATE-----\r\nMIIDtDCCApygAwIBAgIGAZsPPrMrMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYDVQQGEwJVUzETMBEG\r\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\r\nMBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmludGVncmF0b3ItNTQxNTQ1OTEcMBoGCSqG\r\nSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0yNTEyMTEyMTA3NDVaFw0zNTEyMTEyMTA4NDVaMIGa\r\nMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\r\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmludGVncmF0\r\nb3ItNTQxNTQ1OTEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEB\r\nBQADggEPADCCAQoCggEBAK+9L8PJvZF3xz97BUiWdrNyQ4/i0KVFvMBrVtal3CbEl1MpiWuMoGth\r\nrEAFATVX73juSzB7j8eg363YHQBfaRtQ8iZlksWpeO+jey8+KcVtfJ+D2IP2kTxdQEQWpdxwmHIS\r\nk2C63ldLKnJ9Lk+0vf20dYp9OMCMs13zR4dKSs4WhpLdeOJwS/5nFv3nvMWY5mbsqU2zYUlOrYS2\r\nGbEguVpUrJB1SCxZGuP08odWFKL5qYjdDSexiE+/ihaorQukdpCCiCCH109EnoImJy/RunZsj3lH\r\ns/MWvcDuX4hi/S+G+gZxRBEIHWMgpiyA/2uMJOysgaepRpM93xlTCyx012MCAwEAATANBgkqhkiG\r\n9w0BAQsFAAOCAQEAVcMLW69S5TYPT/Y+7arnROo+zOoGhArGHNGPr98JXn+YfcHBzCAjNI4H8e4G\r\n3BBEXUpxBKk25FNrjGhuIXMvfii3Xz4tOJbSOODwE4sMAKwOgv46t32P5E36y5LCf9iJC2J+9cVA\r\nUZapi6qb843yPD73ohFzy+KpPYRqZN8lgKg/rF0qSM+nrbwIFMD5KrG0EanfuF6SZ9GTZLa7Cw7G\r\nJvIP0IBQRVK3Dxm+c9aIbUrwt3AffzyIwDFaXXaKP9Zo8KBq9G3kcIGfStcP5ZcfqhLIdpK6Pa4m\r\n8FPzimO/XEN55cSgvE/OAUJOuG0ZqxSVTUwXuE1S2cpFkQxUw57imQ==\r\n-----END CERTIFICATE-----",
+          "issuer": "http://www.okta.com/exky9tksfni2FPF6J697",
+          "signature_method": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
+          "sso_url": "https://integrator-5415459.okta.com/app/githubcloud/exky9tksfni2FPF6J697/sso/saml",
+          "query_environments": "MATCH p=(:GH_SamlIdentityProvider {objectid: 'OIP_KWDOCOV2OC2WFG'})<-[:GH_HasSamlIdentityProvider]->(:GH_Organization) RETURN p",
+          "query_external_identities": "MATCH p=(:GH_SamlIdentityProvider {objectid: 'OIP_KWDOCOV2OC2WFG'})-[:GH_HasExternalIdentity]->() RETURN p"
+        }
+      },
+      {
+        "id": "EI_lAHOCoV2Oc2WFs4CbGNd",
+        "kinds": [
+          "GH_ExternalIdentity"
+        ],
+        "properties": {
+          "name": "d9219f20-d6d6-11f0-8f93-069c0d01bdfa",
+          "guid": "d9219f20-d6d6-11f0-8f93-069c0d01bdfa",
+          "environmentid": "O_kgDOCoV2OQ",
+          "environment_name": "SpecterTst",
+          "saml_identity_family_name": "",
+          "saml_identity_given_name": "",
+          "saml_identity_name_id": "jatkinson@specterops.io",
+          "saml_identity_username": "jatkinson@specterops.io",
+          "scim_identity_family_name": "",
+          "scim_identity_given_name": "",
+          "scim_identity_username": "",
+          "github_username": "jaredcatkinson",
+          "github_user_id": "MDQ6VXNlcjEzMjc4MjEw",
+          "query_mapped_users": "MATCH p=(:GH_ExternalIdentity {objectid: 'EI_LAHOCOV2OC2WFS4CBGND'})-[:GH_MapsToUser]->() RETURN p"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "kind": "GH_HasSamlIdentityProvider",
+        "start": {
+          "value": "O_kgDOCoV2OQ"
+        },
+        "end": {
+          "value": "OIP_kwDOCoV2Oc2WFg"
+        },
+        "properties": {
+          "traversable": false
+        }
+      },
+      {
+        "kind": "GH_HasExternalIdentity",
+        "start": {
+          "value": "OIP_kwDOCoV2Oc2WFg"
+        },
+        "end": {
+          "value": "EI_lAHOCoV2Oc2WFs4CbGNd"
+        },
+        "properties": {
+          "traversable": false
+        }
+      },
+      {
+        "kind": "GH_MapsToUser",
+        "start": {
+          "value": "EI_lAHOCoV2Oc2WFs4CbGNd"
+        },
+        "end": {
+          "kind": "Okta_User",
+          "value": "jatkinson@specterops.io",
+          "match_by": "name"
+        },
+        "properties": {
+          "traversable": false
+        }
+      },
+      {
+        "kind": "GH_MapsToUser",
+        "start": {
+          "value": "EI_lAHOCoV2Oc2WFs4CbGNd"
+        },
+        "end": {
+          "value": "MDQ6VXNlcjEzMjc4MjEw"
+        },
+        "properties": {
+          "traversable": false
+        }
+      },
+      {
+        "kind": "GH_SyncedTo",
+        "start": {
+          "kind": "Okta_User",
+          "value": "jatkinson@specterops.io",
+          "match_by": "name"
+        },
+        "end": {
+          "value": "MDQ6VXNlcjEzMjc4MjEw"
+        },
+        "properties": {
+          "composition": "MATCH p=()<-[:GH_SyncedToEnvironment]-(:GH_SamlIdentityProvider)-[:GH_HasExternalIdentity]->(:GH_ExternalIdentity)-[:GH_MapsToUser]->(n) WHERE n.objectid = 'MDQ6VXNLCJEZMJC4MJEW' OR n.name = 'JATKINSON@SPECTEROPS.IO' RETURN p",
+          "traversable": true
+        }
+      }
+    ]
+  }
+}

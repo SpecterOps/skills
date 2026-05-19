@@ -1,0 +1,14 @@
+name: Circular AZ group memberships
+guid: b005669c-d8af-47ae-a0f1-4f36cd5334ab
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Detects circular group membership chains where groups are members of themselves through one or more intermediate groups. This causes an administrative complexity.
+query: |-
+  MATCH p=(x:AZGroup)-[:AZMemberOf*2..]->(y:AZGroup)
+  WHERE x.objectid=y.objectid
+  RETURN p
+  LIMIT 100
+revision: 1
+resources: https://softwareengineering.stackexchange.com/questions/11856/whats-wrong-with-circular-references
+acknowledgements: Martin Sohn Christensen, @martinsohndk

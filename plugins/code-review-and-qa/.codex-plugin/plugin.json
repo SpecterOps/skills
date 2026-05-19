@@ -1,0 +1,16 @@
+{
+  "name": "code-review-and-qa",
+  "version": "0.1.0",
+  "description": "Code review and web application QA workflows for Specter Codex.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Code Review And QA",
+    "category": "Productivity",
+    "shortDescription": "Code review and web application QA workflows for Specter Codex.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Code Review And Qa plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Dangerous Branch Permissions",
+  "query": "MATCH p=(:GH_User)-[:GH_HasRole|GH_HasBaseRole|GH_MemberOf*1..]->(:GH_RepoRole)-[:GH_PushProtectedBranch|GH_BypassBranchProtection]-(r:GH_Repository)\nMATCH p1=(:GH_User)-[:GH_BypassPullRequestAllowances|GH_RestrictionsCanPush]->(rule:GH_BranchProtectionRule)-[:GH_ProtectedBy]->(b:GH_Branch)\nRETURN p,p1\nLIMIT 1000",
+  "description": "Identifies users with dangerous branch permissions in a GitHub organization, including bypass allowances on protection rules."
+}

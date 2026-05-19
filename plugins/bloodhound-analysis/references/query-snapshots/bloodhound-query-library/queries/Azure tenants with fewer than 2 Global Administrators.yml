@@ -1,0 +1,15 @@
+name: Azure tenants with fewer than 2 Global Administrators
+guid: 10b363f9-09c0-4317-9040-083ebbbf8e71
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Global Administrator role with fewer than 2 assigned members, creating a single point of failure for Entra ID tenant administration and emergency access.
+query: |-
+  MATCH (m:AZBase)-[:AZHasRole|AZRoleEligible]->(r:AZRole)
+  WHERE r.objectid STARTS WITH '62E90394-69F5-4237-9190-012177145E10' // Global Administrator role
+  WITH r, COUNT(m) AS gaCount
+  WHERE gaCount < 2 // fewer than 2 members assigned
+  RETURN r
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access
+acknowledgements: Martin Sohn Christensen, @martinsohndk

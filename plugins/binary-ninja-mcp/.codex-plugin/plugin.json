@@ -1,0 +1,16 @@
+{
+  "name": "binary-ninja-mcp",
+  "version": "0.1.0",
+  "description": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Binary Ninja MCP",
+    "category": "Security",
+    "shortDescription": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Binjamcp plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

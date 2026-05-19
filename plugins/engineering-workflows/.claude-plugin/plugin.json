@@ -1,0 +1,8 @@
+{
+  "name": "engineering-workflows",
+  "description": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

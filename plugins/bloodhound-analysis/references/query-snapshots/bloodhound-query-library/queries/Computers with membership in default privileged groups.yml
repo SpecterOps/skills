@@ -1,0 +1,29 @@
+name: Computers with membership in default privileged groups
+guid: 622bf05c-b34b-4538-9a1e-524a2f6f58b0
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description: Finds computers that are members of builtin privileged groups, which is uncommon and possibly bad practice.
+query: |-
+  MATCH p=(c:Computer)-[:MemberOf*1..]->(g:Group)
+  WHERE g.objectid ENDS WITH 'S-1-5-32-544' // Administrators
+  OR g.objectid ENDS WITH 'S-1-5-32-551' // Backup Operators
+  OR g.objectid ENDS WITH '-512' // Domain Admins
+  OR g.objectid ENDS WITH '-519' // Enterprise Admins
+  OR g.objectid ENDS WITH '-527' // Enterprise Key Admins
+  OR g.objectid ENDS WITH '-526' // Key Admins
+  OR g.objectid ENDS WITH '-518' // Schema Admins
+  OR g.objectid ENDS WITH 'S-1-5-32-548' // Account Operators
+  OR g.objectid ENDS WITH 'S-1-5-32-569' // Cryptographic Operators
+  OR g.objectid ENDS WITH 'S-1-5-32-562' // Distributed COM Users
+  OR g.name STARTS WITH 'DNSADMINS@' // DNS Admins
+  OR g.objectid ENDS WITH '-557' // Incoming Forest Trust Builders
+  OR g.objectid ENDS WITH 'S-1-5-32-559' // Performance Log Users
+  OR g.objectid ENDS WITH 'S-1-5-32-550' // Print Operators
+  OR g.objectid ENDS WITH 'S-1-5-32-549' // Server Operators
+  OR g.objectid ENDS WITH 'S-1-5-32-552' // Replicators
+  OR (g.objectid ENDS WITH '-516' AND NOT c.isdc = true) // Domain Controllers (excludes legitimate DCs)
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

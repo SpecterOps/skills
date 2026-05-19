@@ -1,0 +1,12 @@
+name: Entra Users with Entra Admin Role approval (group delegated)
+guid: b70a6512-21e1-4d6e-926a-fba44646085d
+prebuilt: true
+platforms: Azure
+category: General
+description:
+query: |-
+  MATCH p = (:AZUser)-[:AZMemberOf]->(:AZGroup)-[:AZRoleApprover]->(:AZRole)
+  RETURN p LIMIT 100
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Secret Scanning Push Protection Disabled for New Repositories",
+  "query": "MATCH (org:GH_Organization {secret_scanning_push_protection_enabled_for_new_repositories: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where push protection is not enabled for new repositories. Without push protection, secrets can be committed without being blocked before they reach the repository."
+}

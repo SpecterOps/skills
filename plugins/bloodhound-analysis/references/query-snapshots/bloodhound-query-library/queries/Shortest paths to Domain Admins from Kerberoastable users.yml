@@ -1,0 +1,19 @@
+name: Shortest paths to Domain Admins from Kerberoastable users
+guid: bd163361-1e05-47c7-908b-962aef251535
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((s:User)-[:AD_ATTACK_PATHS*1..]->(t:Group))
+  WHERE s.hasspn=true
+  AND s.enabled = true
+  AND NOT s.objectid ENDS WITH '-502'
+  AND NOT COALESCE(s.gmsa, false) = true
+  AND NOT COALESCE(s.msa, false) = true
+  AND t.objectid ENDS WITH '-512'
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

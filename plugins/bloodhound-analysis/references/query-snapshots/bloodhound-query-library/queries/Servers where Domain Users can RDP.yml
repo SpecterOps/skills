@@ -1,0 +1,14 @@
+name: Servers where Domain Users can RDP
+guid: b9a330ae-1d89-44d4-8f74-9ca18e93eb92
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(s:Group)-[:CanRDP]->(t:Computer)
+  WHERE s.objectid ENDS WITH '-513' AND toUpper(t.operatingsystem) CONTAINS 'SERVER'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

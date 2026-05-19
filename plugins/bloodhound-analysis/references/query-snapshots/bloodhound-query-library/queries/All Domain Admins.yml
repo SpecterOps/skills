@@ -1,0 +1,14 @@
+name: All Domain Admins
+guid: 0596dba7-9180-49a0-aa54-00243240037c
+prebuilt: true
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p = (t:Group)<-[:MemberOf*1..]-(a)
+  WHERE (a:User or a:Computer) and t.objectid ENDS WITH '-512'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

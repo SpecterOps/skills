@@ -1,0 +1,16 @@
+{
+  "name": "codex-observability",
+  "version": "0.1.0",
+  "description": "Codex activity reporting and telemetry workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Observability",
+    "category": "Productivity",
+    "shortDescription": "Codex activity reporting and telemetry workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Codex Observability plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

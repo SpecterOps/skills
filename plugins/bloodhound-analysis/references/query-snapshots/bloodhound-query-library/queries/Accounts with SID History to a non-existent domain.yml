@@ -1,0 +1,15 @@
+name: Accounts with SID History to a non-existent domain
+guid: 2710401a-c4c2-4d2c-9edb-d7625045f2e8
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (d:Domain)
+  WITH collect(d.objectid) AS domainSIDs
+  MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
+  WHERE NOT n.domainsid IN domainSIDs
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

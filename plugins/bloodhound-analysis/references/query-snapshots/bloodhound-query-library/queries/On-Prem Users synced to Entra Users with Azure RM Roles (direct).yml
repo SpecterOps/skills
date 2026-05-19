@@ -1,0 +1,15 @@
+name: On-Prem Users synced to Entra Users with Azure RM Roles (direct)
+guid: 8569113b-e42e-49b0-a968-53bcf0ccd970
+prebuilt: true
+platforms:
+- Active Directory
+- Azure
+category: Cross Platform Attack Paths
+description:
+query: |-
+  MATCH p = (:User)-[:SyncedToEntraUser]->(:AZUser)-[:AZOwner|AZUserAccessAdministrator|AZGetCertificates|AZGetKeys|AZGetSecrets|AZAvereContributor|AZKeyVaultContributor|AZContributor|AZVMAdminLogin|AZVMContributor|AZAKSContributor|AZAutomationContributor|AZLogicAppContributor|AZWebsiteContributor]->(:AZBase)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,17 @@
+name: Domain Admins logons to non-Domain Controllers
+guid: e2f3fd0a-1df2-4089-b0a4-272ad6e369a9
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH (s)-[:MemberOf*0..]->(g:Group)
+  WHERE g.objectid ENDS WITH '-516'
+  WITH COLLECT(s) AS exclude
+  MATCH p = (c:Computer)-[:HasSession]->(:User)-[:MemberOf*1..]->(g:Group)
+  WHERE g.objectid ENDS WITH '-512' AND NOT c IN exclude
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

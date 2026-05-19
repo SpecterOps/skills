@@ -1,0 +1,15 @@
+name: Principals with weak supported Kerberos encryption types
+guid: ca329573-2157-41da-ab17-4d122c54b11d
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (u:Base)
+  WHERE 'DES-CBC-CRC' IN u.supportedencryptiontypes
+  OR 'DES-CBC-MD5' IN u.supportedencryptiontypes
+  OR 'RC4-HMAC-MD5' IN u.supportedencryptiontypes
+  RETURN u
+revision: 1
+resources:
+acknowledgements:

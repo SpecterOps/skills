@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: App Installations with Access to All Repositories",
+  "query": "MATCH (app:GH_AppInstallation {repository_selection: 'all'})\nRETURN app\nLIMIT 1000",
+  "description": "Finds GitHub App installations that have access to every repository in the organization. A compromised app credential would affect all repositories."
+}

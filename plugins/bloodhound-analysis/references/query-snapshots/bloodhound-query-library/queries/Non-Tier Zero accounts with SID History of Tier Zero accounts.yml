@@ -1,0 +1,14 @@
+name: Non-Tier Zero accounts with SID History of Tier Zero accounts
+guid: 59744dfe-9411-4daf-b342-1203dc62acd4
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:HasSIDHistory]->(m:Base)
+  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

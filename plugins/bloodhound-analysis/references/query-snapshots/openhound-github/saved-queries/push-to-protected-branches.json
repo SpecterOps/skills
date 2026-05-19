@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Users Who Can Push to Protected Branches",
+  "query": "MATCH p=(actor)-[:GH_RestrictionsCanPush]->(rule:GH_BranchProtectionRule)-[:GH_ProtectedBy]->(branch:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds users and teams that are allowed to push directly to protected branches when push restrictions are enabled. These actors bypass the normal pull request workflow."
+}

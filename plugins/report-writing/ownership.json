@@ -1,0 +1,10 @@
+{
+  "plugin": "report-writing",
+  "purpose": "Finding and report drafting workflows for security assessment deliverables.",
+  "agents": [
+    "report-writer"
+  ],
+  "skills": [
+    "finding-report"
+  ]
+}

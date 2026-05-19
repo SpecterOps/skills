@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Privileged Custom Org Roles",
+  "query": "MATCH p=(role:GH_OrgRole {type:'custom'})-[r]->(dest)\nWHERE dest:GH_Organization\nOR dest:GH_OrgRole\nRETURN p\nLIMIT 1000",
+  "description": "Returns all custom organization roles that are privileged (i.e., have permissions that are not default)"
+}

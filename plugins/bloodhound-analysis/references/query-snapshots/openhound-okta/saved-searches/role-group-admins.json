@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Role Assignments - Group Administrators",
+  "description": "List all Group Administrators and Group Membership Administrators.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_User:Okta_Group:Okta_Application)-[:Okta_GroupAdmin|Okta_GroupMembershipAdmin|Okta_OrgAdmin]->(:Okta_Group)\nRETURN p\nLIMIT 1000"
+}

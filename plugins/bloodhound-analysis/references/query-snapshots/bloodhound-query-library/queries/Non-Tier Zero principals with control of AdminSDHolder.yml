@@ -1,0 +1,14 @@
+name: Non-Tier Zero principals with control of AdminSDHolder
+guid: 4c1e0137-5b7f-48d8-bd09-9db7674bca61
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Group)-[r:Owns|GenericAll|GenericWrite|WriteOwner|WriteDacl|ForceChangePassword|AllExtendedRights|AddMember|AllowedToDelegate|CoerceToTGT|AllowedToAct|AdminTo|CanPSRemote|CanRDP|ExecuteDCOM|HasSIDHistory|AddSelf|DCSync|ReadLAPSPassword|ReadGMSAPassword|DumpSMSAPassword|SQLAdmin|AddAllowedToAct|WriteSPN|AddKeyCredentialLink|SyncLAPSPassword|WriteAccountRestrictions|WriteOwnerLimitedRights|OwnsLimitedRights]->(m:Container)
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND m.name STARTS WITH "ADMINSDHOLDER@"
+  RETURN p
+revision: 1
+resources: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory#adminsdholder
+acknowledgements: Martin Sohn Christensen, @martinsohndk

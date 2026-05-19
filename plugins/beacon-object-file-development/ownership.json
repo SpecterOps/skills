@@ -1,0 +1,8 @@
+{
+  "plugin": "beacon-object-file-development",
+  "purpose": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
+  "agents": [],
+  "skills": [
+    "beacon-object-file-development"
+  ]
+}

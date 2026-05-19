@@ -1,0 +1,36 @@
+timezone:
+  default_assumption: UTC
+  output: UTC
+
+output:
+  filename: timeline.md
+
+mitre:
+  enabled: true
+
+duplicates:
+  detection_enabled: true
+  time_window_seconds: 5
+  similarity_threshold: 0.8
+
+sources:
+  cobaltstrike:
+    timezone: UTC
+  mythic:
+    include_output: true
+    output_max_chars: 500
+  asciinema:
+    min_command_length: 2
+    include_output: true
+    output_max_chars: 500
+  notes:
+    operator_pattern: (?P<operator>[a-zA-Z0-9_-]+)[-_]notes
+  ghostwriter:
+    columns:
+      timestamp: start_date
+      operator: operator_name
+      tool: tool
+      command: command
+      output: output
+      comments: comments
+      target: dest_ip

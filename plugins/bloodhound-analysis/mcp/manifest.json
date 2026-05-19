@@ -1,0 +1,26 @@
+{
+  "name": "bloodhound_mcp",
+  "type": "stdio",
+  "source": {
+    "default": "https://github.com/mwnickerson/bloodhound_mcp.git",
+    "override_env": "BLOODHOUND_MCP_SOURCE"
+  },
+  "install": {
+    "script": "./scripts/install-mcp-deps.sh",
+    "default_target": "./vendor/bloodhound-mcp",
+    "target_env": "BLOODHOUND_MCP_DIR"
+  },
+  "run": {
+    "script": "./scripts/run-bloodhound-mcp.sh",
+    "entrypoint": "main.py"
+  },
+  "secrets": [
+    "BLOODHOUND_TOKEN_ID",
+    "BLOODHOUND_TOKEN_KEY"
+  ],
+  "configuration": [
+    "BLOODHOUND_DOMAIN",
+    "BLOODHOUND_SCHEME",
+    "BLOODHOUND_PORT"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Repository Workflows",
+  "query": "MATCH p=(:GH_Repository)-[:GH_HasWorkflow]->(:GH_Workflow)\nRETURN p\nLIMIT 1000",
+  "description": "Returns all repository workflows"
+}

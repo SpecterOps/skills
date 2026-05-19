@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Tier 1 to Tier 0 Without Contains",
+  "description": "Filter out jamf_Contains edges from Tiered node query",
+  "query": "MATCH p=(s)-[r]->(t)\nWHERE s.Tier = 1 AND t.Tier = 0\nAND type(r) <> 'jamf_Contains'\nRETURN p\nLIMIT 1000"
+}

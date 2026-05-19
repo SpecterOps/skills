@@ -1,0 +1,153 @@
+{
+  "policy": {
+    "account_maintenance": {
+      "accounts": [],
+      "directory_bindings": [],
+      "management_account": {
+        "action": "doNotChange"
+      },
+      "open_firmware_efi_password": {
+        "of_mode": "none",
+        "of_password_sha256": ""
+      }
+    },
+    "disk_encryption": {
+      "action": "none"
+    },
+    "dock_items": [],
+    "files_processes": {
+      "delete_file": false,
+      "kill_process": false,
+      "locate_file": "",
+      "run_command": "",
+      "search_by_path": "",
+      "search_for_process": "",
+      "spotlight_search": "",
+      "update_locate_database": false
+    },
+    "general": {
+      "category": {
+        "id": -1,
+        "name": "No category assigned"
+      },
+      "date_time_limitations": {
+        "activation_date": "",
+        "activation_date_epoch": 0,
+        "activation_date_utc": "",
+        "expiration_date": "",
+        "expiration_date_epoch": 0,
+        "expiration_date_utc": "",
+        "no_execute_end": "",
+        "no_execute_on": {},
+        "no_execute_start": ""
+      },
+      "enabled": true,
+      "frequency": "Once every week",
+      "id": 1,
+      "location_user_only": false,
+      "name": "Update Inventory",
+      "network_limitations": {
+        "any_ip_address": true,
+        "minimum_network_connection": "No Minimum",
+        "network_segments": []
+      },
+      "network_requirements": "Any",
+      "notify_on_each_failed_retry": false,
+      "offline": false,
+      "override_default_settings": {
+        "distribution_point": "default",
+        "force_afp_smb": false,
+        "sus": "default",
+        "target_drive": "/"
+      },
+      "retry_attempts": -1,
+      "retry_event": "none",
+      "site": {
+        "id": -1,
+        "name": "NONE"
+      },
+      "target_drive": "/",
+      "trigger": "CHECKIN",
+      "trigger_checkin": true,
+      "trigger_enrollment_complete": false,
+      "trigger_login": false,
+      "trigger_network_state_changed": false,
+      "trigger_other": "",
+      "trigger_startup": false
+    },
+    "maintenance": {
+      "byhost": false,
+      "heal": false,
+      "install_all_cached_packages": false,
+      "permissions": false,
+      "prebindings": false,
+      "recon": true,
+      "reset_name": false,
+      "system_cache": false,
+      "user_cache": false,
+      "verify": false
+    },
+    "package_configuration": {
+      "distribution_point": "default",
+      "packages": []
+    },
+    "printers": [
+      ""
+    ],
+    "reboot": {
+      "file_vault_2_reboot": false,
+      "message": "This computer will restart in 5 minutes. Please save anything you are working on and log out by choosing Log Out from the bottom of the Apple menu.",
+      "minutes_until_reboot": 5,
+      "no_user_logged_in": "Do not restart",
+      "specify_startup": "",
+      "start_reboot_timer_immediately": false,
+      "startup_disk": "Current Startup Disk",
+      "user_logged_in": "Do not restart"
+    },
+    "scope": {
+      "all_computers": true,
+      "buildings": [],
+      "computer_groups": [],
+      "computers": [],
+      "departments": [],
+      "exclusions": {
+        "buildings": [],
+        "computer_groups": [],
+        "computers": [],
+        "departments": [],
+        "ibeacons": [],
+        "network_segments": [],
+        "user_groups": [],
+        "users": []
+      },
+      "limit_to_users": {
+        "user_groups": []
+      },
+      "limitations": {
+        "ibeacons": [],
+        "network_segments": [],
+        "user_groups": [],
+        "users": []
+      }
+    },
+    "scripts": [],
+    "self_service": {
+      "feature_on_main_page": false,
+      "force_users_to_view_description": false,
+      "install_button_text": "Install",
+      "reinstall_button_text": "Reinstall",
+      "self_service_categories": [],
+      "self_service_description": "",
+      "self_service_display_name": "",
+      "self_service_icon": {},
+      "use_for_self_service": false
+    },
+    "user_interaction": {
+      "allow_deferral_minutes": 0,
+      "allow_deferral_until_utc": "",
+      "allow_users_to_defer": false,
+      "message_finish": "",
+      "message_start": ""
+    }
+  }
+}

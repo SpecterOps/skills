@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Properties": {
+                        "type": "object",
+                        "properties": {
+                            "id": { "type": "integer", "description": "Unique identifier for the device." },
+                            "name": { "type": "string", "description": "Device name." },
+                            "network_adapter_type": { "type": "string", "description": "Type of network adapter." },
+                            "mac_address": { "type": "string", "description": "MAC address of the primary network adapter." },
+                            "alt_network_adapter_type": { "type": "string", "description": "Type of alternate network adapter." },
+                            "alt_mac_address": { "type": "string", "description": "MAC address of the alternate network adapter." },
+                            "ip_address": { "type": "string", "description": "Current IP address of the device." },
+                            "last_reported_ip": { "type": "string", "description": "Last reported IP address." },
+                            "serial_number": { "type": "string", "description": "Device serial number." },
+                            "udid": { "type": "string", "description": "Unique Device Identifier." },
+                            "jamf_version": { "type": "string", "description": "Jamf version installed on the device." },
+                            "platform": { "type": "string", "description": "Platform type (e.g., Mac)." },
+                            "barcode_1": { "type": "string", "description": "Primary barcode." },
+                            "barcode_2": { "type": "string", "description": "Secondary barcode." },
+                            "asset_tag": { "type": "string", "description": "Asset tag for the device." },
+                            "report_date_epoch": { "type": "integer", "description": "Timestamp of the report in epoch milliseconds." },
+                            "last_contact_time_epoch": { "type": "integer", "description": "Timestamp of last contact in epoch milliseconds." },
+                            "site": { "type": "integer", "description": "Site ID associated with the device." },
+                            "make": { "type": "string", "description": "Device manufacturer." },
+                            "model": { "type": "string", "description": "Device model." },
+                            "model_identifier": { "type": "string", "description": "Model identifier (e.g., Mac14,3)." },
+                            "os_name": { "type": "string", "description": "Operating system name." },
+                            "os_version": { "type": "string", "description": "Operating system version." },
+                            "os_build": { "type": "string", "description": "Operating system build number." },
+                            "software_update_device_id": { "type": "string", "description": "Device ID for software updates." },
+                            "active_directory_status": { "type": "string", "description": "Active Directory binding status." },
+                            "service_pack": { "type": "string", "description": "Service pack version (if applicable)." },
+                            "processor_type": { "type": "string", "description": "Type of processor in the device." },
+                            "is_apple_silicon": { "type": "boolean", "description": "Indicates if the device uses Apple Silicon." },
+                            "processor_architecture": { "type": "string", "description": "Processor architecture (e.g., arm64)." },
+                            "sip_status": { "type": "string", "description": "System Integrity Protection (SIP) status." },
+                            "gatekeeper_status": { "type": "string", "description": "Gatekeeper status." }
+                        },
+                        "required": [
+                            "id", "name", "network_adapter_type", "mac_address",
+                            "ip_address", "serial_number", "udid", "jamf_version",
+                            "platform", "make", "model", "os_name", "os_version",
+                            "processor_type", "sip_status", "gatekeeper_status"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "groups_accounts": {
+                        "type": "object",
+                        "properties": {
+                            "computer_group_memberships": {
+                                "type": "array",
+                                "items": { "type": "string", "description": "Names of groups the device is a member of." }
+                            }
+                        },
+                        "required": ["computer_group_memberships"],
+                        "additionalProperties": false
+                    },
+                    "local_accounts": {
+                        "type": "array",
+                        "description": "List of local accounts on the device.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": { "type": "string", "description": "Account username." },
+                                "realname": { "type": "string", "description": "Full name of the account owner." },
+                                "uid": { "type": "string", "description": "User ID of the account." },
+                                "home": { "type": "string", "description": "Home directory path." },
+                                "home_size": { "type": "string", "description": "Size of the home directory." },
+                                "home_size_mb": { "type": "integer", "description": "Size of the home directory in MB." },
+                                "administrator": { "type": "boolean", "description": "Indicates if the account has admin privileges." },
+                                "filevault_enabled": { "type": "boolean", "description": "Indicates if FileVault is enabled for the account." }
+                            },
+                            "required": ["name", "realname", "uid", "home", "administrator", "filevault_enabled"],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["Properties", "groups_accounts", "local_accounts"],
+                "additionalProperties": false
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "methods": { "type": "integer", "description": "Number of API methods available." },
+                "type": { "type": "string", "description": "Type of data returned in the response." },
+                "count": { "type": "integer", "description": "Count of items in the data array." },
+                "version": { "type": "integer", "description": "Version of the API response." }
+            },
+            "required": ["methods", "type", "count", "version"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["data", "meta"],
+    "additionalProperties": false
+}

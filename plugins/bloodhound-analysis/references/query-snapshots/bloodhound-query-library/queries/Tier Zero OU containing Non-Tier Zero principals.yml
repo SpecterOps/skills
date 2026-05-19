@@ -1,0 +1,16 @@
+name: Tier Zero OU containing Non-Tier Zero principals
+guid: 4a8f2e1c-3b6d-4e7a-9f1b-2c5d8e0a3f7b
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies Tier Zero OUs that contain Non-Tier Zero principals. Organizations should logically structure their administrative tier structure with separate root OUs for each tier; mixing Tier Zero and Non-Tier Zero principals in the same OU is an exception and can be an indicator of inadequate tier isolation.
+query: |-
+  MATCH p = (ou:OU)-[:Contains]->(n:Base)
+  WHERE (n:User OR n:Group OR n:Computer)
+    AND (COALESCE(ou.system_tags, '') CONTAINS 'admin_tier_0' OR ou:Tag_Tier_Zero)
+    AND NOT (COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0' OR n:Tag_Tier_Zero)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

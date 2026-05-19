@@ -1,0 +1,14 @@
+name: Tier Zero principals not owned by Tier Zero
+guid: 99d29ded-223a-442b-a0e0-f8b5694c6441
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(n:Base)-[:OwnsRaw|Owns|OwnsLimitedRights]->(m:Base)
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 3
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

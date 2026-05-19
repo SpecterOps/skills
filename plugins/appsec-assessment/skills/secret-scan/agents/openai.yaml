@@ -1,0 +1,4 @@
+interface:
+  display_name: "Secret Scan"
+  short_description: "Find exposed secrets in code"
+  default_prompt: "Use $secret-scan to plan and run an authorized secret discovery scan against this target and report prioritized findings."

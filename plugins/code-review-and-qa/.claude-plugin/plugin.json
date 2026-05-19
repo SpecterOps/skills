@@ -1,0 +1,8 @@
+{
+  "name": "code-review-and-qa",
+  "description": "Code review and web application QA workflows for Specter Codex.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

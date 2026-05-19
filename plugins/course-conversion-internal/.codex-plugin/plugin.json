@@ -1,0 +1,16 @@
+{
+  "name": "course-conversion-internal",
+  "version": "0.1.0",
+  "description": "Internal-only staged course wiki migration workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Course Conversion Internal",
+    "category": "Productivity",
+    "shortDescription": "Internal-only staged course wiki migration workflows.",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Course Conversion Internal plugin."
+  },
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

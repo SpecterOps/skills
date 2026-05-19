@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Synced Principals with Privileged Access (Direct) - Hybrid Edges",
+  "description": "Users, groups, and applications with inbound hybrid relationships (sync, SSO, or AD agent) that hold privileged role assignments in Okta.",
+  "query": "MATCH p = ()-[:Okta_UserSync|Okta_MembershipSync|Okta_InboundSSO|Okta_HostsAgent]->(:Okta_User:Okta_Group:Okta_Application)-[:Okta_HasRoleAssignment]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nRETURN p\nLIMIT 1000"
+}

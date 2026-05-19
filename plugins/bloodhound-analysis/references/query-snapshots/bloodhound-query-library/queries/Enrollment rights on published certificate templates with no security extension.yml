@@ -1,0 +1,14 @@
+name: Enrollment rights on published certificate templates with no security extension
+guid: 0677b70c-4e04-4e89-a6a2-f5764604a6a7
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(ct:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
+  WHERE ct.nosecurityextension = true
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Account to Account Attack Paths",
+  "description": "Display Jamf Accounts with Attack-Paths impacting other Jamf Accounts - increase the maximum edges to see more relationships (i.e. change 5 to 6 to see 1 more)",
+  "query": "MATCH p=(s:jamf_Account)-[*1..5]->(t:jamf_Account)\nRETURN p\nLIMIT 1000"
+}

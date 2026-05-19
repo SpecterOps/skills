@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: Group Administrators Targeted Edges",
+  "description": "Targeted Filtering Query, display nodes with edges between 'GROUP_ADMINISTRATORS' and 'UPDATE' or 'GROUP_ADMINISTRATORS' and other nodes that start with 'SOL'",
+  "query": "MATCH p=(s)-[]->(t)\nWHERE s.name STARTS WITH 'GROUP_ADMINISTRATORS' AND t.name STARTS WITH 'UPDATE' OR s.name STARTS WITH 'GROUP_ADMINISTRATORS' AND t.name STARTS WITH 'SOL'\nRETURN p\nLIMIT 1000"
+}

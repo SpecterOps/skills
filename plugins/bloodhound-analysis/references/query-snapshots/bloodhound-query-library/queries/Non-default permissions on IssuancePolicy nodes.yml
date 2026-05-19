@@ -1,0 +1,14 @@
+name: Non-default permissions on IssuancePolicy nodes
+guid: b2280665-c91b-448c-8c0f-97d1f38b6f59
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (s:Base)-[:GenericAll|GenericWrite|Owns|WriteOwner|WriteDacl]->(:IssuancePolicy)
+  WHERE NOT s.objectid ENDS WITH '-512' AND NOT s.objectid ENDS WITH '-519'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

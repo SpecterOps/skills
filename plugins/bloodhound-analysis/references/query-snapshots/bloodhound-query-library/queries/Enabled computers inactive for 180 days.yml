@@ -1,0 +1,20 @@
+name: Enabled computers inactive for 180 days
+guid: 0768e810-1e1e-4319-a216-76d9c2058644
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  WITH 180 as inactive_days
+  MATCH (n:Computer)
+  WHERE n.enabled = true
+  AND n.lastlogontimestamp < (datetime().epochseconds - (inactive_days * 86400)) // Replicated value
+  AND n.lastlogon < (datetime().epochseconds - (inactive_days * 86400)) // Non-replicated value
+  AND n.whencreated < (datetime().epochseconds - (inactive_days * 86400)) // Exclude recently created principals
+  AND NOT n.name STARTS WITH 'AZUREADKERBEROS.' // Removes false positive, Azure KRBTGT
+  AND NOT n.name STARTS WITH 'AZUREADSSOACC.' // Removes false positive, Entra Seamless SSO
+  RETURN n
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

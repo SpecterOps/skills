@@ -1,0 +1,14 @@
+name: Shortest paths to systems trusted for unconstrained delegation
+guid: 16a9e47b-45f8-4514-b409-771bb5186142
+prebuilt: true
+platforms: Active Directory
+category: Shortest Paths
+description:
+query: |-
+  MATCH p=shortestPath((s)-[:AD_ATTACK_PATHS*1..]->(t:Computer))
+  WHERE t.unconstraineddelegation = true AND s<>t
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+acknowledgements:

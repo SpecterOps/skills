@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - Admins Not Enforced",
+  "query": "MATCH p=(:GH_BranchProtectionRule {enforce_admins: false})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branch protection rules where administrators can bypass all protections. Admins can push directly, skip reviews, and override status checks on these branches."
+}

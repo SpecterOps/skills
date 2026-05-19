@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Dependabot Alerts Disabled for New Repositories",
+  "query": "MATCH (org:GH_Organization {dependabot_alerts_enabled_for_new_repositories: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where Dependabot alerts are not enabled for new repositories. Vulnerable dependencies in new repositories will go undetected."
+}

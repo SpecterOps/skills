@@ -1,0 +1,15 @@
+name: Domains with a single-point-of-failure Domain Controller
+guid: 3359a295-7cfd-491f-976b-c5a68647431c
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Group)<-[:MemberOf]-(:Computer)
+  WHERE n.objectid ENDS WITH '-516'
+  WITH n, COUNT(n) AS dcCount
+  WHERE dcCount = 1
+  RETURN n
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

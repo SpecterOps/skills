@@ -1,0 +1,14 @@
+name: Azure groups nested more than 3 levels
+guid: d819b346-b285-4e82-8d8d-2798d34716e2
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Identifies Azure AD groups nested more than 3 levels deep. Excessive nesting complexity reduces auditability and increases the risk of misconfigured permissions.
+query: |-
+  MATCH p = (:AZGroup)-[:AZMemberOf*3..]->(:AZGroup)
+  // Matches Azure groups with 3 or more MemberOf hops to another Azure group
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

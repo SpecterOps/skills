@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Dependabot Security Updates Disabled for New Repositories",
+  "query": "MATCH (org:GH_Organization {dependabot_security_updates_enabled_for_new_repositories: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where Dependabot security update PRs are not enabled for new repositories. Known vulnerable dependencies will not receive automated fix PRs."
+}

@@ -1,0 +1,18 @@
+name: Kerberoastable members of Tier Zero / High Value groups
+guid: e6da7800-ae06-41cb-80a6-d5421ab2143a
+prebuilt: true
+platforms: Active Directory
+category: Kerberos Interaction
+description:
+query: |-
+  MATCH (u:User)
+  WHERE ((u:Tag_Tier_Zero) OR COALESCE(u.system_tags, '') CONTAINS 'admin_tier_0') AND u.hasspn=true
+  AND u.enabled = true
+  AND NOT u.objectid ENDS WITH '-502'
+  AND NOT COALESCE(u.gmsa, false) = true
+  AND NOT COALESCE(u.msa, false) = true
+  RETURN u
+  LIMIT 100
+revision: 2
+resources: https://attack.mitre.org/techniques/T1558/003/
+acknowledgements:

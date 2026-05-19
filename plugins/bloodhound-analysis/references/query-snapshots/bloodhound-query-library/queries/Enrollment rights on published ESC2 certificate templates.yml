@@ -1,0 +1,18 @@
+name: Enrollment rights on published ESC2 certificate templates
+guid: ebc77984-1ceb-4ed2-a395-ce1067847941
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (:Base)-[:Enroll|GenericAll|AllExtendedRights]->(c:CertTemplate)-[:PublishedTo]->(:EnterpriseCA)
+  WHERE c.requiresmanagerapproval = false
+  AND (c.effectiveekus = [''] OR '2.5.29.37.0' IN c.effectiveekus OR c.effectiveekus IS NULL)
+  AND (c.authorizedsignatures = 0 OR c.schemaversion = 1)
+  RETURN p
+  LIMIT 1000
+revision: 2
+resources:
+- https://posts.specterops.io/certified-pre-owned-d95910965cd2
+- https://posts.specterops.io/adcs-attack-paths-in-bloodhound-part-2-ac7f925d1547
+acknowledgements:

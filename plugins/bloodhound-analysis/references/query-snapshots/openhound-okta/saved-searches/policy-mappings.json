@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Policy Mappings",
+  "description": "Retrieves all policy mappings.",
+  "query": "MATCH policies = (:Okta_Organization)-[:Okta_Contains]->(:Okta_Policy)\nMATCH mappings = (:Okta_Policy)-[:Okta_PolicyMapping]->(:Okta)\nRETURN policies,mappings\nLIMIT 1000"
+}

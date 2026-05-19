@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Dependency Graph Disabled for New Repositories",
+  "query": "MATCH (org:GH_Organization {dependency_graph_enabled_for_new_repositories: false})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where the dependency graph is not enabled for new repositories. Without the dependency graph, transitive dependency vulnerabilities cannot be tracked."
+}

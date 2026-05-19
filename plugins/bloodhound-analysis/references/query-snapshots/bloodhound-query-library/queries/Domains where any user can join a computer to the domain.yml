@@ -1,0 +1,18 @@
+name: Domains where any user can join a computer to the domain
+guid: 421921fa-bc0f-4659-9680-b7481adcb132
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Identifies domains where authenticated users can create machine accounts (machineaccountquota > 0 or unlimited). Does not check the "Add workstations to domain" security policy on Domain Controllers.
+query: |-
+  MATCH (d:Domain)
+  WHERE (
+    d.machineaccountquota IS NULL // NULL = no limit is set
+    OR d.machineaccountquota > 0)
+  AND d.collected = true
+  RETURN d
+revision: 3
+resources:
+- https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/default-workstation-numbers-join-domain
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/add-workstations-to-domain
+acknowledgements:

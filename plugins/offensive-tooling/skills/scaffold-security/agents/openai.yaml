@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scaffold Security"
+  short_description: "Create a security tool scaffold"
+  default_prompt: "Use $scaffold-security to scaffold a new security tool project with uv-first setup and fallback only if uv is unavailable."

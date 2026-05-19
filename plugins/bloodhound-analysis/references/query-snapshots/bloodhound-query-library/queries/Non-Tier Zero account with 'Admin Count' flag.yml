@@ -1,0 +1,37 @@
+name: Non-Tier Zero account with 'Admin Count' flag
+guid: e7f703b3-5dba-4aef-8346-4d589be2c828
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description: Accounts that were members of AD's built-in administrative groups, thus had the 'AdminCount' flag set, but are not currently in those groups and not tagged as Tier Zero. These accounts could still be highly privileged by other means.
+query: |-
+  MATCH (n:Base)
+  WHERE (n:User OR n:Computer)
+  AND n.admincount = true
+  AND NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND NOT n.objectid ENDS WITH '-502' // KRBTGT user
+  AND NOT n.objectid ENDS WITH '-500' // Administrator user
+  OPTIONAL MATCH (n)-[:MemberOf]->(g:Group)
+  WHERE g.objectid ENDS WITH '-512' // Domain Admins
+  OR g.objectid ENDS WITH '-548' // Account Operators
+  OR g.objectid ENDS WITH '-544' // Administrators
+  OR g.objectid ENDS WITH '-551' // Backup Operators
+  OR g.objectid ENDS WITH '-516' // Domain Controllers
+  OR g.objectid ENDS WITH '-519' // Enterprise Admins
+  OR g.objectid ENDS WITH '-527' // Enterprise Key Admins
+  OR g.objectid ENDS WITH '-526' // Key Admins
+  OR g.objectid ENDS WITH '-550' // Print Operators
+  OR g.objectid ENDS WITH '-521' // Read-Only Domain Controllers
+  OR g.objectid ENDS WITH '-552' // Replicators
+  OR g.objectid ENDS WITH '-518' // Schema Admins
+  OR g.objectid ENDS WITH '-549' // Server Operators
+  WITH n, g
+  WHERE g IS NULL
+  RETURN n
+revision: 2
+resources:
+- https://learn.microsoft.com/en-us/windows/win32/adschema/a-admincount
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory#protected-groups
+acknowledgements:
+- Martin Sohn Christensen, @martinsohndk
+- kaasimir, @kaasimir

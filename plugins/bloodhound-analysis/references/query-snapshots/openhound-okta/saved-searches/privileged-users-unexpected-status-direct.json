@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Privileged Users with Non-Active Status (Direct)",
+  "description": "Finds users whose status is not ACTIVE and directly hold privileged role assignments, including deactivated, suspended, or provisioning-incomplete accounts.",
+  "query": "MATCH p = (u:Okta_User)-[:Okta_HasRoleAssignment]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nWHERE u.status <> \"ACTIVE\"\nRETURN p\nLIMIT 1000"
+}

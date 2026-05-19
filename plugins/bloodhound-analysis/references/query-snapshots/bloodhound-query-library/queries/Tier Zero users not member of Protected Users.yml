@@ -1,0 +1,17 @@
+name: Tier Zero users not member of Protected Users
+guid: 543eb01d-9fa3-4b8f-a936-b46bbfdaa2ae
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (m:User)
+  WHERE ((m:Tag_Tier_Zero) OR COALESCE(m.system_tags, '') CONTAINS 'admin_tier_0')
+  OPTIONAL MATCH (g:Group)<-[:MemberOf*1..]-(n:Base)
+  WHERE g.objectid ENDS WITH '-525'
+  WITH m, COLLECT(n) AS matchingNs
+  WHERE NONE(n IN matchingNs WHERE n.objectid = m.objectid)
+  RETURN m
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

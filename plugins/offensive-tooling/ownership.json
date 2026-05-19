@@ -1,0 +1,11 @@
+{
+  "plugin": "offensive-tooling",
+  "purpose": "Security tool scaffolding and proof-of-concept development workflows.",
+  "agents": [
+    "poc-dev",
+    "exploit-dev"
+  ],
+  "skills": [
+    "scaffold-security"
+  ]
+}

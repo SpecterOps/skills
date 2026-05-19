@@ -1,0 +1,6 @@
+{
+  "plugin": "ghostwriter-oplog",
+  "purpose": "Quick logging commands for GhostWriter operation logs",
+  "agents": [],
+  "skills": []
+}

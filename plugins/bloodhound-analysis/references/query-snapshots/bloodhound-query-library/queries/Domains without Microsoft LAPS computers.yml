@@ -1,0 +1,16 @@
+name: Domains without Microsoft LAPS computers
+guid: f9b440b5-732c-4ed3-b6d2-83857db17e1a
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH (d:Domain)
+  OPTIONAL MATCH (c:Computer)
+  WHERE c.domainsid = d.objectid AND c.haslaps = true
+  WITH d, COLLECT(c) AS computers
+  WHERE SIZE(computers) = 0
+  RETURN d
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

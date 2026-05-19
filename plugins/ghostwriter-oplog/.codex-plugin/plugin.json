@@ -1,0 +1,16 @@
+{
+  "name": "ghostwriter-oplog",
+  "version": "0.1.0",
+  "description": "Quick logging commands for GhostWriter operation logs",
+  "interface": {
+    "displayName": "Ghostwriter Oplog",
+    "category": "Security",
+    "shortDescription": "Quick logging commands for GhostWriter operation logs",
+    "developerName": "SpecterOps",
+    "defaultPrompt": "Use the Gw Oplog plugin."
+  },
+  "skills": "./skills/",
+  "dependsOn": [],
+  "optionalDependencies": [],
+  "conflictsWith": []
+}

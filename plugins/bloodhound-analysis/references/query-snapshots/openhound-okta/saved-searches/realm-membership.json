@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Realm Membership",
+  "description": "Lists all Okta realms and the users assigned to them.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_Realm)-[:Okta_RealmContains]->(:Okta_User)\nRETURN p\nLIMIT 1000"
+}

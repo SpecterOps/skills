@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webapp Review"
+  short_description: "Plan or run web security tests"
+  default_prompt: "Use $webapp-review to build a web app security checklist, suggest active test commands, and execute approved tests with evidence capture."

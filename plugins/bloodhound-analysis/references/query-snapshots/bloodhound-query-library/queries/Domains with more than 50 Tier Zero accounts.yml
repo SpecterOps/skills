@@ -1,0 +1,15 @@
+name: Domains with more than 50 Tier Zero accounts
+guid: f046e95a-5f84-4e83-bcda-6e83f3d8e21a
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (d:Domain)-[:Contains*1..]->(n:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  WITH d, COUNT(n) AS adminCount
+  WHERE adminCount > 50
+  RETURN d
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

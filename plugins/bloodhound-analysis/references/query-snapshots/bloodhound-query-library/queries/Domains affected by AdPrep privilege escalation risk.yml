@@ -1,0 +1,16 @@
+name: Domains affected by AdPrep privilege escalation risk
+guid: 815ff190-f6f3-4757-a516-2f4bf589b705
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Finds cases where the Enterprise Key Admins group holds a GenericAll (Full Control) ACE on a Domain node. This condition indicates the adprep/domainprep bug from affected Windows Server 2016 builds, where instead of being scoped to WriteProperty on msDS-KeyCredentialLink, the group was inadvertently granted unrestricted control over the domain naming context and all descendant objects — enabling any member to perform a DCSync attack and harvest credential material from the entire domain.
+query: |-
+  MATCH p=(n:Group)-[r:GenericAll]->(m:Domain)
+  WHERE n.objectid ENDS WITH "-527" // Enterprise Key Admins
+  RETURN p
+revision: 2
+resources:
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/domain-wide-updates#windows-server-semi-annual-channel-domain-wide-updates
+- https://mskb.pkisolutions.com/kb/4033233
+- https://mskb.pkisolutions.com/kb/4469393
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,24 @@
+name: Potential GPO 'Apply' misconfiguration
+guid: f5f2455e-afdc-4708-9a34-98f539ce52d8
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description: In Active Directory, GPO's are applied to objects in the Group Policy Management Console by ticking "Allow - Apply group policy", but administrators can mistakenly tick "Allow - Write" or "Allow - Full Control" resulting in a misconfigured GPO that allows a principal to compromise other principals the GPO also applies to. Results are potential risks and should be verified.
+query: |-
+  MATCH p=(n:Base)-[:GenericAll|GenericWrite]->(g:GPO)
+
+  // Exclude Enterprise Admins and Domain Admins
+  WHERE NOT n.objectid =~ ".*-(519|512)$"
+
+  // Exclude unresolved SIDs
+  AND NOT (n.distinguishedname IS NULL)
+
+  // Asset description may reveal if it's a delegation group (false-positive) or a filter group (true-positive)
+  //AND n.description is not null
+  //AND n.description =~ "(?i)apply"
+
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

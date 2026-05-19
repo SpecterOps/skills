@@ -1,0 +1,14 @@
+name: All Schema Admins
+guid: 76d8e61d-7a86-40ff-8a85-fd37f1e2563f
+prebuilt: false
+platforms: Active Directory
+category: Domain Information
+description:
+query: |-
+  MATCH p=(n:Base)-[:MemberOf*1..]->(m:Group)
+  WHERE (n:User OR n:Computer)
+  AND m.objectid ENDS WITH "-518" // Schema Admins
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Martin Sohn Christensen, @martinsohndk

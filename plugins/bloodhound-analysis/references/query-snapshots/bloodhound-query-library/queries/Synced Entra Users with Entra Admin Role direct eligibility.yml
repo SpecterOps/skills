@@ -1,0 +1,14 @@
+name: Synced Entra Users with Entra Admin Role direct eligibility
+guid: ea82e359-725c-4881-83e9-35007e859cf5
+prebuilt: true
+platforms:
+- Active Directory
+- Azure
+category: Cross Platform Attack Paths
+description:
+query: |-
+  MATCH p = (:User)-[:SyncedToEntraUser]->(:AZUser)-[:AZRoleEligible]->(:AZRole)
+  RETURN p LIMIT 100
+revision: 2
+resources: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#9-use-cloud-native-accounts-for-microsoft-entra-roles
+acknowledgements:

@@ -1,0 +1,20 @@
+name: Principals with deprecated or prohibited Entra role assignments
+guid: adca90da-4298-4d05-92e0-2fc22676cd05
+prebuilt: false
+platforms: Azure
+category: Azure Hygiene
+description: Identifies principals assigned to Entra ID roles that are deprecated or should never be used, indicating stale or risky role assignments.
+query: |-
+  MATCH p = (m:AZBase)-[:AZHasRole|AZRoleEligible|AZMemberOf*1..2]->(r:AZRole)
+  WHERE r.roledefinitionid =~ '(?i)9C094953-4995-41C8-84C8-3EBB9B32C93F' // Deprecated: Device Join
+  OR r.roledefinitionid =~ '(?i)9F06204D-73C1-4D4C-880A-6EDB90606FD8' // Deprecated: Azure AD Joined Device Local Administrator
+  OR r.roledefinitionid =~ '(?i)2B499BCD-DA44-4968-8AEC-78E1674FA64D' // Deprecated: Device Managers
+  OR r.roledefinitionid =~ '(?i)D405C6DF-0AF8-4E3B-95E4-4D06E542189E' // Deprecated: Device Users
+  OR r.roledefinitionid =~ '(?i)C34F683F-4D5A-4403-AFFD-6615E00E3A7F' // Deprecated: Workplace Device Join
+  OR r.roledefinitionid =~ '(?i)4BA39CA4-527C-499A-B93D-D9B492C50246' // Prohibited: Partner Tier1 Support
+  OR r.roledefinitionid =~ '(?i)E00E864A-17C5-4A4B-9C06-F5B95A8D5BD8' // Prohibited: Partner Tier2 Support
+  RETURN p
+revision: 1
+resources:
+- https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#deprecated-roles
+acknowledgements: Martin Sohn Christensen, @martinsohndk

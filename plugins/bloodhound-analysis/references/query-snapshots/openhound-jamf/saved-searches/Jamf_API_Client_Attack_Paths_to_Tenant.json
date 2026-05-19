@@ -1,0 +1,5 @@
+{
+  "name": "Jamf: API Client Attack Paths to Tenant",
+  "description": "Display up to 4 edges in attack paths originating from Jamf API Clients with a matching name or name starting with DEMO targeting the tenant",
+  "query": "MATCH p=(s:jamf_ApiClient)-[*1..4]->(t:jamf_Tenant)\nWHERE s.name STARTS WITH 'DEMO'\nRETURN p\nLIMIT 1000"
+}

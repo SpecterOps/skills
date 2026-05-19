@@ -1,0 +1,14 @@
+name: AdminSDHolder with ACL inheritance enabled
+guid: fd32470e-a57e-4056-9383-7a0e2802194f
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Container)
+  WHERE n.name STARTS WITH "ADMINSDHOLDER@"
+  AND n.isaclprotected = false
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory
+acknowledgements: Martin Sohn Christensen, @martinsohndk

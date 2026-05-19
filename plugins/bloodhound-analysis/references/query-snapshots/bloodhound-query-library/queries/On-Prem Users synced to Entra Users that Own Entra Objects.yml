@@ -1,0 +1,15 @@
+name: On-Prem Users synced to Entra Users that Own Entra Objects
+guid: 4baf1026-e64c-4e31-afeb-2090b8090130
+prebuilt: true
+platforms:
+- Active Directory
+- Azure
+category: Cross Platform Attack Paths
+description:
+query: |-
+  MATCH p = (:User)-[:SyncedToEntraUser]->(:AZUser)-[:AZOwns]->(:AZBase)
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

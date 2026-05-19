@@ -1,0 +1,14 @@
+name: Workstations where Domain Users can RDP
+guid: 9486e0e6-2617-4595-b969-cf57ca21fc86
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(s:Group)-[:CanRDP]->(t:Computer)
+  WHERE s.objectid ENDS WITH '-513' AND NOT toUpper(t.operatingsystem) CONTAINS 'SERVER'
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

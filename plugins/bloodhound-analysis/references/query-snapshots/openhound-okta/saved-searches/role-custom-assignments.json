@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Role Assignments - All Custom Roles",
+  "description": "Lists all role assignments, linking principals to their assigned custom roles.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_User:Okta_Group:Okta_Application)-[:Okta_HasRole]->(:Okta_CustomRole)\nRETURN p\nLIMIT 1000"
+}

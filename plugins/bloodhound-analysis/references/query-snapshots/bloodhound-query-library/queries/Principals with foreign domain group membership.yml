@@ -1,0 +1,14 @@
+name: Principals with foreign domain group membership
+guid: 8fb3214a-5a75-4ecd-b293-c121abd94b4b
+prebuilt: true
+platforms: Active Directory
+category: Dangerous Privileges
+description:
+query: |-
+  MATCH p=(s:Base)-[:MemberOf]->(t:Group)
+  WHERE s.domainsid<>t.domainsid
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

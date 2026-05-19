@@ -1,0 +1,13 @@
+name: Computers with the WebClient running
+guid: 51107ad1-f0bc-43d3-a561-5cee471ca196
+prebuilt: true
+platforms: Active Directory
+category: NTLM Relay Attacks
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.webclientrunning = True
+  RETURN c LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

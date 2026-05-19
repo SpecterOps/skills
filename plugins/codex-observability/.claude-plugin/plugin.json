@@ -1,0 +1,8 @@
+{
+  "name": "codex-observability",
+  "description": "Codex activity reporting and telemetry workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

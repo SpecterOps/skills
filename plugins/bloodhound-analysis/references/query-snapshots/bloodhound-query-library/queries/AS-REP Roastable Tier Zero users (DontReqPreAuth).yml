@@ -1,0 +1,14 @@
+name: AS-REP Roastable Tier Zero users (DontReqPreAuth)
+guid: 6d51e4dc-e1ad-477a-b6c6-324f18f03120
+prebuilt: false
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (n:Base)
+  WHERE ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  AND n.dontreqpreauth = true
+  RETURN n
+revision: 1
+resources: https://attack.mitre.org/techniques/T1558/004/
+acknowledgements: Martin Sohn Christensen, @martinsohndk

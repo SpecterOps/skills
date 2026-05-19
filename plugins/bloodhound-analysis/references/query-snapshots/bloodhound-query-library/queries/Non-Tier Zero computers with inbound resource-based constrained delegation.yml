@@ -1,0 +1,13 @@
+name: Non-Tier Zero computers with inbound resource-based constrained delegation
+guid: 5ba7ad73-b6a3-4f18-8818-74e2088beb39
+prebuilt: false
+platforms: Active Directory
+category: Dangerous Privileges
+description: Computers outside of Tier Zero where another principal has been granted the ability to impersonate users via resource-based constrained delegation (RBCD).
+query: |-
+  MATCH p = (m:Base)-[:AllowedToAct]->(n:Computer)
+  WHERE NOT ((n:Tag_Tier_Zero) OR COALESCE(n.system_tags, '') CONTAINS 'admin_tier_0')
+  RETURN p
+revision: 1
+resources: https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview
+acknowledgements: Martin Sohn Christensen, @martinsohndk

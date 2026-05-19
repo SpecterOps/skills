@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Members Can Change Repository Visibility",
+  "query": "MATCH (org:GH_Organization {members_can_change_repo_visibility: true})\nRETURN org\nLIMIT 1000",
+  "description": "Finds organizations where members can change repository visibility. This allows any member to make a private repository public, potentially exposing source code and secrets."
+}

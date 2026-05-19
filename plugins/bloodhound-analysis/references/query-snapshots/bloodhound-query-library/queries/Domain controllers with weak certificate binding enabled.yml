@@ -1,0 +1,14 @@
+name: Domain controllers with weak certificate binding enabled
+guid: a2444d99-10b5-412d-8fea-4b063cfddd2c
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Certificate Services
+description:
+query: |-
+  MATCH p = (s:Computer)-[:DCFor]->(:Domain)
+  WHERE s.strongcertificatebindingenforcementraw = 0 OR s.strongcertificatebindingenforcementraw = 1
+  RETURN p
+  LIMIT 1000
+revision: 1
+resources:
+acknowledgements:

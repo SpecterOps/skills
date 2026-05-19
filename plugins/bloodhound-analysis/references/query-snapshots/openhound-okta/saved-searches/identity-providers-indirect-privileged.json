@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Identity Provider Assignments - Indirect Privileged Access",
+  "description": "Identity providers associated with users who hold privileged role assignments through group membership in Okta.",
+  "query": "MATCH p = (:Okta_Organization)-[:Okta_Contains]->(:Okta_IdentityProvider)-[:Okta_IdentityProviderFor]->(:Okta_User)-[:Okta_MemberOf]->(:Okta_Group)-[:Okta_HasRoleAssignment]->(:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta)\nRETURN p\nLIMIT 1000"
+}

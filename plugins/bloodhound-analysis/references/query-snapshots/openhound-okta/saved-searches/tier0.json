@@ -1,0 +1,5 @@
+{
+  "name": "Okta: Tier Zero Principals and Devices",
+  "description": "Principals with SUPER_ADMIN or ORG_ADMIN role assignments and their associated devices.",
+  "query": "MATCH p = (:Okta)-[:Okta_HasRoleAssignment|Okta_MemberOf|Okta_DeviceOf*1..3]->(r:Okta_RoleAssignment)-[:Okta_ScopedTo]->(:Okta_Organization)\nWHERE r.type = \"SUPER_ADMIN\"\nOR r.type = \"ORG_ADMIN\"\nRETURN p\nLIMIT 1000"
+}

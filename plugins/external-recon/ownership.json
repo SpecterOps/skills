@@ -1,0 +1,11 @@
+{
+  "plugin": "external-recon",
+  "purpose": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+  "agents": [
+    "osint-recon"
+  ],
+  "skills": [
+    "osint-recon",
+    "shodan"
+  ]
+}

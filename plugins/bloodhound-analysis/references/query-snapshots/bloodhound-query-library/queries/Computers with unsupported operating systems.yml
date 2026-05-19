@@ -1,0 +1,14 @@
+name: Computers with unsupported operating systems
+guid: d06d3b14-0318-4fa9-9639-4b79ccaf3c2c
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (c:Computer)
+  WHERE c.operatingsystem =~ '(?i).*Windows.* (2000|2003|2008|2012|xp|vista|7|8|me|nt).*'
+  RETURN c
+  LIMIT 100
+revision: 1
+resources:
+acknowledgements:

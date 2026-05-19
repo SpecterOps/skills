@@ -1,0 +1,5 @@
+{
+  "name": "GitHub: Branch Protection Rules - Force Pushes Allowed",
+  "query": "MATCH p=(:GH_BranchProtectionRule {allows_force_pushes: true})-[:GH_ProtectedBy]->(:GH_Branch)\nRETURN p\nLIMIT 1000",
+  "description": "Finds branches where force pushes are allowed. Force pushes can rewrite commit history, potentially hiding malicious changes or destroying audit trails."
+}

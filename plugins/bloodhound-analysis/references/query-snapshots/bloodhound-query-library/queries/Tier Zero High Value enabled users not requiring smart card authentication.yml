@@ -1,0 +1,18 @@
+name: Tier Zero / High Value enabled users not requiring smart card authentication
+guid: 867f9f17-c149-4c4b-ad84-9a807622ff8c
+prebuilt: true
+platforms: Active Directory
+category: Active Directory Hygiene
+description:
+query: |-
+  MATCH (u:User)
+  WHERE ((u:Tag_Tier_Zero) OR COALESCE(u.system_tags, '') CONTAINS 'admin_tier_0')
+  AND u.enabled = true
+  AND u.smartcardrequired = false
+  AND NOT u.name STARTS WITH 'MSOL_' // Removes false positive, Entra sync
+  AND NOT u.name STARTS WITH 'PROVAGENTGMSA' // Removes false positive, Entra sync
+  AND NOT u.name STARTS WITH 'ADSYNCMSA_' // Removes false positive, Entra sync
+  RETURN u
+revision: 1
+resources:
+acknowledgements:

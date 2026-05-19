@@ -1,0 +1,16 @@
+name: Entra ID SSO accounts not rolling Kerberos decryption key
+guid: 1867abf8-08e3-4ea8-8f65-8366079d35c4
+prebuilt: false
+platforms:
+- Active Directory
+- Azure
+category: Configuration Weakness
+description: Microsoft highly recommends that you roll over the Entra ID SSO Kerberos decryption key at least every 30 days.
+query: |-
+  MATCH (n:Computer)
+  WHERE n.name STARTS WITH "AZUREADSSOACC."
+  AND n.pwdlastset < (datetime().epochseconds - (30 * 86400))
+  RETURN n
+revision: 1
+resources: https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sso-faq#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-
+acknowledgements: Martin Sohn Christensen, @martinsohndk

@@ -1,0 +1,12 @@
+{
+  "ghostwriter": {
+    "command": "uv",
+    "args": ["run", "--directory", "${CLAUDE_PLUGIN_ROOT}/ghostwriter-mcp-server", "python", "-m", "ghostwritermcp.server"],
+    "cwd": "${CLAUDE_PLUGIN_ROOT}/ghostwriter-mcp-server",
+    "env": {
+      "GHOSTWRITER_URL": "${GHOSTWRITER_URL:-https://gw.icp.specterops.io/}",
+      "GHOSTWRITER_API_KEY": "${GHOSTWRITER_API_KEY}",
+      "GHOSTWRITER_CA_BUNDLE": "${GHOSTWRITER_CA_BUNDLE:-${CLAUDE_PLUGIN_ROOT}/ghostwriter-mcp-server/specterops-root-ca.crt}"
+    }
+  }
+}

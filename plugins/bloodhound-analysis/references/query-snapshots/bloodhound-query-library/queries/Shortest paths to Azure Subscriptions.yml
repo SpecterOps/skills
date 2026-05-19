@@ -1,0 +1,14 @@
+name: Shortest paths to Azure Subscriptions
+guid: 4785b305-c101-461c-80fc-3fb3ff67a8ce
+prebuilt: true
+platforms: Azure
+category: Shortest Paths
+description: WARNING! MANY-TO-MANY SHORTEST PATH QUERIES USE EXCESSIVE SYSTEM RESOURCES AND TYPICALLY WILL NOT COMPLETE
+query: |-
+  MATCH p=shortestPath((s:AZBase)-[:AZ_ATTACK_PATHS*1..]->(t:AZSubscription))
+  WHERE s<>t
+  RETURN p
+  LIMIT 1000
+revision: 3
+resources:
+acknowledgements:

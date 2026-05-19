@@ -1,0 +1,14 @@
+name: All privileged Azure Service Principals
+guid: 92f269ee-3727-4ffa-947b-aad492ac0fa2
+prebuilt: false
+platforms:
+- Azure
+category: Azure Hygiene
+description: Return all privileged Azure Service Principals.
+query: |-
+  MATCH p=(n:AZServicePrincipal)-[:AZHasRole|AZMemberOf*1..2]->(r:AZRole)
+  WHERE r.displayname =~ '(?i)Global Administrator|User Administrator|Cloud Application Administrator|Authentication Policy Administrator|Exchange Administrator|Helpdesk Administrator|PRIVILEGED AUTHENTICATION ADMINISTRATOR|Domain Name Administrator|Hybrid Identity Administrator|External Identity Provider Administrator|Privileged Role Administrator|Partner Tier2 Support|Application Administrator|Directory Synchronization Accounts'
+  RETURN p
+revision: 1
+resources:
+acknowledgements: Daniel Scheidt, @theluemmel
