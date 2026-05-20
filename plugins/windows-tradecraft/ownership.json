@@ -1,0 +1,12 @@
+{
+  "plugin": "windows-tradecraft",
+  "purpose": "Windows execution, persistence, and operator validation workflows.",
+  "agents": [
+    "winternals",
+    "exploit-dev",
+    "poc-dev"
+  ],
+  "skills": [
+    "com-proxy-triage"
+  ]
+}

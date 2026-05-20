@@ -76,6 +76,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | [binary-ninja-mcp](plugins/binary-ninja-mcp/README.md) | Yes | Yes | - | Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide |
 | [mythic-implant](plugins/mythic-implant/README.md) | Yes | Yes | - | Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow |
 | [openhound-collector-development](plugins/openhound-collector-development/README.md) | Yes | Yes | - | OpenHound collector template support package with the embedded OpenHound development skill. |
+| [windows-tradecraft](plugins/windows-tradecraft/README.md) | Yes | - | - | Windows execution, persistence, and COM proxy validation workflows. |
 
 ## Skills
 
@@ -144,6 +145,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | `binary-ninja-mcp-analysis` | `binary-ninja-mcp` | [SKILL.md](plugins/binary-ninja-mcp/skills/binary-ninja-mcp-analysis/SKILL.md) |
 | `mythic-implant-development` | `mythic-implant` | [SKILL.md](plugins/mythic-implant/skills/mythic-implant-development/SKILL.md) |
 | `openhound-collector-development` | `openhound-collector-development` | [SKILL.md](plugins/openhound-collector-development/skills/openhound-collector-development/SKILL.md) |
+| `com-proxy-triage` | `windows-tradecraft` | [SKILL.md](plugins/windows-tradecraft/skills/com-proxy-triage/SKILL.md) |
 
 ## Standalone Skills
 
