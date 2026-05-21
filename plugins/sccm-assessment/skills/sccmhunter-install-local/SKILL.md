@@ -1,6 +1,7 @@
 ---
 name: sccmhunter-install-local
 description: Clone SCCMHunter into operating-tools and install it in a local Python virtual environment using the repository's documented setup flow.
+icon: ./assets/icon.png
 ---
 
 # SCCMHunter Local Install

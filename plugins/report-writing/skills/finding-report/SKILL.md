@@ -1,6 +1,7 @@
 ---
 name: finding-report
 description: Generate a structured pentest finding report in markdown. Use when documenting a vulnerability, writing up a finding, or creating engagement notes.
+icon: ./assets/icon.png
 ---
 
 # Pentest Finding Report

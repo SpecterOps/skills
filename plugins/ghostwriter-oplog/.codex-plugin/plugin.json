@@ -29,6 +29,8 @@
     "defaultPrompt": [
       "Use the Gw Oplog plugin."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

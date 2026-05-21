@@ -1,6 +1,7 @@
 ---
 name: course-wiki-stage2-content-migration
 description: Import legacy course content into the new Hextra wiki while preserving course text exactly and changing only rendering, structure, metadata, assets, and compatibility syntax. Use when stage 1 is complete and the next task is to copy participant content, align it to the shared wiki-course-atd-instructor pattern, resolve LFS-backed assets, and prepare the migrated course for local or deployed browser QA.
+icon: ./assets/icon.png
 ---
 
 # Course Wiki Stage 2 Content Migration

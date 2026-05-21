@@ -29,6 +29,8 @@
       "Use Code Review and QA to smoke test a web app.",
       "Use Code Review and QA before merging this branch."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

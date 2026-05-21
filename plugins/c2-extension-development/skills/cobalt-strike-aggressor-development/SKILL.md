@@ -1,6 +1,7 @@
 ---
 name: cobalt-strike-aggressor-development
 description: Aggressor Script development for Cobalt Strike. Use when writing aggressor scripts, creating BOF loaders, building aliases, hooks, or automation for Cobalt Strike.
+icon: ./assets/icon.png
 ---
 
 # Aggressor Development Skill

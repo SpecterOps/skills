@@ -1,6 +1,7 @@
 ---
 name: webapp-qa
 description: Quick-invoke QA testing for a web app URL. Use when you want the `qa` subagent to smoke test, exercise flows, and run Lighthouse against a target URL.
+icon: ./assets/icon.png
 ---
 
 # QA — Web App Testing

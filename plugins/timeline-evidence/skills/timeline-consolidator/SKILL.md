@@ -1,6 +1,7 @@
 ---
 name: timeline-consolidator
 description: Merge parsed timeline entries, apply MITRE tagging, and produce the final timeline outputs.
+icon: ./assets/icon.png
 ---
 
 # Timeline Consolidator

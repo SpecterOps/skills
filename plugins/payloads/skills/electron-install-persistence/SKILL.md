@@ -1,6 +1,7 @@
 ---
 name: electron-install-persistence
 description: Preserve post-install execution and background residency for Electron apps in Squirrel-style delivery chains. Use when the payload checks in once, then dies after install or on app close.
+icon: ./assets/icon.png
 ---
 
 # Electron Install Persistence

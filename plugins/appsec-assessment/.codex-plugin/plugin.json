@@ -28,6 +28,8 @@
       "Use AppSec Assessment to scan for secrets.",
       "Use AppSec Assessment to review code security."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

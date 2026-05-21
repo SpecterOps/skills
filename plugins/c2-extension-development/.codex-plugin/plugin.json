@@ -29,6 +29,8 @@
       "Use C2 Extension Development to write Aggressor Script.",
       "Use C2 Extension Development to debug C2 helpers."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

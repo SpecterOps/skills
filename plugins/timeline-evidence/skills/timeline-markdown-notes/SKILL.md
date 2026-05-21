@@ -1,6 +1,7 @@
 ---
 name: timeline-markdown-notes
 description: Extract timeline entries from Markdown operator notes.
+icon: ./assets/icon.png
 ---
 
 # Timeline Markdown Notes Parser

@@ -28,6 +28,8 @@
       "Use Timeline Evidence to consolidate an engagement timeline.",
       "Use Timeline Evidence to prepare report evidence."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

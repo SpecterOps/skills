@@ -28,6 +28,8 @@
       "Use Course Conversion Internal to migrate content.",
       "Use Course Conversion Internal to run course QA."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

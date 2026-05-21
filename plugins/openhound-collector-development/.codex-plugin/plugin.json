@@ -27,6 +27,8 @@
     "defaultPrompt": [
       "Use the Openhound Template plugin."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

@@ -1,6 +1,7 @@
 ---
 name: nmap-parse
 description: Parse nmap scan output and generate actionable recon notes. Use when analyzing nmap XML/grepable output, planning service enumeration, or doing network reconnaissance.
+icon: ./assets/icon.png
 ---
 
 # Nmap Parse & Recon Planning

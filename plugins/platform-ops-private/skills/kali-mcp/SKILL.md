@@ -1,6 +1,7 @@
 ---
 name: kali-mcp
 description: Execute in-scope offensive security workflows through the Kali MCP server in ../MCP-Kali-Server. Use when command execution or Kali tooling is required through MCP (nmap, gobuster, dirb, nikto, sqlmap, hydra, john, enum4linux, wpscan, metasploit, or raw command execution) and the task needs structured output, OPSEC-aware gating, and evidence capture.
+icon: ./assets/icon.png
 ---
 
 # Kali MCP

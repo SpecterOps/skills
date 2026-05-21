@@ -28,6 +28,8 @@
       "Use Offensive Tooling to add target handling.",
       "Use Offensive Tooling to design a PoC helper."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

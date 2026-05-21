@@ -28,6 +28,8 @@
       "Use Report Writing to improve remediation guidance.",
       "Use Report Writing to turn evidence into report text."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

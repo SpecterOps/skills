@@ -1,6 +1,7 @@
 ---
 name: git-cleanup
 description: Repository hygiene — prune merged/stale branches, detect orphans, repo health checks. Use when cleaning up branches, checking repo health, or scanning projects.
+icon: ./assets/icon.png
 ---
 
 # Git Repository Cleanup

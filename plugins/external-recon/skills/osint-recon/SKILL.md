@@ -1,6 +1,7 @@
 ---
 name: osint-recon
 description: Perform OSINT and external reconnaissance for approved targets. Use for subdomain discovery, infrastructure mapping, technology fingerprinting, and recon reporting with optional command execution.
+icon: ./assets/icon.png
 ---
 
 # OSINT Recon

@@ -1,6 +1,7 @@
 ---
 name: timeline-cobaltstrike
 description: Parse Cobalt Strike logs into normalized timeline entries for the reporting workflow.
+icon: ./assets/icon.png
 ---
 
 # Timeline Cobalt Strike Parser
