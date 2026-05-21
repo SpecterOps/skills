@@ -1,6 +1,7 @@
 ---
 name: sccm-takeover-relay
 description: Validate SCCM TAKEOVER-1 style hierarchy takeover via NTLM coercion and relay to the site database, with C2-aware relay-host planning, operator SSH access requirements, prechecks, and evidence capture.
+icon: ./assets/icon.png
 ---
 
 # SCCM Takeover Relay

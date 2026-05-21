@@ -1,6 +1,7 @@
 ---
 name: ssh-ops
 description: Establish and operate scoped SSH sessions for authorized remote command execution with full evidence capture. Use when the operator provides SSH-accessible targets/credentials and Codex must execute commands on a remote host as an interactive user while enforcing OPSEC gating and safe-check behavior.
+icon: ./assets/icon.png
 ---
 
 # SSH Ops

@@ -9,7 +9,9 @@
     "category": "Security",
     "shortDescription": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, a...",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Bloodhound Analysis plugin."
+    "defaultPrompt": "Use the Bloodhound Analysis plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [
     "identity-assessment-core"

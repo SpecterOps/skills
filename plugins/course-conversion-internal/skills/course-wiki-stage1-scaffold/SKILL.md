@@ -1,6 +1,7 @@
 ---
 name: course-wiki-stage1-scaffold
 description: "Bootstrap a new course wiki from the wiki-course-atd-instructor scaffold and stop after the first deployable shell is validated. Use when Codex or the course-wiki-migration orchestrator needs to copy the shared instructor template without legacy content, set course identity values, create the minimal homepage labs resources and slides shell, prepare the first deploy, or confirm the shell in local or deployed browser checks before any legacy content import begins."
+icon: ./assets/icon.png
 ---
 
 # Course Wiki Stage1 Scaffold

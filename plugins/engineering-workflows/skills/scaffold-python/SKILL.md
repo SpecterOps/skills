@@ -1,6 +1,7 @@
 ---
 name: scaffold-python
 description: Scaffold a new Python project with a src layout, linting, and tests. Prefer uv-based setup and packaging; if uv is unavailable, warn the user, request approval, and use a fallback bootstrap path.
+icon: ./assets/icon.png
 ---
 
 # Scaffold Python

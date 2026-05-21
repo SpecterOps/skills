@@ -1,6 +1,7 @@
 ---
 name: nftables-allow-source
 description: Add a source IP or CIDR to nftables using the working method from this repo session: live top-of-`input` insertion with `nft -a` verification first, then persistent config update and reload.
+icon: ./assets/icon.png
 ---
 
 # Nftables Allow Source

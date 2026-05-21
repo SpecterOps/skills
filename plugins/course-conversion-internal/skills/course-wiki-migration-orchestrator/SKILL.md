@@ -1,6 +1,7 @@
 ---
 name: course-wiki-migration-orchestrator
 description: "Coordinate staged course wiki migrations as a reusable sub-agent workflow. Use when a user wants one orchestrator to run stage 1 scaffold creation, stage 2 content migration, local or deployed browser verification, git commit/push steps, and the stage 3 QA plus targeted-polish pass by calling the stage skills and helper scripts with a per-course config file."
+icon: ./assets/icon.png
 ---
 
 # Course Wiki Migration Orchestrator

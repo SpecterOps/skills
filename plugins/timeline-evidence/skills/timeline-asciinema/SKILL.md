@@ -1,6 +1,7 @@
 ---
 name: timeline-asciinema
 description: Convert Asciinema recordings into timeline entries.
+icon: ./assets/icon.png
 ---
 
 # Timeline Asciinema Parser

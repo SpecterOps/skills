@@ -1,6 +1,7 @@
 ---
 name: sccm-recon
 description: Perform SCCM reconnaissance and takeover prerequisite validation, including site-role mapping, provider and AdminService checks, site database separation checks, and relay-path prechecks.
+icon: ./assets/icon.png
 ---
 
 # SCCM Recon

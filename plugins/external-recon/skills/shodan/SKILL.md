@@ -1,6 +1,7 @@
 ---
 name: shodan
 description: Query Shodan for reconnaissance, target enrichment, and exposed service discovery. Builds queries, parses results, and highlights interesting findings. Requires SHODAN_API_KEY environment variable.
+icon: ./assets/icon.png
 ---
 
 # Shodan Reconnaissance Skill

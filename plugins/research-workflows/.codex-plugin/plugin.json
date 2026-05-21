@@ -8,7 +8,9 @@
     "category": "Productivity",
     "shortDescription": "Source-backed research and synthesis workflows for Specter Codex.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Research Workflows plugin."
+    "defaultPrompt": "Use the Research Workflows plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

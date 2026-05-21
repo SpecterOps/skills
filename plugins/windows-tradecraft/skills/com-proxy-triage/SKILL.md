@@ -1,6 +1,7 @@
 ---
 name: com-proxy-triage
 description: Use this skill when the user wants to triage Windows COM proxy/hijack candidates by capturing `HKCU\Software\Classes\CLSID\{...}\InProcServer32` `NAME NOT FOUND` lookups for a process, mapping each CLSID to the machine-wide `HKLM\SOFTWARE\Classes\CLSID\{...}\InProcServer32` DLL, and optionally testing HKCU overrides with a Koppeling-style proxy DLL. Good for Zoom, Edge, and similar COM activation hunts.
+icon: ./assets/icon.png
 ---
 
 # COM Proxy Triage

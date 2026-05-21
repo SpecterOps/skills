@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Core identity, Active Directory, Windows, and internal assessment workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Identity Assessment Core plugin."
+    "defaultPrompt": "Use the Identity Assessment Core plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

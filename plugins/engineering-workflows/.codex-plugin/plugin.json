@@ -8,7 +8,9 @@
     "category": "Productivity",
     "shortDescription": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Engineering Workflows plugin."
+    "defaultPrompt": "Use the Engineering Workflows plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],
