@@ -1,6 +1,7 @@
 ---
 name: openhound-collector-development
 description: Use for all OpenHound collector work, including planning, graph schema, source collection, assets, lookup/preproc, registration, and validation.
+icon: ./assets/icon.png
 ---
 
 # OpenHound Development Skill

@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Binjamcp plugin."
+    "defaultPrompt": "Use the Binjamcp plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],
