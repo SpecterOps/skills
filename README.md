@@ -80,6 +80,37 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
    GHOSTWRITER_SOURCE_IP = "10.0.0.5"
    ```
 
+
+#### Windows native PowerShell wrappers
+
+Windows users do not need Git Bash for the helper scripts. Install dependencies from PowerShell after the plugin is installed:
+
+```powershell
+cd $env:USERPROFILE\.codex\plugins\bloodhound-analysis
+.\scripts\install-mcp-deps.ps1
+
+cd $env:USERPROFILE\.codex\plugins\ghostwriter-mcp
+.\scripts\install-mcp-deps.ps1 -Source '<git-url-or-local-path-to-ghostwriter-mcp-server>'
+```
+
+Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:
+
+```toml
+[mcp_servers.bloodhound_mcp]
+command = "powershell.exe"
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
+
+[mcp_servers.bloodhound_mcp.env]
+BLOODHOUND_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\vendor\\bloodhound-mcp"
+
+[mcp_servers.ghostwriter]
+command = "powershell.exe"
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\scripts\\run-ghostwriter-mcp.ps1"]
+
+[mcp_servers.ghostwriter.env]
+GHOSTWRITER_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\vendor\\ghostwriter-mcp"
+```
+
 4. Verify the runners outside the GUI before troubleshooting Codex:
 
    ```bash
