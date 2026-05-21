@@ -2,16 +2,34 @@
   "name": "ghostwriter-mcp",
   "version": "0.1.0",
   "description": "MCP integration for Ghostwriter security documentation platform",
-  "mcpServers": ".mcp.json",
+  "author": {
+    "name": "Blaise"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "ghostwriter",
+    "security",
+    "pentesting",
+    "reporting",
+    "mcp",
+    "codex",
+    "specter"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ghostwriter MCP",
-    "category": "Security",
     "shortDescription": "MCP integration for Ghostwriter security documentation platform",
+    "longDescription": "MCP integration for Ghostwriter security documentation platform",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Ghostwriter Mcp plugin."
-  },
-  "skills": "./skills/",
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the Ghostwriter Mcp plugin."
+    ],
+    "brandColor": "#8E92EB"
+  }
 }

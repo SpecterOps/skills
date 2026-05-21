@@ -2,15 +2,32 @@
   "name": "course-conversion-internal",
   "version": "0.1.0",
   "description": "Internal-only staged course wiki migration workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "course",
+    "conversion"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Course Conversion Internal",
-    "category": "Productivity",
     "shortDescription": "Internal-only staged course wiki migration workflows.",
+    "longDescription": "Internal-only workflows for staged course wiki scaffolding, content migration, and QA.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Course Conversion Internal plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Course Conversion Internal to scaffold a course wiki.",
+      "Use Course Conversion Internal to migrate content.",
+      "Use Course Conversion Internal to run course QA."
+    ],
+    "brandColor": "#2C2677"
+  }
 }

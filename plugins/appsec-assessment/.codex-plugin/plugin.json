@@ -2,15 +2,32 @@
   "name": "appsec-assessment",
   "version": "0.1.0",
   "description": "Application and code security assessment workflows for Specter Codex.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "appsec",
+    "assessment"
+  ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Appsec Assessment",
-    "category": "Security",
-    "shortDescription": "Application and code security assessment workflows for Specter Codex.",
+    "displayName": "AppSec Assessment",
+    "shortDescription": "Application and code security assessment workflows.",
+    "longDescription": "Focused workflows for web application security review, code security review, and secret exposure validation.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Appsec Assessment plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use AppSec Assessment to review a web target.",
+      "Use AppSec Assessment to scan for secrets.",
+      "Use AppSec Assessment to review code security."
+    ],
+    "brandColor": "#00B36B"
+  }
 }

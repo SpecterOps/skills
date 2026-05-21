@@ -7,7 +7,7 @@ description: Research recent public events and brainstorm phishing pretext ideas
 
 Research current public context for a target organization and generate timely pretext ideas tied to the user's phishing goal.
 
-Read `../references/persuasion-principles.md` before scoring and ranking ideas.
+Read `../../references/persuasion-principles.md` before scoring and ranking ideas.
 
 ## Required Inputs
 

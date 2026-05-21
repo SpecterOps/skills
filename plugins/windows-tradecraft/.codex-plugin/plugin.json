@@ -10,7 +10,8 @@
     "codex",
     "specter",
     "windows",
-    "tradecraft"
+    "tradecraft",
+    "com"
   ],
   "skills": "./skills/",
   "interface": {
@@ -28,9 +29,6 @@
       "Use Windows Tradecraft to inspect Windows execution tradecraft for an installed app.",
       "Use Windows Tradecraft to validate COM proxy opportunities on a Windows host."
     ],
-    "brandColor": "#1D4ED8"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "brandColor": "#2C2677"
+  }
 }
