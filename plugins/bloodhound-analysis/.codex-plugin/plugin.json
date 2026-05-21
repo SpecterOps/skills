@@ -36,6 +36,8 @@
       "Use AzureHound to analyze Entra ID and Azure privilege paths.",
       "Use OpenHound GitHub/Jamf/Okta workflows with SCIM references to adapt saved queries for OpenGraph attack-path analysis."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

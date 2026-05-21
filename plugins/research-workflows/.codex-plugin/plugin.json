@@ -28,6 +28,8 @@
       "Use Research Workflows to gather sources.",
       "Use Research Workflows to summarize current practice."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

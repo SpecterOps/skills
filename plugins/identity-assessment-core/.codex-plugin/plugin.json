@@ -28,6 +28,8 @@
       "Use Identity Assessment Core to plan internal enumeration.",
       "Use Identity Assessment Core to triage Windows exposure."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

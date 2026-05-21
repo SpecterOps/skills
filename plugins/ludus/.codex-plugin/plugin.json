@@ -30,6 +30,8 @@
     "defaultPrompt": [
       "Use the Ludus plugin."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

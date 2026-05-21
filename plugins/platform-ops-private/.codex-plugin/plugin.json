@@ -28,6 +28,8 @@
       "Use Platform Ops Private for scoped SSH work.",
       "Use Platform Ops Private to run tunneled commands."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

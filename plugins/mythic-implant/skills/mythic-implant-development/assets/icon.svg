@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 128 128" role="img" aria-label="MI icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <path d="M24 24h70l14 14v66H24z" fill="#2C2677" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M92 25v18h18" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="47" y="45" width="34" height="44" rx="7" fill="#2C2677" stroke="#8E92EB" stroke-width="6"/>
+  <path d="M54 36v11M64 34v11M74 36v11M54 89v12M64 89v12M74 89v12" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
+  <path d="M55 65l9 12 9-12" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,6 +1,7 @@
 ---
 name: bloodhound-opengraph
 description: "Use when creating or changing BloodHound OpenGraph extensions, custom node schemas, custom ingestors, edge models, or Cypher patterns that connect non-AD assets to BloodHound CE graph analysis. Use for graph-model design questions such as new node kinds, new relationship kinds, extension schema changes, or custom ingestor behavior. Do not use for routine BloodHound path triage, connection checks, or known OpenHound query adaptation; use $bloodhound-analysis, $bloodhound-query, $openhound-github, $openhound-jamf, or $openhound-okta instead."
+icon: ./assets/icon.png
 ---
 
 # BloodHound OpenGraph Skill

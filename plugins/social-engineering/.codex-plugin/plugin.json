@@ -29,6 +29,8 @@
       "Use Social Engineering to research a company and brainstorm phishing pretexts tied to payload delivery or credential capture.",
       "Use Social Engineering to research a company and draft a phishing email pretext."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

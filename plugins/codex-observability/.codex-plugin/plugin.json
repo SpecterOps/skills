@@ -27,6 +27,8 @@
       "Use Codex Observability to add telemetry wiring.",
       "Use Codex Observability to inspect session evidence."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

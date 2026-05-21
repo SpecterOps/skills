@@ -1,6 +1,7 @@
 ---
 name: phishing-email-html
 description: Generate a phishing email in HTML from an approved pretext. Use when the task needs polished email copy plus HTML formatted for common delivery workflows such as GoPhish or Phishmonger.
+icon: ./assets/icon.png
 ---
 
 # Phishing Email HTML

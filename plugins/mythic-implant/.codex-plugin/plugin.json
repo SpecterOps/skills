@@ -30,6 +30,8 @@
     "defaultPrompt": [
       "Use the Mythic Implant plugin."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

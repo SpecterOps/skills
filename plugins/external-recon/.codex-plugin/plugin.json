@@ -28,6 +28,8 @@
       "Use External Recon to query Shodan for a target.",
       "Use External Recon before active testing."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

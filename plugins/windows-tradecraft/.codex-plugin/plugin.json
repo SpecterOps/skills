@@ -29,6 +29,8 @@
       "Use Windows Tradecraft to inspect Windows execution tradecraft for an installed app.",
       "Use Windows Tradecraft to validate COM proxy opportunities on a Windows host."
     ],
-    "brandColor": "#2C2677"
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

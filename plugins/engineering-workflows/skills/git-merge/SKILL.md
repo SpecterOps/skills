@@ -1,6 +1,7 @@
 ---
 name: git-merge
 description: Complex git operations — merge conflict resolution, cherry-picks, rebases. Use when merging branches, resolving conflicts, cherry-picking commits, or rebasing.
+icon: ./assets/icon.png
 ---
 
 # Git Merge & Conflict Resolution

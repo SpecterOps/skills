@@ -30,6 +30,8 @@
       "Use Payloads to troubleshoot post-install persistence for an Electron app.",
       "Use Payloads to audit a downloaded Electron app and map patch points."
     ],
-    "brandColor": "#8E92EB"
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }

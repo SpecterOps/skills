@@ -28,6 +28,8 @@
       "Use Engineering Workflows before a risky git merge.",
       "Use Engineering Workflows to draft a README."
     ],
-    "brandColor": "#00B36B"
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }
