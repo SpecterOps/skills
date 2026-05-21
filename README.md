@@ -32,6 +32,63 @@ codex plugin marketplace add SpecterOps/skills
 
 Then open Codex and install from `/plugins`.
 
+### Codex GUI MCP setup
+
+Installing a Codex plugin from `/plugins` installs the plugin package, skills, MCP config, and helper scripts. It does **not** clone external MCP server repositories, run dependency installers, or write secrets into the GUI app. Complete the MCP dependency and environment setup after installing the plugin.
+
+1. Install or refresh this marketplace in the Codex GUI app:
+
+   ```bash
+   codex plugin marketplace add /home/matthew/Projects/skills
+   # or
+   codex plugin marketplace add SpecterOps/skills
+   ```
+
+   Then open the Codex GUI app, go to `/plugins`, and install `bloodhound-analysis`, `ghostwriter-mcp`, and optionally `ghostwriter-oplog`.
+
+2. Install the MCP server dependencies into the installed plugin copies:
+
+   ```bash
+   cd ~/.codex/plugins/bloodhound-analysis
+   scripts/install-mcp-deps.sh
+   ```
+
+   ```bash
+   cd ~/.codex/plugins/ghostwriter-mcp
+   GHOSTWRITER_MCP_SOURCE='<git-url-or-local-path-to-ghostwriter-mcp-server>' \
+     scripts/install-mcp-deps.sh
+   ```
+
+3. Add GUI-visible MCP environment values to `~/.codex/config.toml` and restart the Codex GUI app:
+
+   ```toml
+   [mcp_servers.bloodhound_mcp.env]
+   BLOODHOUND_MCP_DIR = "/home/matthew/.codex/plugins/bloodhound-analysis/vendor/bloodhound-mcp"
+   BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
+   BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
+   BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
+   BLOODHOUND_SCHEME = "https"
+   BLOODHOUND_PORT = "443"
+
+   [mcp_servers.ghostwriter.env]
+   GHOSTWRITER_MCP_DIR = "/home/matthew/.codex/plugins/ghostwriter-mcp/vendor/ghostwriter-mcp"
+   GHOSTWRITER_URL = "https://ghostwriter.example.com/"
+   GHOSTWRITER_API_KEY = "YOUR_API_KEY"
+   GHOSTWRITER_CA_BUNDLE = "/path/to/ca-bundle.crt"
+   GHOSTWRITER_OPLOG_ID = "123"
+   GHOSTWRITER_OPERATOR = "your-callsign"
+   GHOSTWRITER_SOURCE_IP = "10.0.0.5"
+   ```
+
+4. Verify the runners outside the GUI before troubleshooting Codex:
+
+   ```bash
+   ~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
+   ~/.codex/plugins/ghostwriter-mcp/scripts/run-ghostwriter-mcp.sh
+   ```
+
+   In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
+
 ## Use With npx skills
 
 Use `npx skills` when you only want to install skill instructions. This does not install full plugin behavior such as MCP config, Claude commands, hooks, or agent definitions.

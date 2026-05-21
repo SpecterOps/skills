@@ -48,3 +48,32 @@ This plugin includes Codex MCP configuration plus plugin-local install/run scrip
 - `mcp/env.example` documents required BloodHound connection variables without committing secrets.
 
 For a target install environment, install the plugin and MCP server together with the bootstrap sync flow, or point `BLOODHOUND_MCP_DIR` at an existing checkout. Do not commit environment-specific API values.
+
+### Codex GUI app setup
+
+After installing `bloodhound-analysis` from the Codex GUI `/plugins` view, install the MCP server dependency into the installed plugin copy:
+
+```bash
+cd ~/.codex/plugins/bloodhound-analysis
+scripts/install-mcp-deps.sh
+```
+
+Add BloodHound connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex:
+
+```toml
+[mcp_servers.bloodhound_mcp.env]
+BLOODHOUND_MCP_DIR = "/home/matthew/.codex/plugins/bloodhound-analysis/vendor/bloodhound-mcp"
+BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
+BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
+BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
+BLOODHOUND_SCHEME = "https"
+BLOODHOUND_PORT = "443"
+```
+
+Test the runner directly if the GUI does not show BloodHound tools:
+
+```bash
+~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
+```
+
+Expected Codex tool namespace: `mcp__bloodhound_mcp__*`.
