@@ -21,6 +21,9 @@ GHOSTWRITER_OPERATOR = "your-callsign"
 GHOSTWRITER_SOURCE_IP = "10.0.0.5"
 ```
 
+
+On Windows, complete the `ghostwriter-mcp` PowerShell wrapper setup first if the Codex GUI cannot launch Bash-based MCP runners. The oplog skill only needs the `mcp__ghostwriter__*` tools and the oplog env values.
+
 Legacy aliases are still accepted by the skill if already present: `GW_OPLOG_ID`, `GW_OPERATOR_NAME`, and `GW_SOURCE_IP`.
 
 In the Codex GUI, use the `ghostwriter-oplog` skill for `quick`, `evidence`, `guided`, or `config` workflows after the `mcp__ghostwriter__*` tools are available.
