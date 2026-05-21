@@ -1,6 +1,7 @@
 ---
 name: openhound-okta
 description: "Use for OpenHound Okta/OktaHound OpenGraph BloodHound work when the user clearly means Okta semantics such as Okta users, groups, apps, role assignments, super-admin or delegated-admin exposure, API clients and client secrets, MFA or password posture, AD agents, identity providers, inbound or outbound hybrid paths, SCIM provisioning, or GitHub/Azure/Jamf/Entra linked identity paths. Do not use for generic BloodHound path triage, connection checks, explicit Cypher authoring/review, or non-Okta OpenGraph domains."
+icon: ./assets/icon.png
 ---
 
 # OpenHound Okta / OktaHound

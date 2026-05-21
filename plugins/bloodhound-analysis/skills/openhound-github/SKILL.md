@@ -1,6 +1,7 @@
 ---
 name: openhound-github
 description: "Use for OpenHound GitHub/GitHound OpenGraph BloodHound work when the user clearly means GitHub semantics such as enterprises, organizations, repositories, teams, branch protection, Actions policy, secrets or variables metadata, app installations, personal access tokens, GitHub-to-Azure OIDC or federated identity paths, SAML external identities, or SSO/SCIM links from Azure, Okta, or SCIM identities. Do not use for generic BloodHound path triage, connection checks, explicit Cypher authoring/review, or non-GitHub OpenGraph domains."
+icon: ./assets/icon.png
 ---
 
 # OpenHound GitHub / GitHound

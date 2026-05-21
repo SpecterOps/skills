@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="OT icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <path d="M20 28h88v72H20z" rx="8" fill="#2C2677"/>
+  <path d="M28 38h72v8H28zm0 16h54v8H28zm0 16h64v8H28z" fill="#8E92EB"/>
+  <path d="M24 24h80l12 12v68l-12 12H24L12 104V36z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M93 25l11 11v20" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="96" cy="92" r="14" fill="#00B36B"/>
+  <text x="64" y="75" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle">OT</text>
+</svg>

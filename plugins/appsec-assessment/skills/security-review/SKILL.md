@@ -1,6 +1,7 @@
 ---
 name: security-review
 description: Perform a security-focused review of current git changes. Use when reviewing staged/unstaged diffs, checking for vulnerabilities, and deciding merge readiness.
+icon: ./assets/icon.png
 ---
 
 # Security Review

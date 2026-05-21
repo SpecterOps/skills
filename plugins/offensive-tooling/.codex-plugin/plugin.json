@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Security tool scaffolding and proof-of-concept development workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Offensive Tooling plugin."
+    "defaultPrompt": "Use the Offensive Tooling plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [

@@ -1,6 +1,7 @@
 ---
 name: azurehound-analysis
 description: "Use for AzureHound and BloodHound Azure or Entra ID attack-path work when the user clearly means Azure semantics such as Global Administrator, privileged Entra roles, service principals, applications, app roles, managed identities, subscriptions, resource groups, VMs, Key Vaults, or hybrid AD/Azure paths. Do not use for generic BloodHound connection checks, unclear graph-domain triage, explicit Cypher authoring/review, or OpenGraph schema-extension work."
+icon: ./assets/icon.png
 ---
 
 # AzureHound

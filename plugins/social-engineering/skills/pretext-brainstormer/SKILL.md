@@ -1,6 +1,7 @@
 ---
 name: pretext-brainstormer
 description: Research recent public events and brainstorm phishing pretext ideas for a named target organization. Use when the user provides a client name and a phishing goal such as payload delivery or credential capture and wants timely subject ideas.
+icon: ./assets/icon.png
 ---
 
 # Pretext Brainstormer

@@ -1,6 +1,7 @@
 ---
 name: scaffold-security
 description: Scaffold a security tool project with CLI, logging, and target handling. Prefer uv-based setup and packaging; if uv is unavailable, warn the user, request approval, and use a fallback bootstrap path.
+icon: ./assets/icon.png
 ---
 
 # Scaffold Security

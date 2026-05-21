@@ -1,6 +1,7 @@
 ---
 name: credential-harvest-landing-page-copy
 description: Draft believable copy for a credential-harvest landing page. Use when creating target-specific text for a fake login, SSO prompt, meeting join page, or internal portal notice.
+icon: ./assets/icon.png
 ---
 
 # Credential Harvest Landing Page Copy

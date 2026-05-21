@@ -1,6 +1,7 @@
 ---
 name: timeline-workflow
 description: Orchestrate the full Pentest Timeline workflow (parsers + consolidator) for reporting delivery.
+icon: ./assets/icon.png
 ---
 
 # Timeline Workflow

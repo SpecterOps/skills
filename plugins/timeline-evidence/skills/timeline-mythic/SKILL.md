@@ -1,6 +1,7 @@
 ---
 name: timeline-mythic
 description: Parse Mythic export JSON into normalized timeline entries.
+icon: ./assets/icon.png
 ---
 
 # Timeline Mythic Parser
