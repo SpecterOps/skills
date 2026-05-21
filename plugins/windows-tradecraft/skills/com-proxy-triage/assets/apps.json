@@ -1,0 +1,245 @@
+[
+  {
+    "AppName": "Zoom",
+    "PackageId": "zoom",
+    "ProcessName": "Zoom",
+    "LaunchExecutable": "C:\\Program Files\\Zoom\\bin\\Zoom.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "zoom.exe"
+    ]
+  },
+  {
+    "AppName": "Edge",
+    "PackageId": "microsoft-edge",
+    "ProcessName": "msedge",
+    "LaunchExecutable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "msedge.exe"
+    ]
+  },
+  {
+    "AppName": "VSCode",
+    "PackageId": "vscode",
+    "ProcessName": "Code",
+    "LaunchExecutable": "C:\\Users\\zach\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "code.exe"
+    ]
+  },
+  {
+    "AppName": "GoogleChrome",
+    "PackageId": "googlechrome",
+    "ProcessName": "chrome",
+    "LaunchExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "chrome.exe"
+    ]
+  },
+  {
+    "AppName": "MicrosoftTeams",
+    "PackageId": "microsoft-teams.install",
+    "ProcessName": "ms-teams",
+    "LaunchExecutable": "C:\\Users\\zach\\AppData\\Local\\Microsoft\\WindowsApps\\ms-teams.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "ms-teams.exe"
+    ]
+  },
+  {
+    "AppName": "TreeSizeFree",
+    "PackageId": "treesizefree",
+    "ProcessName": "TreeSizeFree",
+    "LaunchExecutable": "C:\\Program Files\\JAM Software\\TreeSize Free\\TreeSizeFree.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "TreeSizeFree.exe"
+    ]
+  },
+  {
+    "AppName": "FoxitReader",
+    "PackageId": "foxitreader",
+    "ProcessName": "FoxitPDFReader",
+    "LaunchExecutable": "C:\\Program Files\\Foxit Software\\Foxit PDF Reader\\FoxitPDFReader.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "FoxitPDFReader.exe"
+    ]
+  },
+  {
+    "AppName": "PaintDotNet",
+    "PackageId": "paint.net",
+    "ProcessName": "paintdotnet",
+    "LaunchExecutable": "C:\\Program Files\\Paint.NET\\paintdotnet.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "paintdotnet.exe"
+    ]
+  },
+  {
+    "AppName": "WinRAR",
+    "PackageId": "winrar",
+    "ProcessName": "WinRAR",
+    "LaunchExecutable": "C:\\Program Files\\WinRAR\\WinRAR.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "WinRAR.exe"
+    ]
+  },
+  {
+    "AppName": "TeamViewer",
+    "PackageId": "teamviewer",
+    "ProcessName": "TeamViewer",
+    "LaunchExecutable": "C:\\Program Files\\TeamViewer\\TeamViewer.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "teamviewer.exe"
+    ]
+  },
+  {
+    "AppName": "NotepadPlusPlus",
+    "PackageId": "notepadplusplus.install",
+    "ProcessName": "notepad++",
+    "LaunchExecutable": "C:\\Program Files\\Notepad++\\notepad++.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "notepad++.exe"
+    ]
+  },
+  {
+    "AppName": "SevenZip",
+    "PackageId": "7zip.install",
+    "ProcessName": "7zFM",
+    "LaunchExecutable": "C:\\Program Files\\7-Zip\\7zFM.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "7zFM.exe"
+    ]
+  },
+  {
+    "AppName": "VLC",
+    "PackageId": "vlc",
+    "ProcessName": "vlc",
+    "LaunchExecutable": "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "vlc.exe"
+    ]
+  },
+  {
+    "AppName": "Firefox",
+    "PackageId": "firefox",
+    "ProcessName": "firefox",
+    "LaunchExecutable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "firefox.exe"
+    ]
+  },
+  {
+    "AppName": "AdobeReader",
+    "PackageId": "adobereader",
+    "ProcessName": "Acrobat",
+    "LaunchExecutable": "C:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\Acrobat.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "acrobat.exe"
+    ]
+  },
+  {
+    "AppName": "Dropbox",
+    "PackageId": "dropbox",
+    "ProcessName": "Dropbox",
+    "LaunchExecutable": "C:\\Program Files (x86)\\Dropbox\\Client\\Dropbox.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "dropbox.exe"
+    ]
+  },
+  {
+    "AppName": "Slack",
+    "PackageId": "slack",
+    "ProcessName": "slack",
+    "LaunchExecutable": "C:\\Program Files\\Slack\\slack.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "slack.exe"
+    ]
+  },
+  {
+    "AppName": "CCleaner",
+    "PackageId": "ccleaner",
+    "ProcessName": "CCleaner64",
+    "LaunchExecutable": "C:\\Program Files\\CCleaner\\CCleaner64.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "CCleaner64.exe"
+    ]
+  },
+  {
+    "AppName": "LibreOffice",
+    "PackageId": "libreoffice-fresh",
+    "ProcessName": "soffice",
+    "LaunchExecutable": "C:\\Program Files\\LibreOffice\\program\\soffice.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "soffice.exe"
+    ]
+  },
+  {
+    "AppName": "Wireshark",
+    "PackageId": "wireshark",
+    "ProcessName": "Wireshark",
+    "LaunchExecutable": "C:\\Program Files\\Wireshark\\Wireshark.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "Wireshark.exe"
+    ]
+  },
+  {
+    "AppName": "CutePDF",
+    "PackageId": "cutepdf",
+    "ProcessName": "CutePDFWriter",
+    "LaunchExecutable": "C:\\Program Files (x86)\\CutePDF Writer\\CutePDFWriter.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "CutePDFWriter.exe"
+    ]
+  },
+  {
+    "AppName": "CitrixWorkspace",
+    "PackageId": "citrix-workspace",
+    "ProcessName": "nglauncher",
+    "LaunchExecutable": "C:\\Program Files\\Citrix\\Secure Access Client\\nglauncher.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "nglauncher.exe",
+      "CtxsDPS.exe",
+      "nsepa.exe"
+    ]
+  },
+  {
+    "AppName": "BoxDrive",
+    "PackageId": "box-drive",
+    "ProcessName": "BoxUI",
+    "LaunchExecutable": "C:\\Program Files\\Box\\Box\\UI\\BoxUI.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "BoxUI.exe",
+      "Box.Desktop.UpdateService.exe"
+    ]
+  },
+  {
+    "AppName": "Webex",
+    "PackageId": "webex",
+    "ProcessName": "CiscoCollabHost",
+    "LaunchExecutable": "C:\\Users\\zach\\AppData\\Local\\Programs\\Cisco Spark\\CiscoCollabHost.exe",
+    "LaunchArgumentList": [],
+    "TargetProcesses": [
+      "CiscoCollabHost.exe"
+    ]
+  }
+]
