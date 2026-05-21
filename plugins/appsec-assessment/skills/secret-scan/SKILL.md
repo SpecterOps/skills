@@ -1,6 +1,7 @@
 ---
 name: secret-scan
 description: Scan repositories and codebases for exposed secrets, credentials, and sensitive data. Use for GitHub repo/org/user scans, local code scans, and secret-discovery triage with optional command execution.
+icon: ./assets/icon.png
 ---
 
 # Secret Scan

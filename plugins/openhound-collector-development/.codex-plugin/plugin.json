@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "OpenHound collector template support package with the embedded OpenHound development skill.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Openhound Template plugin."
+    "defaultPrompt": "Use the Openhound Template plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

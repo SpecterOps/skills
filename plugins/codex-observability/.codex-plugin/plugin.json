@@ -8,7 +8,9 @@
     "category": "Productivity",
     "shortDescription": "Codex activity reporting and telemetry workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Codex Observability plugin."
+    "defaultPrompt": "Use the Codex Observability plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

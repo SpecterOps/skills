@@ -1,6 +1,7 @@
 ---
 name: bloodhound-analysis
 description: "Use as the default router for generic BloodHound asks: check the BloodHound connection, verify MCP health, analyze BloodHound data, find or explain a path, inspect shortest paths, find a path to Domain Admin or Tier Zero, show exposure, run a BloodHound query, or triage graph results when the domain is not yet clear. Use BloodHound MCP for authorized BloodHound CE graph analysis, path triage, object lookup, data-quality checks, AD/ADCS/Azure/OpenGraph exposure mapping, and report-ready remediation output. Do not use for unrelated network recon or for domain-specific work that is clearly AzureHound, OpenHound, OpenGraph schema design, or explicit Cypher authoring/review."
+icon: ./assets/icon.png
 ---
 
 # BloodHound Analysis

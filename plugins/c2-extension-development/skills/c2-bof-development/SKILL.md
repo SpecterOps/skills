@@ -1,6 +1,7 @@
 ---
 name: c2-bof-development
 description: Beacon Object File (BOF) development. Use when creating, porting, or debugging BOFs for C2 frameworks including API usage, DFR conventions, and compilation.
+icon: ./assets/icon.png
 ---
 
 # BOF Development Skill

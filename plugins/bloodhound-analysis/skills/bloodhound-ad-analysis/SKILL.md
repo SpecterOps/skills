@@ -1,6 +1,7 @@
 ---
 name: bloodhound-ad-analysis
 description: "Use for BloodHound Active Directory and ADCS attack-path work when the user clearly means on-prem AD semantics: find a path to Domain Admin, DA, Tier Zero, Domain Controllers, or privileged groups; investigate DCSync, ACL abuse, delegation, sessions, local admin, trusts, GPO abuse, LAPS/gMSA, Kerberoasting, AS-REP roasting, or ADCS ESC paths; or explain AD hygiene and privilege exposure in a BloodHound graph. Do not use for generic BloodHound connection checks, unclear graph-domain triage, explicit Cypher authoring/review, or Azure/OpenHound/OpenGraph-specific work."
+icon: ./assets/icon.png
 ---
 
 # BloodHound AD/ADCS

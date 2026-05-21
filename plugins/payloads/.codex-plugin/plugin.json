@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Payloads plugin."
+    "defaultPrompt": "Use the Payloads plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

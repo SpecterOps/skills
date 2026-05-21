@@ -6,6 +6,7 @@ metadata:
   author: xpn
   version: "0.1.0"
   category: security
+icon: ./assets/icon.png
 ---
 
 # Binary Ninja Analysis Skill

@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Application and code security assessment workflows for Specter Codex.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Appsec Assessment plugin."
+    "defaultPrompt": "Use the Appsec Assessment plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

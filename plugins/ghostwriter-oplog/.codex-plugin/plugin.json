@@ -7,7 +7,9 @@
     "category": "Security",
     "shortDescription": "Quick logging commands for GhostWriter operation logs",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Gw Oplog plugin."
+    "defaultPrompt": "Use the Gw Oplog plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "skills": "./skills/",
   "dependsOn": [],

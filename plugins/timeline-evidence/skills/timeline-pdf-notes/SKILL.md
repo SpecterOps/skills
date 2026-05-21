@@ -1,6 +1,7 @@
 ---
 name: timeline-pdf-notes
 description: Extract timeline entries from PDF operator notes via pdfplumber.
+icon: ./assets/icon.png
 ---
 
 # Timeline PDF Notes Parser

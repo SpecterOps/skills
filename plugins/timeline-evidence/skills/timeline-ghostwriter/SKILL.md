@@ -1,6 +1,7 @@
 ---
 name: timeline-ghostwriter
 description: Parse Ghostwriter oplog CSV exports into timeline entries.
+icon: ./assets/icon.png
 ---
 
 # Timeline Ghostwriter Parser
