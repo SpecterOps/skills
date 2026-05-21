@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Cobalt Strike Aggressor and BOF development workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the C2 Extension Development plugin."
+    "defaultPrompt": "Use the C2 Extension Development plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

@@ -1,6 +1,7 @@
 ---
 name: bloodhound-query
 description: "Use when the user explicitly wants BloodHound Cypher or query work: write a BloodHound query, review or explain Cypher, optimize a query, adapt a saved query, validate query safety or performance, convert a graph question into query syntax, or design follow-up graph questions across BloodHound CE/BHE, AzureHound, OpenHound GitHub, OpenHound Jamf, OpenHound Okta, or other OpenGraph data. Do not use as the default entry skill for generic path triage, connection checks, or AD/Azure/OpenHound exposure analysis when no explicit query-authoring task is requested."
+icon: ./assets/icon.png
 ---
 
 # BloodHound Query Workflow

@@ -1,6 +1,7 @@
 ---
 name: course-wiki-stage3-qa
 description: "Run stage 3 of the course wiki workflow: browser QA, template-shell comparison, targeted rendering-only polish, and post-fix validation for a migrated course wiki. Use when stage 1 or stage 2 has been deployed or previewed and the next task is to verify the course against the wiki-course-atd-instructor presentation benchmark, preserve original course content, apply bounded polish fixes, and summarize residual risks."
+icon: ./assets/icon.png
 ---
 
 # Course Wiki Stage 3 QA

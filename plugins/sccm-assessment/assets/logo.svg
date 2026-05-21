@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="160" viewBox="0 0 512 160" role="img" aria-label="Sccm Assessment logo">
+  <rect width="512" height="160" rx="28" fill="#0D0A30"/>
+  <path d="M38 42h84l18 18v58H38z" fill="#2C2677" stroke="#2C2677" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M56 62h54v8H56zm0 18h42v8H56zm0 18h50v8H56z" fill="#8E92EB"/>
+  <circle cx="116" cy="108" r="13" fill="#2C2677"/>
+  <text x="164" y="78" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Specter Codex</text>
+  <text x="164" y="112" fill="#8E92EB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Sccm Assessment</text>
+</svg>

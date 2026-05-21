@@ -8,7 +8,9 @@
     "category": "Productivity",
     "shortDescription": "Finding and report drafting workflows for security assessment deliverables.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Report Writing plugin."
+    "defaultPrompt": "Use the Report Writing plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

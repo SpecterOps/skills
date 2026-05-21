@@ -1,6 +1,7 @@
 ---
 name: proxychains-tunnel
 description: Run in-scope network commands through a SOCKS5 tunnel with proxychains4, including tunnel readiness checks and evidence capture. Use when traffic must traverse a local SOCKS proxy (for example pivoting through SSH dynamic forwarding).
+icon: ./assets/icon.png
 ---
 
 # Proxychains Tunnel

@@ -1,6 +1,7 @@
 ---
 name: openhound-jamf
 description: "Use for OpenHound Jamf/JamfHound OpenGraph BloodHound work when the user clearly means Jamf semantics such as Jamf tenant, site, account, group, computer, API-client exposure, Tier 1 to Tier 0 paths, policy/script/profile management privileges, traversable Jamf edges, Jamf SSO links, Okta/Jamf hybrid links, or Jamf device-management attack-path analysis. Do not use for generic BloodHound path triage, connection checks, explicit Cypher authoring/review, or non-Jamf OpenGraph domains."
+icon: ./assets/icon.png
 ---
 
 # OpenHound Jamf / JamfHound

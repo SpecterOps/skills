@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-label="qa icon">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="72%" r="58%">
+      <stop offset="0%" stop-color="#00B36B" stop-opacity="0.34"/>
+      <stop offset="46%" stop-color="#20A7FF" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#06051f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C2677"/>
+      <stop offset="100%" stop-color="#15104a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1254" height="1254" rx="190" fill="#06051f"/>
+  <circle cx="627" cy="715" r="470" fill="url(#glow)"/>
+  <path d="M218 1000 C362 1080 890 1080 1036 1000" fill="none" stroke="#00B36B" stroke-width="10" stroke-linecap="round" stroke-dasharray="8 30" opacity="0.82"/>
+  <path d="M212 256 C378 114 862 114 1044 274" fill="none" stroke="#8E92EB" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+  
+  <rect x="288" y="238" width="678" height="520" rx="46" fill="url(#panel)" stroke="#8E92EB" stroke-width="18"/>
+  <path d="M374 370 L708 370" stroke="#00B36B" stroke-width="26" stroke-linecap="round"/>
+  <path d="M374 470 L842 470" stroke="#20A7FF" stroke-width="26" stroke-linecap="round"/>
+  <path d="M374 570 L662 570" stroke="#00B36B" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="856" cy="824" r="126" fill="#15104a" stroke="#00B36B" stroke-width="24"/>
+  <path d="M795 818 l42 45 l91 -112" fill="none" stroke="#F7F8FF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

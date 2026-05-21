@@ -1,6 +1,7 @@
 ---
 name: webapp-review
 description: Web application security testing workflow and checklist generation. Use when planning or executing web app assessment steps, including auth, API, injection, and configuration testing.
+icon: ./assets/icon.png
 ---
 
 # Webapp Review

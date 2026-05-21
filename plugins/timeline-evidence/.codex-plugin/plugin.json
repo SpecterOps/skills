@@ -8,7 +8,9 @@
     "category": "Productivity",
     "shortDescription": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Timeline Evidence plugin."
+    "defaultPrompt": "Use the Timeline Evidence plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],

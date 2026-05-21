@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Bofdef plugin."
+    "defaultPrompt": "Use the Bofdef plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],
