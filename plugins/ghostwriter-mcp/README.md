@@ -7,6 +7,43 @@ Claude Code plugin for Ghostwriter security documentation platform.
 - [UV](https://docs.astral.sh/uv/) package manager
 - Running Ghostwriter instance
 
+
+## Codex GUI app setup
+
+After installing `ghostwriter-mcp` from the Codex GUI `/plugins` view, install the MCP server dependency into the installed plugin copy. The installer requires a source because this repository does not bundle a canonical Ghostwriter MCP server checkout:
+
+```bash
+cd ~/.codex/plugins/ghostwriter-mcp
+GHOSTWRITER_MCP_SOURCE='<git-url-or-local-path-to-ghostwriter-mcp-server>' \
+  scripts/install-mcp-deps.sh
+```
+
+Add Ghostwriter connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex:
+
+```toml
+[mcp_servers.ghostwriter.env]
+GHOSTWRITER_MCP_DIR = "/home/matthew/.codex/plugins/ghostwriter-mcp/vendor/ghostwriter-mcp"
+GHOSTWRITER_URL = "https://ghostwriter.example.com/"
+GHOSTWRITER_API_KEY = "YOUR_API_KEY"
+GHOSTWRITER_CA_BUNDLE = "/path/to/ca-bundle.crt"
+```
+
+If you also use `ghostwriter-oplog`, add oplog defaults to the same env block:
+
+```toml
+GHOSTWRITER_OPLOG_ID = "123"
+GHOSTWRITER_OPERATOR = "your-callsign"
+GHOSTWRITER_SOURCE_IP = "10.0.0.5"
+```
+
+Test the runner directly if the GUI does not show Ghostwriter tools:
+
+```bash
+~/.codex/plugins/ghostwriter-mcp/scripts/run-ghostwriter-mcp.sh
+```
+
+Expected Codex tool namespace: `mcp__ghostwriter__*`.
+
 ## Quick Setup
 
 Use the `/ghostwriter-mcp:config` command to configure settings:
