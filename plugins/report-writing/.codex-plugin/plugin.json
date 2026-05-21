@@ -2,15 +2,32 @@
   "name": "report-writing",
   "version": "0.1.0",
   "description": "Finding and report drafting workflows for security assessment deliverables.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "report",
+    "writing"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Report Writing",
-    "category": "Productivity",
-    "shortDescription": "Finding and report drafting workflows for security assessment deliverables.",
+    "shortDescription": "Finding drafting and report-ready remediation workflows.",
+    "longDescription": "Focused workflows for evidence-backed finding narratives, remediation guidance, and report-ready markdown output.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Report Writing plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Report Writing to draft a finding.",
+      "Use Report Writing to improve remediation guidance.",
+      "Use Report Writing to turn evidence into report text."
+    ],
+    "brandColor": "#00B36B"
+  }
 }

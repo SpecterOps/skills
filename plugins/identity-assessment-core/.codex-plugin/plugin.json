@@ -2,15 +2,32 @@
   "name": "identity-assessment-core",
   "version": "0.1.0",
   "description": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "identity",
+    "assessment"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Identity Assessment Core",
-    "category": "Security",
     "shortDescription": "Core identity, Active Directory, Windows, and internal assessment workflows.",
+    "longDescription": "Focused workflows for internal identity assessment, service enumeration, and Active Directory context gathering.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Identity Assessment Core plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Identity Assessment Core to parse nmap results.",
+      "Use Identity Assessment Core to plan internal enumeration.",
+      "Use Identity Assessment Core to triage Windows exposure."
+    ],
+    "brandColor": "#2C2677"
+  }
 }

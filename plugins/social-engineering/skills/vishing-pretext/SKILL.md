@@ -7,7 +7,7 @@ description: Research and draft a target-specific vishing pretext. Use when crea
 
 Build a believable phone pretext using current public context, plausible caller identity, and a tight objective.
 
-Read `../references/persuasion-principles.md` when choosing the primary persuasion principle.
+Read `../../references/persuasion-principles.md` when choosing the primary persuasion principle.
 
 ## Workflow
 

@@ -2,15 +2,34 @@
   "name": "ludus",
   "version": "0.2.0",
   "description": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ludus",
+    "range",
+    "lab",
+    "infrastructure",
+    "proxmox",
+    "codex",
+    "specter",
+    "cyber-range"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Ludus",
-    "category": "Security",
     "shortDescription": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
+    "longDescription": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Ludus plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the Ludus plugin."
+    ],
+    "brandColor": "#2C2677"
+  }
 }

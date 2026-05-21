@@ -2,15 +2,33 @@
   "name": "c2-extension-development",
   "version": "0.1.0",
   "description": "Cobalt Strike Aggressor and BOF development workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "c2",
+    "extension",
+    "development"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "C2 Extension Development",
-    "category": "Security",
     "shortDescription": "Cobalt Strike Aggressor and BOF development workflows.",
+    "longDescription": "Focused workflows for Beacon Object File development, Cobalt Strike Aggressor scripts, aliases, hooks, and C2 extension support.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the C2 Extension Development plugin."
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use C2 Extension Development to build a BOF.",
+      "Use C2 Extension Development to write Aggressor Script.",
+      "Use C2 Extension Development to debug C2 helpers."
+    ],
+    "brandColor": "#2C2677"
+  }
 }
