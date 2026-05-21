@@ -8,7 +8,9 @@
     "category": "Security",
     "shortDescription": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-ste...",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Mythic Implant plugin."
+    "defaultPrompt": "Use the Mythic Implant plugin.",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   },
   "dependsOn": [],
   "optionalDependencies": [],
