@@ -55,8 +55,7 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
 
    ```bash
    cd ~/.codex/plugins/ghostwriter-mcp
-   GHOSTWRITER_MCP_SOURCE='<git-url-or-local-path-to-ghostwriter-mcp-server>' \
-     scripts/install-mcp-deps.sh
+   scripts/install-mcp-deps.sh
    ```
 
 3. Add GUI-visible MCP environment values to `~/.codex/config.toml` and restart the Codex GUI app:
@@ -90,7 +89,7 @@ cd $env:USERPROFILE\.codex\plugins\bloodhound-analysis
 .\scripts\install-mcp-deps.ps1
 
 cd $env:USERPROFILE\.codex\plugins\ghostwriter-mcp
-.\scripts\install-mcp-deps.ps1 -Source '<git-url-or-local-path-to-ghostwriter-mcp-server>'
+.\scripts\install-mcp-deps.ps1
 ```
 
 Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:

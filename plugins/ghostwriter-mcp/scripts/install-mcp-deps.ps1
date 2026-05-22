@@ -9,12 +9,9 @@ $ErrorActionPreference = 'Stop'
 
 $ScriptDir = Split-Path -Parent $PSCommandPath
 $PluginDir = Resolve-Path (Join-Path $ScriptDir '..')
+if (-not $Source) { $Source = 'https://github.com/SpecterOps/GhostWriterMCP.git' }
 if (-not $Target) { $Target = Join-Path $PluginDir 'vendor\ghostwriter-mcp' }
 $RunUvSync = -not $NoUvSync -and $env:GHOSTWRITER_MCP_UV_SYNC -ne '0'
-
-if (-not $Source) {
-  throw 'GHOSTWRITER_MCP_SOURCE or -Source is required; no canonical Ghostwriter MCP source is bundled in this repo.'
-}
 
 $Parent = Split-Path -Parent $Target
 New-Item -ItemType Directory -Force -Path $Parent | Out-Null

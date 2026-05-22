@@ -11,7 +11,7 @@ Ghostwriter MCP is not installed at:
   ${server_dir}
 
 Install it alongside the plugin with:
-  GHOSTWRITER_MCP_SOURCE=<git-url-or-local-path> ${plugin_dir}/scripts/install-mcp-deps.sh
+  ${plugin_dir}/scripts/install-mcp-deps.sh
 
 Or set GHOSTWRITER_MCP_DIR to an existing Ghostwriter MCP server checkout.
 EOF
