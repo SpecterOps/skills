@@ -8,20 +8,23 @@ Claude Code plugin for Ghostwriter security documentation platform.
 - Running Ghostwriter instance
 
 
+## MCP packaging
+
+This plugin includes Codex MCP configuration plus plugin-local install/run scripts for the Ghostwriter MCP server.
+
+- `.mcp.json` points Codex at the plugin-owned MCP runner.
+- `scripts/install-mcp-deps.sh` installs or updates the Ghostwriter MCP checkout under `vendor/ghostwriter-mcp` by default.
+- `scripts/run-ghostwriter-mcp.sh` runs the server from `GHOSTWRITER_MCP_DIR` or the plugin-local vendor directory, and auto-runs the installer on first start when the checkout is missing.
+- `mcp/env.example` documents required Ghostwriter connection variables without committing secrets.
+
+The first MCP start bootstraps the plugin-local server checkout automatically unless `GHOSTWRITER_MCP_AUTO_INSTALL=0` is set.
+
 ## Codex GUI app setup
 
-After installing `ghostwriter-mcp` from the Codex GUI `/plugins` view, install the MCP server dependency into the installed plugin copy. The installer defaults to `https://github.com/SpecterOps/GhostWriterMCP.git`:
-
-```bash
-cd ~/.codex/plugins/ghostwriter-mcp
-scripts/install-mcp-deps.sh
-```
-
-Add Ghostwriter connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex:
+After installing `ghostwriter-mcp` from the Codex GUI `/plugins` view, add Ghostwriter connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex. The plugin-owned MCP runner clones/syncs `https://github.com/SpecterOps/GhostWriterMCP.git` into `vendor/ghostwriter-mcp` on first start.
 
 ```toml
 [mcp_servers.ghostwriter.env]
-GHOSTWRITER_MCP_DIR = "/home/matthew/.codex/plugins/ghostwriter-mcp/vendor/ghostwriter-mcp"
 GHOSTWRITER_URL = "https://ghostwriter.example.com/"
 GHOSTWRITER_API_KEY = "YOUR_API_KEY"
 GHOSTWRITER_CA_BUNDLE = "/path/to/ca-bundle.crt"
@@ -38,41 +41,26 @@ GHOSTWRITER_SOURCE_IP = "10.0.0.5"
 
 #### Windows native PowerShell wrappers
 
-Windows users do not need Git Bash for the helper scripts. Install dependencies from PowerShell after the plugin is installed:
-
-```powershell
-cd $env:USERPROFILE\.codex\plugins\bloodhound-analysis
-.\scripts\install-mcp-deps.ps1
-
-cd $env:USERPROFILE\.codex\plugins\ghostwriter-mcp
-.\scripts\install-mcp-deps.ps1
-```
-
-Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:
+Windows users do not need Git Bash for the helper scripts. The PowerShell runner also auto-installs the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrapper:
 
 ```toml
-[mcp_servers.bloodhound_mcp]
-command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
-
-[mcp_servers.bloodhound_mcp.env]
-BLOODHOUND_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\vendor\\bloodhound-mcp"
-
 [mcp_servers.ghostwriter]
 command = "powershell.exe"
 args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\scripts\\run-ghostwriter-mcp.ps1"]
 
 [mcp_servers.ghostwriter.env]
-GHOSTWRITER_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\vendor\\ghostwriter-mcp"
+GHOSTWRITER_URL = "https://ghostwriter.example.com/"
+GHOSTWRITER_API_KEY = "YOUR_API_KEY"
+GHOSTWRITER_CA_BUNDLE = "C:\\path\\to\\ca-bundle.crt"
 ```
 
-Test the runner directly if the GUI does not show Ghostwriter tools:
+Optionally pre-warm or test the runner directly if the GUI does not show Ghostwriter tools:
 
 ```bash
 ~/.codex/plugins/ghostwriter-mcp/scripts/run-ghostwriter-mcp.sh
 ```
 
-Expected Codex tool namespace: `mcp__ghostwriter__*`.
+Set `GHOSTWRITER_MCP_AUTO_INSTALL=0` to disable first-run bootstrap. Expected Codex tool namespace: `mcp__ghostwriter__*`.
 
 ## Quick Setup
 

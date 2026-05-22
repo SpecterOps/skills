@@ -34,7 +34,7 @@ Then open Codex and install from `/plugins`.
 
 ### Codex GUI MCP setup
 
-Installing a Codex plugin from `/plugins` installs the plugin package, skills, MCP config, and helper scripts. It does **not** clone external MCP server repositories, run dependency installers, or write secrets into the GUI app. Complete the MCP dependency and environment setup after installing the plugin.
+Installing a Codex plugin from `/plugins` installs the plugin package, skills, MCP config, and helper scripts. The BloodHound and Ghostwriter MCP runners now bootstrap their external MCP server checkout on first start, so the user only needs `git`, `uv`, network access, and their connection values/secrets.
 
 1. Install or refresh this marketplace in the Codex GUI app:
 
@@ -46,23 +46,10 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
 
    Then open the Codex GUI app, go to `/plugins`, and install `bloodhound-analysis`, `ghostwriter-mcp`, and optionally `ghostwriter-oplog`.
 
-2. Install the MCP server dependencies into the installed plugin copies:
-
-   ```bash
-   cd ~/.codex/plugins/bloodhound-analysis
-   scripts/install-mcp-deps.sh
-   ```
-
-   ```bash
-   cd ~/.codex/plugins/ghostwriter-mcp
-   scripts/install-mcp-deps.sh
-   ```
-
-3. Add GUI-visible MCP environment values to `~/.codex/config.toml` and restart the Codex GUI app:
+2. Add GUI-visible MCP environment values to `~/.codex/config.toml` and restart the Codex GUI app. The plugin-owned MCP runners will clone/sync the MCP server into the plugin's `vendor/` directory the first time Codex starts the MCP.
 
    ```toml
    [mcp_servers.bloodhound_mcp.env]
-   BLOODHOUND_MCP_DIR = "/home/matthew/.codex/plugins/bloodhound-analysis/vendor/bloodhound-mcp"
    BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
    BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
    BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
@@ -70,7 +57,6 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
    BLOODHOUND_PORT = "443"
 
    [mcp_servers.ghostwriter.env]
-   GHOSTWRITER_MCP_DIR = "/home/matthew/.codex/plugins/ghostwriter-mcp/vendor/ghostwriter-mcp"
    GHOSTWRITER_URL = "https://ghostwriter.example.com/"
    GHOSTWRITER_API_KEY = "YOUR_API_KEY"
    GHOSTWRITER_CA_BUNDLE = "/path/to/ca-bundle.crt"
@@ -82,17 +68,7 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
 
 #### Windows native PowerShell wrappers
 
-Windows users do not need Git Bash for the helper scripts. Install dependencies from PowerShell after the plugin is installed:
-
-```powershell
-cd $env:USERPROFILE\.codex\plugins\bloodhound-analysis
-.\scripts\install-mcp-deps.ps1
-
-cd $env:USERPROFILE\.codex\plugins\ghostwriter-mcp
-.\scripts\install-mcp-deps.ps1
-```
-
-Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:
+Windows users do not need Git Bash for the helper scripts. The PowerShell runners also auto-install the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:
 
 ```toml
 [mcp_servers.bloodhound_mcp]
@@ -100,24 +76,30 @@ command = "powershell.exe"
 args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
 
 [mcp_servers.bloodhound_mcp.env]
-BLOODHOUND_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\vendor\\bloodhound-mcp"
+BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
+BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
+BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
+BLOODHOUND_SCHEME = "https"
+BLOODHOUND_PORT = "443"
 
 [mcp_servers.ghostwriter]
 command = "powershell.exe"
 args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\scripts\\run-ghostwriter-mcp.ps1"]
 
 [mcp_servers.ghostwriter.env]
-GHOSTWRITER_MCP_DIR = "C:\\Users\\<you>\\.codex\\plugins\\ghostwriter-mcp\\vendor\\ghostwriter-mcp"
+GHOSTWRITER_URL = "https://ghostwriter.example.com/"
+GHOSTWRITER_API_KEY = "YOUR_API_KEY"
+GHOSTWRITER_CA_BUNDLE = "C:\\path\\to\\ca-bundle.crt"
 ```
 
-4. Verify the runners outside the GUI before troubleshooting Codex:
+3. Optional: pre-warm or verify the runners outside the GUI before troubleshooting Codex:
 
    ```bash
    ~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
    ~/.codex/plugins/ghostwriter-mcp/scripts/run-ghostwriter-mcp.sh
    ```
 
-   In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
+   To disable first-run bootstrap, set `BLOODHOUND_MCP_AUTO_INSTALL=0` or `GHOSTWRITER_MCP_AUTO_INSTALL=0`. In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
 
 ## Use With npx skills
 
