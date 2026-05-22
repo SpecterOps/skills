@@ -48,7 +48,7 @@ Required output quality:
 - Highlight gaps caused by filtering, host firewalls, or protocol restrictions.
 
 Skill usage:
-- Use `$kali-mcp` for in-scope scanning and service-enumeration tool execution through MCP.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Send validated inventories and weak-signal exposures to `planner`.

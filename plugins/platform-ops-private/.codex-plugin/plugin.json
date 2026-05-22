@@ -1,7 +1,7 @@
 {
   "name": "platform-ops-private",
   "version": "0.1.0",
-  "description": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+  "description": "Private platform, SSH, tunnel, and firewall operation workflows.",
   "author": {
     "name": "SpecterOps"
   },
@@ -15,8 +15,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Platform Ops Private",
-    "shortDescription": "Private platform, SSH, MCP, tunnel, and firewall workflows.",
-    "longDescription": "Private internal workflows for environment-bound MCP usage, SSH operation, proxychains tunnels, Kali MCP, and nftables changes.",
+    "shortDescription": "Private platform, SSH, tunnel, and firewall workflows.",
+    "longDescription": "Private internal workflows for SSH operation, proxychains tunnels, and nftables changes.",
     "developerName": "SpecterOps",
     "category": "Infrastructure",
     "capabilities": [
@@ -24,9 +24,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Use Platform Ops Private to validate MCP wiring.",
       "Use Platform Ops Private for scoped SSH work.",
-      "Use Platform Ops Private to run tunneled commands."
+      "Use Platform Ops Private to run tunneled commands.",
+      "Use Platform Ops Private to update nftables allow rules."
     ],
     "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.png",

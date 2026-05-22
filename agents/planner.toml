@@ -87,7 +87,7 @@ Coordination strategy:
 - Route low-confidence results to another agent for validation.
 - Route reporting continuously to `report_writer`, not only at the end.
 - Prefer `researcher -> code_reviewer -> poc_dev` for patch/CVE comparative workflows.
-- Route Kali tool execution tasks to agents with `$kali-mcp` usage guidance.
+- Route scoped tool execution tasks to agents with `$ssh-ops`, `$proxychains-tunnel`, or operator-provided MCP/tooling guidance.
 
 Deliverable requirement:
 - Produce a comprehensive markdown report including:

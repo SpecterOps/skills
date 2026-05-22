@@ -28,7 +28,7 @@ Evidence standards:
 - Preserve an auditable sequence of executed commands.
 
 Skill usage:
-- Use `$kali-mcp` for in-scope host/service/credential-path validation through Kali MCP tools.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Consume recon context from `osint_recon` and analysis context from `security_researcher`.
