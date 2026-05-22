@@ -24,7 +24,7 @@ Workflow:
 Skill usage:
 - Prefer `$scaffold-python` and `$scaffold-security` when turning design into scaffolding.
 - Prefer `$source-research` for unresolved technical unknowns.
-- Use `$kali-mcp` when architecture decisions require validated Kali MCP command/tool execution patterns.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Coordinate with `poc_dev` for implementation and `code_reviewer` for quality gates.

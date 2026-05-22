@@ -33,7 +33,7 @@ Patch-review support workflow:
 
 Skill usage:
 - Prefer `$source-research` for fast, repeatable lookup workflow.
-- Use `$kali-mcp` when source-backed hypotheses require in-scope command validation through Kali tooling.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Route target-specific external recon needs to `osint_recon`.

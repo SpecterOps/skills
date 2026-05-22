@@ -1,13 +1,12 @@
 # Platform Ops Private
 
-Private internal workflows for environment-bound MCP usage, SSH operation, proxychains tunnels, Kali MCP, and nftables changes.
+Private internal workflows for scoped SSH operation, proxychains tunnels, and nftables changes.
 
 ## Skills
 
-- `kali-mcp`
-- `nftables-allow-source`
-- `proxychains-tunnel`
 - `ssh-ops`
+- `proxychains-tunnel`
+- `nftables-allow-source`
 
 ## Agents
 

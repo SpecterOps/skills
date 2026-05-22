@@ -1,11 +1,10 @@
 {
   "plugin": "platform-ops-private",
-  "purpose": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+  "purpose": "Private platform, SSH, tunnel, and firewall operation workflows.",
   "agents": [
     "ssh-operator"
   ],
   "skills": [
-    "kali-mcp",
     "nftables-allow-source",
     "proxychains-tunnel",
     "ssh-ops"

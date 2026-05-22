@@ -175,9 +175,9 @@ smbclient -L //<TARGET> -N
 nc -zv <TARGET> 1433
 ```
 
-Use `$kali-mcp` when these checks should run through MCP-managed tooling rather than raw commands.
+Use `$ssh-ops` or `$proxychains-tunnel` when these checks should run through operator-controlled remote or tunneled command execution.
 
-If the operator prefers MCP-managed execution, verify the `kali_mcp` server is available before using it.
+If the operator provides external MCP tooling, verify the relevant MCP tools are available before relying on them.
 
 ## OPSEC Gate
 

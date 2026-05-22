@@ -1,6 +1,0 @@
-interface:
-  display_name: "Kali MCP"
-  short_description: "Run Kali MCP offensive tooling"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  default_prompt: "Use $kali-mcp to execute scoped Kali MCP tool workflows with evidence capture and OPSEC-aware approval gating."

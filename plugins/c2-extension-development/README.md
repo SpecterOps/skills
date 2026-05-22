@@ -1,11 +1,13 @@
 # C2 Extension Development
 
-Focused workflows for Beacon Object File development, Cobalt Strike Aggressor scripts, aliases, hooks, and C2 extension support.
+Cobalt Strike Aggressor, Beacon Object File (BOF), and C2 extension workflows with consolidated reference material.
 
 ## Skills
 
-- `aggressor`
-- `bof`
+- `c2-bof-development` — canonical BOF development, API, build, dynamic resolution, and linting workflow.
+- `cobalt-strike-aggressor-development` — canonical Aggressor Script, Sleep, BOF loader, and Cobalt Strike extension workflow.
+- `beacon-object-file-development` — deprecated compatibility entrypoint; use `c2-bof-development`.
+- `cobalt-strike-aggressor-reference` — deprecated compatibility entrypoint; use `cobalt-strike-aggressor-development`.
 
 ## Agents
 

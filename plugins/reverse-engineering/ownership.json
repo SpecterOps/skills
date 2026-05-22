@@ -1,0 +1,8 @@
+{
+  "plugin": "reverse-engineering",
+  "purpose": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+  "agents": [],
+  "skills": [
+    "binary-ninja-mcp-analysis"
+  ]
+}

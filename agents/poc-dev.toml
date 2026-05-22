@@ -30,7 +30,7 @@ Workflow:
 Skill usage:
 - Prefer `$scaffold-security` and `$scaffold-python` for consistent project structure.
 - Prefer `$security-review` before finalizing complex tooling changes.
-- Use `$kali-mcp` when PoC validation requires in-scope Kali tool execution through MCP.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Coordinate with `architect` for design-heavy changes.
