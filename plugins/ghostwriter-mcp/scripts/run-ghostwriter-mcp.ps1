@@ -14,7 +14,7 @@ Ghostwriter MCP is not installed at:
   $ServerDir
 
 Install it alongside the plugin with:
-  $ScriptDir\install-mcp-deps.ps1 -Source <git-url-or-local-path>
+  $ScriptDir\install-mcp-deps.ps1
 
 Or set GHOSTWRITER_MCP_DIR to an existing Ghostwriter MCP server checkout.
 "@)

@@ -10,12 +10,11 @@ Claude Code plugin for Ghostwriter security documentation platform.
 
 ## Codex GUI app setup
 
-After installing `ghostwriter-mcp` from the Codex GUI `/plugins` view, install the MCP server dependency into the installed plugin copy. The installer requires a source because this repository does not bundle a canonical Ghostwriter MCP server checkout:
+After installing `ghostwriter-mcp` from the Codex GUI `/plugins` view, install the MCP server dependency into the installed plugin copy. The installer defaults to `https://github.com/SpecterOps/GhostWriterMCP.git`:
 
 ```bash
 cd ~/.codex/plugins/ghostwriter-mcp
-GHOSTWRITER_MCP_SOURCE='<git-url-or-local-path-to-ghostwriter-mcp-server>' \
-  scripts/install-mcp-deps.sh
+scripts/install-mcp-deps.sh
 ```
 
 Add Ghostwriter connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex:
@@ -46,7 +45,7 @@ cd $env:USERPROFILE\.codex\plugins\bloodhound-analysis
 .\scripts\install-mcp-deps.ps1
 
 cd $env:USERPROFILE\.codex\plugins\ghostwriter-mcp
-.\scripts\install-mcp-deps.ps1 -Source '<git-url-or-local-path-to-ghostwriter-mcp-server>'
+.\scripts\install-mcp-deps.ps1
 ```
 
 Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:

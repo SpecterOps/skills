@@ -4,13 +4,13 @@ set -euo pipefail
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 plugin_dir="$(cd "${script_dir}/.." && pwd)"
 
-source_ref="${GHOSTWRITER_MCP_SOURCE:-}"
+source_ref="${GHOSTWRITER_MCP_SOURCE:-https://github.com/SpecterOps/GhostWriterMCP.git}"
 target_dir="${GHOSTWRITER_MCP_DIR:-${plugin_dir}/vendor/ghostwriter-mcp}"
 run_uv_sync="${GHOSTWRITER_MCP_UV_SYNC:-1}"
 
 usage() {
   cat <<'EOF'
-Usage: install-mcp-deps.sh --source <git-url-or-local-path> [options]
+Usage: install-mcp-deps.sh [options]
 
 Installs the Ghostwriter MCP server next to the ghostwriter-mcp plugin.
 
@@ -21,7 +21,7 @@ Options:
   -h, --help
 
 Environment:
-  GHOSTWRITER_MCP_SOURCE            Git URL or local checkout/source path
+  GHOSTWRITER_MCP_SOURCE            Git URL or local checkout/source path (default: https://github.com/SpecterOps/GhostWriterMCP.git)
   GHOSTWRITER_MCP_DIR               Target install directory
   GHOSTWRITER_MCP_UV_SYNC=0         Skip uv sync
 EOF
@@ -52,12 +52,6 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
-
-if [[ -z "${source_ref}" ]]; then
-  echo "GHOSTWRITER_MCP_SOURCE or --source is required; no canonical Ghostwriter MCP source is bundled in this repo." >&2
-  usage >&2
-  exit 2
-fi
 
 mkdir -p "$(dirname "${target_dir}")"
 
