@@ -2,17 +2,35 @@
   "name": "social-engineering",
   "version": "0.1.0",
   "description": "Social engineering research and phishing pretext workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "social-engineering",
+    "phishing",
+    "pretext"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Social Engineering",
-    "category": "Security",
-    "shortDescription": "Social engineering research and phishing pretext workflows.",
+    "shortDescription": "Phishing and pretext development workflows",
+    "longDescription": "Reusable Specter Codex workflows for researching target-specific context, extracting organizational voice, and drafting believable phishing pretexts.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Social Engineering plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Social Engineering to run the full phishing workflow from research to final email.",
+      "Use Social Engineering to research a company and brainstorm phishing pretexts tied to payload delivery or credential capture.",
+      "Use Social Engineering to research a company and draft a phishing email pretext."
+    ],
+    "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }

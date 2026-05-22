@@ -44,7 +44,46 @@ This plugin includes Codex MCP configuration plus plugin-local install/run scrip
 
 - `.mcp.json` points Codex at the plugin-owned MCP runner.
 - `scripts/install-mcp-deps.sh` installs or updates the BloodHound MCP checkout under `vendor/bloodhound-mcp` by default.
-- `scripts/run-bloodhound-mcp.sh` runs the server from `BLOODHOUND_MCP_DIR` or the plugin-local vendor directory.
+- `scripts/run-bloodhound-mcp.sh` runs the server from `BLOODHOUND_MCP_DIR` or the plugin-local vendor directory, and auto-runs the installer on first start when the checkout is missing.
 - `mcp/env.example` documents required BloodHound connection variables without committing secrets.
 
-For a target install environment, install the plugin and MCP server together with the bootstrap sync flow, or point `BLOODHOUND_MCP_DIR` at an existing checkout. Do not commit environment-specific API values.
+For a target install environment, install the plugin from Codex and configure only the BloodHound connection values. The first MCP start bootstraps the plugin-local server checkout automatically unless `BLOODHOUND_MCP_AUTO_INSTALL=0` is set. Do not commit environment-specific API values.
+
+### Codex GUI app setup
+
+After installing `bloodhound-analysis` from the Codex GUI `/plugins` view, add BloodHound connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex. The plugin-owned MCP runner clones/syncs the BloodHound MCP server into `vendor/bloodhound-mcp` on first start.
+
+```toml
+[mcp_servers.bloodhound_mcp.env]
+BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
+BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
+BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
+BLOODHOUND_SCHEME = "https"
+BLOODHOUND_PORT = "443"
+```
+
+
+#### Windows native PowerShell wrappers
+
+Windows users do not need Git Bash for the helper scripts. The PowerShell runner also auto-installs the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrapper:
+
+```toml
+[mcp_servers.bloodhound_mcp]
+command = "powershell.exe"
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
+
+[mcp_servers.bloodhound_mcp.env]
+BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
+BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
+BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
+BLOODHOUND_SCHEME = "https"
+BLOODHOUND_PORT = "443"
+```
+
+Optionally pre-warm or test the runner directly if the GUI does not show BloodHound tools:
+
+```bash
+~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
+```
+
+Set `BLOODHOUND_MCP_AUTO_INSTALL=0` to disable first-run bootstrap. Expected Codex tool namespace: `mcp__bloodhound_mcp__*`.

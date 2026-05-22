@@ -1,0 +1,10 @@
+interface:
+  display_name: Code Review
+  short_description: Security-focused code review of current git changes. Use when reviewing code diffs, checking for vulnerabilities,
+    or before merging branc...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $code-review for this workflow.
+policy:
+  allow_implicit_invocation: true

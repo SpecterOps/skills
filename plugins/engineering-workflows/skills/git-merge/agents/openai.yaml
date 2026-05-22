@@ -1,0 +1,10 @@
+interface:
+  display_name: Git Merge
+  short_description: Complex git operations — merge conflict resolution, cherry-picks, rebases. Use when merging branches,
+    resolving conflicts, cherry-picking...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $git-merge for this workflow.
+policy:
+  allow_implicit_invocation: true

@@ -1,4 +1,6 @@
 interface:
   display_name: "Codex Activity Report"
   short_description: "Build a UTC Codex chronology"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
   default_prompt: "Use $codex-activity-report to generate a UTC timeline and evidence-based narrative from the Codex logs in this repository."

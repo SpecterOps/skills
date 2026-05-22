@@ -1,0 +1,9 @@
+interface:
+  display_name: Timeline Workflow
+  short_description: Orchestrate the full Pentest Timeline workflow (parsers + consolidator) for reporting delivery.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $timeline-workflow for this workflow.
+policy:
+  allow_implicit_invocation: true

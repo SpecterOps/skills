@@ -8,7 +8,7 @@ icon: ./assets/icon.png
 
 Draft concise landing-page text that matches the target's public voice and the lure's call to action.
 
-Read `../references/persuasion-principles.md` when choosing the primary persuasion principle.
+Read `../../references/persuasion-principles.md` when choosing the primary persuasion principle.
 
 ## Workflow
 

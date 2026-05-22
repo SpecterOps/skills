@@ -2,17 +2,37 @@
   "name": "beacon-object-file-development",
   "version": "0.1.0",
   "description": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "c2-bof-development",
+    "beacon",
+    "cobalt-strike",
+    "red-team",
+    "c2",
+    "codex",
+    "specter",
+    "bof",
+    "beacon-object-file"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Beacon Object File Development",
-    "category": "Security",
     "shortDescription": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
+    "longDescription": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Bofdef plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the Bofdef plugin."
+    ],
+    "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }

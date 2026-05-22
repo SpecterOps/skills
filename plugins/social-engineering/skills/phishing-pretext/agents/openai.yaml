@@ -1,0 +1,10 @@
+interface:
+  display_name: Phishing Pretext
+  short_description: Research and draft a target-specific phishing email pretext. Use when building or refining a believable
+    lure for a named company, policy...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $phishing-pretext for this workflow.
+policy:
+  allow_implicit_invocation: true

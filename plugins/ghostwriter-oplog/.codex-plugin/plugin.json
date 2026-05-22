@@ -2,17 +2,35 @@
   "name": "ghostwriter-oplog",
   "version": "0.1.0",
   "description": "Quick logging commands for GhostWriter operation logs",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "ghostwriter",
+    "oplog",
+    "pentest",
+    "logging",
+    "codex",
+    "specter",
+    "reporting"
+  ],
+  "skills": "./skills/",
   "interface": {
     "displayName": "Ghostwriter Oplog",
-    "category": "Security",
     "shortDescription": "Quick logging commands for GhostWriter operation logs",
+    "longDescription": "Quick logging commands for GhostWriter operation logs",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Gw Oplog plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the Gw Oplog plugin."
+    ],
+    "brandColor": "#8E92EB",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "skills": "./skills/",
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }
