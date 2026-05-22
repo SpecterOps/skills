@@ -7,11 +7,14 @@
       ],
       "env_vars": [
         "BLOODHOUND_MCP_DIR",
+        "BLOODHOUND_MCP_SOURCE",
         "BLOODHOUND_DOMAIN",
         "BLOODHOUND_TOKEN_ID",
         "BLOODHOUND_TOKEN_KEY",
         "BLOODHOUND_SCHEME",
-        "BLOODHOUND_PORT"
+        "BLOODHOUND_PORT",
+        "BLOODHOUND_MCP_AUTO_INSTALL",
+        "BLOODHOUND_MCP_UV_SYNC"
       ]
     }
   }
