@@ -1,0 +1,9 @@
+interface:
+  display_name: Mythic Implant Development
+  short_description: Provides guidance and documentation for building Mythic C2 framework agents/implants from scratch
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $mythic-implant-development for this workflow.
+policy:
+  allow_implicit_invocation: true

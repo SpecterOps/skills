@@ -1,0 +1,10 @@
+interface:
+  display_name: Shodan
+  short_description: Query Shodan for reconnaissance, target enrichment, and exposed service discovery. Builds queries, parses
+    results, and highlights interes...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $shodan for this workflow.
+policy:
+  allow_implicit_invocation: true

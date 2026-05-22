@@ -1,0 +1,10 @@
+interface:
+  display_name: Credential Harvest Landing Page Copy
+  short_description: Draft believable copy for a credential-harvest landing page. Use when creating target-specific text for
+    a fake login, SSO prompt, meeting...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $credential-harvest-landing-page-copy for this workflow.
+policy:
+  allow_implicit_invocation: true

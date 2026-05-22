@@ -1,0 +1,10 @@
+interface:
+  display_name: Webapp QA
+  short_description: Quick-invoke QA testing for a web app URL. Use when you want the `qa` subagent to smoke test, exercise
+    flows, and run Lighthouse against...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $webapp-qa for this workflow.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+interface:
+  display_name: Phishing Campaign Builder
+  short_description: Run the end-to-end phishing pretext workflow from research to final email. Use when the user has a target
+    organization and phishing goal...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $phishing-campaign-builder for this workflow.
+policy:
+  allow_implicit_invocation: true

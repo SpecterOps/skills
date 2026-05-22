@@ -1,0 +1,10 @@
+interface:
+  display_name: Electron App Audit
+  short_description: Audit a local downloaded Electron package/path or a named Electron app and produce a deep worksheet for
+    patchability, entrypoints, and in...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $electron-app-audit for this workflow.
+policy:
+  allow_implicit_invocation: true

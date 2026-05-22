@@ -1,0 +1,10 @@
+interface:
+  display_name: Phishing Email HTML
+  short_description: Generate a phishing email in HTML from an approved pretext. Use when the task needs polished email copy
+    plus HTML formatted for common de...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $phishing-email-html for this workflow.
+policy:
+  allow_implicit_invocation: true
