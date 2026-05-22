@@ -1,0 +1,10 @@
+interface:
+  display_name: Binary Ninja MCP Analysis
+  short_description: Provides Binary Ninja IL documentation and MCP server usage guidance for binary analysis and reverse
+    engineering
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $binary-ninja-mcp-analysis for this workflow.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+interface:
+  display_name: Git Preflight
+  short_description: Pre-commit and pre-edit git checklist — staged diff code-review, macOS case renames, remote branch sync
+    verification. Run before committi...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $git-preflight for this workflow.
+policy:
+  allow_implicit_invocation: true

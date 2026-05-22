@@ -1,0 +1,9 @@
+interface:
+  display_name: Ludus Development
+  short_description: Provides information on how to develop Ludus configuration files
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#2C2677'
+  default_prompt: Use $ludus-development for this workflow.
+policy:
+  allow_implicit_invocation: true

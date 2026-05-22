@@ -1,0 +1,10 @@
+interface:
+  display_name: Pretext Brainstormer
+  short_description: Research recent public events and brainstorm phishing pretext ideas for a named target organization.
+    Use when the user provides a client...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $pretext-brainstormer for this workflow.
+policy:
+  allow_implicit_invocation: true

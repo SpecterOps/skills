@@ -1,0 +1,10 @@
+interface:
+  display_name: Finding Report
+  short_description: Generate a structured pentest finding report in markdown. Use when documenting a vulnerability, writing
+    up a finding, or creating engagem...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $finding-report for this workflow.
+policy:
+  allow_implicit_invocation: true

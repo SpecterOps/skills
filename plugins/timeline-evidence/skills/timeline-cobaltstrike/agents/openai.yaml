@@ -1,0 +1,9 @@
+interface:
+  display_name: Timeline Cobalt Strike
+  short_description: Parse Cobalt Strike logs into normalized timeline entries for the reporting workflow.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $timeline-cobaltstrike for this workflow.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+interface:
+  display_name: Electron Candidate Discovery
+  short_description: Find practical Electron apps that are likely patchable with the same Electron-plus-Squirrel method. Use
+    when building an actionable short...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $electron-candidate-discovery for this workflow.
+policy:
+  allow_implicit_invocation: true

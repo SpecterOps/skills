@@ -1,0 +1,10 @@
+interface:
+  display_name: Ghostwriter MCP
+  short_description: Use for Ghostwriter MCP setup, connection verification, project discovery, oplog discovery, and environment
+    guidance in Codex.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $ghostwriter-mcp for this workflow.
+policy:
+  allow_implicit_invocation: true
