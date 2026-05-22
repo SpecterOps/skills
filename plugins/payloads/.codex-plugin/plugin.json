@@ -2,17 +2,36 @@
   "name": "payloads",
   "version": "0.1.0",
   "description": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "payloads",
+    "electron",
+    "squirrel",
+    "audit"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Payloads",
-    "category": "Security",
-    "shortDescription": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+    "shortDescription": "Electron payload, persistence, audit, and candidate-discovery workflows.",
+    "longDescription": "Reusable workflows for repackaging Electron apps, preserving Squirrel install continuity, auditing local or named Electron targets, and identifying practical patchable candidates.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Payloads plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Payloads to repackage a newer Electron app into an older Squirrel delivery chain.",
+      "Use Payloads to troubleshoot post-install persistence for an Electron app.",
+      "Use Payloads to audit a downloaded Electron app and map patch points."
+    ],
+    "brandColor": "#8E92EB",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }

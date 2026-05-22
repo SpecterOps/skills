@@ -1,0 +1,10 @@
+interface:
+  display_name: Ghostwriter Oplog
+  short_description: Use for Ghostwriter operation log entries from Codex, including config guidance, quick notes, evidence-backed
+    entries, and guided oplog c...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $ghostwriter-oplog for this workflow.
+policy:
+  allow_implicit_invocation: true

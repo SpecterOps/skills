@@ -9,7 +9,7 @@ arguments:
 Run the ghostwriter-oplog configuration script:
 
 ```bash
-${CLAUDE_PLUGIN_ROOT}/scripts/ghostwriter-oplog-config.sh $ARGUMENTS
+${CLAUDE_PLUGIN_ROOT}/scripts/gw-oplog-config.sh $ARGUMENTS
 ```
 
 Report the output to the user.

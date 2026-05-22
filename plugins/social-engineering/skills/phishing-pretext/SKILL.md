@@ -8,7 +8,7 @@ icon: ./assets/icon.png
 
 Build a believable pretext by grounding it in current public information, matching the target's public voice, and removing claims that are easy to falsify.
 
-Read `../references/persuasion-principles.md` when selecting the pretext's primary persuasion principle.
+Read `../../references/persuasion-principles.md` when selecting the pretext's primary persuasion principle.
 
 ## Input Parsing
 

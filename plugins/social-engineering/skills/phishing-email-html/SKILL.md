@@ -9,7 +9,7 @@ icon: ./assets/icon.png
 Turn a researched pretext into a clean HTML email that renders well in common mail clients.
 
 If `gophish` or `phishmonger` mode is requested, read `references/delivery-platform-fields.md` before drafting.
-Also read `../references/persuasion-principles.md` to preserve the chosen persuasion principle in the copy.
+Also read `../../references/persuasion-principles.md` to preserve the chosen persuasion principle in the copy.
 
 ## Delivery Modes
 

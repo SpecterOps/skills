@@ -1,0 +1,9 @@
+interface:
+  display_name: Timeline Consolidator
+  short_description: Merge parsed timeline entries, apply MITRE tagging, and produce the final timeline outputs.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $timeline-consolidator for this workflow.
+policy:
+  allow_implicit_invocation: true

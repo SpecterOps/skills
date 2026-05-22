@@ -2,19 +2,34 @@
   "name": "offensive-tooling",
   "version": "0.1.0",
   "description": "Security tool scaffolding and proof-of-concept development workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "offensive",
+    "tooling"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Offensive Tooling",
-    "category": "Security",
     "shortDescription": "Security tool scaffolding and proof-of-concept development workflows.",
+    "longDescription": "Focused workflows for building assessment utilities, proof-of-concept tools, and security automation with safe target handling.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Offensive Tooling plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Offensive Tooling to scaffold a security utility.",
+      "Use Offensive Tooling to add target handling.",
+      "Use Offensive Tooling to design a PoC helper."
+    ],
+    "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [
-    "c2-extension-development"
-  ],
-  "conflictsWith": []
+  }
 }

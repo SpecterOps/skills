@@ -2,17 +2,34 @@
   "name": "external-recon",
   "version": "0.1.0",
   "description": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "external",
+    "recon"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "External Recon",
-    "category": "Security",
-    "shortDescription": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+    "shortDescription": "Passive external reconnaissance and exposure discovery workflows.",
+    "longDescription": "Focused workflows for OSINT, Shodan-backed enrichment, and passive external exposure mapping.",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the External Recon plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use External Recon to map passive exposure.",
+      "Use External Recon to query Shodan for a target.",
+      "Use External Recon before active testing."
+    ],
+    "brandColor": "#8E92EB",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }

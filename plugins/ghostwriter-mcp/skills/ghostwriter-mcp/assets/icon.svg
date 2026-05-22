@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="GW icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <path d="M24 24h70l14 14v66H24z" fill="#2C2677" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M92 25v18h18" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M48 47c0-14 25-14 25 2v26c0 13-25 13-25 0z" fill="none" stroke="#8E92EB" stroke-width="5"/>
+  <circle cx="57" cy="58" r="4" fill="#8E92EB"/><circle cx="70" cy="58" r="4" fill="#8E92EB"/>
+  <path d="M83 78l24-22-11 31-16 9z" fill="#8E92EB" stroke="#8E92EB" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M88 87l-8 13" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
+</svg>

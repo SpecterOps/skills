@@ -8,7 +8,7 @@ icon: ./assets/icon.png
 
 Build a believable phone pretext using current public context, plausible caller identity, and a tight objective.
 
-Read `../references/persuasion-principles.md` when choosing the primary persuasion principle.
+Read `../../references/persuasion-principles.md` when choosing the primary persuasion principle.
 
 ## Workflow
 

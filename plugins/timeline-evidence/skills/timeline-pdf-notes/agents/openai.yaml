@@ -1,0 +1,9 @@
+interface:
+  display_name: Timeline PDF Notes
+  short_description: Extract timeline entries from PDF operator notes via pdfplumber.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $timeline-pdf-notes for this workflow.
+policy:
+  allow_implicit_invocation: true

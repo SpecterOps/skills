@@ -1,0 +1,9 @@
+interface:
+  display_name: Timeline Mythic
+  short_description: Parse Mythic export JSON into normalized timeline entries.
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#8E92EB'
+  default_prompt: Use $timeline-mythic for this workflow.
+policy:
+  allow_implicit_invocation: true

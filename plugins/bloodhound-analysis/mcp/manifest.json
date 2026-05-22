@@ -8,7 +8,10 @@
   "install": {
     "script": "./scripts/install-mcp-deps.sh",
     "default_target": "./vendor/bloodhound-mcp",
-    "target_env": "BLOODHOUND_MCP_DIR"
+    "target_env": "BLOODHOUND_MCP_DIR",
+    "auto_on_first_run": true,
+    "disable_env": "BLOODHOUND_MCP_AUTO_INSTALL",
+    "sync_env": "BLOODHOUND_MCP_UV_SYNC"
   },
   "run": {
     "script": "./scripts/run-bloodhound-mcp.sh",

@@ -1,0 +1,10 @@
+interface:
+  display_name: Git Cleanup
+  short_description: Repository hygiene — prune merged/stale branches, detect orphans, repo health checks. Use when cleaning
+    up branches, checking repo health...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $git-cleanup for this workflow.
+policy:
+  allow_implicit_invocation: true

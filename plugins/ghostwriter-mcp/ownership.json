@@ -2,5 +2,7 @@
   "plugin": "ghostwriter-mcp",
   "purpose": "MCP integration for Ghostwriter security documentation platform",
   "agents": [],
-  "skills": []
+  "skills": [
+    "ghostwriter-mcp"
+  ]
 }

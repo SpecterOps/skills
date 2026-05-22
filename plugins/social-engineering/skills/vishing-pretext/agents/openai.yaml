@@ -1,0 +1,10 @@
+interface:
+  display_name: Vishing Pretext
+  short_description: Research and draft a target-specific vishing pretext. Use when creating or refining phone-based social
+    engineering scripts for a named co...
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: Use $vishing-pretext for this workflow.
+policy:
+  allow_implicit_invocation: true

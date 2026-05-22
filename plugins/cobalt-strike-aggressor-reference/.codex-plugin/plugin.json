@@ -2,17 +2,36 @@
   "name": "cobalt-strike-aggressor-reference",
   "version": "0.1.0",
   "description": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cobalt-strike",
+    "cobalt-strike-aggressor-development",
+    "red-team",
+    "c2",
+    "sleep",
+    "codex",
+    "specter",
+    "aggressor"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Cobalt Strike Aggressor Reference",
-    "category": "Security",
     "shortDescription": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
+    "longDescription": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
     "developerName": "SpecterOps",
-    "defaultPrompt": "Use the Aggressor plugin.",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use the Aggressor plugin."
+    ],
+    "brandColor": "#8E92EB",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/icon.png"
-  },
-  "dependsOn": [],
-  "optionalDependencies": [],
-  "conflictsWith": []
+  }
 }
