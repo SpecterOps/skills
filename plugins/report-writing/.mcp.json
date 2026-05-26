@@ -1,5 +1,5 @@
 {
-  "mcpServers": {
+  "mcp_servers": {
     "ghostwriter": {
       "command": "bash",
       "args": [
