@@ -1,5 +1,5 @@
 {
-  "mcpServers": {
+  "mcp_servers": {
     "bloodhound_mcp": {
       "command": "bash",
       "args": [
