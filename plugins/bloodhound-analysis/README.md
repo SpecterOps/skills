@@ -65,12 +65,12 @@ BLOODHOUND_PORT = "443"
 
 #### Windows native PowerShell wrappers
 
-Windows users do not need Git Bash for the helper scripts. The PowerShell runner also auto-installs the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrapper:
+Windows users do not need Git Bash for the helper scripts. The PowerShell runner also auto-installs the MCP checkout on first start. If the GUI does not run the Bash wrapper, override the MCP command to PowerShell and point `-File` at the installed plugin copy. Codex installs plugins into its plugin cache rather than a stable `~/.codex/plugins/bloodhound-analysis` path, so use the plugin details/cache path from your local install. For repo-local development, use this repository's `plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.ps1` path.
 
 ```toml
 [mcp_servers.bloodhound_mcp]
 command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
 
 [mcp_servers.bloodhound_mcp.env]
 BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
@@ -80,10 +80,10 @@ BLOODHOUND_SCHEME = "https"
 BLOODHOUND_PORT = "443"
 ```
 
-Optionally pre-warm or test the runner directly if the GUI does not show BloodHound tools:
+Optionally pre-warm or test the runner from a repo checkout if the GUI does not show BloodHound tools:
 
 ```bash
-~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
+plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
 ```
 
-Set `BLOODHOUND_MCP_AUTO_INSTALL=0` to disable first-run bootstrap. Expected Codex tool namespace: `mcp__bloodhound_mcp__*`.
+For an installed plugin, run the same script from the plugin cache path Codex installed. Set `BLOODHOUND_MCP_AUTO_INSTALL=0` to disable first-run bootstrap. Expected Codex tool namespace: `mcp__bloodhound_mcp__*`.

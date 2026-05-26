@@ -24,19 +24,21 @@ GHOSTWRITER_OPERATOR = "your-callsign"
 GHOSTWRITER_SOURCE_IP = "10.0.0.5"
 ```
 
-Windows users can override the MCP command to PowerShell if the GUI does not run Bash wrappers:
+Windows users can override the MCP command to PowerShell if the GUI does not run Bash wrappers. Point `-File` at the installed plugin copy. Codex installs plugins into its plugin cache rather than a stable `~/.codex/plugins/report-writing` path, so use the plugin details/cache path from your local install. For repo-local development, use this repository's `plugins/report-writing/scripts/run-ghostwriter-mcp.ps1` path.
 
 ```toml
 [mcp_servers.ghostwriter]
 command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
 ```
 
-Optional pre-warm:
+Optional pre-warm from a repo checkout:
 
 ```bash
-~/.codex/plugins/report-writing/scripts/run-ghostwriter-mcp.sh
+plugins/report-writing/scripts/run-ghostwriter-mcp.sh
 ```
+
+For an installed plugin, run the same script from the plugin cache path Codex installed.
 
 ## Agents
 
