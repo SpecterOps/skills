@@ -20,7 +20,6 @@
     "opengraph"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "BloodHound Analysis",
     "shortDescription": "BloodHound, OpenHound, and SCIM attack-path workflows.",
