@@ -1,6 +1,6 @@
 # BloodHound MCP Tool Surface
 
-This repo expects the BloodHound MCP implementation from `mwnickerson/bloodhound_mcp` / local path `/Users/matthew/projects/bloodhound-mcp`.
+This repo expects Codex to connect to a user-managed BloodHound MCP checkout, typically `mwnickerson/bloodhound_mcp`, configured directly under `mcp_servers.bloodhound_mcp`.
 
 ## Composite tools
 

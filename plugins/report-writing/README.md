@@ -8,13 +8,25 @@ Finding, report drafting, Ghostwriter MCP, and operation log workflows for secur
 - `ghostwriter-mcp` — Ghostwriter MCP setup, connection verification, project discovery, and oplog discovery.
 - `ghostwriter-oplog` — quick, evidence-backed, guided, and configuration-oriented Ghostwriter operation log entries.
 
-## Codex GUI Ghostwriter MCP setup
+## Codex Ghostwriter MCP setup
 
-Installing `report-writing` from the Codex GUI installs the Ghostwriter MCP config, skills, and helper scripts. The plugin-owned MCP runner clones/syncs `https://github.com/SpecterOps/GhostWriterMCP.git` into `vendor/ghostwriter-mcp` on first start.
+This plugin includes Ghostwriter MCP-aware skills, but it does not install, clone, update, or run the external Ghostwriter MCP server for you. Follow Codex MCP configuration directly: install or clone the server yourself, then point Codex at that checkout.
 
-Add Ghostwriter connection values to `~/.codex/config.toml`, then fully restart Codex:
+Install the external server using its upstream instructions. A typical checkout uses:
+
+```bash
+git clone https://github.com/SpecterOps/GhostWriterMCP.git /path/to/GhostWriterMCP
+cd /path/to/GhostWriterMCP
+uv sync
+```
+
+Then add the MCP server to `~/.codex/config.toml` or project `.codex/config.toml`:
 
 ```toml
+[mcp_servers.ghostwriter]
+command = "uv"
+args = ["--directory", "/path/to/GhostWriterMCP", "run", "python", "-m", "ghostwritermcp.server"]
+
 [mcp_servers.ghostwriter.env]
 GHOSTWRITER_URL = "https://ghostwriter.example.com/"
 GHOSTWRITER_API_KEY = "YOUR_API_KEY"
@@ -24,21 +36,7 @@ GHOSTWRITER_OPERATOR = "your-callsign"
 GHOSTWRITER_SOURCE_IP = "10.0.0.5"
 ```
 
-Windows users can override the MCP command to PowerShell if the GUI does not run Bash wrappers. Point `-File` at the installed plugin copy. Codex installs plugins into its plugin cache rather than a stable `~/.codex/plugins/report-writing` path, so use the plugin details/cache path from your local install. For repo-local development, use this repository's `plugins/report-writing/scripts/run-ghostwriter-mcp.ps1` path.
-
-```toml
-[mcp_servers.ghostwriter]
-command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
-```
-
-Optional pre-warm from a repo checkout:
-
-```bash
-plugins/report-writing/scripts/run-ghostwriter-mcp.sh
-```
-
-For an installed plugin, run the same script from the plugin cache path Codex installed.
+Restart Codex after editing MCP configuration and confirm the `ghostwriter` server is visible under `/mcp` before using Ghostwriter workflows. Do not commit environment-specific API values.
 
 ## Agents
 

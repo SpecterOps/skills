@@ -29,6 +29,10 @@ Do not use this skill when the task does not involve binary analysis or reverse 
 
 You must never use this skill unless the MCP server is available and the task involves interacting with Binary Ninja's analysis capabilities. If the task is purely theoretical or does not involve Binary Ninja, this skill is not appropriate.
 
+## Runtime Requirements
+
+Codex should be configured directly with a `mcp_servers.binary_ninja` entry that runs the BinjaMCP command or endpoint documented by the user's BinjaMCP installation. This plugin does not install, start, or wrap the Binary Ninja MCP server. Verify the Binary Ninja MCP tools are visible under `/mcp` before using live analysis workflows.
+
 ## Terminology
 
 - **BNIL** - Binary Ninja Intermediate Language. The family of ILs used by Binary Ninja.

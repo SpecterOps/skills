@@ -32,29 +32,37 @@ codex plugin marketplace add SpecterOps/skills
 
 Then open Codex and install from `/plugins`.
 
-### Codex GUI MCP setup
+### Codex MCP setup
 
-Installing a Codex plugin from `/plugins` installs the plugin package, skills, MCP config, and helper scripts. The BloodHound and Ghostwriter MCP runners now bootstrap their external MCP server checkout on first start, so the user only needs `git`, `uv`, network access, and their connection values/secrets.
+Codex officially supports MCP servers through declarative `mcp_servers` configuration. This repository no longer ships MCP runner or first-run installer scripts. Install or clone each external MCP server yourself, then point Codex at that server with `command`, `args`, and optional `env` values in `~/.codex/config.toml` or project `.codex/config.toml`.
 
-1. Install or refresh this marketplace in the Codex GUI app:
+1. Install or refresh this marketplace in Codex:
 
    ```bash
-   codex plugin marketplace add /home/matthew/Projects/skills
+   codex plugin marketplace add /Users/<user>/Projects/skills
    # or
    codex plugin marketplace add SpecterOps/skills
    ```
 
-   Then open the Codex GUI app, go to `/plugins`, and install `bloodhound-analysis` and `report-writing`.
+   Then install the relevant plugins from `/plugins`.
 
-2. Add GUI-visible MCP environment values to `~/.codex/config.toml` and restart the Codex GUI app. The plugin-owned MCP runners will clone/sync the MCP server into the plugin's `vendor/` directory the first time Codex starts the MCP.
+2. Configure MCP servers directly in Codex. Example BloodHound and Ghostwriter stdio configurations:
 
    ```toml
+   [mcp_servers.bloodhound_mcp]
+   command = "uv"
+   args = ["--directory", "/path/to/bloodhound-mcp", "run", "main.py"]
+
    [mcp_servers.bloodhound_mcp.env]
    BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
    BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
    BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
    BLOODHOUND_SCHEME = "https"
    BLOODHOUND_PORT = "443"
+
+   [mcp_servers.ghostwriter]
+   command = "uv"
+   args = ["--directory", "/path/to/GhostWriterMCP", "run", "python", "-m", "ghostwritermcp.server"]
 
    [mcp_servers.ghostwriter.env]
    GHOSTWRITER_URL = "https://ghostwriter.example.com/"
@@ -65,41 +73,15 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
    GHOSTWRITER_SOURCE_IP = "10.0.0.5"
    ```
 
+3. Configure Binary Ninja MCP with the command or endpoint documented by your BinjaMCP installation. For stdio servers, the Codex shape is:
 
-#### Windows native PowerShell wrappers
-
-Windows users do not need Git Bash for the helper scripts. The PowerShell runners also auto-install the MCP checkout on first start. If the GUI does not run the Bash wrappers, override the MCP command to PowerShell and point `-File` at the installed plugin copy. Codex installs plugins into its plugin cache rather than a stable `~/.codex/plugins/<plugin>` path, so use the plugin details/cache path from your local install. For repo-local development, use this repository's `plugins/<name>/scripts/*.ps1` path.
-
-```toml
-[mcp_servers.bloodhound_mcp]
-command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
-
-[mcp_servers.bloodhound_mcp.env]
-BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
-BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
-BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
-BLOODHOUND_SCHEME = "https"
-BLOODHOUND_PORT = "443"
-
-[mcp_servers.ghostwriter]
-command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
-
-[mcp_servers.ghostwriter.env]
-GHOSTWRITER_URL = "https://ghostwriter.example.com/"
-GHOSTWRITER_API_KEY = "YOUR_API_KEY"
-GHOSTWRITER_CA_BUNDLE = "C:\\path\\to\\ca-bundle.crt"
-```
-
-3. Optional: pre-warm or verify the runners from a repo checkout before troubleshooting Codex packaging:
-
-   ```bash
-   plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
-   plugins/report-writing/scripts/run-ghostwriter-mcp.sh
+   ```toml
+   [mcp_servers.binary_ninja]
+   command = "/path/to/binja-mcp-server"
+   args = []
    ```
 
-   For an installed plugin, run the same script from the plugin cache path Codex installed. To disable first-run bootstrap, set `BLOODHOUND_MCP_AUTO_INSTALL=0` or `GHOSTWRITER_MCP_AUTO_INSTALL=0`. In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
+Restart Codex after changing MCP configuration, then confirm the tools appear under `/mcp` before relying on MCP-assisted skills.
 
 ## Use With npx skills
 
@@ -121,7 +103,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | Plugin | Codex | Claude Code | MCP | Description |
 |---|---:|---:|---:|---|
 | [appsec-assessment](plugins/appsec-assessment/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
-| [bloodhound-analysis](plugins/bloodhound-analysis/README.md) | Yes | Yes | Yes | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
+| [bloodhound-analysis](plugins/bloodhound-analysis/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
 | [c2-extension-development](plugins/c2-extension-development/README.md) | Yes | Yes | - | Cobalt Strike Aggressor, BOF development, and C2 extension reference workflows. |
 | [code-review-and-qa](plugins/code-review-and-qa/README.md) | Yes | Yes | - | Code review and web application QA workflows for Specter Codex. |
 | [codex-observability](plugins/codex-observability/README.md) | Yes | Yes | - | Codex activity reporting and telemetry workflows. |
@@ -135,9 +117,9 @@ npx skills add /Users/<user>/Projects/skills --list
 | [openhound-collector-development](plugins/openhound-collector-development/README.md) | Yes | Yes | - | OpenHound collector template support package with the embedded OpenHound development skill. |
 | [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
 | [platform-ops-private](plugins/platform-ops-private/README.md) | Yes | Yes | - | Private platform, SSH, tunnel, and firewall operation workflows. |
-| [report-writing](plugins/report-writing/README.md) | Yes | Yes | Yes | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
+| [report-writing](plugins/report-writing/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
 | [research-workflows](plugins/research-workflows/README.md) | Yes | Yes | - | Source-backed research and synthesis workflows for Specter Codex. |
-| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | - | Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja. |
+| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja. |
 | [sccm-assessment](plugins/sccm-assessment/README.md) | Yes | Yes | - | Microsoft Configuration Manager reconnaissance and takeover validation workflows. |
 | [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
 | [timeline-evidence](plugins/timeline-evidence/README.md) | Yes | Yes | - | Pentest timeline ingestion, consolidation, and evidence packaging workflows. |
@@ -239,9 +221,10 @@ npx skills add /Users/<user>/Projects/skills --list
 | `ssh-operator` | [agents/ssh-operator.toml](agents/ssh-operator.toml) |
 | `winternals` | [agents/winternals.toml](agents/winternals.toml) |
 
-## MCP Plugins
+## MCP-Aware Plugins
 
-| MCP Package | Plugin | Config |
+| MCP Server | Plugin | Configuration |
 |---|---|---|
-| `bloodhound_mcp` | `bloodhound-analysis` | [config](plugins/bloodhound-analysis/.mcp.json) |
-| `ghostwriter` | `report-writing` | [config](plugins/report-writing/.mcp.json) |
+| `bloodhound_mcp` | `bloodhound-analysis` | Configure directly in Codex with `uv --directory /path/to/bloodhound-mcp run main.py`. |
+| `ghostwriter` | `report-writing` | Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`. |
+| `binary_ninja` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by the BinjaMCP server. |
