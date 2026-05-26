@@ -68,12 +68,12 @@ Installing a Codex plugin from `/plugins` installs the plugin package, skills, M
 
 #### Windows native PowerShell wrappers
 
-Windows users do not need Git Bash for the helper scripts. The PowerShell runners also auto-install the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrappers:
+Windows users do not need Git Bash for the helper scripts. The PowerShell runners also auto-install the MCP checkout on first start. If the GUI does not run the Bash wrappers, override the MCP command to PowerShell and point `-File` at the installed plugin copy. Codex installs plugins into its plugin cache rather than a stable `~/.codex/plugins/<plugin>` path, so use the plugin details/cache path from your local install. For repo-local development, use this repository's `plugins/<name>/scripts/*.ps1` path.
 
 ```toml
 [mcp_servers.bloodhound_mcp]
 command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
 
 [mcp_servers.bloodhound_mcp.env]
 BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
@@ -84,7 +84,7 @@ BLOODHOUND_PORT = "443"
 
 [mcp_servers.ghostwriter]
 command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
+args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\installed\\report-writing\\scripts\\run-ghostwriter-mcp.ps1"]
 
 [mcp_servers.ghostwriter.env]
 GHOSTWRITER_URL = "https://ghostwriter.example.com/"
@@ -92,14 +92,14 @@ GHOSTWRITER_API_KEY = "YOUR_API_KEY"
 GHOSTWRITER_CA_BUNDLE = "C:\\path\\to\\ca-bundle.crt"
 ```
 
-3. Optional: pre-warm or verify the runners outside the GUI before troubleshooting Codex:
+3. Optional: pre-warm or verify the runners from a repo checkout before troubleshooting Codex packaging:
 
    ```bash
-   ~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
-   ~/.codex/plugins/report-writing/scripts/run-ghostwriter-mcp.sh
+   plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
+   plugins/report-writing/scripts/run-ghostwriter-mcp.sh
    ```
 
-   To disable first-run bootstrap, set `BLOODHOUND_MCP_AUTO_INSTALL=0` or `GHOSTWRITER_MCP_AUTO_INSTALL=0`. In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
+   For an installed plugin, run the same script from the plugin cache path Codex installed. To disable first-run bootstrap, set `BLOODHOUND_MCP_AUTO_INSTALL=0` or `GHOSTWRITER_MCP_AUTO_INSTALL=0`. In the GUI, start a new session after restart and confirm tools appear under `mcp__bloodhound_mcp__*` and `mcp__ghostwriter__*`.
 
 ## Use With npx skills
 
