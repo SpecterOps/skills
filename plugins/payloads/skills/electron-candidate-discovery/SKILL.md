@@ -1,7 +1,8 @@
 ---
 name: electron-candidate-discovery
 description: Find practical Electron apps that are likely patchable with the same Electron-plus-Squirrel method. Use when building an actionable shortlist of candidate apps rather than a broad inventory.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Electron Candidate Discovery

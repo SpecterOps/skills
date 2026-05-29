@@ -1,0 +1,8 @@
+{
+  "name": "bloodhound",
+  "description": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  display_name: "Mythic Translation Containers"
+  short_description: "Build Mythic translation containers."
+  default_prompt: "Use $mythic-translation-containers to design, implement, and validate a Mythic translation container."

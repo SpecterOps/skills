@@ -1,0 +1,38 @@
+{
+  "name": "internal-training-course",
+  "version": "0.1.0",
+  "description": "Internal training course wiki migration, scaffolding, content migration, and QA workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "internal",
+    "training",
+    "course",
+    "conversion",
+    "wiki"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Internal Training Course",
+    "shortDescription": "Internal training course wiki migration workflows.",
+    "longDescription": "Internal workflows for staged training course wiki scaffolding, content migration, and QA.",
+    "developerName": "SpecterOps",
+    "category": "Internal",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Internal Training Course to scaffold a course wiki.",
+      "Use Internal Training Course to migrate course content.",
+      "Use Internal Training Course to run course QA."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

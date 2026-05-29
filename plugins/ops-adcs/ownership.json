@@ -1,0 +1,9 @@
+{
+  "plugin": "ops-adcs",
+  "purpose": "Active Directory Certificate Services assessment and attack-path validation workflows.",
+  "agents": [
+    "domain-ops",
+    "bloodhound-analyst"
+  ],
+  "skills": []
+}

@@ -1,0 +1,11 @@
+{
+  "plugin": "c2-cobaltstrike",
+  "purpose": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
+  "agents": [
+    "exploit-dev"
+  ],
+  "skills": [
+    "cobalt-strike-aggressor-development",
+    "cobalt-strike-aggressor-reference"
+  ]
+}

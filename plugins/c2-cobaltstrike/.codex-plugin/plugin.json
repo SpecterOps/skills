@@ -1,0 +1,38 @@
+{
+  "name": "c2-cobaltstrike",
+  "version": "0.1.0",
+  "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "c2",
+    "cobalt-strike",
+    "aggressor",
+    "sleep",
+    "bof-loader"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "C2 Cobalt Strike",
+    "shortDescription": "Cobalt Strike Aggressor and extension workflows.",
+    "longDescription": "Focused workflows for Cobalt Strike Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Cobalt Strike extension guidance.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use C2 Cobalt Strike to write Aggressor Script.",
+      "Use C2 Cobalt Strike to look up Sleep or Aggressor references.",
+      "Use C2 Cobalt Strike to build a Cobalt Strike extension workflow."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

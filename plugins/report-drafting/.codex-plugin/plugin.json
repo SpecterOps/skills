@@ -1,0 +1,39 @@
+{
+  "name": "report-drafting",
+  "version": "0.1.0",
+  "description": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "report",
+    "drafting",
+    "ghostwriter",
+    "oplog",
+    "mcp",
+    "findings"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Report Drafting",
+    "shortDescription": "Findings, report drafting, Ghostwriter MCP, and oplog workflows.",
+    "longDescription": "Focused workflows for evidence-backed finding narratives, remediation guidance, report-ready markdown output, Ghostwriter MCP setup, and Ghostwriter operation log capture.",
+    "developerName": "SpecterOps",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Report Drafting to draft a finding.",
+      "Use Ghostwriter MCP to verify reporting platform access.",
+      "Use Ghostwriter Oplog to capture an operation log entry."
+    ],
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

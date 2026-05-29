@@ -1,0 +1,7 @@
+interface:
+  display_name: "SCCM Recon"
+  short_description: "Discover SCCM roles and takeover prerequisites"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $sccm-recon to map SCCM infrastructure, identify likely site server, SMS Provider, and site database roles, and validate prerequisites before any SCCM takeover validation."

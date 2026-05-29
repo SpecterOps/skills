@@ -1,0 +1,38 @@
+{
+  "name": "ops-infrastructure",
+  "version": "0.1.0",
+  "description": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "ops",
+    "infrastructure",
+    "ssh",
+    "tunnel",
+    "firewall"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ops Infrastructure",
+    "shortDescription": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
+    "longDescription": "Operational infrastructure workflows for scoped SSH operation, proxychains tunnels, and nftables changes.",
+    "developerName": "SpecterOps",
+    "category": "Infrastructure",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Ops Infrastructure for scoped SSH work.",
+      "Use Ops Infrastructure to run tunneled commands.",
+      "Use Ops Infrastructure to update nftables allow rules."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

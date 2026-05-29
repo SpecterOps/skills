@@ -1,0 +1,7 @@
+interface:
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  display_name: "Ghidra MCP Analysis"
+  short_description: "Use Ghidra MCP for binary analysis and reverse engineering."
+  default_prompt: "Use $ghidra-mcp-analysis to analyze a binary through Ghidra MCP."

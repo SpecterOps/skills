@@ -1,6 +1,7 @@
 interface:
   display_name: "OpenTelemetry Codex"
   short_description: "Install OTEL for Codex workflows"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
   default_prompt: "Use $opentelemetry-codex to install and validate OpenTelemetry telemetry capture for this Codex project. Prefer ./OpenTelemetry/install_opentelemetry.sh and run via ./OpenTelemetry/run_codex_with_otel.sh, using config.toml OTEL blocks (not OTEL_* env vars), storing local telemetry logs in ./OpenTelemetry."

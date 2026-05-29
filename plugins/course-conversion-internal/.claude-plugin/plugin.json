@@ -1,8 +1,0 @@
-{
-  "name": "course-conversion-internal",
-  "description": "Internal-only staged course wiki migration workflows.",
-  "version": "0.1.0",
-  "author": {
-    "name": "SpecterOps"
-  }
-}

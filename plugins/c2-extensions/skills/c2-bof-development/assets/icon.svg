@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="c2-bof-development icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M38 34h24c0-12 20-12 20 0h18v24c12 0 12 20 0 20v18H76c0-12-20-12-20 0H38V72c12 0 12-20 0-20z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="81" y1="90" x2="100" y2="90" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/><line x1="91" y1="80" x2="91" y2="100" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">C2BO</text>
+</svg>

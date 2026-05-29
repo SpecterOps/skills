@@ -1,0 +1,7 @@
+interface:
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  display_name: "Mythic Profiles"
+  short_description: "Develop Mythic C2 profiles for listener/transport workflows."
+  default_prompt: "Use $mythic-profiles to design, implement, and validate a Mythic C2 profile."

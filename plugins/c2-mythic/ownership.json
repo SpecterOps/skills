@@ -1,0 +1,13 @@
+{
+  "plugin": "c2-mythic",
+  "purpose": "Mythic C2 framework implant, C2 profile, and translation container development workflows.",
+  "agents": [
+    "exploit-dev",
+    "poc-dev"
+  ],
+  "skills": [
+    "mythic-implant-development",
+    "mythic-profiles",
+    "mythic-translation-containers"
+  ]
+}

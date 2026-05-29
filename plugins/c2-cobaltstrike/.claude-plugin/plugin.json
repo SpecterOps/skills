@@ -1,0 +1,8 @@
+{
+  "name": "c2-cobaltstrike",
+  "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

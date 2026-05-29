@@ -1,0 +1,8 @@
+{
+  "name": "ops-sccm",
+  "description": "Microsoft Configuration Manager reconnaissance and takeover validation workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="bloodhound-query icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><line x1="36" y1="74" x2="60" y2="49" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="60" y1="49" x2="91" y2="38" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="60" y1="49" x2="84" y2="85" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="36" y1="74" x2="84" y2="85" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><circle cx="36" cy="74" r="10" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="60" cy="49" r="10" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="91" cy="38" r="10" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="84" cy="85" r="10" fill="none" stroke="#00B36B" stroke-width="6"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">BQ</text>
+</svg>

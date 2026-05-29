@@ -1,24 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-label="phishing-campaign-builder icon">
-  <defs>
-    <radialGradient id="glow" cx="50%" cy="72%" r="58%">
-      <stop offset="0%" stop-color="#00B36B" stop-opacity="0.34"/>
-      <stop offset="46%" stop-color="#20A7FF" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#06051f" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2C2677"/>
-      <stop offset="100%" stop-color="#15104a"/>
-    </linearGradient>
-  </defs>
-  <rect width="1254" height="1254" rx="190" fill="#06051f"/>
-  <circle cx="627" cy="715" r="470" fill="url(#glow)"/>
-  <path d="M218 1000 C362 1080 890 1080 1036 1000" fill="none" stroke="#00B36B" stroke-width="10" stroke-linecap="round" stroke-dasharray="8 30" opacity="0.82"/>
-  <path d="M212 256 C378 114 862 114 1044 274" fill="none" stroke="#8E92EB" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
-  
-  <path d="M284 394 h686 v424 H284 z" fill="url(#panel)" stroke="#8E92EB" stroke-width="18" stroke-linejoin="round"/>
-  <path d="M294 404 l333 250 l333 -250" fill="none" stroke="#00B36B" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="866" cy="810" r="104" fill="#15104a" stroke="#20A7FF" stroke-width="22"/>
-  <path d="M814 812 c42 -76 108 -76 152 0 M832 852 h116" fill="none" stroke="#00B36B" stroke-width="22" stroke-linecap="round"/>
-  <path d="M306 290 C458 198 794 198 948 290" fill="none" stroke="#20A7FF" stroke-width="18" stroke-linecap="round" opacity="0.75"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="phishing-campaign-builder icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M25 62c14-20 64-20 78 0-4 23-23 35-39 35S29 85 25 62z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M43 67c8-8 18-8 25 0-8 9-18 9-25 0z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M85 67c-8-8-18-8-25 0 8 9 18 9 25 0z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">PCB</text>
 </svg>

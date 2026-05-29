@@ -1,0 +1,13 @@
+interface:
+  display_name: "Course Wiki Stage 2 Migration"
+  short_description: "Import and convert legacy course content."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $course-wiki-stage2-content-migration to import legacy course content into the new Hextra wiki, preserve content text, convert only rendering and structure, add compatibility shims where needed, normalize markdown/code fences that would otherwise break Hextra rendering, and convert reader-facing bare prose URLs into descriptive links when appropriate."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "playwright"
+      description: "Playwright MCP browser automation"

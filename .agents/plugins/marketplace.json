@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "engineering-workflows",
+      "name": "workflows-development",
       "source": {
         "source": "local",
-        "path": "./plugins/engineering-workflows"
+        "path": "./plugins/workflows-development"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -29,10 +29,10 @@
       "category": "Productivity"
     },
     {
-      "name": "research-workflows",
+      "name": "workflows-research",
       "source": {
         "source": "local",
-        "path": "./plugins/research-workflows"
+        "path": "./plugins/workflows-research"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -41,10 +41,10 @@
       "category": "Productivity"
     },
     {
-      "name": "external-recon",
+      "name": "ops-reconnaissance",
       "source": {
         "source": "local",
-        "path": "./plugins/external-recon"
+        "path": "./plugins/ops-reconnaissance"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -53,10 +53,10 @@
       "category": "Security"
     },
     {
-      "name": "appsec-assessment",
+      "name": "ops-appsec",
       "source": {
         "source": "local",
-        "path": "./plugins/appsec-assessment"
+        "path": "./plugins/ops-appsec"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -65,10 +65,10 @@
       "category": "Security"
     },
     {
-      "name": "identity-assessment-core",
+      "name": "ops-sccm",
       "source": {
         "source": "local",
-        "path": "./plugins/identity-assessment-core"
+        "path": "./plugins/ops-sccm"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -77,34 +77,10 @@
       "category": "Security"
     },
     {
-      "name": "sccm-assessment",
+      "name": "bloodhound",
       "source": {
         "source": "local",
-        "path": "./plugins/sccm-assessment"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Security"
-    },
-    {
-      "name": "bloodhound-analysis",
-      "source": {
-        "source": "local",
-        "path": "./plugins/bloodhound-analysis"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Security"
-    },
-    {
-      "name": "offensive-tooling",
-      "source": {
-        "source": "local",
-        "path": "./plugins/offensive-tooling"
+        "path": "./plugins/bloodhound"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -125,10 +101,10 @@
       "category": "Security"
     },
     {
-      "name": "c2-extension-development",
+      "name": "c2-extensions",
       "source": {
         "source": "local",
-        "path": "./plugins/c2-extension-development"
+        "path": "./plugins/c2-extensions"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -137,10 +113,10 @@
       "category": "Security"
     },
     {
-      "name": "report-writing",
+      "name": "report-drafting",
       "source": {
         "source": "local",
-        "path": "./plugins/report-writing"
+        "path": "./plugins/report-drafting"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -161,10 +137,10 @@
       "category": "Security"
     },
     {
-      "name": "timeline-evidence",
+      "name": "report-timeline",
       "source": {
         "source": "local",
-        "path": "./plugins/timeline-evidence"
+        "path": "./plugins/report-timeline"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -185,10 +161,10 @@
       "category": "Productivity"
     },
     {
-      "name": "platform-ops-private",
+      "name": "ops-infrastructure",
       "source": {
         "source": "local",
-        "path": "./plugins/platform-ops-private"
+        "path": "./plugins/ops-infrastructure"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -197,16 +173,16 @@
       "category": "Infrastructure"
     },
     {
-      "name": "course-conversion-internal",
+      "name": "internal-training-course",
       "source": {
         "source": "local",
-        "path": "./plugins/course-conversion-internal"
+        "path": "./plugins/internal-training-course"
       },
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
-      "category": "Productivity"
+      "category": "Internal"
     },
     {
       "name": "social-engineering",
@@ -233,10 +209,10 @@
       "category": "Security"
     },
     {
-      "name": "mythic-implant",
+      "name": "c2-mythic",
       "source": {
         "source": "local",
-        "path": "./plugins/mythic-implant"
+        "path": "./plugins/c2-mythic"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -245,10 +221,10 @@
       "category": "Security"
     },
     {
-      "name": "openhound-collector-development",
+      "name": "tradecraft-windows",
       "source": {
         "source": "local",
-        "path": "./plugins/openhound-collector-development"
+        "path": "./plugins/tradecraft-windows"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -257,10 +233,58 @@
       "category": "Security"
     },
     {
-      "name": "windows-tradecraft",
+      "name": "ops-adcs",
       "source": {
         "source": "local",
-        "path": "./plugins/windows-tradecraft"
+        "path": "./plugins/ops-adcs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "ops-mssql",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ops-mssql"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "tradecraft-mac",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tradecraft-mac"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "tradecraft-linux",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tradecraft-linux"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "c2-cobaltstrike",
+      "source": {
+        "source": "local",
+        "path": "./plugins/c2-cobaltstrike"
       },
       "policy": {
         "installation": "AVAILABLE",

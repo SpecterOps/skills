@@ -1,0 +1,36 @@
+{
+  "name": "tradecraft-windows",
+  "version": "0.1.0",
+  "description": "Windows execution, persistence, and COM proxy validation workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "tradecraft",
+    "windows",
+    "com"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tradecraft Windows",
+    "shortDescription": "Windows execution and persistence workflows.",
+    "longDescription": "Windows-focused workflows for execution tradecraft, persistence validation, and COM proxy discovery and validation.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use COM Proxy Triage on Zoom",
+      "Use Tradecraft Windows to inspect Windows execution tradecraft for an installed app.",
+      "Use Tradecraft Windows to validate COM proxy opportunities on a Windows host."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

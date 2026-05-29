@@ -1,0 +1,8 @@
+{
+  "name": "ops-adcs",
+  "description": "Active Directory Certificate Services assessment and attack-path validation workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Webapp Review"
+  short_description: "Plan or run web security tests"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $webapp-review to build a web app security checklist, suggest active test commands, and execute approved tests with evidence capture."
