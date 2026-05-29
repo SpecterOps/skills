@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="c++ core guidelines icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <rect x="22" y="30" width="84" height="62" rx="8" fill="none" stroke="#8E92EB" stroke-width="6"/>
+  <path d="M44 56 33 67l11 11" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 54 49 82" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M78 56 89 67 78 78" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="72" y="91" width="44" height="23" rx="8" fill="#00B36B"/>
+  <text x="94" y="108" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="800" text-anchor="middle">C++</text>
+</svg>

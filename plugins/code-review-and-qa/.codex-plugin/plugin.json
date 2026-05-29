@@ -26,6 +26,7 @@
     ],
     "defaultPrompt": [
       "Use Code Review and QA to review this diff.",
+      "Use Code Review and QA to review C++ code against the C++ Core Guidelines.",
       "Use Code Review and QA to smoke test a web app.",
       "Use Code Review and QA before merging this branch."
     ],
