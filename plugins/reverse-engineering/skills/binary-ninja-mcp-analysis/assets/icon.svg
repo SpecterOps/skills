@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 128 128" role="img" aria-label="BN icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="binary-ninja-mcp-analysis icon">
   <rect width="128" height="128" rx="24" fill="#0D0A30"/>
-  <path d="M24 24h70l14 14v66H24z" fill="#2C2677" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M92 25v18h18" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linejoin="round"/>
-  <circle cx="45" cy="47" r="8" fill="#8E92EB"/><circle cx="80" cy="58" r="8" fill="#8E92EB"/><circle cx="57" cy="83" r="8" fill="#8E92EB"/>
-  <path d="M51 50l23 7M75 64L62 78M54 78l-9-23" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
-  <path d="M34 66h16v12H34zm48 22h18v12H82z" fill="#2C2677" stroke="#8E92EB" stroke-width="5"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><rect x="42" y="42" width="44" height="44" rx="8" fill="none" stroke="#8E92EB" stroke-width="6"/><path d="M55 65l8 8 14-18" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="30" y1="50" x2="42" y2="50" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="30" y1="64" x2="42" y2="64" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="30" y1="78" x2="42" y2="78" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="86" y1="50" x2="98" y2="50" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="86" y1="64" x2="98" y2="64" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="86" y1="78" x2="98" y2="78" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="50" y1="30" x2="50" y2="42" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="30" x2="64" y2="42" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="78" y1="30" x2="78" y2="42" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="50" y1="86" x2="50" y2="98" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="86" x2="64" y2="98" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="78" y1="86" x2="78" y2="98" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">BNA</text>
 </svg>

@@ -1,0 +1,8 @@
+{
+  "name": "report-drafting",
+  "description": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

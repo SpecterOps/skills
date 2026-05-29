@@ -1,6 +1,0 @@
-interface:
-  display_name: "Proxychains Tunnel"
-  short_description: "Run commands through SOCKS5 tunnels"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  default_prompt: "Use $proxychains-tunnel to run a scoped command through a SOCKS5 proxy with verification and evidence capture."

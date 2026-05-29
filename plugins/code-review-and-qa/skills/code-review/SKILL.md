@@ -1,7 +1,8 @@
 ---
 name: code-review
 description: Security-focused code review of current git changes. Use when reviewing code diffs, checking for vulnerabilities, or before merging branches.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Security-Focused Code Review

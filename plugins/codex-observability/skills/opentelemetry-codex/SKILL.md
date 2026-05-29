@@ -1,7 +1,8 @@
 ---
 name: opentelemetry-codex
 description: Install and configure OpenTelemetry for Codex-oriented workflows, including OTLP exporter setup, collector endpoint wiring, and validation that traces/logs/metrics are emitted and stored under PROJECT_PATH/OpenTelemetry.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # OpenTelemetry Codex

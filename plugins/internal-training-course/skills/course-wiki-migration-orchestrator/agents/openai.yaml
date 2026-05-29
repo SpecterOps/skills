@@ -1,0 +1,13 @@
+interface:
+  display_name: "Course Wiki Migration Orchestrator"
+  short_description: "Sub-agent orchestrator for staged course wiki migrations."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $course-wiki-migration-orchestrator as a spawned sub-agent that sequences the course wiki stage skills, uses the helper scripts, defaults stage 1 to the wiki-course-atd-instructor scaffold, prefers a Hugo binary compatible with Hextra, and runs local or deployed QA plus the stage-3 targeted polish pass, including dark-mode, sidebar, long-code-block, deployed-auth, and leaked-markup checks."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "playwright"
+      description: "Playwright MCP browser automation"

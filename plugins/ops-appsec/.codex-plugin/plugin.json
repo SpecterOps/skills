@@ -1,0 +1,37 @@
+{
+  "name": "ops-appsec",
+  "version": "0.1.0",
+  "description": "Application and code security assessment workflows for Specter Codex.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "ops",
+    "appsec",
+    "application-security",
+    "assessment"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ops AppSec",
+    "shortDescription": "Application and code security assessment workflows.",
+    "longDescription": "Focused workflows for web application security review, code security review, and secret exposure validation.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Ops AppSec to review a web target.",
+      "Use Ops AppSec to scan for secrets.",
+      "Use Ops AppSec to review code security."
+    ],
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

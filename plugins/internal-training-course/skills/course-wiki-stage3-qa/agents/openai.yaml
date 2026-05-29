@@ -1,0 +1,13 @@
+interface:
+  display_name: "Course Wiki Stage 3 QA"
+  short_description: "Run browser QA against a local or deployed wiki preview."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $course-wiki-stage3-qa to run the standard browser QA sweep against a local or deployed course wiki preview, include full route coverage plus built-output sanity checks, and look specifically for dark-mode issues, missing docs sidebars, long-code-block rendering defects, deployed-auth friction, and leaked Hextra copy-button markup in rendered content."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "playwright"
+      description: "Playwright MCP browser automation"

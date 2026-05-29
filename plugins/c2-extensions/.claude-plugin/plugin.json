@@ -1,0 +1,8 @@
+{
+  "name": "c2-extensions",
+  "description": "Beacon Object File development and reusable C2 extension workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

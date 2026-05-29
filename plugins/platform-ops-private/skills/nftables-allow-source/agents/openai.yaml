@@ -1,6 +1,0 @@
-interface:
-  display_name: "Nftables Allow Source"
-  short_description: "Insert a live nftables source allow rule"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  default_prompt: "Use $nftables-allow-source with the working method: inspect `inet filter input` with `nft -a`, insert the source allow rule at position 0 in the live `input` chain, verify it immediately, then persist that same `input` rule in `/etc/nftables.conf` and reload to verify both config and live state."

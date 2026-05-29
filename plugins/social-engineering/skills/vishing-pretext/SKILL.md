@@ -1,7 +1,8 @@
 ---
 name: vishing-pretext
 description: Research and draft a target-specific vishing pretext. Use when creating or refining phone-based social engineering scripts for a named company, department, workflow, or event.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Vishing Pretext

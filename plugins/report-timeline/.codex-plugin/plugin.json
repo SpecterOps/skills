@@ -1,0 +1,36 @@
+{
+  "name": "report-timeline",
+  "version": "0.1.0",
+  "description": "Report timeline ingestion, consolidation, and evidence packaging workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "report",
+    "timeline",
+    "evidence"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Report Timeline",
+    "shortDescription": "Report timeline ingestion, consolidation, and evidence packaging workflows.",
+    "longDescription": "Focused workflows for parsing operator logs, notes, recordings, and Ghostwriter exports into normalized report-ready engagement timelines.",
+    "developerName": "SpecterOps",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Report Timeline to parse operator notes.",
+      "Use Report Timeline to consolidate an engagement timeline.",
+      "Use Report Timeline to prepare report evidence."
+    ],
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

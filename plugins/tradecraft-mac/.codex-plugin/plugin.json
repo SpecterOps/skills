@@ -1,0 +1,37 @@
+{
+  "name": "tradecraft-mac",
+  "version": "0.1.0",
+  "description": "macOS execution, persistence, and operator validation workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tradecraft Mac",
+    "shortDescription": "macOS execution and persistence workflows.",
+    "longDescription": "macOS-focused workflows for execution tradecraft, persistence validation, launch services, TCC-relevant context, and operator evidence capture.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Tradecraft Mac to plan macOS execution validation.",
+      "Use Tradecraft Mac to triage macOS persistence opportunities.",
+      "Use Tradecraft Mac to document macOS operator evidence."
+    ],
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "tradecraft",
+    "macos",
+    "mac",
+    "persistence"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "c2-extensions",
+  "version": "0.1.0",
+  "description": "Beacon Object File development and reusable C2 extension workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "c2",
+    "extensions",
+    "bof",
+    "beacon-object-file"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "C2 Extensions",
+    "shortDescription": "BOF and C2 extension development workflows.",
+    "longDescription": "Focused workflows for Beacon Object File development, BOF API usage, build setup, dynamic resolution, linting, and reusable C2 extension support.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use C2 Extensions to build a BOF.",
+      "Use C2 Extensions to look up BOF API guidance.",
+      "Use C2 Extensions to structure reusable C2 extension code."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

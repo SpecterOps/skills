@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="osint-recon icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M42 38h14l7 42H31z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 38h14l11 42H65z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="79" r="17" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="82" cy="79" r="17" fill="none" stroke="#8E92EB" stroke-width="6"/><line x1="57" y1="51" x2="72" y2="51" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/><line x1="48" y1="79" x2="48" y2="79" stroke="#00B36B" stroke-width="9" stroke-linecap="round"/><line x1="80" y1="79" x2="80" y2="79" stroke="#00B36B" stroke-width="9" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">OR</text>
+</svg>

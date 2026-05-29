@@ -1,0 +1,8 @@
+{
+  "name": "internal-training-course",
+  "description": "Internal training course wiki migration, scaffolding, content migration, and QA workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}
