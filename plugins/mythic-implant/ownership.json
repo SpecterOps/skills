@@ -1,8 +1,0 @@
-{
-  "plugin": "mythic-implant",
-  "purpose": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow",
-  "agents": [],
-  "skills": [
-    "mythic-implant-development"
-  ]
-}

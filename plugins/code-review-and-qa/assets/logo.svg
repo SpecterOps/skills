@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="160" viewBox="0 0 512 160" role="img" aria-label="Code Review And Qa logo">
-  <rect width="512" height="160" rx="28" fill="#0D0A30"/>
-  <path d="M38 42h84l18 18v58H38z" fill="#2C2677" stroke="#00B36B" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M56 62h54v8H56zm0 18h42v8H56zm0 18h50v8H56z" fill="#8E92EB"/>
-  <circle cx="116" cy="108" r="13" fill="#00B36B"/>
-  <text x="164" y="78" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Specter Codex</text>
-  <text x="164" y="112" fill="#8E92EB" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Code Review And Qa</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="code-review-and-qa icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><rect x="25" y="35" width="78" height="58" rx="8" fill="none" stroke="#8E92EB" stroke-width="6"/><path d="M45 58 34 69l11 11" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M63 56l-14 28" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 58l11 11-11 11" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="96" cy="91" r="14" fill="none" stroke="#00B36B" stroke-width="6"/><path d="M89 91l5 5 10-12" fill="none" stroke="#0D0A30" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">QA</text>
 </svg>

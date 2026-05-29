@@ -1,9 +1,0 @@
-interface:
-  display_name: "Cobalt Strike Aggressor Reference"
-  short_description: "Deprecated Aggressor reference entrypoint; use cobalt-strike-aggressor-development."
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  brand_color: "#2C2677"
-  default_prompt: "Use $cobalt-strike-aggressor-development for Aggressor work; $cobalt-strike-aggressor-reference is a compatibility alias."
-policy:
-  allow_implicit_invocation: true

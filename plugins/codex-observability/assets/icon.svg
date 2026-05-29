@@ -1,9 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="CO icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="codex-observability icon">
   <rect width="128" height="128" rx="24" fill="#0D0A30"/>
-  <path d="M20 28h88v72H20z" rx="8" fill="#2C2677"/>
-  <path d="M28 38h72v8H28zm0 16h54v8H28zm0 16h64v8H28z" fill="#8E92EB"/>
-  <path d="M24 24h80l12 12v68l-12 12H24L12 104V36z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M93 25l11 11v20" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="96" cy="92" r="14" fill="#8E92EB"/>
-  <text x="64" y="75" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle">CO</text>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><rect x="27" y="31" width="74" height="50" rx="6" fill="none" stroke="#8E92EB" stroke-width="6"/><line x1="47" y1="96" x2="81" y2="96" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="81" x2="64" y2="96" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><path d="M42 64l13-13 14 9 18-23" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="43" y1="72" x2="43" y2="72" stroke="#00B36B" stroke-width="8" stroke-linecap="round"/><line x1="58" y1="72" x2="58" y2="72" stroke="#00B36B" stroke-width="8" stroke-linecap="round"/><line x1="73" y1="72" x2="73" y2="72" stroke="#00B36B" stroke-width="8" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">OB</text>
 </svg>

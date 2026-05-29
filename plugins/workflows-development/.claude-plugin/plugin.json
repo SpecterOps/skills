@@ -1,0 +1,8 @@
+{
+  "name": "workflows-development",
+  "description": "Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "ops-adcs",
+  "version": "0.1.0",
+  "description": "Active Directory Certificate Services assessment and attack-path validation workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "ops",
+    "adcs",
+    "active-directory",
+    "certificates",
+    "pki",
+    "assessment"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ops ADCS",
+    "shortDescription": "Active Directory Certificate Services assessment workflows.",
+    "longDescription": "Focused workflows for ADCS enumeration, certificate template triage, ESC-path analysis, enrollment abuse validation, and remediation-oriented evidence capture.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Ops ADCS to enumerate certificate services exposure.",
+      "Use Ops ADCS to triage vulnerable certificate templates.",
+      "Use Ops ADCS to validate and document ESC attack paths."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}

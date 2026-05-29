@@ -1,6 +1,6 @@
 {
   "name": "reverse-engineering",
-  "description": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+  "description": "Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling.",
   "version": "0.1.0",
   "author": {
     "name": "xpn"
@@ -11,6 +11,7 @@
     "reverse-engineering",
     "bnil",
     "decompiler",
-    "mcp"
+    "mcp",
+    "ghidra"
   ]
 }

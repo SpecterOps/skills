@@ -9,9 +9,9 @@
   },
   "plugins": [
     {
-      "name": "engineering-workflows",
-      "source": "./plugins/engineering-workflows",
-      "description": "Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex.",
+      "name": "workflows-development",
+      "source": "./plugins/workflows-development",
+      "description": "Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex.",
       "version": "0.1.0",
       "category": "productivity"
     },
@@ -23,51 +23,37 @@
       "category": "productivity"
     },
     {
-      "name": "research-workflows",
-      "source": "./plugins/research-workflows",
+      "name": "workflows-research",
+      "source": "./plugins/workflows-research",
       "description": "Source-backed research and synthesis workflows for Specter Codex.",
       "version": "0.1.0",
       "category": "productivity"
     },
     {
-      "name": "external-recon",
-      "source": "./plugins/external-recon",
-      "description": "Passive external reconnaissance and exposure discovery workflows for Specter Codex.",
+      "name": "ops-reconnaissance",
+      "source": "./plugins/ops-reconnaissance",
+      "description": "Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex.",
       "version": "0.1.0",
       "category": "security"
     },
     {
-      "name": "appsec-assessment",
-      "source": "./plugins/appsec-assessment",
+      "name": "ops-appsec",
+      "source": "./plugins/ops-appsec",
       "description": "Application and code security assessment workflows for Specter Codex.",
       "version": "0.1.0",
       "category": "security"
     },
     {
-      "name": "identity-assessment-core",
-      "source": "./plugins/identity-assessment-core",
-      "description": "Core identity, Active Directory, Windows, and internal assessment workflows.",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "sccm-assessment",
-      "source": "./plugins/sccm-assessment",
+      "name": "ops-sccm",
+      "source": "./plugins/ops-sccm",
       "description": "Microsoft Configuration Manager reconnaissance and takeover validation workflows.",
       "version": "0.1.0",
       "category": "security"
     },
     {
-      "name": "bloodhound-analysis",
-      "source": "./plugins/bloodhound-analysis",
+      "name": "bloodhound",
+      "source": "./plugins/bloodhound",
       "description": "BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging.",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "offensive-tooling",
-      "source": "./plugins/offensive-tooling",
-      "description": "Security tool scaffolding and proof-of-concept development workflows.",
       "version": "0.1.0",
       "category": "security"
     },
@@ -79,16 +65,16 @@
       "category": "security"
     },
     {
-      "name": "c2-extension-development",
-      "source": "./plugins/c2-extension-development",
-      "description": "Cobalt Strike Aggressor and BOF development workflows.",
+      "name": "c2-extensions",
+      "source": "./plugins/c2-extensions",
+      "description": "Beacon Object File development and reusable C2 extension workflows.",
       "version": "0.1.0",
       "category": "security"
     },
     {
-      "name": "report-writing",
-      "source": "./plugins/report-writing",
-      "description": "Finding and report drafting workflows for security assessment deliverables.",
+      "name": "report-drafting",
+      "source": "./plugins/report-drafting",
+      "description": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
       "version": "0.1.0",
       "category": "productivity"
     },
@@ -100,9 +86,9 @@
       "category": "security"
     },
     {
-      "name": "timeline-evidence",
-      "source": "./plugins/timeline-evidence",
-      "description": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
+      "name": "report-timeline",
+      "source": "./plugins/report-timeline",
+      "description": "Report timeline ingestion, consolidation, and evidence packaging workflows.",
       "version": "0.1.0",
       "category": "productivity"
     },
@@ -114,18 +100,18 @@
       "category": "productivity"
     },
     {
-      "name": "platform-ops-private",
-      "source": "./plugins/platform-ops-private",
-      "description": "Private platform, MCP, SSH, tunnel, and firewall operation workflows.",
+      "name": "ops-infrastructure",
+      "source": "./plugins/ops-infrastructure",
+      "description": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
       "version": "0.1.0",
       "category": "infrastructure"
     },
     {
-      "name": "course-conversion-internal",
-      "source": "./plugins/course-conversion-internal",
-      "description": "Internal-only staged course wiki migration workflows.",
+      "name": "internal-training-course",
+      "source": "./plugins/internal-training-course",
+      "description": "Internal training course wiki migration, scaffolding, content migration, and QA workflows.",
       "version": "0.1.0",
-      "category": "productivity"
+      "category": "internal"
     },
     {
       "name": "social-engineering",
@@ -142,16 +128,30 @@
       "category": "security"
     },
     {
-      "name": "mythic-implant",
-      "source": "./plugins/mythic-implant",
-      "description": "Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow",
+      "name": "c2-mythic",
+      "source": "./plugins/c2-mythic",
+      "description": "Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, and listener/profile guidance.",
       "version": "0.1.0",
       "category": "security"
     },
     {
-      "name": "openhound-collector-development",
-      "source": "./plugins/openhound-collector-development",
-      "description": "OpenHound collector template support package with the embedded OpenHound development skill.",
+      "name": "ops-adcs",
+      "source": "./plugins/ops-adcs",
+      "description": "Active Directory Certificate Services assessment and attack-path validation workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "ops-mssql",
+      "source": "./plugins/ops-mssql",
+      "description": "Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
+      "name": "c2-cobaltstrike",
+      "source": "./plugins/c2-cobaltstrike",
+      "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
       "version": "0.1.0",
       "category": "security"
     }

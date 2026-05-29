@@ -1,0 +1,12 @@
+{
+  "plugin": "ops-appsec",
+  "purpose": "Application and code security assessment workflows for Specter Codex.",
+  "agents": [
+    "security-researcher"
+  ],
+  "skills": [
+    "secret-scan",
+    "security-review",
+    "webapp-review"
+  ]
+}

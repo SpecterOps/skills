@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="nftables-allow-source icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><rect x="30" y="28" width="58" height="18" rx="4" fill="none" stroke="#8E92EB" stroke-width="6"/><rect x="30" y="53" width="58" height="18" rx="4" fill="none" stroke="#8E92EB" stroke-width="6"/><rect x="30" y="78" width="58" height="18" rx="4" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="94" cy="87" r="16" fill="none" stroke="#00B36B" stroke-width="6"/><path d="M94 68v8M94 98v8M75 87h8M105 87h8" fill="none" stroke="#00B36B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="87" r="5" fill="none" stroke="#00B36B" stroke-width="6"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">NAS</text>
+</svg>

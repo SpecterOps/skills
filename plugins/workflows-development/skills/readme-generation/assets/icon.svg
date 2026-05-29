@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="readme-generation icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M38 24h40l14 14v66H38z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 25v17h17" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="52" x2="72" y2="52" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="50" y1="66" x2="66" y2="66" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><path d="M74 86l22-22 10 10-22 22-14 4z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">RG</text>
+</svg>

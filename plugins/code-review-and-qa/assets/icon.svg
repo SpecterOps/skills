@@ -1,9 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="CRQ icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="code-review-and-qa icon">
   <rect width="128" height="128" rx="24" fill="#0D0A30"/>
-  <path d="M20 28h88v72H20z" rx="8" fill="#2C2677"/>
-  <path d="M28 38h72v8H28zm0 16h54v8H28zm0 16h64v8H28z" fill="#8E92EB"/>
-  <path d="M24 24h80l12 12v68l-12 12H24L12 104V36z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M93 25l11 11v20" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="96" cy="92" r="14" fill="#00B36B"/>
-  <text x="64" y="75" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle">CRQ</text>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><rect x="25" y="35" width="78" height="58" rx="8" fill="none" stroke="#8E92EB" stroke-width="6"/><path d="M45 58 34 69l11 11" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M63 56l-14 28" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 58l11 11-11 11" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="96" cy="91" r="14" fill="none" stroke="#00B36B" stroke-width="6"/><path d="M89 91l5 5 10-12" fill="none" stroke="#0D0A30" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">QA</text>
 </svg>

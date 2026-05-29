@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="ECD skill icon">
-  <rect width="96" height="96" rx="20" fill="#0D0A30"/>
-  <path d="M18 24h60v48H18z" fill="#2C2677" stroke="#8E92EB" stroke-width="4"/>
-  <path d="M26 36h44M26 48h32M26 60h38" stroke="#2C2677" stroke-width="5" stroke-linecap="round"/>
-  <path d="M69 20l9 9v18" fill="none" stroke="#8E92EB" stroke-width="4" stroke-linecap="round"/>
-  <text x="48" y="86" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">ECD</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="electron-candidate-discovery icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M53 83 39 89 45 75c-7-11 2-29 26-49 20 24 22 42 11 52l-14 14z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M71 26c10 2 21 11 24 24" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="52" r="6" fill="none" stroke="#00B36B" stroke-width="6"/><line x1="45" y1="87" x2="34" y2="98" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/><line x1="56" y1="93" x2="48" y2="106" stroke="#00B36B" stroke-width="6" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">ECD</text>
 </svg>

@@ -1,8 +1,0 @@
-{
-  "name": "identity-assessment-core",
-  "description": "Core identity, Active Directory, Windows, and internal assessment workflows.",
-  "version": "0.1.0",
-  "author": {
-    "name": "SpecterOps"
-  }
-}

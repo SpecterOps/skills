@@ -1,7 +1,8 @@
 ---
 name: electron-app-audit
 description: Audit a local downloaded Electron package/path or a named Electron app and produce a deep worksheet for patchability, entrypoints, and install-chain behavior. Use when deciding whether an app is a good candidate and how to modify it.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Electron App Audit

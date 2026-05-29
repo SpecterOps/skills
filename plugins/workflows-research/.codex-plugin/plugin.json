@@ -1,0 +1,35 @@
+{
+  "name": "workflows-research",
+  "version": "0.1.0",
+  "description": "Source-backed research and synthesis workflows for Specter Codex.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "workflows",
+    "research"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Workflows Research",
+    "shortDescription": "Source-backed research, comparison, and synthesis workflows.",
+    "longDescription": "Focused research workflows for source discovery, source evaluation, comparison, and synthesis.",
+    "developerName": "SpecterOps",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Workflows Research to compare current options.",
+      "Use Workflows Research to gather sources.",
+      "Use Workflows Research to summarize current practice."
+    ],
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

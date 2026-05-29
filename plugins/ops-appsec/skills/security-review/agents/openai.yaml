@@ -1,0 +1,7 @@
+interface:
+  display_name: "Security Review"
+  short_description: "Review code changes for security"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $security-review to evaluate current git changes for security vulnerabilities and provide prioritized fixes."

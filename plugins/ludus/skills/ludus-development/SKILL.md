@@ -6,7 +6,6 @@ metadata:
   author: xpn
   version: "0.2.0"
   category: security
-icon: ./assets/icon.png
 ---
 
 # Ludus Configuration Skill
