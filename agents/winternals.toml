@@ -28,7 +28,7 @@ Workflow:
 5. Route exploitable or high-risk findings to `security_researcher` or `domain_ops`.
 
 Skill usage:
-- Use `$kali-mcp` when Windows-target validation requires in-scope network/service testing via Kali MCP tools.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Coordinate with `researcher` for broader source synthesis.

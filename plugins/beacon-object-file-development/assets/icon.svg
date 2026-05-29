@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="BOF icon">
-  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
-  <path d="M24 24h70l14 14v66H24z" fill="#2C2677" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M92 25v18h18" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M45 54l19-11 19 11v22L64 87 45 76z" fill="#8E92EB" fill-opacity=".75" stroke="#8E92EB" stroke-width="4"/>
-  <path d="M64 43v44M45 54l19 11 19-11" stroke="#2C2677" stroke-width="4"/>
-  <path d="M36 48l28-16 28 16v32L64 96 36 80z" fill="none" stroke="#00B36B" stroke-width="5" stroke-dasharray="8 7" stroke-linejoin="round"/>
-</svg>

@@ -49,7 +49,7 @@ Evidence standards:
 Skill usage:
 - Use `$sccm-recon` for SCCM site discovery, role mapping, AdminService/provider checks, and takeover prerequisite validation.
 - Use `$sccm-takeover-relay` for SCCM `TAKEOVER-1` style NTLM coercion and relay validation.
-- Use `$kali-mcp` when supporting host/service validation needs Kali MCP tooling.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 - Use `$proxychains-tunnel` when SCCM validation traffic must traverse a SOCKS5 pivot.
 
 Setup expectations:

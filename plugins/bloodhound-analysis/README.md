@@ -38,39 +38,24 @@ It also includes collector-aware reference material:
 
 Use `scripts/update-query-snapshots.py` to refresh saved-query snapshots and indexes before publishing a release. Generated indexes live under `references/query-indexes/`. Small example files are curated separately and should be refreshed intentionally from upstream collector repositories when collector schemas change.
 
-## MCP packaging
+## MCP setup
 
-This plugin includes Codex MCP configuration plus plugin-local install/run scripts for the BloodHound MCP server. These files are packaging artifacts for environments that choose to enable the MCP server; working in this repository does not install or sync anything into the current machine's Codex config.
+This plugin includes BloodHound MCP-aware skills and reference material, but it does not install, clone, update, or run the external BloodHound MCP server for you. Follow Codex MCP configuration directly: install or clone the server yourself, then point Codex at that checkout.
 
-- `.mcp.json` points Codex at the plugin-owned MCP runner.
-- `scripts/install-mcp-deps.sh` installs or updates the BloodHound MCP checkout under `vendor/bloodhound-mcp` by default.
-- `scripts/run-bloodhound-mcp.sh` runs the server from `BLOODHOUND_MCP_DIR` or the plugin-local vendor directory, and auto-runs the installer on first start when the checkout is missing.
-- `mcp/env.example` documents required BloodHound connection variables without committing secrets.
+Install the external server using its upstream instructions. A typical checkout uses:
 
-For a target install environment, install the plugin from Codex and configure only the BloodHound connection values. The first MCP start bootstraps the plugin-local server checkout automatically unless `BLOODHOUND_MCP_AUTO_INSTALL=0` is set. Do not commit environment-specific API values.
-
-### Codex GUI app setup
-
-After installing `bloodhound-analysis` from the Codex GUI `/plugins` view, add BloodHound connection values to `~/.codex/config.toml` so the GUI app can see them, then fully restart Codex. The plugin-owned MCP runner clones/syncs the BloodHound MCP server into `vendor/bloodhound-mcp` on first start.
-
-```toml
-[mcp_servers.bloodhound_mcp.env]
-BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
-BLOODHOUND_TOKEN_ID = "YOUR_TOKEN_ID"
-BLOODHOUND_TOKEN_KEY = "YOUR_TOKEN_KEY"
-BLOODHOUND_SCHEME = "https"
-BLOODHOUND_PORT = "443"
+```bash
+git clone https://github.com/mwnickerson/bloodhound_mcp.git /path/to/bloodhound-mcp
+cd /path/to/bloodhound-mcp
+uv sync
 ```
 
-
-#### Windows native PowerShell wrappers
-
-Windows users do not need Git Bash for the helper scripts. The PowerShell runner also auto-installs the MCP checkout on first start. Use Windows paths in `~/.codex/config.toml` and override the MCP command to PowerShell if the GUI does not run the Bash wrapper:
+Then add the MCP server to `~/.codex/config.toml` or project `.codex/config.toml`:
 
 ```toml
 [mcp_servers.bloodhound_mcp]
-command = "powershell.exe"
-args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\<you>\\.codex\\plugins\\bloodhound-analysis\\scripts\\run-bloodhound-mcp.ps1"]
+command = "uv"
+args = ["--directory", "/path/to/bloodhound-mcp", "run", "main.py"]
 
 [mcp_servers.bloodhound_mcp.env]
 BLOODHOUND_DOMAIN = "YOUR_DOMAIN"
@@ -80,10 +65,4 @@ BLOODHOUND_SCHEME = "https"
 BLOODHOUND_PORT = "443"
 ```
 
-Optionally pre-warm or test the runner directly if the GUI does not show BloodHound tools:
-
-```bash
-~/.codex/plugins/bloodhound-analysis/scripts/run-bloodhound-mcp.sh
-```
-
-Set `BLOODHOUND_MCP_AUTO_INSTALL=0` to disable first-run bootstrap. Expected Codex tool namespace: `mcp__bloodhound_mcp__*`.
+Restart Codex after editing MCP configuration and confirm the `bloodhound_mcp` server is visible under `/mcp` before using live graph workflows. Do not commit environment-specific API values.

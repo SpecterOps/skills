@@ -1,7 +1,7 @@
 {
   "name": "report-writing",
   "version": "0.1.0",
-  "description": "Finding and report drafting workflows for security assessment deliverables.",
+  "description": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
   "author": {
     "name": "SpecterOps"
   },
@@ -10,13 +10,17 @@
     "codex",
     "specter",
     "report",
-    "writing"
+    "writing",
+    "ghostwriter",
+    "oplog",
+    "mcp",
+    "findings"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Report Writing",
-    "shortDescription": "Finding drafting and report-ready remediation workflows.",
-    "longDescription": "Focused workflows for evidence-backed finding narratives, remediation guidance, and report-ready markdown output.",
+    "shortDescription": "Findings, report drafting, Ghostwriter MCP, and oplog workflows.",
+    "longDescription": "Focused workflows for evidence-backed finding narratives, remediation guidance, report-ready markdown output, Ghostwriter MCP setup, and Ghostwriter operation log capture.",
     "developerName": "SpecterOps",
     "category": "Productivity",
     "capabilities": [
@@ -25,8 +29,8 @@
     ],
     "defaultPrompt": [
       "Use Report Writing to draft a finding.",
-      "Use Report Writing to improve remediation guidance.",
-      "Use Report Writing to turn evidence into report text."
+      "Use Ghostwriter MCP to verify reporting platform access.",
+      "Use Ghostwriter Oplog to capture an operation log entry."
     ],
     "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.png",

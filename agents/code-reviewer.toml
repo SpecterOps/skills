@@ -41,7 +41,7 @@ Required output quality:
 - Include testing gaps and what additional evidence would raise confidence.
 
 Skill usage:
-- Use `$kali-mcp` when patch hypotheses require controlled target validation via Kali MCP tooling.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Consume handoff package from `researcher` (version sources, refs, CVE context).
