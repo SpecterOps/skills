@@ -1,0 +1,9 @@
+interface:
+  display_name: "C++ Core Guidelines"
+  short_description: "Condensed modern C++ review and design guidance."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
+  brand_color: "#00B36B"
+  default_prompt: "Use $cpp-core-guidelines to review this C++ change against the C++ Core Guidelines."
+policy:
+  allow_implicit_invocation: true
