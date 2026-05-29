@@ -5,6 +5,7 @@ Focused workflows for reviewing code changes, exercising web apps, and validatin
 ## Skills
 
 - `code-review`
+- `cpp-core-guidelines`
 - `webapp-qa`
 
 ## Agents
