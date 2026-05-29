@@ -1,0 +1,10 @@
+interface:
+  display_name: "OktaHound / OpenHound Okta"
+  short_description: "Analyze Okta users, apps, admins, SCIM, secrets, and hybrid identity paths."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  default_prompt: "Use $openhound-okta to analyze OktaHound/OpenHound Okta users, groups, apps, admin roles, API clients, secrets metadata, SCIM provisioning, and GitHub/Azure/Jamf hybrid identity attack paths."
+  brand_color: "#991B1B"
+
+policy:
+  allow_implicit_invocation: true

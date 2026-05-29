@@ -1,7 +1,8 @@
 ---
 name: phishing-campaign-builder
 description: Run the end-to-end phishing pretext workflow from research to final email. Use when the user has a target organization and phishing goal and wants Codex to brainstorm, refine, and produce the final email copy or HTML in one sequence.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Phishing Campaign Builder

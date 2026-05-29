@@ -1,0 +1,40 @@
+{
+  "name": "ops-reconnaissance",
+  "version": "0.1.0",
+  "description": "Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "ops",
+    "reconnaissance",
+    "recon",
+    "osint",
+    "nmap",
+    "shodan"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ops Reconnaissance",
+    "shortDescription": "OSINT, service enumeration, and exposure discovery workflows.",
+    "longDescription": "Focused workflows for OSINT, Shodan-backed enrichment, Nmap scan parsing, service enumeration, and exposure mapping.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Ops Reconnaissance to map target exposure.",
+      "Use Ops Reconnaissance to query Shodan for a target.",
+      "Use Ops Reconnaissance to parse Nmap output.",
+      "Use Ops Reconnaissance before active testing."
+    ],
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

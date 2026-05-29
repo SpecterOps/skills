@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="timeline-pdf-notes icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><line x1="24" y1="72" x2="104" y2="72" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><circle cx="34" cy="72" r="6" fill="#0D0A30" stroke="#8E92EB" stroke-width="6"/><circle cx="64" cy="72" r="6" fill="#0D0A30" stroke="#8E92EB" stroke-width="6"/><circle cx="94" cy="72" r="6" fill="#0D0A30" stroke="#8E92EB" stroke-width="6"/><path d="M94 72v-28l24 10-24 10z" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">TPN</text>
+</svg>

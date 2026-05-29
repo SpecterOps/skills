@@ -1,6 +1,0 @@
-interface:
-  display_name: "OSINT Recon"
-  short_description: "Plan or run OSINT reconnaissance"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  default_prompt: "Use $osint-recon to plan and run an authorized reconnaissance workflow and produce a prioritized evidence-backed report."

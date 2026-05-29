@@ -1,0 +1,9 @@
+{
+  "plugin": "tradecraft-linux",
+  "purpose": "Linux execution, persistence, and operator validation workflows.",
+  "agents": [
+    "exploit-dev",
+    "poc-dev"
+  ],
+  "skills": []
+}

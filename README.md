@@ -102,98 +102,103 @@ npx skills add /Users/<user>/Projects/skills --list
 
 | Plugin | Codex | Claude Code | MCP | Description |
 |---|---:|---:|---:|---|
-| [appsec-assessment](plugins/appsec-assessment/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
-| [bloodhound-analysis](plugins/bloodhound-analysis/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
-| [c2-extension-development](plugins/c2-extension-development/README.md) | Yes | Yes | - | Cobalt Strike Aggressor, BOF development, and C2 extension reference workflows. |
+| [ops-adcs](plugins/ops-adcs/README.md) | Yes | Yes | - | Active Directory Certificate Services assessment and attack-path validation workflows. |
+| [ops-appsec](plugins/ops-appsec/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
+| [bloodhound](plugins/bloodhound/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
+| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
+| [c2-extensions](plugins/c2-extensions/README.md) | Yes | Yes | - | Beacon Object File development and reusable C2 extension workflows. |
 | [code-review-and-qa](plugins/code-review-and-qa/README.md) | Yes | Yes | - | Code review and web application QA workflows for Specter Codex. |
 | [codex-observability](plugins/codex-observability/README.md) | Yes | Yes | - | Codex activity reporting and telemetry workflows. |
-| [course-conversion-internal](plugins/course-conversion-internal/README.md) | Yes | Yes | - | Internal-only staged course wiki migration workflows. |
-| [engineering-workflows](plugins/engineering-workflows/README.md) | Yes | Yes | - | Core engineering scaffolding, repository hygiene, and implementation workflows for Specter Codex. |
-| [external-recon](plugins/external-recon/README.md) | Yes | Yes | - | Passive external reconnaissance and exposure discovery workflows for Specter Codex. |
-| [identity-assessment-core](plugins/identity-assessment-core/README.md) | Yes | Yes | - | Core identity, Active Directory, Windows, and internal assessment workflows. |
+| [internal-training-course](plugins/internal-training-course/README.md) | Yes | Yes | - | Internal training course wiki migration, scaffolding, content migration, and QA workflows. |
+| [workflows-development](plugins/workflows-development/README.md) | Yes | Yes | - | Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex. |
+| [ops-reconnaissance](plugins/ops-reconnaissance/README.md) | Yes | Yes | - | Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex. |
 | [ludus](plugins/ludus/README.md) | Yes | Yes | - | Ludus cyber range configuration and management skill with full API, CLI, and deployment references |
-| [mythic-implant](plugins/mythic-implant/README.md) | Yes | Yes | - | Mythic C2 framework implant development skill with agent message protocols, payload type definitions, and step-by-step build workflow |
-| [offensive-tooling](plugins/offensive-tooling/README.md) | Yes | Yes | - | Security tool scaffolding and proof-of-concept development workflows. |
-| [openhound-collector-development](plugins/openhound-collector-development/README.md) | Yes | Yes | - | OpenHound collector template support package with the embedded OpenHound development skill. |
+| [ops-mssql](plugins/ops-mssql/README.md) | Yes | Yes | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. |
+| [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows. |
 | [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
-| [platform-ops-private](plugins/platform-ops-private/README.md) | Yes | Yes | - | Private platform, SSH, tunnel, and firewall operation workflows. |
-| [report-writing](plugins/report-writing/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
-| [research-workflows](plugins/research-workflows/README.md) | Yes | Yes | - | Source-backed research and synthesis workflows for Specter Codex. |
-| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja. |
-| [sccm-assessment](plugins/sccm-assessment/README.md) | Yes | Yes | - | Microsoft Configuration Manager reconnaissance and takeover validation workflows. |
+| [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, and firewall workflows. |
+| [report-drafting](plugins/report-drafting/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
+| [workflows-research](plugins/workflows-research/README.md) | Yes | Yes | - | Source-backed research and synthesis workflows for Specter Codex. |
+| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling. |
+| [ops-sccm](plugins/ops-sccm/README.md) | Yes | Yes | - | Microsoft Configuration Manager reconnaissance and takeover validation workflows. |
 | [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
-| [timeline-evidence](plugins/timeline-evidence/README.md) | Yes | Yes | - | Pentest timeline ingestion, consolidation, and evidence packaging workflows. |
-| [windows-tradecraft](plugins/windows-tradecraft/README.md) | Yes | - | - | Windows execution, persistence, and COM proxy validation workflows. |
+| [report-timeline](plugins/report-timeline/README.md) | Yes | Yes | - | Report timeline ingestion, consolidation, and evidence packaging workflows. |
+| [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux execution, persistence, and operator validation workflows. |
+| [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
+| [tradecraft-windows](plugins/tradecraft-windows/README.md) | Yes | - | - | Windows execution, persistence, and COM proxy validation workflows. |
 
 ## Skills
 
 | Skill | Plugin | Path |
 |---|---|---|
-| `secret-scan` | `appsec-assessment` | [SKILL.md](plugins/appsec-assessment/skills/secret-scan/SKILL.md) |
-| `security-review` | `appsec-assessment` | [SKILL.md](plugins/appsec-assessment/skills/security-review/SKILL.md) |
-| `webapp-review` | `appsec-assessment` | [SKILL.md](plugins/appsec-assessment/skills/webapp-review/SKILL.md) |
-| `azurehound-analysis` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/azurehound-analysis/SKILL.md) |
-| `bloodhound-ad-analysis` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/bloodhound-ad-analysis/SKILL.md) |
-| `bloodhound-analysis` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/bloodhound-analysis/SKILL.md) |
-| `bloodhound-opengraph` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/bloodhound-opengraph/SKILL.md) |
-| `bloodhound-query` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/bloodhound-query/SKILL.md) |
-| `openhound-github` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/openhound-github/SKILL.md) |
-| `openhound-jamf` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/openhound-jamf/SKILL.md) |
-| `openhound-okta` | `bloodhound-analysis` | [SKILL.md](plugins/bloodhound-analysis/skills/openhound-okta/SKILL.md) |
-| `beacon-object-file-development` | `c2-extension-development` | [SKILL.md](plugins/c2-extension-development/skills/beacon-object-file-development/SKILL.md) |
-| `c2-bof-development` | `c2-extension-development` | [SKILL.md](plugins/c2-extension-development/skills/c2-bof-development/SKILL.md) |
-| `cobalt-strike-aggressor-development` | `c2-extension-development` | [SKILL.md](plugins/c2-extension-development/skills/cobalt-strike-aggressor-development/SKILL.md) |
-| `cobalt-strike-aggressor-reference` | `c2-extension-development` | [SKILL.md](plugins/c2-extension-development/skills/cobalt-strike-aggressor-reference/SKILL.md) |
+| `secret-scan` | `ops-appsec` | [SKILL.md](plugins/ops-appsec/skills/secret-scan/SKILL.md) |
+| `security-review` | `ops-appsec` | [SKILL.md](plugins/ops-appsec/skills/security-review/SKILL.md) |
+| `webapp-review` | `ops-appsec` | [SKILL.md](plugins/ops-appsec/skills/webapp-review/SKILL.md) |
+| `azurehound-analysis` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/azurehound-analysis/SKILL.md) |
+| `bloodhound-ad-analysis` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/bloodhound-ad-analysis/SKILL.md) |
+| `bloodhound-analysis` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/bloodhound-analysis/SKILL.md) |
+| `bloodhound-opengraph` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/bloodhound-opengraph/SKILL.md) |
+| `bloodhound-query` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/bloodhound-query/SKILL.md) |
+| `openhound-github` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-github/SKILL.md) |
+| `openhound-jamf` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-jamf/SKILL.md) |
+| `openhound-okta` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-okta/SKILL.md) |
+| `beacon-object-file-development` | `c2-extensions` | [SKILL.md](plugins/c2-extensions/skills/beacon-object-file-development/SKILL.md) |
+| `c2-bof-development` | `c2-extensions` | [SKILL.md](plugins/c2-extensions/skills/c2-bof-development/SKILL.md) |
+| `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
+| `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `code-review` | `code-review-and-qa` | [SKILL.md](plugins/code-review-and-qa/skills/code-review/SKILL.md) |
 | `webapp-qa` | `code-review-and-qa` | [SKILL.md](plugins/code-review-and-qa/skills/webapp-qa/SKILL.md) |
 | `codex-activity-report` | `codex-observability` | [SKILL.md](plugins/codex-observability/skills/codex-activity-report/SKILL.md) |
 | `opentelemetry-codex` | `codex-observability` | [SKILL.md](plugins/codex-observability/skills/opentelemetry-codex/SKILL.md) |
-| `course-wiki-migration-orchestrator` | `course-conversion-internal` | [SKILL.md](plugins/course-conversion-internal/skills/course-wiki-migration-orchestrator/SKILL.md) |
-| `course-wiki-stage1-scaffold` | `course-conversion-internal` | [SKILL.md](plugins/course-conversion-internal/skills/course-wiki-stage1-scaffold/SKILL.md) |
-| `course-wiki-stage2-content-migration` | `course-conversion-internal` | [SKILL.md](plugins/course-conversion-internal/skills/course-wiki-stage2-content-migration/SKILL.md) |
-| `course-wiki-stage3-qa` | `course-conversion-internal` | [SKILL.md](plugins/course-conversion-internal/skills/course-wiki-stage3-qa/SKILL.md) |
-| `git-cleanup` | `engineering-workflows` | [SKILL.md](plugins/engineering-workflows/skills/git-cleanup/SKILL.md) |
-| `git-merge` | `engineering-workflows` | [SKILL.md](plugins/engineering-workflows/skills/git-merge/SKILL.md) |
-| `git-preflight` | `engineering-workflows` | [SKILL.md](plugins/engineering-workflows/skills/git-preflight/SKILL.md) |
-| `readme-generation` | `engineering-workflows` | [SKILL.md](plugins/engineering-workflows/skills/readme-generation/SKILL.md) |
-| `scaffold-python` | `engineering-workflows` | [SKILL.md](plugins/engineering-workflows/skills/scaffold-python/SKILL.md) |
-| `osint-recon` | `external-recon` | [SKILL.md](plugins/external-recon/skills/osint-recon/SKILL.md) |
-| `shodan` | `external-recon` | [SKILL.md](plugins/external-recon/skills/shodan/SKILL.md) |
-| `nmap-parse` | `identity-assessment-core` | [SKILL.md](plugins/identity-assessment-core/skills/nmap-parse/SKILL.md) |
+| `course-wiki-migration-orchestrator` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-migration-orchestrator/SKILL.md) |
+| `course-wiki-stage1-scaffold` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage1-scaffold/SKILL.md) |
+| `course-wiki-stage2-content-migration` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage2-content-migration/SKILL.md) |
+| `course-wiki-stage3-qa` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage3-qa/SKILL.md) |
+| `git-cleanup` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/git-cleanup/SKILL.md) |
+| `git-merge` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/git-merge/SKILL.md) |
+| `git-preflight` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/git-preflight/SKILL.md) |
+| `readme-generation` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/readme-generation/SKILL.md) |
+| `scaffold-python` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/scaffold-python/SKILL.md) |
+| `scaffold-security` | `workflows-development` | [SKILL.md](plugins/workflows-development/skills/scaffold-security/SKILL.md) |
+| `osint-recon` | `ops-reconnaissance` | [SKILL.md](plugins/ops-reconnaissance/skills/osint-recon/SKILL.md) |
+| `shodan` | `ops-reconnaissance` | [SKILL.md](plugins/ops-reconnaissance/skills/shodan/SKILL.md) |
+| `nmap-parse` | `ops-reconnaissance` | [SKILL.md](plugins/ops-reconnaissance/skills/nmap-parse/SKILL.md) |
 | `ludus-development` | `ludus` | [SKILL.md](plugins/ludus/skills/ludus-development/SKILL.md) |
-| `mythic-implant-development` | `mythic-implant` | [SKILL.md](plugins/mythic-implant/skills/mythic-implant-development/SKILL.md) |
-| `scaffold-security` | `offensive-tooling` | [SKILL.md](plugins/offensive-tooling/skills/scaffold-security/SKILL.md) |
-| `openhound-collector-development` | `openhound-collector-development` | [SKILL.md](plugins/openhound-collector-development/skills/openhound-collector-development/SKILL.md) |
+| `mythic-implant-development` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-implant-development/SKILL.md) |
+| `mythic-profiles` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-profiles/SKILL.md) |
+| `mythic-translation-containers` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-translation-containers/SKILL.md) |
+| `openhound-development` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-development/SKILL.md) |
 | `electron-app-audit` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-app-audit/SKILL.md) |
 | `electron-candidate-discovery` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-candidate-discovery/SKILL.md) |
 | `electron-install-persistence` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-install-persistence/SKILL.md) |
 | `electron-squirrel-repackage` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-squirrel-repackage/SKILL.md) |
-| `nftables-allow-source` | `platform-ops-private` | [SKILL.md](plugins/platform-ops-private/skills/nftables-allow-source/SKILL.md) |
-| `proxychains-tunnel` | `platform-ops-private` | [SKILL.md](plugins/platform-ops-private/skills/proxychains-tunnel/SKILL.md) |
-| `ssh-ops` | `platform-ops-private` | [SKILL.md](plugins/platform-ops-private/skills/ssh-ops/SKILL.md) |
-| `finding-report` | `report-writing` | [SKILL.md](plugins/report-writing/skills/finding-report/SKILL.md) |
-| `ghostwriter-mcp` | `report-writing` | [SKILL.md](plugins/report-writing/skills/ghostwriter-mcp/SKILL.md) |
-| `ghostwriter-oplog` | `report-writing` | [SKILL.md](plugins/report-writing/skills/ghostwriter-oplog/SKILL.md) |
-| `source-research` | `research-workflows` | [SKILL.md](plugins/research-workflows/skills/source-research/SKILL.md) |
+| `nftables-allow-source` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/nftables-allow-source/SKILL.md) |
+| `proxychains-tunnel` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/proxychains-tunnel/SKILL.md) |
+| `ssh-ops` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/ssh-ops/SKILL.md) |
+| `finding-report` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/finding-report/SKILL.md) |
+| `ghostwriter-mcp` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/ghostwriter-mcp/SKILL.md) |
+| `ghostwriter-oplog` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/ghostwriter-oplog/SKILL.md) |
+| `source-research` | `workflows-research` | [SKILL.md](plugins/workflows-research/skills/source-research/SKILL.md) |
 | `binary-ninja-mcp-analysis` | `reverse-engineering` | [SKILL.md](plugins/reverse-engineering/skills/binary-ninja-mcp-analysis/SKILL.md) |
-| `sccm-recon` | `sccm-assessment` | [SKILL.md](plugins/sccm-assessment/skills/sccm-recon/SKILL.md) |
-| `sccm-takeover-relay` | `sccm-assessment` | [SKILL.md](plugins/sccm-assessment/skills/sccm-takeover-relay/SKILL.md) |
-| `sccmhunter-install-local` | `sccm-assessment` | [SKILL.md](plugins/sccm-assessment/skills/sccmhunter-install-local/SKILL.md) |
+| `ghidra-mcp-analysis` | `reverse-engineering` | [SKILL.md](plugins/reverse-engineering/skills/ghidra-mcp-analysis/SKILL.md) |
+| `sccm-recon` | `ops-sccm` | [SKILL.md](plugins/ops-sccm/skills/sccm-recon/SKILL.md) |
+| `sccm-takeover-relay` | `ops-sccm` | [SKILL.md](plugins/ops-sccm/skills/sccm-takeover-relay/SKILL.md) |
+| `sccmhunter-install-local` | `ops-sccm` | [SKILL.md](plugins/ops-sccm/skills/sccmhunter-install-local/SKILL.md) |
 | `credential-harvest-landing-page-copy` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/credential-harvest-landing-page-copy/SKILL.md) |
 | `phishing-campaign-builder` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/phishing-campaign-builder/SKILL.md) |
 | `phishing-email-html` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/phishing-email-html/SKILL.md) |
 | `phishing-pretext` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/phishing-pretext/SKILL.md) |
 | `pretext-brainstormer` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/pretext-brainstormer/SKILL.md) |
 | `vishing-pretext` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/vishing-pretext/SKILL.md) |
-| `timeline-asciinema` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-asciinema/SKILL.md) |
-| `timeline-cobaltstrike` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-cobaltstrike/SKILL.md) |
-| `timeline-consolidator` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-consolidator/SKILL.md) |
-| `timeline-ghostwriter` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-ghostwriter/SKILL.md) |
-| `timeline-markdown-notes` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-markdown-notes/SKILL.md) |
-| `timeline-mythic` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-mythic/SKILL.md) |
-| `timeline-pdf-notes` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-pdf-notes/SKILL.md) |
-| `timeline-workflow` | `timeline-evidence` | [SKILL.md](plugins/timeline-evidence/skills/timeline-workflow/SKILL.md) |
-| `com-proxy-triage` | `windows-tradecraft` | [SKILL.md](plugins/windows-tradecraft/skills/com-proxy-triage/SKILL.md) |
+| `timeline-asciinema` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-asciinema/SKILL.md) |
+| `timeline-cobaltstrike` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-cobaltstrike/SKILL.md) |
+| `timeline-consolidator` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-consolidator/SKILL.md) |
+| `timeline-ghostwriter` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-ghostwriter/SKILL.md) |
+| `timeline-markdown-notes` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-markdown-notes/SKILL.md) |
+| `timeline-mythic` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-mythic/SKILL.md) |
+| `timeline-pdf-notes` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-pdf-notes/SKILL.md) |
+| `timeline-workflow` | `report-timeline` | [SKILL.md](plugins/report-timeline/skills/timeline-workflow/SKILL.md) |
+| `com-proxy-triage` | `tradecraft-windows` | [SKILL.md](plugins/tradecraft-windows/skills/com-proxy-triage/SKILL.md) |
 
 ## Standalone Skills
 
@@ -225,6 +230,7 @@ npx skills add /Users/<user>/Projects/skills --list
 
 | MCP Server | Plugin | Configuration |
 |---|---|---|
-| `bloodhound_mcp` | `bloodhound-analysis` | Configure directly in Codex with `uv --directory /path/to/bloodhound-mcp run main.py`. |
-| `ghostwriter` | `report-writing` | Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`. |
+| `bloodhound_mcp` | `bloodhound` | Configure directly in Codex with `uv --directory /path/to/bloodhound-mcp run main.py`. |
+| `ghostwriter` | `report-drafting` | Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`. |
 | `binary_ninja` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by the BinjaMCP server. |
+| `ghidra` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server. |

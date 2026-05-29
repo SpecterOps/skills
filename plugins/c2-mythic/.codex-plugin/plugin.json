@@ -1,0 +1,38 @@
+{
+  "name": "c2-mythic",
+  "version": "0.1.0",
+  "description": "Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, and listener/profile guidance.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "c2",
+    "mythic",
+    "implant",
+    "agent",
+    "payload"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "C2 Mythic",
+    "shortDescription": "Mythic implant and C2 profile development workflows.",
+    "longDescription": "Focused workflows for building Mythic C2 framework agents and C2 profiles, including payload type definitions, agent message protocols, command implementation, C2 profile/listener development, and build workflow guidance.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use C2 Mythic to build a Mythic implant.",
+      "Use C2 Mythic to design Mythic agent message handling.",
+      "Use C2 Mythic to develop a Mythic C2 profile or listener."
+    ],
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

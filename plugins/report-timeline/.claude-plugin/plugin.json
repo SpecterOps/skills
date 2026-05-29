@@ -1,0 +1,8 @@
+{
+  "name": "report-timeline",
+  "description": "Report timeline ingestion, consolidation, and evidence packaging workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SpecterOps"
+  }
+}

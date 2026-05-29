@@ -1,0 +1,36 @@
+{
+  "name": "ops-sccm",
+  "version": "0.1.0",
+  "description": "Microsoft Configuration Manager reconnaissance and takeover validation workflows.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specter",
+    "ops",
+    "sccm",
+    "configuration-manager"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ops SCCM",
+    "shortDescription": "Microsoft Configuration Manager workflows.",
+    "longDescription": "Focused workflows for SCCM reconnaissance, prerequisite validation, local SCCMHunter setup, and relay/takeover validation.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Ops SCCM to enumerate Configuration Manager roles.",
+      "Use Ops SCCM to validate takeover prerequisites.",
+      "Use Ops SCCM to install SCCMHunter locally."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

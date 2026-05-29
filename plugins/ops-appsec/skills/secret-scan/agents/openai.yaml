@@ -1,0 +1,7 @@
+interface:
+  display_name: "Secret Scan"
+  short_description: "Find exposed secrets in code"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $secret-scan to plan and run an authorized secret discovery scan against this target and report prioritized findings."

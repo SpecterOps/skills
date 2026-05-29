@@ -1,0 +1,9 @@
+{
+  "plugin": "ops-mssql",
+  "purpose": "Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows.",
+  "agents": [
+    "internal-network-recon",
+    "domain-ops"
+  ],
+  "skills": []
+}

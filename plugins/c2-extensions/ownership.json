@@ -1,0 +1,11 @@
+{
+  "plugin": "c2-extensions",
+  "purpose": "Beacon Object File development and reusable C2 extension workflows.",
+  "agents": [
+    "exploit-dev"
+  ],
+  "skills": [
+    "c2-bof-development",
+    "beacon-object-file-development"
+  ]
+}

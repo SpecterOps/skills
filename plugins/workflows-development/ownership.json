@@ -1,0 +1,17 @@
+{
+  "plugin": "workflows-development",
+  "purpose": "Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex.",
+  "agents": [
+    "architect",
+    "poc-dev",
+    "exploit-dev"
+  ],
+  "skills": [
+    "git-cleanup",
+    "git-preflight",
+    "git-merge",
+    "readme-generation",
+    "scaffold-python",
+    "scaffold-security"
+  ]
+}

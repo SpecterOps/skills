@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="SR skill icon">
-  <rect width="96" height="96" rx="20" fill="#0D0A30"/>
-  <path d="M18 24h60v48H18z" fill="#2C2677" stroke="#8E92EB" stroke-width="4"/>
-  <path d="M26 36h44M26 48h32M26 60h38" stroke="#2C2677" stroke-width="5" stroke-linecap="round"/>
-  <path d="M69 20l9 9v18" fill="none" stroke="#8E92EB" stroke-width="4" stroke-linecap="round"/>
-  <text x="48" y="86" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">SR</text>
-</svg>

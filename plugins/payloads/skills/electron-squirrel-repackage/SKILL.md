@@ -1,7 +1,8 @@
 ---
 name: electron-squirrel-repackage
 description: Repackage a newer Electron app into an older Squirrel-style delivery chain while injecting a main-process payload. Use when staging a benignly named payload, hooking main.js, normalizing metadata, and regenerating RELEASES.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Electron Squirrel Repackage

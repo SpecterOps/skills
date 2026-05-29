@@ -1,7 +1,8 @@
 ---
 name: phishing-pretext
 description: Research and draft a target-specific phishing email pretext. Use when building or refining a believable lure for a named company, policy change, department, or employee audience and when the work benefits from current public-source research.
-icon: ./assets/icon.png
+metadata:
+  author: "GhostWorks"
 ---
 
 # Phishing Pretext

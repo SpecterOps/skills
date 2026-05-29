@@ -1,3 +1,0 @@
-# Included Skills
-
-- `scaffold-security`

@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="LU icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="ludus icon">
   <rect width="128" height="128" rx="24" fill="#0D0A30"/>
-  <path d="M24 24h70l14 14v66H24z" fill="#2C2677" stroke="#8E92EB" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M92 25v18h18" fill="none" stroke="#8E92EB" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M36 82h56M64 48v34M40 82V56h48v26" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="36" cy="42" r="8" fill="#2C2677" stroke="#8E92EB" stroke-width="5"/><circle cx="92" cy="42" r="8" fill="#2C2677" stroke="#8E92EB" stroke-width="5"/><circle cx="64" cy="32" r="8" fill="#2C2677" stroke="#00B36B" stroke-width="5"/>
-  <path d="M44 47l13-9M84 47l-13-9" stroke="#00B36B" stroke-width="5"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><path d="M34 96V52h12V38h12v14h12V38h12v14h12v44z" fill="none" stroke="#8E92EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M54 96V78a10 10 0 0 1 20 0v18" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 38V22l25 8-25 8" fill="none" stroke="#00B36B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">LU</text>
 </svg>

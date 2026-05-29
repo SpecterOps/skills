@@ -1,8 +1,0 @@
-{
-  "name": "c2-extension-development",
-  "description": "Cobalt Strike Aggressor and BOF development workflows.",
-  "version": "0.1.0",
-  "author": {
-    "name": "SpecterOps"
-  }
-}

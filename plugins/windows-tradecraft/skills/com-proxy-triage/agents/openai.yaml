@@ -1,9 +1,0 @@
-interface:
-  display_name: "COM Proxy Triage"
-  short_description: "Triage HKCU COM hijack candidates"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.png"
-  default_prompt: "Use $com-proxy-triage to capture HKCU InProcServer32 misses for a Windows process and test the first HKLM-backed CLSIDs with a proxy DLL."
-
-policy:
-  allow_implicit_invocation: true
