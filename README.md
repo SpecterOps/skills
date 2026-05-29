@@ -147,6 +147,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `code-review` | `code-review-and-qa` | [SKILL.md](plugins/code-review-and-qa/skills/code-review/SKILL.md) |
+| `cpp-core-guidelines` | `code-review-and-qa` | [SKILL.md](plugins/code-review-and-qa/skills/cpp-core-guidelines/SKILL.md) |
 | `webapp-qa` | `code-review-and-qa` | [SKILL.md](plugins/code-review-and-qa/skills/webapp-qa/SKILL.md) |
 | `codex-activity-report` | `codex-observability` | [SKILL.md](plugins/codex-observability/skills/codex-activity-report/SKILL.md) |
 | `opentelemetry-codex` | `codex-observability` | [SKILL.md](plugins/codex-observability/skills/opentelemetry-codex/SKILL.md) |
