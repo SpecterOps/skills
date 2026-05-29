@@ -1,0 +1,37 @@
+{
+  "name": "reverse-engineering",
+  "version": "0.1.0",
+  "description": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "specter",
+    "reverse-engineering",
+    "binary-ninja",
+    "mcp",
+    "binary-analysis"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Reverse Engineering",
+    "shortDescription": "Reverse engineering and Binary Ninja analysis workflows.",
+    "longDescription": "General reverse-engineering workflows for binary analysis, MCP-assisted Binary Ninja usage, BNIL references, and future reversing tool integrations.",
+    "developerName": "SpecterOps",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Reverse Engineering to analyze a binary with Binary Ninja.",
+      "Use Binary Ninja MCP to inspect functions and BNIL.",
+      "Use Reverse Engineering to plan a reversing workflow."
+    ],
+    "brandColor": "#00B36B",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

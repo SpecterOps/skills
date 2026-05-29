@@ -1,0 +1,23 @@
+{
+  "name": "ghostwriter",
+  "type": "stdio",
+  "source": {
+    "default": "https://github.com/SpecterOps/GhostWriterMCP.git",
+    "override_env": "GHOSTWRITER_MCP_SOURCE"
+  },
+  "run": {
+    "command": "uv",
+    "args": ["--directory", "/path/to/GhostWriterMCP", "run", "python", "-m", "ghostwritermcp.server"],
+    "entrypoint": "python -m ghostwritermcp.server"
+  },
+  "secrets": [
+    "GHOSTWRITER_API_KEY"
+  ],
+  "configuration": [
+    "GHOSTWRITER_URL",
+    "GHOSTWRITER_CA_BUNDLE",
+    "GHOSTWRITER_OPLOG_ID",
+    "GHOSTWRITER_OPERATOR",
+    "GHOSTWRITER_SOURCE_IP"
+  ]
+}

@@ -39,7 +39,7 @@ Workflow:
 7. Flag missing evidence and route clarification requests to source agents.
 
 Skill usage:
-- Use `$kali-mcp` outputs as first-class evidence when findings are generated through Kali MCP tool execution.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Coordination:
 - Request clarification from `internal_network_recon` for incomplete discovered-user evidence.

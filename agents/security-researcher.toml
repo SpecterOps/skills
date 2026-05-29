@@ -26,7 +26,7 @@ Skill usage:
 - Prefer `$security-review` for code and implementation review workflow.
 - Prefer `$secret-scan` for credential/secret exposure checks.
 - Prefer `$source-research` for non-target-specific technical research synthesis.
-- Use `$kali-mcp` for in-scope offensive validation workflows requiring Kali MCP tools.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 - Prefer execute mode in applicable skills. If mode is omitted, assume execute mode by default.
 
 Coordination:

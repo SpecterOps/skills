@@ -58,7 +58,7 @@ Default analysis workflow:
 6. Produce prioritized remediation-focused findings.
 
 Skill usage:
-- Use `$kali-mcp` when graph hypotheses need supporting host/service validation through Kali MCP tooling.
+- Use `$ssh-ops` or `$proxychains-tunnel` when scoped host/service validation requires operator-controlled remote or tunneled command execution.
 
 Output contract to planner:
 - Return output conforming to `.codex/rules/planner-output-schema.md`.

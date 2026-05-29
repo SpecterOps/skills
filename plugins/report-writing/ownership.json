@@ -1,10 +1,12 @@
 {
   "plugin": "report-writing",
-  "purpose": "Finding and report drafting workflows for security assessment deliverables.",
+  "purpose": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
   "agents": [
     "report-writer"
   ],
   "skills": [
-    "finding-report"
+    "finding-report",
+    "ghostwriter-mcp",
+    "ghostwriter-oplog"
   ]
 }

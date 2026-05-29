@@ -93,6 +93,13 @@
       "category": "productivity"
     },
     {
+      "name": "reverse-engineering",
+      "source": "./plugins/reverse-engineering",
+      "description": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+      "version": "0.1.0",
+      "category": "security"
+    },
+    {
       "name": "timeline-evidence",
       "source": "./plugins/timeline-evidence",
       "description": "Pentest timeline ingestion, consolidation, and evidence packaging workflows.",
@@ -128,45 +135,10 @@
       "category": "security"
     },
     {
-      "name": "ghostwriter-mcp",
-      "source": "./plugins/ghostwriter-mcp",
-      "description": "MCP integration for Ghostwriter security documentation platform",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "ghostwriter-oplog",
-      "source": "./plugins/ghostwriter-oplog",
-      "description": "Quick logging commands for GhostWriter operation logs",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "cobalt-strike-aggressor-reference",
-      "source": "./plugins/cobalt-strike-aggressor-reference",
-      "description": "Cobalt Strike Aggressor script development skill with complete function references for Aggressor and Sleep languages",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "beacon-object-file-development",
-      "source": "./plugins/beacon-object-file-development",
-      "description": "Beacon Object File (BOF) development skill with API documentation, build guides, and a BOF linter",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
       "name": "ludus",
       "source": "./plugins/ludus",
       "description": "Ludus cyber range configuration and management skill with full API, CLI, and deployment references",
       "version": "0.2.0",
-      "category": "security"
-    },
-    {
-      "name": "binary-ninja-mcp",
-      "source": "./plugins/binary-ninja-mcp",
-      "description": "Binary Ninja analysis skill with BNIL IL documentation and MCP server usage guide",
-      "version": "0.1.0",
       "category": "security"
     },
     {

@@ -1,0 +1,16 @@
+{
+  "name": "reverse-engineering",
+  "description": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+  "version": "0.1.0",
+  "author": {
+    "name": "xpn"
+  },
+  "license": "MIT",
+  "keywords": [
+    "binary-ninja",
+    "reverse-engineering",
+    "bnil",
+    "decompiler",
+    "mcp"
+  ]
+}
