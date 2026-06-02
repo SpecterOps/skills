@@ -9,4 +9,4 @@ Focused workflows for Codex session activity reports, OpenTelemetry wiring, and 
 
 ## Agents
 
-- None
+- `telemetry-analyst`
