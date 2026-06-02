@@ -12,3 +12,4 @@ Operational infrastructure workflows for scoped SSH operation, proxychains tunne
 ## Agents
 
 - `ssh-operator`
+- `security-researcher`

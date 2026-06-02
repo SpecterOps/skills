@@ -11,3 +11,5 @@ Focused workflows for web application security review, code security review, and
 ## Agents
 
 - `security-researcher`
+- `code-reviewer`
+- `qa-tester`

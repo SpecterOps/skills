@@ -10,5 +10,6 @@ Focused workflows for building Mythic C2 framework agents and C2 profiles, inclu
 
 ## Agents
 
+- `mythic-developer`
 - `exploit-dev`
 - `poc-dev`

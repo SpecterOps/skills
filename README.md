@@ -215,17 +215,24 @@ npx skills add /Users/<user>/Projects/skills --list
 | `architect` | [agents/architect.toml](agents/architect.toml) |
 | `bloodhound-analyst` | [agents/bloodhound-analyst.toml](agents/bloodhound-analyst.toml) |
 | `code-reviewer` | [agents/code-reviewer.toml](agents/code-reviewer.toml) |
+| `course-migration` | [agents/course-migration.toml](agents/course-migration.toml) |
 | `domain-ops` | [agents/domain-ops.toml](agents/domain-ops.toml) |
 | `exploit-dev` | [agents/exploit-dev.toml](agents/exploit-dev.toml) |
 | `internal-network-recon` | [agents/internal-network-recon.toml](agents/internal-network-recon.toml) |
+| `ludus` | [agents/ludus.toml](agents/ludus.toml) |
+| `mythic-developer` | [agents/mythic-developer.toml](agents/mythic-developer.toml) |
 | `osint-recon` | [agents/osint-recon.toml](agents/osint-recon.toml) |
 | `planner` | [agents/planner.toml](agents/planner.toml) |
 | `poc-dev` | [agents/poc-dev.toml](agents/poc-dev.toml) |
+| `qa-tester` | [agents/qa-tester.toml](agents/qa-tester.toml) |
 | `report-writer` | [agents/report-writer.toml](agents/report-writer.toml) |
 | `researcher` | [agents/researcher.toml](agents/researcher.toml) |
+| `reverse-engineer` | [agents/reverse-engineer.toml](agents/reverse-engineer.toml) |
 | `sccm-ops` | [agents/sccm-ops.toml](agents/sccm-ops.toml) |
 | `security-researcher` | [agents/security-researcher.toml](agents/security-researcher.toml) |
+| `social-engineer` | [agents/social-engineer.toml](agents/social-engineer.toml) |
 | `ssh-operator` | [agents/ssh-operator.toml](agents/ssh-operator.toml) |
+| `telemetry-analyst` | [agents/telemetry-analyst.toml](agents/telemetry-analyst.toml) |
 | `winternals` | [agents/winternals.toml](agents/winternals.toml) |
 
 ## MCP-Aware Plugins

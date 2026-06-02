@@ -11,4 +11,4 @@ Internal workflows for staged training course wiki scaffolding, content migratio
 
 ## Agents
 
-- None
+- `course-migration`
