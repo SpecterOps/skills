@@ -13,3 +13,8 @@ This plugin is the default home for:
 - credential-harvest landing-page copy
 - target-specific lure refinement
 - voice and sender-persona research
+
+## Agents
+
+- `social-engineer`
+- `osint-recon`

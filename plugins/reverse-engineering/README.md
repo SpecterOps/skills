@@ -7,6 +7,12 @@ Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja,
 - `binary-ninja-mcp-analysis` — BNIL documentation, Binary Ninja analysis recipes, and BinjaMCP tool usage guidance.
 - `ghidra-mcp-analysis` — Ghidra MCP binary analysis workflow, capability mapping, and annotation guidance.
 
+## Agents
+
+- `reverse-engineer`
+- `winternals`
+- `exploit-dev`
+
 ## Purpose
 
 This plugin is the Codex home for reverse-engineering workflows. It packages MCP-assisted Binary Ninja and Ghidra guidance plus reference material for future RE tooling skills.
