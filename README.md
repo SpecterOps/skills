@@ -116,7 +116,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | [ops-mssql](plugins/ops-mssql/README.md) | Yes | Yes | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. |
 | [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows. |
 | [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
-| [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, and firewall workflows. |
+| [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows. |
 | [report-drafting](plugins/report-drafting/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
 | [workflows-research](plugins/workflows-research/README.md) | Yes | Yes | - | Source-backed research and synthesis workflows for Specter Codex. |
 | [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling. |
@@ -176,6 +176,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | `nftables-allow-source` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/nftables-allow-source/SKILL.md) |
 | `proxychains-tunnel` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/proxychains-tunnel/SKILL.md) |
 | `ssh-ops` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/ssh-ops/SKILL.md) |
+| `iac-attack-surface` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/iac-attack-surface/SKILL.md) |
 | `finding-report` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/finding-report/SKILL.md) |
 | `ghostwriter-mcp` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/ghostwriter-mcp/SKILL.md) |
 | `ghostwriter-oplog` | `report-drafting` | [SKILL.md](plugins/report-drafting/skills/ghostwriter-oplog/SKILL.md) |

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="IaC attack surface icon">
+  <rect width="64" height="64" rx="12" fill="#2C2677"/>
+  <path d="M14 18h18v14H14zM36 18h14v10H36zM36 34h14v12H36zM14 38h18v8H14z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M32 32h12M32 42h4M22 32v6" stroke="#56F0C6" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="50" cy="28" r="4" fill="#56F0C6"/>
+  <circle cx="36" cy="42" r="3" fill="#56F0C6"/>
+</svg>
