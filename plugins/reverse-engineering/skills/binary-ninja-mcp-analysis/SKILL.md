@@ -30,7 +30,7 @@ You must never use this skill unless the MCP server is available and the task in
 
 ## Runtime Requirements
 
-Codex should be configured directly with a `mcp_servers.binary_ninja` entry that runs the BinjaMCP command or endpoint documented by the user's BinjaMCP installation. This plugin does not install, start, or wrap the Binary Ninja MCP server. Verify the Binary Ninja MCP tools are visible under `/mcp` before using live analysis workflows.
+Codex should be configured directly with a `mcp_servers.binary_ninja_mcp` entry for `fosdickio/binary_ninja_mcp`. Use `command = "npx"` and `args = ["-y", "binary-ninja-mcp", "--host", "localhost", "--port", "9009"]` unless the Binary Ninja plugin is listening elsewhere. This plugin does not install, start, or wrap the Binary Ninja MCP server. Verify the Binary Ninja MCP tools are visible under `/mcp` before using live analysis workflows.
 
 ## Terminology
 

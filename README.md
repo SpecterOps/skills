@@ -76,9 +76,9 @@ Codex officially supports MCP servers through declarative `mcp_servers` configur
 3. Configure Binary Ninja MCP with the command or endpoint documented by your BinjaMCP installation. For stdio servers, the Codex shape is:
 
    ```toml
-   [mcp_servers.binary_ninja]
-   command = "/path/to/binja-mcp-server"
-   args = []
+   [mcp_servers.binary_ninja_mcp]
+   command = "npx"
+   args = ["-y", "binary-ninja-mcp", "--host", "localhost", "--port", "9009"]
    ```
 
 Restart Codex after changing MCP configuration, then confirm the tools appear under `/mcp` before relying on MCP-assisted skills.
@@ -233,5 +233,5 @@ npx skills add /Users/<user>/Projects/skills --list
 |---|---|---|
 | `bloodhound_mcp` | `bloodhound` | Configure directly in Codex with `uv --directory /path/to/bloodhound-mcp run main.py`. |
 | `ghostwriter` | `report-drafting` | Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`. |
-| `binary_ninja` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by the BinjaMCP server. |
+| `binary_ninja_mcp` | `reverse-engineering` | Configure directly in Codex with `npx -y binary-ninja-mcp --host localhost --port 9009` after installing `fosdickio/binary_ninja_mcp` in Binary Ninja. |
 | `ghidra` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server. |
