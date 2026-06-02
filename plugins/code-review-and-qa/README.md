@@ -11,3 +11,4 @@ Focused workflows for reviewing code changes, exercising web apps, and validatin
 ## Agents
 
 - `code-reviewer`
+- `qa-tester`
