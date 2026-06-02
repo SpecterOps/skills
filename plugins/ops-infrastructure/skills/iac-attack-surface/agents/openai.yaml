@@ -1,0 +1,6 @@
+interface:
+  display_name: "IaC Attack Surface"
+  short_description: "Find offensive IaC misconfigurations"
+  icon_small: ./assets/icon.svg
+  brand_color: '#2C2677'
+  default_prompt: "Use $iac-attack-surface to hunt Terraform, Docker, Compose, Kubernetes, Ansible, or cloud-init for offensive misconfigurations: exposed services, unsafe defaults, privilege paths, secrets, workload escape, lateral movement, persistence, and assessment-ready findings."
