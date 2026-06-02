@@ -1,7 +1,7 @@
 {
   "name": "ops-infrastructure",
   "version": "0.1.0",
-  "description": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
+  "description": "Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows.",
   "author": {
     "name": "SpecterOps"
   },
@@ -13,13 +13,15 @@
     "infrastructure",
     "ssh",
     "tunnel",
-    "firewall"
+    "firewall",
+    "iac",
+    "attack-surface"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Ops Infrastructure",
-    "shortDescription": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
-    "longDescription": "Operational infrastructure workflows for scoped SSH operation, proxychains tunnels, and nftables changes.",
+    "shortDescription": "Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows.",
+    "longDescription": "Operational infrastructure workflows for scoped SSH operation, proxychains tunnels, nftables changes, and offensive IaC misconfiguration review.",
     "developerName": "SpecterOps",
     "category": "Infrastructure",
     "capabilities": [
@@ -29,7 +31,8 @@
     "defaultPrompt": [
       "Use Ops Infrastructure for scoped SSH work.",
       "Use Ops Infrastructure to run tunneled commands.",
-      "Use Ops Infrastructure to update nftables allow rules."
+      "Use Ops Infrastructure to update nftables allow rules.",
+      "Use Ops Infrastructure to hunt IaC for offensive misconfigurations and attacker paths."
     ],
     "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.png",

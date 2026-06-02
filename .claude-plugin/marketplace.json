@@ -102,7 +102,7 @@
     {
       "name": "ops-infrastructure",
       "source": "./plugins/ops-infrastructure",
-      "description": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
+      "description": "Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows.",
       "version": "0.1.0",
       "category": "infrastructure"
     },
