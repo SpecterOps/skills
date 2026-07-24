@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenSSF Python Review"
+  short_description: "Review Python code with OpenSSF guidance"
+  default_prompt: "Use $openssf-python-review to audit this Python codebase with an adversarial OpenSSF-guided review and prioritized findings."

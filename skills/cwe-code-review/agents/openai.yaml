@@ -1,0 +1,4 @@
+interface:
+  display_name: "CWE Code Review"
+  short_description: "Run CWE reviews with stepwise PoCs"
+  default_prompt: "Use $cwe-code-review to review this codebase, map confirmed findings to precise CWE entries, and create one stepwise PoC script per confirmed finding."

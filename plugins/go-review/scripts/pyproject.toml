@@ -1,0 +1,12 @@
+[project]
+name = "go-review-scripts"
+version = "0.1.0"
+description = "Go inventory, planner, artifact validation, and SARIF helpers"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
