@@ -1,0 +1,4 @@
+interface:
+  display_name: "OWASP Security Code Review"
+  short_description: "Run evidence-driven security code reviews"
+  default_prompt: "Use $owasp-security-code-review to review this codebase for security flaws and prioritized findings."
