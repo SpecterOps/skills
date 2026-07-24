@@ -224,7 +224,9 @@ request expectations, and where to ask for help.
 
 | Skill | Path |
 |---|---|
-| - | No standalone skills currently live under `skills/`. |
+| `cwe-code-review` | [SKILL.md](skills/cwe-code-review/SKILL.md) |
+| `openssf-python-review` | [SKILL.md](skills/openssf-python-review/SKILL.md) |
+| `owasp-security-code-review` | [SKILL.md](skills/owasp-security-code-review/SKILL.md) |
 
 ## Agents
 
