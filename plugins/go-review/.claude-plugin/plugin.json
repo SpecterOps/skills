@@ -1,0 +1,20 @@
+{
+  "name": "go-review",
+  "version": "0.1.0",
+  "description": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges",
+  "author": {
+    "name": "c0kernel"
+  },
+  "keywords": [
+    "go",
+    "golang",
+    "security",
+    "code-review",
+    "backend",
+    "http",
+    "grpc",
+    "ssrf",
+    "authorization",
+    "sarif"
+  ]
+}

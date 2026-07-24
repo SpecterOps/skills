@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "clusters": [
+    {
+      "cluster_id": "service-boundary",
+      "prompt": "prompts/clusters/service-boundary.md",
+      "consolidated": true,
+      "gate": "has_service",
+      "passes": [
+        {"bug_class": "missing-route-authorization", "prefix": "AUTHZ"},
+        {"bug_class": "tenant-isolation-bypass", "prefix": "TENANT"},
+        {"bug_class": "confused-deputy", "prefix": "DEPUTY"}
+      ]
+    },
+    {
+      "cluster_id": "request-input",
+      "prompt": "prompts/clusters/request-input.md",
+      "consolidated": true,
+      "gate": "has_service",
+      "passes": [
+        {"bug_class": "unbounded-request-body", "prefix": "BODY"},
+        {"bug_class": "decoder-fail-open", "prefix": "DECODE"},
+        {"bug_class": "trusted-header-spoofing", "prefix": "HEADER"}
+      ]
+    },
+    {
+      "cluster_id": "outbound-http",
+      "prompt": "prompts/clusters/outbound-http.md",
+      "consolidated": true,
+      "gate": "has_outbound_http",
+      "passes": [
+        {"bug_class": "ssrf", "prefix": "SSRF"},
+        {"bug_class": "redirect-credential-leak", "prefix": "REDIRECT"},
+        {"bug_class": "missing-http-timeout", "prefix": "HTTPTIME"}
+      ]
+    },
+    {
+      "cluster_id": "sql-storage",
+      "prompt": "prompts/clusters/sql-storage.md",
+      "consolidated": true,
+      "gate": "has_sql",
+      "passes": [
+        {"bug_class": "sql-injection", "prefix": "SQLI"},
+        {"bug_class": "tenant-filter-omission", "prefix": "SQLTENANT"},
+        {"bug_class": "transaction-boundary", "prefix": "TXBOUND"},
+        {"bug_class": "ignored-query-error", "prefix": "QUERYERR"}
+      ]
+    },
+    {
+      "cluster_id": "process-exec",
+      "prompt": "prompts/clusters/process-exec.md",
+      "consolidated": true,
+      "gate": "has_exec",
+      "passes": [
+        {"bug_class": "command-injection", "prefix": "CMDI"},
+        {"bug_class": "path-env-hijack", "prefix": "PATHENV"},
+        {"bug_class": "unsafe-shell-invocation", "prefix": "SHELL"}
+      ]
+    },
+    {
+      "cluster_id": "template-output",
+      "prompt": "prompts/clusters/template-output.md",
+      "consolidated": true,
+      "gate": "has_template",
+      "passes": [
+        {"bug_class": "text-template-html", "prefix": "TEXTTPL"},
+        {"bug_class": "unsafe-template-bypass", "prefix": "TPLBYPASS"},
+        {"bug_class": "response-header-injection", "prefix": "RESPHDR"}
+      ]
+    },
+    {
+      "cluster_id": "filesystem-archive",
+      "prompt": "prompts/clusters/filesystem-archive.md",
+      "consolidated": true,
+      "gate": "has_fs_archive",
+      "passes": [
+        {"bug_class": "path-traversal", "prefix": "PATH"},
+        {"bug_class": "archive-slip", "prefix": "ARCHIVE"},
+        {"bug_class": "symlink-toctou", "prefix": "TOCTOU"},
+        {"bug_class": "unsafe-temp-file", "prefix": "TEMP"}
+      ]
+    },
+    {
+      "cluster_id": "crypto-session",
+      "prompt": "prompts/clusters/crypto-session.md",
+      "consolidated": true,
+      "gate": "has_crypto_auth",
+      "passes": [
+        {"bug_class": "jwt-validation", "prefix": "JWT"},
+        {"bug_class": "weak-token-randomness", "prefix": "RNG"},
+        {"bug_class": "tls-misconfiguration", "prefix": "TLS"},
+        {"bug_class": "cookie-session-flags", "prefix": "COOKIE"},
+        {"bug_class": "timing-unsafe-compare", "prefix": "TIMING"}
+      ]
+    },
+    {
+      "cluster_id": "concurrency-runtime",
+      "prompt": "prompts/clusters/concurrency-runtime.md",
+      "consolidated": true,
+      "gate": "has_concurrency",
+      "passes": [
+        {"bug_class": "shared-map-race", "prefix": "MAPRACE"},
+        {"bug_class": "goroutine-leak", "prefix": "GOROUTINE"},
+        {"bug_class": "missing-context-cancellation", "prefix": "CTX"},
+        {"bug_class": "auth-cache-race", "prefix": "AUTHRACE"}
+      ]
+    },
+    {
+      "cluster_id": "unsafe-cgo",
+      "prompt": "prompts/clusters/unsafe-cgo.md",
+      "consolidated": true,
+      "gate": "has_unsafe_cgo",
+      "passes": [
+        {"bug_class": "unsafe-pointer-lifetime", "prefix": "UNSAFEPTR"},
+        {"bug_class": "cgo-ownership-confusion", "prefix": "CGOOWN"},
+        {"bug_class": "length-truncation", "prefix": "LENCAST"}
+      ]
+    }
+  ]
+}
