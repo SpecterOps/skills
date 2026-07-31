@@ -1,0 +1,27 @@
+services:
+  proxy:
+    command: !override
+      - --api.insecure=true
+      - --providers.file.filename=/etc/traefik/isolated-dynamic.yml
+      - --providers.file.watch=true
+    volumes: !override
+      - __TRAEFIK_CONFIG_PATH__:/etc/traefik/isolated-dynamic.yml:ro
+
+  bhe-api:
+    container_name: !reset null
+    labels: !override
+      - traefik.enable=false
+    volumes:
+      - __CONFIG_PATH__:/build.config.json:ro
+
+  bhe-ui:
+    labels: !override
+      - traefik.enable=false
+
+  bhe-pgadmin:
+    labels: !override
+      - traefik.enable=false
+
+  bhe-pgbadger-web:
+    labels: !override
+      - traefik.enable=false

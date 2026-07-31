@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE Dev Bootstrap"
+  short_description: "Run, review, validate, and track BHE/BHCE development"
+  default_prompt: "Use $bhe-dev-bootstrap to set up, isolate, validate, review for enterprise readiness, or track BHE/BHCE parity for my local development work."

@@ -291,6 +291,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
+    },
+    {
+      "name": "bloodhound-development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bloodhound-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
