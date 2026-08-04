@@ -65,11 +65,31 @@ For new code-changing or PR-bound work:
 3. Fetch `origin`.
 4. Create a task branch and worktree from `origin/main` using `--no-track`.
 5. Initialize submodules.
-6. Confirm the branch has no upstream before its first push.
+6. For work that creates or modifies a BHCE branch, follow **Start BHCE Work from BHCE Main** in [worktrees-and-isolation.md](references/worktrees-and-isolation.md). Never use the submodule's pinned, detached `HEAD` as the BHCE feature base.
+7. Confirm the branch has no upstream before its first push.
 
 Never build new PR work from whichever branch happens to be checked out in the base clone.
 
 ## Bootstrap a Standard Local Environment
+
+Before operating a standard stack, check for the optional local Compose wrapper:
+
+```bash
+command -v bhe-local
+```
+
+When available, use `bhe-local <profile> ...` instead of `just bhe-dev` or direct
+Compose commands for standard stacks. The wrapper applies local log retention,
+bounded Docker logs, a shared Go build cache, and opt-in database tools without
+changing a BHE repository. It preserves named volumes on `down`; never pass `-v`
+unless the user explicitly requests the exact reset. Existing containers receive
+these settings only when recreated through `bhe-local up -d`.
+
+Do not use `bhe-local` for fully isolated stacks. Continue to use the ownership-aware
+isolated-stack helper for every isolated-stack operation. That helper applies the
+same bounded Docker logs, PostgreSQL log retention, and shared Go build cache.
+PgAdmin and PgBadger are excluded by default; pass `--with-db-tools` to `plan`
+or `up` only when the task needs them.
 
 From the selected BHE worktree:
 
@@ -104,8 +124,13 @@ From the selected BHE worktree:
 4. Start and check the standard stack:
 
    ```bash
-   just bhe-dev up -d
-   docker compose --profile dev -f docker-compose.dev.yml ps
+   if command -v bhe-local >/dev/null 2>&1; then
+     bhe-local dev up -d
+     bhe-local dev ps
+   else
+     just bhe-dev up -d
+     docker compose --profile dev -f docker-compose.dev.yml ps
+   fi
    curl -I http://bhe.localhost
    ```
 
@@ -176,7 +201,11 @@ Continue following the before-commit requirements in [pr-readiness.md](reference
 For the standard stack:
 
 ```bash
-just bhe-dev down
+if command -v bhe-local >/dev/null 2>&1; then
+  bhe-local dev down
+else
+  just bhe-dev down
+fi
 ```
 
 For an isolated stack, use its recorded `name`, `slot`, and `repo` with the helper's `down` command. Never use an unscoped `docker compose down` when multiple task environments may exist.

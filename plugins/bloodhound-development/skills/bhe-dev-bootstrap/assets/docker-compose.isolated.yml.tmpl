@@ -1,5 +1,12 @@
+x-bounded-logging: &bounded-logging
+  driver: json-file
+  options:
+    max-size: "${BHE_DOCKER_LOG_MAX_SIZE:-10m}"
+    max-file: "${BHE_DOCKER_LOG_MAX_FILES:-3}"
+
 services:
   proxy:
+    logging: *bounded-logging
     command: !override
       - --api.insecure=true
       - --providers.file.filename=/etc/traefik/isolated-dynamic.yml
@@ -9,19 +16,76 @@ services:
 
   bhe-api:
     container_name: !reset null
+    logging: *bounded-logging
     labels: !override
       - traefik.enable=false
     volumes:
       - __CONFIG_PATH__:/build.config.json:ro
+      - bhe-shared-go-build-cache:/root/.cache/go-build
 
   bhe-ui:
+    logging: *bounded-logging
     labels: !override
       - traefik.enable=false
+
+  bhe-app-db:
+    command: !override
+      - -c
+      - config_file=/etc/postgresql.conf
+      - -c
+      - log_rotation_size=64MB
+      - -c
+      - log_min_duration_statement=100
+      - -c
+      - log_duration=off
+    logging: *bounded-logging
+
+  bhe-postgres-log-pruner:
+    image: alpine:3.22
+    profiles:
+      - dev
+    entrypoint:
+      - /bin/sh
+      - /usr/local/bin/prune-postgres-logs
+    environment:
+      POSTGRES_LOG_RETENTION_COUNT: "${BHE_POSTGRES_LOG_RETENTION_COUNT:-8}"
+      POSTGRES_LOG_PRUNE_INTERVAL_SECONDS: "${BHE_POSTGRES_LOG_PRUNE_INTERVAL_SECONDS:-300}"
+    logging: *bounded-logging
+    volumes:
+      - ${BHE_POSTGRES_LOG_VOLUME:-bhe-postgres-logs}:/logs
+      - __PRUNER_SCRIPT__:/usr/local/bin/prune-postgres-logs:ro
+    depends_on:
+      bhe-app-db:
+        condition: service_healthy
 
   bhe-pgadmin:
+    profiles: !override
+      - db-tools
+    logging: *bounded-logging
     labels: !override
       - traefik.enable=false
 
+  bhe-pgbadger:
+    profiles: !override
+      - db-tools
+    build:
+      context: __SKILL_DIR__
+      dockerfile: assets/pgbadger.Dockerfile
+    environment:
+      PGBADGER_REFRESH_SECONDS: "${BHE_PGBADGER_REFRESH_SECONDS:-900}"
+      PGBADGER_REPORT_RETENTION_DAYS: "${BHE_PGBADGER_REPORT_RETENTION_DAYS:-2}"
+    logging: *bounded-logging
+
   bhe-pgbadger-web:
+    profiles: !override
+      - db-tools
+    logging: *bounded-logging
     labels: !override
       - traefik.enable=false
+    depends_on: !override
+      bhe-pgbadger:
+        condition: service_started
+
+volumes:
+  bhe-shared-go-build-cache:
+    name: bhe-shared-go-build-cache

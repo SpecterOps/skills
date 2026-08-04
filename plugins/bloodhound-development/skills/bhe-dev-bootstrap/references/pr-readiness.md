@@ -106,6 +106,69 @@ A request to prepare a PR does not authorize submission. A direct request to cre
 
 For BHCE changes, commit and push inside `bhce/` first, then update the BHE submodule pointer when appropriate.
 
+## Rebase an Existing PR Safely
+
+Before rebasing, distinguish the PR's recorded base commit from the live branch tip. Do not treat `baseRefOid` from `gh pr view` as proof of current `origin/main`; resolve or fetch the live ref directly.
+
+When BHE/BHCE ancestry is relevant, inspect all three live values before claiming that a PR is unaffected:
+
+- the current BHE `main` commit;
+- the BHCE gitlink recorded by that BHE commit;
+- the current BHCE `main` commit and whether the gitlink is its ancestor.
+
+```bash
+git fetch origin main
+git -C bhce fetch origin main
+bhe_main=$(git rev-parse origin/main)
+bhce_pin=$(git ls-tree "$bhe_main" bhce | awk '{print $3}')
+git -C bhce fetch origin "$bhce_pin"
+git -C bhce merge-base --is-ancestor "$bhce_pin" origin/main
+```
+
+An ancestry check exit code of `0` is valid; `1` means the histories diverged or the pin is not an ancestor. Resolve the live BHE ref directly instead of substituting a PR's recorded base SHA.
+
+For BHCE feature work, use BHCE `origin/main` as the feature base regardless of the detached commit initially checked out by BHE. Verify the BHCE remote and branch setup using **Start BHCE Work from BHCE Main** in [worktrees-and-isolation.md](worktrees-and-isolation.md).
+
+If the inherited BHE pin is not an ancestor but its tree matches BHCE `origin/main`, record the exact SHAs and classify it as a tree-equivalent baseline condition. Do not rebase the BHCE feature onto the detached pin, rebuild a correctly based feature branch, or treat the expected local `M bhce` checkout as a merge conflict. Investigate a differing tree as a compatibility risk.
+
+A BHE-only PR that does not modify `bhce` may remain GitHub-mergeable while current BHE `main` carries an invalid BHCE pin. Rebasing that PR inherits the live pin; GitHub mergeability does not enforce the repository's submodule-ancestry policy. Existing CI may also predate the problematic pin.
+
+When both repositories need rebasing, always rebase BHCE first and BHE second:
+
+1. Fetch BHCE `origin/main` and rebase the BHCE task branch onto it.
+2. Validate the rebased BHCE change and, after the required approval, update its remote PR branch.
+3. Fetch BHE `origin/main` and rebase the BHE task branch.
+4. Update and stage the BHE `bhce` gitlink only after the BHCE target commit is settled.
+
+Once the required BHCE change is present on BHCE `main`, normally point BHE at the latest fetched BHCE `origin/main` commit. This preserves ancestry and avoids manufacturing a tree-equivalent commit on a disconnected history. While a paired BHCE PR is still unmerged, BHE may temporarily pin the exact rebased BHCE PR head; document that dependency and update the gitlink to BHCE `main` after the BHCE PR merges.
+
+After explicit rebase approval, use this sequence from a clean task worktree:
+
+```bash
+git status --short --branch
+git fetch origin main
+git rebase origin/main
+git submodule update --init --recursive bhce
+git status --short --branch
+git diff --check origin/main...HEAD
+git diff --stat origin/main...HEAD
+git ls-tree HEAD bhce
+```
+
+The submodule checkout may appear modified immediately after a successful BHE rebase because the working checkout still points at the old commit. Synchronize it with `git submodule update`; do not stage that checkout mismatch as a new gitlink change.
+
+Reassess the parity ledger and validation evidence after the rebase. If the inherited BHE pin is not an ancestor of BHCE `main`, report that baseline issue explicitly; do not imply that an unrelated BHE diff repairs it.
+
+Updating the open PR requires separate explicit approval. Immediately before the approved push, refresh the remote branch, then protect remote-only work with a lease:
+
+```bash
+git fetch origin <pr-branch>
+git push --force-with-lease origin <pr-branch>
+gh pr view <pr-number> --json headRefOid,mergeable,mergeStateStatus,statusCheckRollup,reviewDecision
+```
+
+Confirm that GitHub attached the rewritten head and started the expected checks. Do not use plain `--force`.
+
 ## Follow Through
 
 After creating a PR, monitor it unless the user asks to stop. Use sparse, one-shot snapshots and report only changes:

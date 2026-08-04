@@ -32,6 +32,29 @@ fi
 
 If the path or branch exists, inspect it. Reuse it only when it belongs to the same task and has the intended baseline. Treat each PR segment as a distinct identity even when several segments share an umbrella feature.
 
+## Start BHCE Work from BHCE Main
+
+Apply this only when the task will create or modify a BHCE branch. Initialize BHE from BHE `origin/main`, but create the BHCE feature branch explicitly from BHCE `origin/main`; never branch from the submodule's pinned, detached `HEAD`.
+
+```bash
+BHCE_BRANCH=<bhce-feature-branch>
+
+git -C "$WORKTREE/bhce" remote get-url origin
+git -C "$WORKTREE/bhce" fetch origin main
+git -C "$WORKTREE/bhce" switch --no-track -c "$BHCE_BRANCH" origin/main
+git -C "$WORKTREE/bhce" status --short --branch
+```
+
+Require the BHCE origin to be:
+
+```text
+git@github.com:SpecterOps/BloodHound.git
+```
+
+If it points to a local clone or another remote, stop and inspect the task-owned checkout before changing it. Do not silently inherit that remote as the feature source.
+
+Leave the pinned, detached BHCE checkout alone for BHE-only work. Do not mass-repair dirty or older workspaces; preserve their in-progress state and never use them as another feature's baseline.
+
 ## Identify Stack Ownership
 
 Before operating Docker:
@@ -88,6 +111,11 @@ Create and start:
   --accept-standard-eula
 ```
 
+PgAdmin and PgBadger are excluded by default. Add `--with-db-tools` to `plan`
+or `up` when they are needed, or `--without-db-tools` to explicitly return a
+recorded stack to the default on its next `up`. Both choices preserve named
+volumes.
+
 The helper:
 
 - removes fixed API container naming with a generated override;
@@ -96,6 +124,9 @@ The helper:
 - creates task-specific hostnames, networks, volumes, and configuration;
 - rejects stack name, project, worktree, slot, or hostname ownership collisions;
 - records state under `${XDG_STATE_HOME:-$HOME/.local/state}/codex-bhe-stacks`;
+- bounds Docker JSON logs and retains only the newest PostgreSQL log files;
+- shares a named Go build cache across isolated API containers;
+- keeps PgAdmin and PgBadger opt-in rather than running them for every task;
 - seeds missing official AD and Entra data unless `--skip-sample-data` is explicitly used.
 
 EULA acceptance requires `--accept-standard-eula` and is refused for non-local hostnames. Once the database records acceptance, later `up` or `seed` calls do not need the flag.

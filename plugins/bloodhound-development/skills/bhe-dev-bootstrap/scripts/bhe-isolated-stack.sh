@@ -25,6 +25,8 @@ Commands:
 Options:
   --accept-standard-eula  Permit standard EULA acceptance for local hosts only.
   --skip-sample-data      Start without sample data.
+  --with-db-tools         Include PgAdmin and PgBadger for plan/up.
+  --without-db-tools      Exclude PgAdmin and PgBadger for plan/up (default).
   --service SERVICE       Limit logs to one Compose service.
   --tail N                Number of log lines to show (default: 200).
   --json                  Emit machine-readable output for list.
@@ -55,6 +57,7 @@ slot=
 repo=
 skip_sample_data=false
 accept_standard_eula=false
+db_tools_mode=preserve
 json_output=false
 service=
 tail_lines=200
@@ -66,6 +69,8 @@ while (($#)); do
     --repo) repo=${2:-}; shift 2 ;;
     --skip-sample-data) skip_sample_data=true; shift ;;
     --accept-standard-eula) accept_standard_eula=true; shift ;;
+    --with-db-tools) db_tools_mode=enabled; shift ;;
+    --without-db-tools) db_tools_mode=disabled; shift ;;
     --service) service=${2:-}; shift 2 ;;
     --tail) tail_lines=${2:-}; shift 2 ;;
     --json) json_output=true; shift ;;
@@ -233,7 +238,6 @@ doctor() {
       fi
     done < <(manifest_files)
   fi
-
   $failed && return 1
   return 0
 }
@@ -285,6 +289,9 @@ fi
 if $accept_standard_eula && [[ $command_name != up && $command_name != seed ]]; then
   die "--accept-standard-eula is valid only with up or seed"
 fi
+if [[ $db_tools_mode != preserve && $command_name != plan && $command_name != up ]]; then
+  die "--with-db-tools and --without-db-tools are valid only with plan or up"
+fi
 
 for dependency in docker git jq sed curl lsof; do
   have "$dependency" || die "missing required command: $dependency"
@@ -306,8 +313,12 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 skill_dir=$(cd "$script_dir/.." && pwd -P)
 template=$skill_dir/assets/docker-compose.isolated.yml.tmpl
 traefik_template=$skill_dir/assets/traefik.isolated-dynamic.yml.tmpl
+pruner_script=$skill_dir/scripts/prune-postgres-logs.sh
+pgbadger_dockerfile=$skill_dir/assets/pgbadger.Dockerfile
 [[ -f $template ]] || die "missing Compose override template: $template"
 [[ -f $traefik_template ]] || die "missing Traefik template: $traefik_template"
+[[ -f $pruner_script ]] || die "missing PostgreSQL log pruner: $pruner_script"
+[[ -f $pgbadger_dockerfile ]] || die "missing PgBadger Dockerfile: $pgbadger_dockerfile"
 
 project="bhe-isolated-$name"
 state_dir=$state_root/$name
@@ -316,6 +327,14 @@ env_file=$state_dir/stack.env
 override_file=$state_dir/docker-compose.isolated.yml
 config_file=$state_dir/build.config.json
 traefik_config_file=$state_dir/traefik.isolated-dynamic.yml
+
+if [[ $db_tools_mode == preserve && -f $manifest ]]; then
+  with_db_tools=$(jq -r '.db_tools // false' "$manifest")
+elif [[ $db_tools_mode == enabled ]]; then
+  with_db_tools=true
+else
+  with_db_tools=false
+fi
 
 web_port=$((18080 + slot))
 traefik_port=$((18180 + slot))
@@ -331,12 +350,14 @@ pgbadger_hostname="$name.pgbadger.localhost"
 base_url="http://$bhe_hostname:$web_port"
 
 compose() {
+  local profiles=(--profile dev)
+  $with_db_tools && profiles+=(--profile db-tools)
   COMPOSE_PROGRESS=${COMPOSE_PROGRESS:-plain} docker compose \
     --project-name "$project" \
     --env-file "$env_file" \
     -f "$repo/docker-compose.dev.yml" \
     -f "$override_file" \
-    --profile dev "$@"
+    "${profiles[@]}" "$@"
 }
 
 assert_global_ownership() {
@@ -411,9 +432,13 @@ EOF
 
   escaped_config=$(sed_replacement "$config_file")
   escaped_traefik=$(sed_replacement "$traefik_config_file")
+  escaped_skill_dir=$(sed_replacement "$skill_dir")
+  escaped_pruner_script=$(sed_replacement "$pruner_script")
   sed \
     -e "s|__CONFIG_PATH__|$escaped_config|g" \
     -e "s|__TRAEFIK_CONFIG_PATH__|$escaped_traefik|g" \
+    -e "s|__SKILL_DIR__|$escaped_skill_dir|g" \
+    -e "s|__PRUNER_SCRIPT__|$escaped_pruner_script|g" \
     "$template" > "$override_file"
 
   sed \
@@ -432,9 +457,10 @@ EOF
     --arg env_file "$env_file" \
     --arg override_file "$override_file" \
     --arg traefik_config_file "$traefik_config_file" \
+    --argjson db_tools "$with_db_tools" \
     '{name:$name, project:$project, repo:$repo, slot:$slot, url:$url,
       hostname:$hostname, env_file:$env_file, override_file:$override_file,
-      traefik_config_file:$traefik_config_file}' > "$manifest.tmp"
+      traefik_config_file:$traefik_config_file, db_tools:$db_tools}' > "$manifest.tmp"
   mv "$manifest.tmp" "$manifest"
   chmod 600 "$manifest"
 }
@@ -442,8 +468,8 @@ EOF
 show_connection() {
   username=$(jq -r '.default_admin.email_address // .default_admin.principal_name' "$config_file")
   password=$(jq -r '.default_admin.password' "$config_file")
-  printf '\nStack:    %s\nWorktree: %s\nURL:       %s/ui\nUsername:  %s\nPassword:  %s\nState:     %s\n' \
-    "$project" "$repo" "$base_url" "$username" "$password" "$state_dir"
+  printf '\nStack:     %s\nWorktree:  %s\nURL:        %s/ui\nUsername:   %s\nPassword:   %s\nDB tools:   %s\nState:      %s\n' \
+    "$project" "$repo" "$base_url" "$username" "$password" "$with_db_tools" "$state_dir"
 }
 
 seed_sample_data() {
@@ -534,7 +560,7 @@ case "$command_name" in
     write_stack_files
     compose config --quiet
     assert_ports_available
-    compose up -d
+    compose up -d --remove-orphans
     printf 'Waiting for the isolated API to become healthy...\n'
     healthy=false
     for _ in $(seq 1 60); do
