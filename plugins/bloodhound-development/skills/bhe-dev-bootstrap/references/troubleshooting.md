@@ -26,15 +26,12 @@ If SpecterOps SAML SSO blocks access, authorize the SSH key for the SpecterOps o
 
 ## Missing Yarn
 
-The repository pins Yarn and includes its release file. Prefer Corepack. If `stbernard` cannot locate `yarn` or `yarnpkg`, create a narrow user-local shim only after confirming Node is available:
+The repository pins its Yarn version. Prefer Corepack so the shim follows the repository's current package-manager configuration. If `stbernard` cannot locate `yarn` or `yarnpkg`, create a narrow user-local shim only after confirming Node and Corepack are available:
 
 ```bash
 mkdir -p "$HOME/.local/bin"
 printf '%s\n' \
   '#!/bin/sh' \
-  'if [ -f .yarn/releases/yarn-4.13.0.cjs ]; then' \
-  '  exec node .yarn/releases/yarn-4.13.0.cjs "$@"' \
-  'fi' \
   'exec corepack yarn "$@"' > "$HOME/.local/bin/yarn"
 chmod +x "$HOME/.local/bin/yarn"
 ln -sf "$HOME/.local/bin/yarn" "$HOME/.local/bin/yarnpkg"
@@ -61,7 +58,7 @@ If `docker info` reports that the daemon is unavailable on macOS, open Docker De
 
 ## Local Login
 
-For a new standard environment, run `scripts/configure-local-admin.sh` after `just init` and before first startup. The intended local credentials are `admin` / `admin`.
+For a new standard environment, run `scripts/configure-local-admin.sh` after `just init` and before first startup. The intended local credentials are `admin@example.com` / `ChangeMe123!`.
 
 The configuration does not rewrite credentials already stored in a database volume. Verify an actual login before reporting credentials as working. Never delete a volume merely to enforce the default.
 

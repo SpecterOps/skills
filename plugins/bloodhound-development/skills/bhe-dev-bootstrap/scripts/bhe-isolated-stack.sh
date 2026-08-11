@@ -409,8 +409,8 @@ write_stack_files() {
 
   jq --arg root_url "$base_url/" \
     '.root_url = $root_url |
-     .default_admin.email_address = "admin" |
-     .default_admin.password = "admin" |
+     .default_admin.email_address = "admin@example.com" |
+     .default_admin.password = "ChangeMe123!" |
      .default_admin.expire_now = false' \
     "$repo/local-harnesses/build.config.json" > "$config_file.tmp"
   mv "$config_file.tmp" "$config_file"

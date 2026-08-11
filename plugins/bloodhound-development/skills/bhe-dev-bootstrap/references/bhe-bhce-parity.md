@@ -1,6 +1,6 @@
 # BHE/BHCE Parity and Compatibility
 
-Use this reference for every meaningful BHE change. Seek reasonable behavioral parity without requiring identical features, controls, or implementations. ReGraph and open-source Sigma have different capabilities; treat a documented, intentional difference as a valid outcome.
+Use this reference for every meaningful BHE change. Seek reasonable behavioral parity without requiring identical features, controls, dependencies, or implementations. BHE and BHCE may use different product-specific capabilities; treat a documented, intentional difference as a valid outcome.
 
 ## Dispositions
 
@@ -25,9 +25,9 @@ Run targeted BHCE unit or browser tests plus applicable type-checking and lintin
 
 Test and type-check both products when changing shared packages, component interfaces, API contracts, schemas, generated clients, authentication behavior, routing contracts, or other dependencies consumed by both products.
 
-### Renderer-specific behavior
+### Product-specific UI behavior
 
-Validate ReGraph behavior in BHE. Inspect Sigma for a reasonable behavioral counterpart. Do not reproduce a ReGraph built-in tool with disproportionate custom Sigma code merely for nominal parity. Record the capability difference and preserve existing BHCE behavior with a regression test when that test provides meaningful protection.
+Validate the changed behavior in the product that owns it. Inspect the other product for a reasonable behavioral counterpart. Do not reproduce a product-specific built-in capability with disproportionate custom code merely for nominal parity. Record capability differences and preserve existing behavior with a regression test when that test provides meaningful protection.
 
 ### Equivalent outcomes
 
@@ -50,7 +50,7 @@ Record or revise a change. Reuse the same `--change-id` to append a newer decisi
   --task <task-slug> \
   --change-id <stable-change-slug> \
   --change "<BHE change summary>" \
-  --surface <regraph|sigma|shared-ui|api|backend|other> \
+  --surface <bhe-ui|bhce-ui|shared-ui|api|backend|other> \
   --disposition <matched|equivalent|bhe-only|intentionally-divergent|deferred|investigate> \
   --reason "<decision rationale>" \
   --bhe-validation "<test evidence or pending>" \
@@ -86,6 +86,6 @@ Before choosing a disposition, answer:
 
 1. Does BHCE expose the same user workflow or contract?
 2. Does this change touch `bhce/` or a boundary consumed by both products?
-3. Can Sigma provide the same outcome with reasonable implementation and maintenance effort?
+3. Can the other product provide the same outcome with reasonable implementation and maintenance effort?
 4. Would omitting BHCE work break existing behavior, or only leave a documented feature difference?
 5. Which focused BHE and BHCE tests provide useful evidence?
