@@ -36,8 +36,8 @@ BHE_SAMPLE_SKILL_DIR="<directory containing this SKILL.md>"
 node "$BHE_SAMPLE_SKILL_DIR/scripts/ingest_sample_data.cjs" \
   --base-url http://bhe.localhost \
   --repo <absolute-bhe-worktree-path> \
-  --username admin \
-  --password admin
+  --username admin@example.com \
+  --password 'ChangeMe123!'
 ```
 
 The script:

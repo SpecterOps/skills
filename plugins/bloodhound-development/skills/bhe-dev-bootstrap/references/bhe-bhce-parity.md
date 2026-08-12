@@ -60,6 +60,9 @@ Record or revise a change. Reuse the same `--change-id` to append a newer decisi
   --bhce-ref "<commit or PR, or none>"
 ```
 
+The legacy surface values `regraph` and `sigma` remain accepted as compatibility
+aliases for existing ledgers. Use `bhe-ui` or `bhce-ui` for new records.
+
 Use `show` at handoffs. During implementation, run:
 
 ```bash

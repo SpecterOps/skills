@@ -247,7 +247,7 @@ validate_slug "--change-id" "$change_id"
 [[ -n $change ]] || die "--change is required"
 case "$surface" in
   bhe-ui|bhce-ui|shared-ui|api|backend|other|regraph|sigma) ;;
-  *) die "--surface must be bhe-ui, bhce-ui, shared-ui, api, backend, or other" ;;
+  *) die "--surface must be bhe-ui, bhce-ui, shared-ui, api, backend, other, regraph, or sigma" ;;
 esac
 case "$disposition" in
   matched|equivalent|bhe-only|intentionally-divergent|deferred|investigate) ;;

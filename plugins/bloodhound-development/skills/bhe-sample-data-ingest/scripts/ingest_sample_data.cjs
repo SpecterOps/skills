@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('node:fs');
+const net = require('node:net');
 const path = require('node:path');
 
 const defaultUrls = {
@@ -12,8 +13,8 @@ function parseArgs(argv) {
   const args = {
     baseUrl: 'http://bhe.localhost',
     repo: process.cwd(),
-    username: 'admin',
-    password: 'admin',
+    username: 'admin@example.com',
+    password: 'ChangeMe123!',
     dataset: 'both',
     timeoutSeconds: 180,
   };
@@ -42,8 +43,43 @@ function parseArgs(argv) {
   if (!['ad', 'entra', 'both'].includes(args.dataset)) {
     throw new Error('--dataset must be one of: ad, entra, both');
   }
+  if (!Number.isInteger(args.timeoutSeconds) || args.timeoutSeconds <= 0) {
+    throw new Error('--timeout-seconds must be a finite positive integer');
+  }
 
   return args;
+}
+
+function normalizeBaseUrl(value) {
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new Error('--base-url must be a valid URL');
+  }
+
+  if (!['http:', 'https:'].includes(parsed.protocol)) {
+    throw new Error('--base-url protocol must be http or https');
+  }
+  if (parsed.username || parsed.password) {
+    throw new Error('--base-url must not contain embedded credentials');
+  }
+
+  const hostname = parsed.hostname.toLowerCase();
+  const unbracketedHostname = hostname.startsWith('[') && hostname.endsWith(']')
+    ? hostname.slice(1, -1)
+    : hostname;
+  const ipVersion = net.isIP(unbracketedHostname);
+  const isLocalhostName = hostname === 'localhost' || hostname.endsWith('.localhost');
+  const isIpv4Loopback = ipVersion === 4 && unbracketedHostname.split('.')[0] === '127';
+  const isIpv6Loopback = ipVersion === 6 && unbracketedHostname === '::1';
+  if (!isLocalhostName && !isIpv4Loopback && !isIpv6Loopback) {
+    throw new Error('--base-url hostname must be localhost, a *.localhost name, or a loopback IP address');
+  }
+
+  parsed.hash = '';
+  parsed.search = '';
+  return parsed.href.replace(/\/$/, '');
 }
 
 function printHelp() {
@@ -53,8 +89,8 @@ function printHelp() {
 Options:
   --base-url URL            Local app URL (default: http://bhe.localhost)
   --repo PATH               BHE repo path (default: current directory)
-  --username USERNAME       Local login username (default: admin)
-  --password PASSWORD       Local login password (default: admin)
+  --username USERNAME       Local login username (default: admin@example.com)
+  --password PASSWORD       Local login password (default: ChangeMe123!)
   --dataset ad|entra|both   Dataset to ingest (default: both)
   --timeout-seconds N       Poll timeout after ending ingest (default: 180)
   --help                    Show this help
@@ -75,6 +111,7 @@ async function download(url, destination) {
 async function request(baseUrl, method, endpoint, { token, body, headers = {} } = {}) {
   const response = await fetch(`${baseUrl}${endpoint}`, {
     method,
+    redirect: 'error',
     headers: {
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
@@ -106,6 +143,7 @@ async function main() {
     printHelp();
     return;
   }
+  args.baseUrl = normalizeBaseUrl(args.baseUrl);
 
   const sampleDir = path.join(args.repo, 'local-harnesses', 'sample-data');
   const selected = args.dataset === 'both' ? ['ad', 'entra'] : [args.dataset];
@@ -161,8 +199,10 @@ async function main() {
 
   const deadline = Date.now() + args.timeoutSeconds * 1000;
   let finalJob = null;
+  let reachedTerminalState = false;
   while (Date.now() < deadline) {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, Math.min(3000, deadline - Date.now())));
+    if (Date.now() >= deadline) break;
     const list = await request(args.baseUrl, 'GET', '/api/v2/file-upload?limit=10', { token });
     finalJob = (list?.data ?? []).find((job) => String(job.id) === ingestId);
     if (!finalJob) {
@@ -174,13 +214,24 @@ async function main() {
       `poll: status=${finalJob.status} message=${JSON.stringify(finalJob.status_message || '')} total=${finalJob.total_files} failed=${finalJob.failed_files} partial=${finalJob.partial_failed_files}`
     );
 
-    if (finalJob.status_message === 'Complete' || finalJob.status === 2 || finalJob.failed_files > 0) {
+    const statusMessage = String(finalJob.status_message ?? '').trim().toLowerCase();
+    const hasFileFailures = Number(finalJob.failed_files ?? 0) > 0
+      || Number(finalJob.partial_failed_files ?? 0) > 0;
+    const hasUnsuccessfulStatus = /failed|error|cancelled|canceled/.test(statusMessage);
+    const successfulTerminalState = !hasUnsuccessfulStatus
+      && (statusMessage === 'complete' || Number(finalJob.status) === 2);
+    const unsuccessfulTerminalState = hasFileFailures || hasUnsuccessfulStatus;
+    if (successfulTerminalState || unsuccessfulTerminalState) {
+      reachedTerminalState = true;
       break;
     }
   }
 
   if (!finalJob) {
     throw new Error(`Ingest job ${ingestId} did not appear before timeout`);
+  }
+  if (!reachedTerminalState) {
+    throw new Error(`Ingest job ${ingestId} did not reach a recognized terminal state before timeout`);
   }
 
   const tasks = await request(args.baseUrl, 'GET', `/api/v2/file-upload/${ingestId}/completed-tasks`, { token });
@@ -194,8 +245,34 @@ async function main() {
   }
 
   const environments = await request(args.baseUrl, 'GET', '/api/v2/available-domains', { token });
-  for (const environment of environments?.data ?? []) {
+  const availableEnvironments = environments?.data ?? [];
+  for (const environment of availableEnvironments) {
     console.log(`${environment.type}\t${environment.name}\tcollected=${environment.collected}`);
+  }
+
+  const statusMessage = String(finalJob.status_message ?? '').trim().toLowerCase();
+  const successfulTerminalState = !/failed|error|cancelled|canceled/.test(statusMessage)
+    && (statusMessage === 'complete' || Number(finalJob.status) === 2);
+  const failedFiles = Number(finalJob.failed_files ?? 0);
+  const partialFailedFiles = Number(finalJob.partial_failed_files ?? 0);
+  const tasksWithErrors = completedTasks.filter((task) => {
+    if (Array.isArray(task.errors)) return task.errors.length > 0;
+    return Boolean(task.errors && (typeof task.errors !== 'object' || Object.keys(task.errors).length > 0));
+  });
+  const requiredEnvironmentTypes = selected.map((dataset) => dataset === 'ad' ? 'active-directory' : 'azure');
+  const availableEnvironmentTypes = new Set(
+    availableEnvironments.map((environment) => String(environment.type ?? '').toLowerCase())
+  );
+  const missingEnvironmentTypes = requiredEnvironmentTypes.filter((type) => !availableEnvironmentTypes.has(type));
+
+  const failures = [];
+  if (!successfulTerminalState) failures.push(`unsuccessful terminal state: status=${finalJob.status} message=${JSON.stringify(finalJob.status_message ?? '')}`);
+  if (failedFiles > 0) failures.push(`failed_files=${failedFiles}`);
+  if (partialFailedFiles > 0) failures.push(`partial_failed_files=${partialFailedFiles}`);
+  if (tasksWithErrors.length > 0) failures.push(`${tasksWithErrors.length} completed task(s) reported errors`);
+  if (missingEnvironmentTypes.length > 0) failures.push(`missing environment type(s): ${missingEnvironmentTypes.join(', ')}`);
+  if (failures.length > 0) {
+    throw new Error(`Ingest job ${ingestId} failed validation: ${failures.join('; ')}`);
   }
 }
 

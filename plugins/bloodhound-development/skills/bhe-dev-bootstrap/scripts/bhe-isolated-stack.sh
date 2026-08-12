@@ -81,11 +81,111 @@ done
 
 state_root=${BHE_ISOLATED_STATE_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/codex-bhe-stacks}
 base_repo=${BHE_BASE_REPO:-$HOME/Dev/bloodhound-enterprise}
+state_lock=$state_root/.state-lock
+state_lock_token=
+state_lock_owned=false
+state_lock_timeout=${BHE_STATE_LOCK_TIMEOUT_SECONDS:-15}
+state_lock_stale_after=${BHE_STATE_LOCK_STALE_SECONDS:-30}
+
+[[ $state_lock_timeout =~ ^[0-9]+$ ]] ||
+  die "BHE_STATE_LOCK_TIMEOUT_SECONDS must be a non-negative integer"
+[[ $state_lock_stale_after =~ ^[0-9]+$ ]] ||
+  die "BHE_STATE_LOCK_STALE_SECONDS must be a non-negative integer"
+
+release_state_lock() {
+  local recorded_token= reclaim_token=
+  if [[ -n $state_lock_token && -f $state_lock/reclaim/owner ]]; then
+    IFS=' ' read -r _ reclaim_token < "$state_lock/reclaim/owner" || true
+    if [[ $reclaim_token == "$state_lock_token" ]]; then
+      rm -rf "$state_lock/reclaim"
+    fi
+  fi
+  [[ -n $state_lock_token && -d $state_lock ]] || return 0
+  if [[ -f $state_lock/owner ]]; then
+    IFS=' ' read -r _ recorded_token _ < "$state_lock/owner" || true
+  fi
+  if [[ $recorded_token == "$state_lock_token" ||
+    ($state_lock_owned == true && -z $recorded_token) ]]; then
+    rm -rf "$state_lock"
+  fi
+  state_lock_owned=false
+  state_lock_token=
+}
+
+lock_process_alive() {
+  local lock_pid=$1
+  [[ $lock_pid =~ ^[0-9]+$ ]] && kill -0 "$lock_pid" 2>/dev/null || return 1
+}
+
+try_reclaim_stale_state_lock() {
+  local now owner_pid owner_token acquired_at age reclaim_dir quarantine
+  local owner_pid_after owner_token_after acquired_at_after
+  [[ -f $state_lock/owner ]] || return 1
+  IFS=' ' read -r owner_pid owner_token acquired_at < "$state_lock/owner" || return 1
+  [[ $acquired_at =~ ^[0-9]+$ ]] || return 1
+  lock_process_alive "$owner_pid" && return 1
+
+  now=$(date +%s)
+  age=$((now - acquired_at))
+  ((age >= state_lock_stale_after)) || return 1
+
+  # A fixed-name recovery claim ensures that only one waiter can move the
+  # abandoned lock. Re-read the owner after claiming so a changed lock is
+  # never reclaimed based on stale observations.
+  reclaim_dir=$state_lock/reclaim
+  mkdir "$reclaim_dir" 2>/dev/null || return 1
+  printf '%s %s\n' "$$" "$state_lock_token" > "$reclaim_dir/owner"
+  if ! IFS=' ' read -r owner_pid_after owner_token_after acquired_at_after \
+    < "$state_lock/owner" ||
+    [[ $owner_pid_after != "$owner_pid" || $owner_token_after != "$owner_token" ||
+      $acquired_at_after != "$acquired_at" ]] || lock_process_alive "$owner_pid_after"; then
+    rm -rf "$reclaim_dir"
+    return 1
+  fi
+
+  quarantine=$state_root/.state-lock-reclaimed-$state_lock_token
+  if mv "$state_lock" "$quarantine" 2>/dev/null; then
+    rm -rf "$quarantine"
+    return 0
+  fi
+  [[ ! -d $state_lock || ! -d $reclaim_dir ]] || rm -rf "$reclaim_dir"
+  return 1
+}
+
+acquire_state_lock() {
+  local started now
+  mkdir -p "$state_root"
+  chmod 700 "$state_root"
+  started=$(date +%s)
+  state_lock_token="$$-$(date +%s)-$RANDOM-$RANDOM"
+  trap release_state_lock EXIT
+  trap 'exit 129' HUP
+  trap 'exit 130' INT
+  trap 'exit 143' TERM
+
+  while ! mkdir "$state_lock" 2>/dev/null; do
+    try_reclaim_stale_state_lock || true
+    if mkdir "$state_lock" 2>/dev/null; then
+      state_lock_owned=true
+      break
+    fi
+    now=$(date +%s)
+    ((now - started < state_lock_timeout)) ||
+      die "timed out waiting for isolated-stack state lock: $state_lock"
+    sleep 1
+  done
+
+  state_lock_owned=true
+  printf '%s %s %s\n' "$$" "$state_lock_token" "$(date +%s)" > "$state_lock/owner"
+  chmod 700 "$state_lock"
+  chmod 600 "$state_lock/owner"
+}
 
 manifest_files() {
   local manifest_file
   [[ -d $state_root ]] || return 0
-  for manifest_file in "$state_root"/*/manifest.json; do
+  for manifest_file in "$state_root"/*/manifest.json \
+    "$state_root"/archive/*/manifest.json; do
     [[ -f $manifest_file ]] && printf '%s\n' "$manifest_file"
   done | sort
 }
@@ -114,7 +214,11 @@ runtime_state() {
 emit_stack_json() {
   local manifest_file=$1
   local state updated
-  state=$(runtime_state "$manifest_file")
+  if [[ $manifest_file == "$state_root"/archive/*/manifest.json ]]; then
+    state=archived-volumes-preserved
+  else
+    state=$(runtime_state "$manifest_file")
+  fi
   updated=$(stat -f '%Sm' "$manifest_file" 2>/dev/null ||
     stat -c '%y' "$manifest_file" 2>/dev/null || printf 'unknown')
   jq -c --arg state "$state" --arg updated "$updated" \
@@ -399,9 +503,10 @@ sed_replacement() {
 }
 
 write_stack_files() {
+  acquire_state_lock
+  assert_global_ownership
   mkdir -p "$state_dir"
   chmod 700 "$state_root" "$state_dir"
-  assert_global_ownership
 
   if [[ -f $manifest ]]; then
     verify_recorded_ownership
@@ -463,6 +568,7 @@ EOF
       traefik_config_file:$traefik_config_file, db_tools:$db_tools}' > "$manifest.tmp"
   mv "$manifest.tmp" "$manifest"
   chmod 600 "$manifest"
+  release_state_lock
 }
 
 show_connection() {
@@ -612,6 +718,8 @@ case "$command_name" in
       --format '{{.ID}}' | grep -q .; then
       die "stack containers still exist; run down before archive"
     fi
+    acquire_state_lock
+    verify_recorded_ownership
     archive_root=$state_root/archive
     mkdir -p "$archive_root"
     chmod 700 "$archive_root"
@@ -619,6 +727,7 @@ case "$command_name" in
     archive_target=$archive_root/$name-$archived_at
     [[ ! -e $archive_target ]] || die "archive target already exists: $archive_target"
     mv "$state_dir" "$archive_target"
+    release_state_lock
     printf 'Archived stack state to %s. Docker volumes were not deleted.\n' "$archive_target"
     ;;
 esac

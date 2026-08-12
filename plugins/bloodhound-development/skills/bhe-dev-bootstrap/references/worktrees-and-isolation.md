@@ -123,6 +123,7 @@ The helper:
 - allocates deterministic ports from the slot;
 - creates task-specific hostnames, networks, volumes, and configuration;
 - rejects stack name, project, worktree, slot, or hostname ownership collisions;
+- serializes reservation and archival state changes across concurrent helper processes;
 - records state under `${XDG_STATE_HOME:-$HOME/.local/state}/codex-bhe-stacks`;
 - bounds Docker JSON logs and retains only the newest PostgreSQL log files;
 - shares a named Go build cache across isolated API containers;
@@ -158,7 +159,9 @@ Archive state only after the stack is stopped:
 "$STACK" archive --name <task-slug> --slot <slot> --repo <worktree>
 ```
 
-Archival moves the manifest and generated configuration under the helper's `archive` directory. It does not delete Docker volumes. Never archive state as a substitute for resetting or deleting data.
+Archival moves the manifest and generated configuration under the helper's `archive` directory. It does not delete Docker volumes. Archived manifests remain ownership records: their stack name, Compose project, worktree, slot, and hostname cannot be reused while the preserved named volumes may still exist. Never archive state as a substitute for resetting or deleting data.
+
+The helper intentionally has no destructive retirement command. Retire archived ownership only through a separate, explicit cleanup: first verify and remove the archived stack's named volumes using its recorded Compose project identity, then delete that one archived state directory. Do not delete an archived ownership record while its volumes remain.
 
 ## Sample-Data Expectations
 
