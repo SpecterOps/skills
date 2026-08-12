@@ -25,7 +25,8 @@ Confirm local login credentials from the repo config instead of assuming them:
 rg -n "default_admin|email_address|password" local-harnesses/build.config.json
 ```
 
-Common local defaults are username `admin` and password `admin`, but always verify.
+The configured development defaults are username `admin@example.com` and password
+`ChangeMe123!`, but existing database volumes may retain different credentials; always verify.
 
 ## Scripted Ingest
 
@@ -58,7 +59,7 @@ If the script needs debugging, use this sequence:
 
 1. `POST /api/v2/login`
    ```json
-   {"login_method":"secret","username":"admin","secret":"admin"}
+   {"login_method":"secret","username":"admin@example.com","secret":"ChangeMe123!"}
    ```
 
 2. `POST /api/v2/file-upload/start`

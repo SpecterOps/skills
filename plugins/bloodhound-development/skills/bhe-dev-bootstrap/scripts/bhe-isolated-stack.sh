@@ -32,7 +32,8 @@ Options:
   --json                  Emit machine-readable output for list.
 
 Names must be unique task-specific lowercase slugs. Slots are 1-99 and are
-globally reserved by plan until that stack's state is archived.
+globally reserved while active or archived ownership state exists. See the
+worktree/isolation reference before explicitly retiring archived ownership.
 EOF
 }
 
@@ -118,15 +119,27 @@ lock_process_alive() {
 }
 
 try_reclaim_stale_state_lock() {
-  local now owner_pid owner_token acquired_at age reclaim_dir quarantine
-  local owner_pid_after owner_token_after acquired_at_after
-  [[ -f $state_lock/owner ]] || return 1
-  IFS=' ' read -r owner_pid owner_token acquired_at < "$state_lock/owner" || return 1
-  [[ $acquired_at =~ ^[0-9]+$ ]] || return 1
-  lock_process_alive "$owner_pid" && return 1
+  local now owner_pid= owner_token= acquired_at= age reclaim_dir quarantine
+  local owner_pid_after owner_token_after acquired_at_after owner_snapshot=
+  local lock_mtime owner_was_valid=false
+  if [[ -f $state_lock/owner ]]; then
+    owner_snapshot=$(cat "$state_lock/owner" 2>/dev/null || true)
+    IFS=' ' read -r owner_pid owner_token acquired_at <<< "$owner_snapshot"
+    if [[ $owner_pid =~ ^[0-9]+$ && -n $owner_token && $acquired_at =~ ^[0-9]+$ ]]; then
+      owner_was_valid=true
+      lock_process_alive "$owner_pid" && return 1
+    fi
+  fi
 
   now=$(date +%s)
-  age=$((now - acquired_at))
+  if [[ $owner_was_valid == true ]]; then
+    age=$((now - acquired_at))
+  else
+    lock_mtime=$(stat -f '%m' "$state_lock" 2>/dev/null ||
+      stat -c '%Y' "$state_lock" 2>/dev/null || true)
+    [[ $lock_mtime =~ ^[0-9]+$ ]] || return 1
+    age=$((now - lock_mtime))
+  fi
   ((age >= state_lock_stale_after)) || return 1
 
   # A fixed-name recovery claim ensures that only one waiter can move the
@@ -135,10 +148,16 @@ try_reclaim_stale_state_lock() {
   reclaim_dir=$state_lock/reclaim
   mkdir "$reclaim_dir" 2>/dev/null || return 1
   printf '%s %s\n' "$$" "$state_lock_token" > "$reclaim_dir/owner"
-  if ! IFS=' ' read -r owner_pid_after owner_token_after acquired_at_after \
-    < "$state_lock/owner" ||
-    [[ $owner_pid_after != "$owner_pid" || $owner_token_after != "$owner_token" ||
-      $acquired_at_after != "$acquired_at" ]] || lock_process_alive "$owner_pid_after"; then
+  if [[ $owner_was_valid == true ]]; then
+    if ! IFS=' ' read -r owner_pid_after owner_token_after acquired_at_after \
+      < "$state_lock/owner" ||
+      [[ $owner_pid_after != "$owner_pid" || $owner_token_after != "$owner_token" ||
+        $acquired_at_after != "$acquired_at" ]] || lock_process_alive "$owner_pid_after"; then
+      rm -rf "$reclaim_dir"
+      return 1
+    fi
+  elif [[ -f $state_lock/owner ]] &&
+    [[ $(cat "$state_lock/owner" 2>/dev/null || true) != "$owner_snapshot" ]]; then
     rm -rf "$reclaim_dir"
     return 1
   fi
@@ -479,7 +498,7 @@ assert_global_ownership() {
     [[ $other_project != "$project" ]] ||
       die "Compose project '$project' is owned by $other"
     [[ $other_repo != "$repo" ]] ||
-      die "worktree '$repo' already owns stack '$other_name'; archive it or use its identity"
+      die "worktree '$repo' already owns stack '$other_name' in $other; use that identity or follow the documented retirement process"
     [[ $other_slot != "$slot" ]] ||
       die "slot $slot is reserved by stack '$other_name'; choose another slot"
     [[ $other_hostname != "$bhe_hostname" ]] ||
