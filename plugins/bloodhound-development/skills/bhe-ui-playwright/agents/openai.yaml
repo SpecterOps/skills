@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE UI Playwright"
+  short_description: "Validate isolated BHE UI changes in Chromium"
+  default_prompt: "Use $bhe-ui-playwright to validate this BHE frontend change against its isolated local stack."
