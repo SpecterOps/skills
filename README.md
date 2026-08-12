@@ -105,6 +105,7 @@ npx skills add /Users/<user>/Projects/skills --list
 | [ops-adcs](plugins/ops-adcs/README.md) | Yes | Yes | - | Active Directory Certificate Services assessment and attack-path validation workflows. |
 | [ops-appsec](plugins/ops-appsec/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
 | [bloodhound](plugins/bloodhound/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
+| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Internal BHE/BHCE environment isolation, sample-data, UI validation, compatibility, and PR-readiness workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
 | [c2-extensions](plugins/c2-extensions/README.md) | Yes | Yes | - | Beacon Object File development and reusable C2 extension workflows. |
 | [code-review-and-qa](plugins/code-review-and-qa/README.md) | Yes | Yes | - | Code review and web application QA workflows for Specter Codex. |
@@ -142,6 +143,9 @@ npx skills add /Users/<user>/Projects/skills --list
 | `openhound-github` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-github/SKILL.md) |
 | `openhound-jamf` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-jamf/SKILL.md) |
 | `openhound-okta` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-okta/SKILL.md) |
+| `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
+| `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
+| `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
 | `beacon-object-file-development` | `c2-extensions` | [SKILL.md](plugins/c2-extensions/skills/beacon-object-file-development/SKILL.md) |
 | `c2-bof-development` | `c2-extensions` | [SKILL.md](plugins/c2-extensions/skills/c2-bof-development/SKILL.md) |
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
