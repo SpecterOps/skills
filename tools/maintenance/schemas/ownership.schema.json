@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["plugin", "purpose", "agents", "skills"],
+  "properties": {
+    "plugin": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "agents": {"type": "array", "items": {"type": "string"}},
+    "skills": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

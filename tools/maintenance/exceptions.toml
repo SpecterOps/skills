@@ -1,0 +1,3 @@
+# Repository maintenance exceptions belong here. Each future exception must
+# declare an exact rule and path, rationale, owner, and review/expiration date.
+exceptions = []

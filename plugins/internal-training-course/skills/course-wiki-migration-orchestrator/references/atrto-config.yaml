@@ -1,5 +1,5 @@
 course_id: atrto
-course_title: Adversary Tactics: Red Team Operations
+course_title: "Adversary Tactics: Red Team Operations"
 source_scaffold_repo: /path/to/templates/wiki-course-atd-instructor
 legacy_course_root: /path/to/legacy/training-course-atrto
 legacy_participant_content: /path/to/legacy/training-course-atrto/participant/content
