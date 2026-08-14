@@ -38,6 +38,24 @@ def test_write_permission_and_persisted_credentials_are_rejected(workflow) -> No
     assert any("persist-credentials" in reason for reason in reasons)
 
 
+@pytest.mark.parametrize("permissions", ["write-all", {"issues": "write"}, {}])
+def test_job_permission_bypasses_are_rejected(workflow, permissions) -> None:
+    value = copy.deepcopy(workflow)
+    value["jobs"]["linux-quality"]["permissions"] = permissions
+    assert any("permissions" in reason for reason in _reasons(value))
+
+
+@pytest.mark.parametrize("level", ["job", "step"])
+def test_continue_on_error_bypasses_are_rejected(workflow, level: str) -> None:
+    value = copy.deepcopy(workflow)
+    job = value["jobs"]["linux-quality"]
+    if level == "job":
+        job["continue-on-error"] = "${{ true }}"
+    else:
+        job["steps"][0]["continue-on-error"] = "${{ true }}"
+    assert any("continue on error" in reason for reason in _reasons(value))
+
+
 @pytest.mark.parametrize(
     "command",
     [

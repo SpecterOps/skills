@@ -1,0 +1,21 @@
+version = 1
+
+[python]
+minor = "3.13"
+requirement = ">=3.13,<3.14"
+
+[tools]
+uv = "0.12.4"
+just = "1.58.0"
+psscriptanalyzer = "1.25.0"
+
+[actions]
+checkout = "3d3c42e5aac5ba805825da76410c181273ba90b1"
+setup-python = "5fda3b95a4ea91299a34e894583c3862153e4b97"
+
+[dependencies]
+jsonschema = "4.25.1"
+markdown-it-py = "4.0.0"
+PyYAML = "6.0.3"
+pytest = "8.4.2"
+ruff = "0.12.12"

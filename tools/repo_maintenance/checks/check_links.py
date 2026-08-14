@@ -11,7 +11,7 @@ from tools.repo_maintenance.models import CheckContext, CheckSpec, Diagnostic
 
 MARKDOWN = MarkdownIt("commonmark")
 EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "data"}
-RESOURCE = re.compile(r"^(?:\./|scripts/|references/|assets/)[^\s]+$")
+RESOURCE = re.compile(r"^(?:\./|scripts/|references/|assets/).+$")
 
 
 def _slug(value: str) -> str:
@@ -28,7 +28,13 @@ def _anchors(path: Path) -> set[str]:
     for index, token in enumerate(tokens[:-1]):
         if token.type != "heading_open" or tokens[index + 1].type != "inline":
             continue
-        base = _slug(tokens[index + 1].content)
+        inline = tokens[index + 1]
+        visible = "".join(
+            child.content
+            for child in (inline.children or [])
+            if child.type in {"text", "code_inline", "image"}
+        )
+        base = _slug(visible)
         count = seen.get(base, 0)
         seen[base] = count + 1
         result.add(base if count == 0 else f"{base}-{count}")
@@ -111,9 +117,14 @@ def run(context: CheckContext) -> list[Diagnostic]:
                     href = child.attrGet("href")
                     if href is not None:
                         _validate_target(diagnostics, context.root, path, href, resource=False)
+                elif child.type == "image":
+                    source = child.attrGet("src")
+                    if source is not None:
+                        _validate_target(diagnostics, context.root, path, source, resource=False)
                 elif child.type == "code_inline" and path.name == "SKILL.md":
                     value = child.content.strip().rstrip(".,;:")
                     if RESOURCE.fullmatch(value):
+                        value = re.split(r"\s+(?=-{1,2}[A-Za-z])", value, maxsplit=1)[0]
                         _validate_target(diagnostics, context.root, path, value, resource=True)
     return diagnostics
 

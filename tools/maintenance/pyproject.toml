@@ -16,7 +16,7 @@ dev = [
 ]
 
 [tool.repo-maintenance]
-uv-version = "0.12.3"
+uv-version = "0.12.4"
 bootstrap-environment = ".bootstrap-venv"
 
 [tool.pytest.ini_options]
