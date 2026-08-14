@@ -20,7 +20,7 @@ splits the specified string by the specified pattern
 
 `'pattern'` - the pattern that defines substrings this string should be broken up by.
 
-- [6. Regular Epxressions](regex.md) - tutorial on regular expression language
+- 6. Regular Epxressions - tutorial on regular expression language
 
 `limit` - limits the number of segments to split the sentence into.
 

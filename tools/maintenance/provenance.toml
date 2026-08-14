@@ -1,0 +1,92 @@
+# Machine-verifiable inventory for tracked PE artifacts. License fields report
+# upstream evidence; they do not establish repository-wide licensing.
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/CommandLine.dll"
+source = "https://www.nuget.org/packages/CommandLineParser/2.7.82"
+immutable_ref = "2.7.82"
+build = "Restore CommandLineParser 2.7.82 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/CommandLineParser/2.7.82"
+sha256 = "cdd1eea8dd04fbf463d9c6f5b65541abd0536fd7e79dcd4dae796a50048b5592"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/NetClone.exe"
+source = "https://github.com/monoxgas/Koppeling/blob/c2eafe11e6c31e1f64438a88d283ce3b0e4536a8/NetClone"
+immutable_ref = "c2eafe11e6c31e1f64438a88d283ce3b0e4536a8"
+build = "Restore packages and build NetClone/NetClone.csproj Debug|AnyCPU with MSBuild for .NET Framework 4.7.2."
+license_evidence = "https://github.com/monoxgas/Koppeling/blob/c2eafe11e6c31e1f64438a88d283ce3b0e4536a8/LICENSE"
+sha256 = "1fd42051a921c7aaf151cd6a4ea75043b053bfffc037b8c2a06407c9f681e1dc"
+verification = "PDB path identifies Koppeling/NetClone; source repository HEAD predates the local build. Exact reproducibility has not been independently established."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/PeNet.Asn1.dll"
+source = "https://www.nuget.org/packages/PeNet.Asn1/1.3.3"
+immutable_ref = "1.3.3"
+build = "Restore PeNet.Asn1 1.3.3 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/PeNet.Asn1/1.3.3"
+sha256 = "116fdc6d9bdfebed7ec330fb5690eba246131eb6bf05fd7d440bd47a2f7e840a"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/PeNet.dll"
+source = "https://www.nuget.org/packages/PeNet/1.5.3"
+immutable_ref = "1.5.3"
+build = "Restore PeNet 1.5.3 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/PeNet/1.5.3"
+sha256 = "ce88b3199aa7eca093e272adf3e98ebdac9accaf168bc03b9d5c853650a004ef"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/System.Security.Cryptography.Pkcs.dll"
+source = "https://www.nuget.org/packages/System.Security.Cryptography.Pkcs/4.7.0"
+immutable_ref = "4.7.0"
+build = "Restore System.Security.Cryptography.Pkcs 4.7.0 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/System.Security.Cryptography.Pkcs/4.7.0"
+sha256 = "390bbf1fb67b4483de81cf904f6a157aaf0208554665647623d9e1e4c8bf5af3"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/Validation.dll"
+source = "https://www.nuget.org/packages/Validation/2.4.18"
+immutable_ref = "2.4.18"
+build = "Restore Validation 2.4.18 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/Validation/2.4.18"
+sha256 = "ac23a2f69507149f50860d2113cb7f96ff2b01cf0cc6d203cd4fb084460ef02a"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/Xunit.SkippableFact.dll"
+source = "https://www.nuget.org/packages/Xunit.SkippableFact/1.3.12"
+immutable_ref = "1.3.12"
+build = "Restore Xunit.SkippableFact 1.3.12 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/Xunit.SkippableFact/1.3.12"
+sha256 = "7cbee5cde18349061e62e9fdd2125110e690470cf0b9081b6569832d1511169c"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/xunit.abstractions.dll"
+source = "https://www.nuget.org/packages/xunit.abstractions/2.0.2"
+immutable_ref = "2.0.2"
+build = "Restore xunit.abstractions 2.0.2 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/xunit.abstractions/2.0.2"
+sha256 = "b353a553864802c76d1fdd9d2e454956bd2c242828ad178f163deecd02c9a1cb"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/xunit.core.dll"
+source = "https://www.nuget.org/packages/xunit.extensibility.core/2.4.0"
+immutable_ref = "2.4.0"
+build = "Restore xunit.extensibility.core 2.4.0 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/xunit.extensibility.core/2.4.0"
+sha256 = "9c61aff1c1e2c1d078a9dddd6f10362aa07aa11e35b7f7b6b0a2686450037e3d"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."
+
+[[artifacts]]
+path = "plugins/tradecraft-windows/skills/com-proxy-triage/assets/koppeling-netclone/xunit.execution.desktop.dll"
+source = "https://www.nuget.org/packages/xunit.extensibility.execution/2.4.0"
+immutable_ref = "2.4.0"
+build = "Restore xunit.extensibility.execution 2.4.0 as declared by the pinned Koppeling NetClone.csproj."
+license_evidence = "https://www.nuget.org/packages/xunit.extensibility.execution/2.4.0"
+sha256 = "2e5985f45eab130f40d94edc5953a2bb6eb1d3324e860dd643082029cc3b8420"
+verification = "Package identity and version are declared by the pinned Koppeling NetClone.csproj; the bundled file is fixed by this digest."

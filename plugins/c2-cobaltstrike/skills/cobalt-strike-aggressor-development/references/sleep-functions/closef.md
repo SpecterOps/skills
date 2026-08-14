@@ -40,4 +40,4 @@ closef($handle);
 
 ## See Also
 
-[&available](available.md); [&consume](consume.md); [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)
+[&available](available.md); &consume; [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)

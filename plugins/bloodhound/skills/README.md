@@ -8,3 +8,4 @@
 - `openhound-github`
 - `openhound-jamf`
 - `openhound-okta`
+- `openhound-development`

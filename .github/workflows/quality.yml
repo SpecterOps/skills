@@ -1,0 +1,62 @@
+name: Repository quality
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MAINTENANCE_PYTHON: python
+
+jobs:
+  linux-quality:
+    name: Linux quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python 3.13
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Install pinned maintenance tools and dependencies
+        run: |
+          python -m pip install --disable-pip-version-check uv==0.12.4
+          cargo install just --version 1.58.0 --locked
+          uv sync --project tools/maintenance --locked
+      - name: Run offline repository gate
+        run: just ci
+
+  windows-powershell:
+    name: Windows PowerShell
+    runs-on: windows-2025
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python 3.13
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Install pinned maintenance tools and dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check uv==0.12.4
+          cargo install just --version 1.58.0 --locked
+          uv sync --project tools/maintenance --locked
+          Install-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Scope CurrentUser -Force -ErrorAction Stop
+      - name: Run authoritative PowerShell checks
+        shell: bash
+        run: just check-powershell

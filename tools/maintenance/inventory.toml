@@ -1,0 +1,21 @@
+version = 1
+
+[[mcp]]
+server = "bloodhound_mcp"
+plugin = "bloodhound"
+configuration = "Configure directly in Codex with `uv --directory /path/to/bloodhound-mcp run main.py`."
+
+[[mcp]]
+server = "ghostwriter"
+plugin = "report-drafting"
+configuration = "Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`."
+
+[[mcp]]
+server = "binary_ninja_mcp"
+plugin = "reverse-engineering"
+configuration = "Configure directly in Codex with `npx -y binary-ninja-mcp --host localhost --port 9009` after installing `fosdickio/binary_ninja_mcp` in Binary Ninja."
+
+[[mcp]]
+server = "ghidra"
+plugin = "reverse-engineering"
+configuration = "Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server."

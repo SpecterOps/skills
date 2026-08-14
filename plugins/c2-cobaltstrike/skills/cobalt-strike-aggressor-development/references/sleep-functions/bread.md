@@ -20,7 +20,7 @@ reads data from $handle. Returned as a scalar array with types specified by the 
 
 `'format'` - a string describing the number of packed values and their types.
 
-- [8.3 Binary I/O](io.md#3) - summary of pack/unpack template characters
+- 8.3 Binary I/O - summary of pack/unpack template characters
 
 ## Returns
 

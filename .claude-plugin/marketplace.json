@@ -81,7 +81,7 @@
     {
       "name": "reverse-engineering",
       "source": "./plugins/reverse-engineering",
-      "description": "Reverse engineering workflows and MCP-assisted binary analysis, starting with Binary Ninja.",
+      "description": "Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling.",
       "version": "0.1.0",
       "category": "security"
     },
@@ -135,20 +135,6 @@
       "category": "security"
     },
     {
-      "name": "ops-adcs",
-      "source": "./plugins/ops-adcs",
-      "description": "Active Directory Certificate Services assessment and attack-path validation workflows.",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
-      "name": "ops-mssql",
-      "source": "./plugins/ops-mssql",
-      "description": "Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows.",
-      "version": "0.1.0",
-      "category": "security"
-    },
-    {
       "name": "c2-cobaltstrike",
       "source": "./plugins/c2-cobaltstrike",
       "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
@@ -158,7 +144,7 @@
     {
       "name": "bloodhound-development",
       "source": "./plugins/bloodhound-development",
-      "description": "Internal BloodHound Enterprise and Community Edition development, validation, and PR-readiness workflows.",
+      "description": "Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work.",
       "version": "0.1.0",
       "category": "productivity"
     }

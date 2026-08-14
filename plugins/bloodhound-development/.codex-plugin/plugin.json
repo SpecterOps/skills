@@ -30,8 +30,7 @@
     "defaultPrompt": [
       "Set up an isolated BloodHound Enterprise development environment for this feature.",
       "Validate this BHE frontend change against its task-owned local stack.",
-      "Load official AD and Entra sample data into this local BloodHound development instance.",
-      "Review this BHE change for BHE/BHCE compatibility and PR readiness."
+      "Load official AD and Entra sample data into this local BloodHound development instance."
     ],
     "brandColor": "#8E92EB",
     "composerIcon": "./assets/icon.png",

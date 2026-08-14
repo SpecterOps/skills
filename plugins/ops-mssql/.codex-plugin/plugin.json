@@ -22,15 +22,8 @@
     "longDescription": "Focused workflows for MSSQL discovery, instance enumeration, privilege mapping, linked-server analysis, and assessment evidence capture.",
     "developerName": "SpecterOps",
     "category": "Security",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
-    "defaultPrompt": [
-      "Use Ops MSSQL to enumerate SQL Server exposure.",
-      "Use Ops MSSQL to map SQL Server privileges and linked servers.",
-      "Use Ops MSSQL to document assessment evidence."
-    ],
+    "capabilities": [],
+    "defaultPrompt": [],
     "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg"

@@ -59,4 +59,4 @@ after: not tainted
 
 ## See Also
 
-[-istainted](pr_istainted.md); [&taint](taint.md)
+-istainted; [&taint](taint.md)

@@ -116,7 +116,7 @@ Expected output here
 
 ## See Also
 
-[&related_func](related_func.md); [&another_func](another_func.md)
+&related_func; &another_func
 ```
 
 ## Cross-References Working

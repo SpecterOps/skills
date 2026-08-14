@@ -1,6 +1,7 @@
 {
   "plugin": "ops-reconnaissance",
   "purpose": "Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex.",
+  "status": "active",
   "agents": [
     "osint-recon",
     "internal-network-recon"
