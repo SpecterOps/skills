@@ -1,9 +1,10 @@
 {
   "plugin": "social-engineering",
   "purpose": "Social engineering research and phishing pretext workflows.",
+  "status": "active",
   "agents": [
     "researcher",
-    "report_writer"
+    "report-writer"
   ],
   "skills": [
     "phishing-campaign-builder",

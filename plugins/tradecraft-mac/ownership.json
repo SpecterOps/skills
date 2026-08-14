@@ -1,6 +1,7 @@
 {
   "plugin": "tradecraft-mac",
   "purpose": "macOS execution, persistence, and operator validation workflows.",
+  "status": "incubating",
   "agents": [
     "exploit-dev",
     "poc-dev"

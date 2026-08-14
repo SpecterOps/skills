@@ -1,6 +1,7 @@
 {
   "plugin": "workflows-development",
   "purpose": "Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex.",
+  "status": "active",
   "agents": [
     "architect",
     "poc-dev",

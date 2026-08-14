@@ -20,7 +20,7 @@ Returns the index of the first substring that matches 'pattern' starting from th
 
 `'pattern'` - a pattern describing the substring to search for.
 
-- [6. Regular Epxressions](regex.md) - tutorial on regular expression language
+- 6. Regular Epxressions - tutorial on regular expression language
 
 `start` - the position from which to begin the search (default is 0)
 

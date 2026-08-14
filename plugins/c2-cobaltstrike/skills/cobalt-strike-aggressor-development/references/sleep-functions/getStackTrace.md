@@ -16,7 +16,7 @@ Within the context of a catch block, this function will return a trace of the Sl
 
 ## Returns
 
-An array of [sleep.runtime.ScriptInstance$SleepStackElement](../docs/api/sleep/runtime/ScriptInstance.SleepStackElement.md) objects. They have a decent String representation if you choose to utilize that.
+An array of sleep.runtime.ScriptInstance$SleepStackElement objects. They have a decent String representation if you choose to utilize that.
 
 ## Side Effects / Notes
 

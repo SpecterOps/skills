@@ -23,9 +23,10 @@ def _doctor(repo_root: Path, tmp_path: Path, include_uv: bool) -> subprocess.Com
     (tmp_path / "python3.13").symlink_to(python)
     _tool(tmp_path, "just", "just 1.51.0")
     if include_uv:
-        _tool(tmp_path, "uv", "uv test")
+        _tool(tmp_path, "uv", "uv 0.12.3")
     environment = os.environ.copy()
     environment["PATH"] = str(tmp_path)
+    environment["MAINTENANCE_PYTHON"] = "python3.13"
     environment["UV_BOOTSTRAP_ENV"] = str(tmp_path / "isolated-bootstrap")
     return subprocess.run(
         [just, "doctor"],

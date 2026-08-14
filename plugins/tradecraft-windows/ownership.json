@@ -1,6 +1,7 @@
 {
   "plugin": "tradecraft-windows",
   "purpose": "Windows execution, persistence, and COM proxy validation workflows.",
+  "status": "active",
   "agents": [
     "winternals",
     "exploit-dev",

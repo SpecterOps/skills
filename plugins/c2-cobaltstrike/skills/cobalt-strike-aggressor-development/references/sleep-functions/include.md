@@ -28,7 +28,7 @@ Compiles and executes the specified script in the current script context.
 
 ## Errors
 
-- Throws [sleep.error.YourCodeSucksException](../docs/api/sleep/error/YourCodeSucksException.md) if there are any errors within the included script.
+- Throws sleep.error.YourCodeSucksException if there are any errors within the included script.
 
 - Throws [java.io.IOException](http://java.sun.com/javase/6/docs/api/java/io/IOException.md) if script can't be found
 

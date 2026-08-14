@@ -1,6 +1,7 @@
 {
   "plugin": "c2-mythic",
   "purpose": "Mythic C2 framework implant, C2 profile, and translation container development workflows.",
+  "status": "active",
   "agents": [
     "exploit-dev",
     "poc-dev"

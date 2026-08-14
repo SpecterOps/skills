@@ -1,6 +1,7 @@
 {
   "plugin": "report-timeline",
   "purpose": "Report timeline ingestion, consolidation, and evidence packaging workflows.",
+  "status": "active",
   "agents": [
     "report-writer"
   ],

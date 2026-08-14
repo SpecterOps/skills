@@ -18,7 +18,7 @@ unpacks data from the specified sleep string. data is returned as a sleep array 
 
 `'format'` - a string describing the number of packed values and their types.
 
-- [8.3 Binary I/O](io.md#3) - summary of pack/unpack template characters
+- 8.3 Binary I/O - summary of pack/unpack template characters
 
 `"string"` - a scalar string containing serialized data
 

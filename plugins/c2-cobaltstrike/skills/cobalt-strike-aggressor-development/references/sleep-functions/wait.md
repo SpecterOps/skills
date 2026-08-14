@@ -63,4 +63,4 @@ fact(100) = 9.33262154439441E157
 
 ## See Also
 
-[&available](available.md); [&closef](closef.md); [&consume](consume.md); [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md)
+[&available](available.md); [&closef](closef.md); &consume; [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md)

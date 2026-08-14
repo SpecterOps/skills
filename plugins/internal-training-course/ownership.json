@@ -1,6 +1,7 @@
 {
   "plugin": "internal-training-course",
   "purpose": "Internal training course wiki migration, scaffolding, content migration, and QA workflows.",
+  "status": "active",
   "agents": [],
   "skills": [
     "course-wiki-migration-orchestrator",

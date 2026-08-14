@@ -3,6 +3,7 @@ from __future__ import annotations
 import socket
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 
@@ -17,6 +18,22 @@ def test_offline_checks_do_not_open_network_connections(repo_root, monkeypatch) 
     monkeypatch.setattr(socket, "create_connection", blocked)
     monkeypatch.setattr(socket, "getaddrinfo", blocked)
     monkeypatch.setattr(socket.socket, "connect", blocked)
+    monkeypatch.setattr(socket.socket, "connect_ex", blocked)
+
+    real_run = subprocess.run
+
+    def restricted_run(command, *args, **kwargs):
+        executable = Path(command[0]).name
+        allowed = (
+            list(command[:2]) in (["git", "ls-files"], ["git", "diff"])
+            or (executable == "bash" and command[1:2] == ["-n"])
+            or (executable == "node" and command[1:2] == ["--check"])
+        )
+        if not allowed:
+            raise AssertionError(f"offline maintenance check launched subprocess: {command!r}")
+        return real_run(command, *args, **kwargs)
+
+    monkeypatch.setattr(subprocess, "run", restricted_run)
     diagnostics = [
         diagnostic
         for check in discover_checks()

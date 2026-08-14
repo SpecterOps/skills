@@ -83,7 +83,15 @@ def find_uv(root: Path) -> Path:
         return executable
     system_uv = shutil.which("uv")
     if system_uv:
-        return Path(system_uv)
+        system_executable = Path(system_uv)
+        system_version = installed_version(system_executable)
+        if system_version == version:
+            return system_executable
+        found = system_version or "unknown"
+        raise RuntimeError(
+            f"uv {version} is required, but {system_executable} reports {found}; "
+            "run 'just bootstrap-uv'"
+        )
     raise RuntimeError("uv is unavailable; run 'just bootstrap-uv' or install uv")
 
 

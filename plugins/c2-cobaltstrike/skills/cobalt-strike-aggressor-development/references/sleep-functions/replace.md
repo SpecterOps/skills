@@ -20,7 +20,7 @@ Replaces each substring of the specified string that matches the regular express
 
 `'pattern'` - a regular expression pattern defining a substring that should be replaced.
 
-- [6. Regular Epxressions](regex.md) - tutorial on regular expression language
+- 6. Regular Epxressions - tutorial on regular expression language
 
 `"new"` - the new text to replace each occurence of the pattern with. Within this string the literals $1, $2, etc. will be expanded to the pattern groupings captured by the pattern matcher. These are not Sleep variables, rather they are a special sequence interpreted by the regex engine.
 

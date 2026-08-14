@@ -1,6 +1,7 @@
 {
   "plugin": "tradecraft-linux",
   "purpose": "Linux execution, persistence, and operator validation workflows.",
+  "status": "incubating",
   "agents": [
     "exploit-dev",
     "poc-dev"

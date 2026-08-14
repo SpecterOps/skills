@@ -88,7 +88,7 @@ Restart Codex after changing MCP configuration, then confirm the tools appear un
 Use `npx skills` when you only want to install skill instructions. This does not install full plugin behavior such as MCP config, Claude commands, hooks, or agent definitions.
 
 ```bash
-npx skills add SpecterOps/skill --list
+npx skills add SpecterOps/skills --list
 npx skills add SpecterOps/skills --skill <skill-name> --agent claude-code --agent codex --global
 ```
 
@@ -100,33 +100,37 @@ npx skills add /Users/<user>/Projects/skills --list
 
 ## Plugins
 
+<!-- BEGIN GENERATED PLUGIN CATALOG: run `just generate-catalog` -->
+
 | Plugin | Codex | Claude Code | MCP | Description |
 |---|---:|---:|---:|---|
-| [ops-adcs](plugins/ops-adcs/README.md) | Yes | Yes | - | Active Directory Certificate Services assessment and attack-path validation workflows. |
-| [ops-appsec](plugins/ops-appsec/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
-| [bloodhound](plugins/bloodhound/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
-| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Internal BHE/BHCE environment isolation, sample-data, UI validation, compatibility, and PR-readiness workflows. |
-| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
-| [c2-extensions](plugins/c2-extensions/README.md) | Yes | Yes | - | Beacon Object File development and reusable C2 extension workflows. |
-| [code-review-and-qa](plugins/code-review-and-qa/README.md) | Yes | Yes | - | Code review and web application QA workflows for Specter Codex. |
-| [codex-observability](plugins/codex-observability/README.md) | Yes | Yes | - | Codex activity reporting and telemetry workflows. |
-| [internal-training-course](plugins/internal-training-course/README.md) | Yes | Yes | - | Internal training course wiki migration, scaffolding, content migration, and QA workflows. |
 | [workflows-development](plugins/workflows-development/README.md) | Yes | Yes | - | Development scaffolding, repository hygiene, security tooling, and implementation workflows for Specter Codex. |
-| [ops-reconnaissance](plugins/ops-reconnaissance/README.md) | Yes | Yes | - | Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex. |
-| [ludus](plugins/ludus/README.md) | Yes | Yes | - | Ludus cyber range configuration and management skill with full API, CLI, and deployment references |
-| [ops-mssql](plugins/ops-mssql/README.md) | Yes | Yes | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. |
-| [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows. |
-| [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
-| [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows. |
-| [report-drafting](plugins/report-drafting/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
+| [code-review-and-qa](plugins/code-review-and-qa/README.md) | Yes | Yes | - | Code review and web application QA workflows for Specter Codex. |
 | [workflows-research](plugins/workflows-research/README.md) | Yes | Yes | - | Source-backed research and synthesis workflows for Specter Codex. |
-| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling. |
+| [ops-reconnaissance](plugins/ops-reconnaissance/README.md) | Yes | Yes | - | Reconnaissance, OSINT, service enumeration, and exposure discovery workflows for Specter Codex. |
+| [ops-appsec](plugins/ops-appsec/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
 | [ops-sccm](plugins/ops-sccm/README.md) | Yes | Yes | - | Microsoft Configuration Manager reconnaissance and takeover validation workflows. |
-| [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
+| [bloodhound](plugins/bloodhound/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
+| [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
+| [c2-extensions](plugins/c2-extensions/README.md) | Yes | Yes | - | Beacon Object File development and reusable C2 extension workflows. |
+| [report-drafting](plugins/report-drafting/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
+| [reverse-engineering](plugins/reverse-engineering/README.md) | Yes | Yes | Manual | Reverse engineering workflows and MCP-assisted binary analysis for Binary Ninja, Ghidra, and related tooling. |
 | [report-timeline](plugins/report-timeline/README.md) | Yes | Yes | - | Report timeline ingestion, consolidation, and evidence packaging workflows. |
-| [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux execution, persistence, and operator validation workflows. |
-| [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
+| [codex-observability](plugins/codex-observability/README.md) | Yes | Yes | - | Codex activity reporting and telemetry workflows. |
+| [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows. |
+| [internal-training-course](plugins/internal-training-course/README.md) | Yes | Yes | - | Internal training course wiki migration, scaffolding, content migration, and QA workflows. |
+| [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
+| [ludus](plugins/ludus/README.md) | Yes | Yes | - | Ludus cyber range configuration and management skill with full API, CLI, and deployment references |
+| [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, and listener/profile guidance. |
 | [tradecraft-windows](plugins/tradecraft-windows/README.md) | Yes | - | - | Windows execution, persistence, and COM proxy validation workflows. |
+| [ops-adcs](plugins/ops-adcs/README.md) | Planned | - | - | Active Directory Certificate Services assessment and attack-path validation workflows. Planned; no capability is currently packaged. |
+| [ops-mssql](plugins/ops-mssql/README.md) | Planned | - | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. Planned; no capability is currently packaged. |
+| [tradecraft-mac](plugins/tradecraft-mac/README.md) | Planned | - | - | macOS execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
+| [tradecraft-linux](plugins/tradecraft-linux/README.md) | Planned | - | - | Linux execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
+| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
+| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
+
+<!-- END GENERATED PLUGIN CATALOG -->
 
 ## Skills
 

@@ -16,7 +16,7 @@ Returns the profiler statistics for the current script environment. Profiler sta
 
 ## Returns
 
-An array of [sleep.runtime.ScriptInstance$ProfilerStatistic](../docs/api/sleep/runtime/ScriptInstance.ProfilerStatistic.md) objects. They have a decent String representation if you choose to utilize that.
+An array of sleep.runtime.ScriptInstance$ProfilerStatistic objects. They have a decent String representation if you choose to utilize that.
 
 ## Side Effects / Notes
 

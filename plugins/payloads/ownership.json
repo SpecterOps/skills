@@ -1,6 +1,7 @@
 {
   "plugin": "payloads",
   "purpose": "Reusable Electron payload packaging, persistence, audit, and discovery workflows.",
+  "status": "active",
   "agents": [
     "poc-dev",
     "exploit-dev",
