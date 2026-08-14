@@ -2,6 +2,10 @@
 
 Place installable plugin packages in this directory.
 
+The canonical contributor workflow is documented in
+[`CONTRIBUTING.md`](../CONTRIBUTING.md). This file describes the plugin-specific
+layout and maintenance extension points.
+
 Each cross-platform plugin should use:
 
 ```text

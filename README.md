@@ -98,6 +98,12 @@ For local testing:
 npx skills add /Users/<user>/Projects/skills --list
 ```
 
+## Contributing
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). It covers the supported development
+environment, setup and validation commands, plugin metadata scaffolding, pull
+request expectations, and where to ask for help.
+
 ## Plugins
 
 <!-- BEGIN GENERATED PLUGIN CATALOG: run `just generate-catalog` -->

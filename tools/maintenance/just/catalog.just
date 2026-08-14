@@ -19,6 +19,6 @@ check-inventory: _require-uv
     UV_PYTHON_DOWNLOADS=never "$uv_cmd" run --project tools/maintenance --frozen --no-sync python -m tools.repo_maintenance.generators.inventory check
 
 # Plan metadata-only plugin scaffolding; pass mode=apply to create it.
-scaffold-plugin-metadata name description mode="plan": _require-uv
+scaffold-plugin-metadata name description mode="plan" manifests="codex,claude" maintainer="SpecterOps" support_url="https://github.com/SpecterOps/skills/issues": _require-uv
     @uv_cmd="$(PYTHONDONTWRITEBYTECODE=1 {{quote(maintenance_python)}} -m tools.repo_maintenance.bootstrap_uv path)"; \
-    UV_PYTHON_DOWNLOADS=never "$uv_cmd" run --project tools/maintenance --frozen --no-sync python -m tools.repo_maintenance.scaffold {{quote(mode)}} {{quote(name)}} {{quote(description)}}
+    UV_PYTHON_DOWNLOADS=never "$uv_cmd" run --project tools/maintenance --frozen --no-sync python -m tools.repo_maintenance.scaffold {{quote(mode)}} {{quote(name)}} {{quote(description)}} --manifests {{quote(manifests)}} --maintainer {{quote(maintainer)}} --support-url {{quote(support_url)}}

@@ -84,6 +84,24 @@ def run(context: CheckContext) -> list[Diagnostic]:
     if not isinstance(workflow, dict):
         diagnostics.append(_issue(".github/workflows/quality.yml", "workflow must be a mapping"))
 
+    devcontainer_path = ".devcontainer/devcontainer.json"
+    try:
+        devcontainer_text = (context.root / devcontainer_path).read_text(encoding="utf-8")
+    except OSError as exc:
+        diagnostics.append(_issue(devcontainer_path, str(exc)))
+    else:
+        for fragment in (
+            f"python:1-{python.get('minor')}-bookworm",
+            f"just --version {tools.get('just')} --locked",
+            "tools.repo_maintenance.bootstrap_uv ensure",
+            "just setup",
+            "just doctor",
+        ):
+            if fragment not in devcontainer_text:
+                diagnostics.append(
+                    _issue(devcontainer_path, f"missing contributor setup pin {fragment!r}")
+                )
+
     declarations = recipes.get("recipes", []) if isinstance(recipes, dict) else []
     names = [item.get("name") for item in declarations if isinstance(item, dict)]
     duplicates = sorted({name for name in names if names.count(name) > 1})
