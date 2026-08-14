@@ -31,8 +31,7 @@
     "defaultPrompt": [
       "Use Ops Infrastructure for scoped SSH work.",
       "Use Ops Infrastructure to run tunneled commands.",
-      "Use Ops Infrastructure to update nftables allow rules.",
-      "Use Ops Infrastructure to hunt IaC for offensive misconfigurations and attacker paths."
+      "Use Ops Infrastructure to update nftables allow rules."
     ],
     "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.png",

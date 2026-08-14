@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["artifacts"],
+  "properties": {
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "source", "immutable_ref", "build", "license_evidence", "sha256", "verification"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "format": "uri", "pattern": "^https://"},
+          "immutable_ref": {"type": "string", "minLength": 1},
+          "build": {"type": "string", "minLength": 1},
+          "license_evidence": {"type": "string", "format": "uri", "pattern": "^https://"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "verification": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

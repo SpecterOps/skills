@@ -203,30 +203,34 @@ These recipes become available as their owning packets land. `PR-00` owns the co
 
 ```text
 PR-00 Foundation and invalid configurations
-  |-- PR-10 Activity-report redaction --------------------|
-  |-- PR-20 BloodHound deterministic generation ----------|
-  |-- PR-30 Plugin lifecycle and catalog generation -- PR-40 Metadata and links --|
-  `-- PR-50 Portability and artifact provenance ----------|
-                                                                                v
-                                                                      PR-60 Core CI
+  |-- PR-10 Activity-report redaction (deferred)
+  |-- PR-20 BloodHound deterministic generation (deferred)
+  `-- PR-30 Plugin lifecycle and catalog generation
+        `-- PR-50 Portability and artifact provenance
+              `-- PR-40 Metadata and links
+                    `-- PR-60 Core CI
                                                                                 |
                                                                                 v
                                                               PR-70 Scheduled maintenance
 ```
 
-After `PR-00` completes, `PR-10`, `PR-20`, `PR-30`, and `PR-50` may run in isolated contexts. `PR-40` waits for the catalog contract from `PR-30`. `PR-60` waits for every blocking quality packet. `PR-70` waits for core CI.
+The current maintainer priority is `PR-30`, `PR-50`, `PR-40`, then `PR-60`.
+`PR-10` and `PR-20` are explicitly deferred; they remain program-level work and their
+checks must be added to the CI gate when implemented. `PR-40` waits for the catalog
+contract from `PR-30`. The current-scope `PR-60` waits for `PR-30`, `PR-50`, and
+`PR-40`. `PR-70` waits for core CI.
 
 The graph and dependency fields, not the physical order of packet text, define execution order. Use the linked IDs below to open a packet directly.
 
 | ID | Status | Findings | Depends on | May run in parallel with | Start ref | Completion ref / PR |
 |---|---|---|---|---|---|---|
-| [PR-00](#pr-00) | complete | 4, 7 | None | None until merged | `03ebface66a4e540da56dd3171692ce4b318a3f7` | Uncommitted changeset; maintainer review pending |
-| [PR-10](#pr-10) | blocked | 1 | PR-00 | PR-20, PR-30, PR-50 | TBD | TBD |
-| [PR-20](#pr-20) | blocked | 3 | PR-00 | PR-10, PR-30, PR-50 | TBD | TBD |
-| [PR-30](#pr-30) | blocked | 6, 7 | PR-00 | PR-10, PR-20, PR-50 | TBD | TBD |
-| [PR-40](#pr-40) | blocked | 7 | PR-00, PR-30 | PR-10, PR-20, PR-50 | TBD | TBD |
-| [PR-50](#pr-50) | blocked | 7 | PR-00 | PR-10, PR-20, PR-30/40 | TBD | TBD |
-| [PR-60](#pr-60) | blocked | 7 | PR-10, PR-20, PR-30, PR-40, PR-50 | None | TBD | TBD |
+| [PR-00](#pr-00) | complete | 4, 7 | None | None until merged | `03ebface66a4e540da56dd3171692ce4b318a3f7` | `4c0a993` plus current hardening changeset |
+| [PR-10](#pr-10) | not-started (deferred) | 1 | PR-00 | PR-20, PR-30, PR-50 | TBD | TBD |
+| [PR-20](#pr-20) | not-started (deferred) | 3 | PR-00 | PR-10, PR-30, PR-50 | TBD | TBD |
+| [PR-30](#pr-30) | complete | 6, 7 | PR-00 | PR-10, PR-20, PR-50 | `4c0a993` plus PR-00 hardening | Current working changeset |
+| [PR-40](#pr-40) | complete | 7 | PR-00, PR-30 | PR-10, PR-20, PR-50 | Current working changeset | Current working changeset |
+| [PR-50](#pr-50) | complete | 7 | PR-00 | PR-10, PR-20 | Current working changeset | Current working changeset |
+| [PR-60](#pr-60) | in-progress | 7 | PR-30, PR-40, PR-50 | None | Current working changeset | Hosted CI evidence pending |
 | [PR-70](#pr-70) | blocked | 7 | PR-60 | None | TBD | TBD |
 
 ---
@@ -323,15 +327,15 @@ Later packets should extend their own recipe fragment and add discoverable Pytho
 
 ### Required implementation
 
-- [ ] Pin the maintenance runtime to Python 3.13 and produce a complete `tools/maintenance/uv.lock`.
-- [ ] Make `just doctor` succeed while clearly distinguishing missing required and optional tools.
-- [ ] Make `just setup` use the locked environment and avoid global installation.
-- [ ] Ensure all core parsers produce path-specific failures and never execute parsed repository content.
-- [ ] Reject duplicate YAML keys with a regression fixture.
-- [ ] Repair both course configurations and validate their required top-level strings, URI-shaped preview URLs, and nested stage commit messages.
-- [ ] Prove that `just check` uses no network and creates no repository-local caches; disable bytecode/pytest caches or direct all tool caches to unique temporary locations.
-- [ ] Add tests for discovering a newly added check module without central registration edits.
-- [ ] Document recipe semantics in `plugins/README.md` or a focused maintenance section without duplicating this entire roadmap.
+- [x] Pin the maintenance runtime to Python 3.13 and produce a complete `tools/maintenance/uv.lock`.
+- [x] Make `just doctor` succeed while clearly distinguishing missing required and optional tools.
+- [x] Make `just setup` use the locked environment and avoid global installation.
+- [x] Ensure all core parsers produce path-specific failures and never execute parsed repository content.
+- [x] Reject duplicate YAML keys with a regression fixture.
+- [x] Repair both course configurations and validate their required top-level strings, URI-shaped preview URLs, and nested stage commit messages.
+- [x] Prove that `just check` uses no network and creates no repository-local caches; disable bytecode/pytest caches or direct all tool caches to unique temporary locations.
+- [x] Add tests for discovering a newly added check module without central registration edits.
+- [x] Document recipe semantics in `plugins/README.md` or a focused maintenance section without duplicating this entire roadmap.
 
 ### Acceptance commands and outcomes
 
@@ -407,7 +411,7 @@ Update the status table and this packet's status before finishing.
 
 ## PR-20 — Deterministic BloodHound snapshot generation
 
-Status: `blocked` pending `PR-00`.
+Status: `not-started`; deferred by maintainer priority.
 
 Findings addressed: finding 3.
 
@@ -565,7 +569,7 @@ Update the status table and this packet's status before finishing.
 
 ## PR-30 — Plugin lifecycle and catalog generation
 
-Status: `blocked` pending `PR-00`.
+Status: `complete`.
 
 Findings addressed: finding 6 and catalog portions of finding 7.
 
@@ -659,16 +663,16 @@ Shared integration paths:
 
 ### Required implementation
 
-- [ ] Define lifecycle and catalog schemas with actionable path-specific diagnostics.
-- [ ] Derive capability presence from actual packaged content rather than README claims.
-- [ ] Add regression tests for active-empty, incubating-published, missing-surface-manifest, duplicate-order, and stale generated-output failures.
-- [ ] Encode intentional Codex-only/Claude-only membership explicitly.
-- [ ] Generate stable ordering without timestamps or environment-dependent paths.
-- [ ] Use generated markers around mixed README content and test that prose outside markers is preserved exactly.
-- [ ] Make full-file JSON generation stable and document its source command.
-- [ ] Mark the four empty shells incubating and prevent their installation.
-- [ ] Validate semantic versions and common manifest parity without forcing fields that are genuinely platform-specific to match.
-- [ ] Ensure losing the last capability of an active plugin fails instead of silently changing publication.
+- [x] Define lifecycle and catalog schemas with actionable path-specific diagnostics.
+- [x] Derive capability presence from actual packaged content rather than README claims.
+- [x] Add regression tests for active-empty, incubating-published, missing-surface-manifest, duplicate-order, and stale generated-output failures.
+- [x] Encode intentional Codex-only/Claude-only membership explicitly.
+- [x] Generate stable ordering without timestamps or environment-dependent paths.
+- [x] Use generated markers around mixed README content and test that prose outside markers is preserved exactly.
+- [x] Make full-file JSON generation stable and document its source command.
+- [x] Mark the four empty shells incubating and prevent their installation.
+- [x] Validate semantic versions and common manifest parity without forcing fields that are genuinely platform-specific to match.
+- [x] Ensure losing the last capability of an active plugin fails instead of silently changing publication.
 
 ### Acceptance commands and outcomes
 
@@ -711,6 +715,22 @@ Record:
 - Generated files, idempotence result, and preserved prose test.
 - Any plugin whose capability or lifecycle required maintainer judgment.
 
+Implementation handoff (2026-08-13):
+
+- Starting reference: `4c0a993` plus the PR-00 hardening changeset; completion
+  reference is the current working changeset pending maintainer commit.
+- All 25 plugins now declare lifecycle status. `ops-adcs`, `ops-mssql`,
+  `tradecraft-linux`, and `tradecraft-mac` are incubating; every other plugin is
+  active and has a discovered packaged capability.
+- `tools/maintenance/catalog.toml` owns ordering and explicit Codex/Claude
+  surfaces. Codex retains the four incubating entries as `NOT_AVAILABLE`; Claude
+  omits them. The three tradecraft plugins remain intentionally Codex-only.
+- Both marketplace files and the marked root README table are generated.
+  Consecutive generation was byte-identical, and the rollback fixture preserved
+  all outputs after a simulated partial installation failure.
+- Seven catalog tests and the aggregate gate passed. No lifecycle decision
+  remained ambiguous.
+
 Update the status table and this packet's status before finishing.
 
 ---
@@ -719,7 +739,7 @@ Update the status table and this packet's status before finishing.
 
 ## PR-10 — Secure-by-default activity reports
 
-Status: `blocked` pending `PR-00`.
+Status: `not-started`; deferred by maintainer priority.
 
 Findings addressed: finding 1.
 
@@ -857,7 +877,7 @@ Update the status table and this packet's status before finishing.
 
 ## PR-40 — Metadata consistency and internal references
 
-Status: `blocked` pending `PR-00` and `PR-30`.
+Status: `complete`.
 
 Findings addressed: metadata, ownership, and internal-link portions of finding 7.
 
@@ -950,16 +970,16 @@ Do not modify vendored upstream content merely to satisfy a first-party style ru
 
 ### Required implementation
 
-- [ ] Validate every skill/frontmatter/UI pairing and add fixtures for length, truncation, prompt token, color, icon, boolean, and dependency errors.
-- [ ] Validate plugin manifest prompt limits and cross-file identity/path invariants.
-- [ ] Validate exact ownership skill sets and root agent references.
-- [ ] Repair the known BloodHound, infrastructure, social-engineering, and root README drift.
-- [ ] Parse Markdown links and anchors without treating fenced examples as live links.
-- [ ] Resolve paths relative to the containing document and reject unintended root escape.
-- [ ] Distinguish internal paths from external URLs, URI schemes, templates, globs, and illustrative placeholders.
-- [ ] Repair all unapproved first-party broken references found at implementation time.
-- [ ] Add fixtures for paths containing spaces, URL-encoded Markdown targets, anchors, nested relative paths, and code fences.
-- [ ] Produce a concise summary grouped by rule rather than flooding output with duplicate downstream errors.
+- [x] Validate every skill/frontmatter/UI pairing and add fixtures for length, truncation, prompt token, color, icon, boolean, and dependency errors.
+- [x] Validate plugin manifest prompt limits and cross-file identity/path invariants.
+- [x] Validate exact ownership skill sets and root agent references.
+- [x] Repair the known BloodHound, infrastructure, social-engineering, and root README drift.
+- [x] Parse Markdown links and anchors without treating fenced examples as live links.
+- [x] Resolve paths relative to the containing document and reject unintended root escape.
+- [x] Distinguish internal paths from external URLs, URI schemes, templates, globs, and illustrative placeholders.
+- [x] Repair all unapproved first-party broken references found at implementation time.
+- [x] Add fixtures for paths containing spaces, URL-encoded Markdown targets, anchors, nested relative paths, and code fences.
+- [x] Produce a concise summary grouped by rule rather than flooding output with duplicate downstream errors.
 
 ### Acceptance commands and outcomes
 
@@ -1006,6 +1026,20 @@ Record:
 - Broken references repaired, removed, or blocked on content decisions.
 - Confirmation that generated catalog output remains current.
 
+Implementation handoff (2026-08-13):
+
+- Starting and completion references are the current working changeset pending
+  maintainer commit.
+- Repaired 37 overlong/truncated skill descriptions, five plugin prompt arrays,
+  BloodHound skill names/index membership, ownership skill/agent drift, and the
+  root `SpecterOps/skill` typo. The catalog remained current.
+- The link checker validates Markdown AST links, anchors, encoded spaces, nested
+  paths, root escape, and explicit bundled resources in `SKILL.md`, while fenced
+  examples and external URLs are ignored.
+- Removed 41 unsupported local-link promises from the imported Sleep reference
+  material without creating placeholder tutorials. No exceptions were added.
+- Nine metadata tests, three link tests, and the aggregate gate passed.
+
 Update the status table and this packet's status before finishing.
 
 ---
@@ -1014,7 +1048,7 @@ Update the status table and this packet's status before finishing.
 
 ## PR-50 — Portability and executable provenance
 
-Status: `blocked` pending `PR-00`.
+Status: `complete`.
 
 Findings addressed: portability and provenance portions of finding 7.
 
@@ -1099,16 +1133,16 @@ Avoid changing metadata/link files owned by `PR-40` unless the same COM instruct
 
 ### Required implementation
 
-- [ ] Build authored-file classification so vendored/reference material does not receive unsafe automatic rewrites.
-- [ ] Add regression fixtures for POSIX, Windows, quoted, escaped, fixture, and legitimate target-path cases.
-- [ ] Replace the COM trace default and test its path creation/override behavior without assuming a specific user profile.
-- [ ] Pin and verify the Koppeling source checkout.
-- [ ] Discover executable assets from the Git index and fail when provenance entries are missing, stale, duplicated, or have the wrong digest.
-- [ ] Verify provenance paths remain inside the repository and immutable source fields are not branch names.
-- [ ] Check direct-invocation executable modes using Git metadata rather than host filesystem assumptions alone.
-- [ ] Add syntax checks that report missing optional tools distinctly from syntax failures.
-- [ ] Run PowerShell parser/static checks when available and encode the required `PR-60` CI follow-up when unavailable locally.
-- [ ] Keep license results informational until policy is explicitly decided.
+- [x] Build authored-file classification so vendored/reference material does not receive unsafe automatic rewrites.
+- [x] Add regression fixtures for POSIX, Windows, quoted, escaped, fixture, and legitimate target-path cases.
+- [x] Replace the COM trace default and test its path creation/override behavior without assuming a specific user profile.
+- [x] Pin and verify the Koppeling source checkout.
+- [x] Discover executable assets from the Git index and fail when provenance entries are missing, stale, duplicated, or have the wrong digest.
+- [x] Verify provenance paths remain inside the repository and immutable source fields are not branch names.
+- [x] Check direct-invocation executable modes using Git metadata rather than host filesystem assumptions alone.
+- [x] Add syntax checks that report missing optional tools distinctly from syntax failures.
+- [x] Run PowerShell parser/static checks when available and encode the required `PR-60` CI follow-up when unavailable locally.
+- [x] Keep license results informational until policy is explicitly decided.
 
 ### Acceptance commands and outcomes
 
@@ -1153,6 +1187,23 @@ Record:
 - Any unavailable local platform tooling that `PR-60` must exercise.
 - Any artifact decision blockers.
 
+Implementation handoff (2026-08-13):
+
+- Starting and completion references are the current working changeset pending
+  maintainer commit.
+- Authored executable/config files exclude `references/` and `assets/` vendor or
+  fixture content. Checks cover developer homes, fixed temporary outputs,
+  case-fold collisions, UTF-8/line endings, Git executable modes, Bash syntax,
+  and Node syntax.
+- The COM trace default uses `GetTempPath()` plus a GUID. Koppeling hydration is
+  pinned to and verifies commit `c2eafe11e6c31e1f64438a88d283ce3b0e4536a8`.
+- `tools/maintenance/provenance.toml` inventories all ten tracked PE artifacts
+  with SHA-256, immutable source/package references, build descriptions, and
+  license-evidence URLs. The NetClone entry explicitly records that exact
+  reproducible equivalence of the local build has not been independently proven.
+- Thirteen focused tests and the aggregate gate passed. PowerShell and
+  PSScriptAnalyzer were unavailable locally and are delegated to PR-60 Windows CI.
+
 Update the status table and this packet's status before finishing.
 
 ---
@@ -1161,11 +1212,15 @@ Update the status table and this packet's status before finishing.
 
 ## PR-60 — Core CI enforcement
 
-Status: `blocked` pending `PR-10`, `PR-20`, `PR-30`, `PR-40`, and `PR-50`.
+Status: `in-progress`; local implementation and policy tests are complete. Hosted
+Linux and Windows workflow evidence remains pending. Deferred PR-10 and PR-20
+checks will join the gate when those packets resume.
 
 Findings addressed: CI enforcement portion of finding 7.
 
-Depends on: every blocking offline-quality packet (`PR-00` through `PR-50`).
+Depends on: the current blocking offline-quality packets (`PR-30`, `PR-40`, and
+`PR-50`). `PR-10` and `PR-20` remain required for the program-level definition of
+done but are not prerequisites for establishing the initial CI gate.
 
 May run in parallel with: none. Integrate only after the local baseline is green.
 
@@ -1240,16 +1295,16 @@ Do not change implementation checks merely to accommodate CI. If a local command
 
 ### Required implementation
 
-- [ ] Make `just ci` delegate to the complete offline `just check` gate.
-- [ ] Pin every action and tool version immutably.
-- [ ] Use Python 3.13 and `uv sync --frozen`/locked equivalent.
-- [ ] Disable persisted checkout credentials.
-- [ ] Set least-privilege permissions, timeouts, and concurrency cancellation.
-- [ ] Run PowerShell validation where the tool is present and fail on parser/static-analysis errors.
-- [ ] Add policy tests rejecting `--include-sensitive`, `refresh-*`, `generate-*`, external-link, and upstream-network recipes in core workflow steps.
-- [ ] Ensure no job uploads activity reports or broad workspace artifacts.
-- [ ] Test the workflow policy against deliberately unsafe fixtures.
-- [ ] Document exact required job/check names for maintainers.
+- [x] Make `just ci` delegate to the complete offline `just check` gate.
+- [x] Pin every action and tool version immutably.
+- [x] Use Python 3.13 and `uv sync --frozen`/locked equivalent.
+- [x] Disable persisted checkout credentials.
+- [x] Set least-privilege permissions, timeouts, and concurrency cancellation.
+- [x] Run PowerShell validation where the tool is present and fail on parser/static-analysis errors.
+- [x] Add policy tests rejecting `--include-sensitive`, `refresh-*`, `generate-*`, external-link, and upstream-network recipes in core workflow steps.
+- [x] Ensure no job uploads activity reports or broad workspace artifacts.
+- [x] Test the workflow policy against deliberately unsafe fixtures.
+- [x] Document exact required job/check names for maintainers.
 
 ### Acceptance commands and outcomes
 
@@ -1298,6 +1353,21 @@ Record:
 - Local `just ci` result and links/references to successful Linux and Windows runs.
 - Confirmation that sensitive/mutating/network command policy tests pass.
 - Manual branch-protection step still required from maintainers.
+
+Local implementation handoff (2026-08-13):
+
+- Starting and implementation references are the current working changeset
+  pending maintainer commit.
+- `just ci` delegates to `just check`. The workflow uses checkout v4.2.2 and
+  setup-python v5.4.0 pinned to full commits, Python 3.13, uv 0.12.3, Just
+  1.51.0, PSScriptAnalyzer 1.24.0, read-only permissions, credential-free
+  checkout, job timeouts, and superseded-run cancellation.
+- Intended required check names are `Linux quality` and `Windows PowerShell`.
+  Ten workflow-policy tests reject mutable actions, write permissions,
+  persisted credentials, uploads, sensitive flags, and mutating/networked recipes.
+- The local `just ci` gate passes with 76 tests and is equivalent to `just check`.
+  Hosted Linux/Windows run links and branch-protection activation remain external
+  maintainer steps; keep this packet in progress until both jobs are observed green.
 
 Update the status table and this packet's status before finishing.
 

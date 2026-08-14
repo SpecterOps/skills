@@ -1,6 +1,7 @@
 {
   "plugin": "code-review-and-qa",
   "purpose": "Code review and web application QA workflows for Specter Codex.",
+  "status": "active",
   "agents": [
     "code-reviewer"
   ],

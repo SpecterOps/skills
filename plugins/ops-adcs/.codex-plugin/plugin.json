@@ -23,15 +23,8 @@
     "longDescription": "Focused workflows for ADCS enumeration, certificate template triage, ESC-path analysis, enrollment abuse validation, and remediation-oriented evidence capture.",
     "developerName": "SpecterOps",
     "category": "Security",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
-    "defaultPrompt": [
-      "Use Ops ADCS to enumerate certificate services exposure.",
-      "Use Ops ADCS to triage vulnerable certificate templates.",
-      "Use Ops ADCS to validate and document ESC attack paths."
-    ],
+    "capabilities": [],
+    "defaultPrompt": [],
     "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg"

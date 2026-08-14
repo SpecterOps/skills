@@ -1,6 +1,7 @@
 {
   "plugin": "report-drafting",
   "purpose": "Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables.",
+  "status": "active",
   "agents": [
     "report-writer"
   ],

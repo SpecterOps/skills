@@ -6,8 +6,8 @@ Focused workflows for BloodHound, AzureHound, GitHound/OpenHound GitHub, JamfHou
 
 - `bloodhound-analysis` — MCP-aware BloodHound analysis router and live graph workflow.
 - `bloodhound-query` — shared query authoring/review workflow for BloodHound and OpenGraph graphs.
-- `bloodhound` — AD and ADCS attack-path query workflow.
-- `azurehound` — Azure/Entra ID attack-path query workflow.
+- `bloodhound-ad-analysis` — AD and ADCS attack-path query workflow.
+- `azurehound-analysis` — Azure/Entra ID attack-path query workflow.
 - `openhound-github` — GitHound/OpenHound GitHub OpenGraph query workflow.
 - `openhound-jamf` — JamfHound/OpenHound Jamf OpenGraph query workflow.
 - `openhound-okta` — OktaHound/OpenHound Okta OpenGraph query workflow.

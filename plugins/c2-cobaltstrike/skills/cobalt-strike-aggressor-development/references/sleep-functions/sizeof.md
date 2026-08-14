@@ -18,7 +18,7 @@ calculates the size of the data structure specified by the format string.
 
 `'format'` - a string describing the number of values to expect and their types.
 
-- [8.3 Binary I/O](io.md#3) - summary of pack/unpack template characters
+- 8.3 Binary I/O - summary of pack/unpack template characters
 
 ## Returns
 

@@ -14,11 +14,12 @@ plugins/<plugin-name>/
 
 Optional plugin-owned content can include `commands/`, `hooks/`, `.mcp.json`, `assets/`, `scripts/`, and reference documentation.
 
-After adding a plugin, update:
-
-- `.agents/plugins/marketplace.json`
-- `.claude-plugin/marketplace.json`
-- `README.md`
+After adding or changing a plugin, declare its ordering and publication surfaces
+in `tools/maintenance/catalog.toml`, update its manifests and `ownership.json`,
+then run `just generate-catalog`. Marketplace JSON and the marked root README
+plugin table are generated; do not edit them by hand. `just check-catalog`
+validates lifecycle, capabilities, ownership, manifest parity, and generated
+drift without modifying files.
 
 ## Repository maintenance
 
@@ -47,3 +48,10 @@ Packet-specific recipes belong in the existing file under
 `tools/maintenance/just/`.
 The root `justfile` already imports those fragments so later packets do not
 need to restructure the command surface.
+
+GitHub Actions runs the same gate in `.github/workflows/quality.yml`. The check
+names intended for branch protection are `Linux quality` and
+`Windows PowerShell`. Enable them as required checks only after both jobs have
+completed successfully on a pull request. The workflow is read-only; it does
+not generate catalogs, refresh snapshots, check external links, or upload
+activity reports.

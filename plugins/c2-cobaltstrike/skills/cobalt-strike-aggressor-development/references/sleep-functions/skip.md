@@ -62,4 +62,4 @@ MD5 (digest.sl) = ff4ddf4a2006140f8db28904de9e288b
 
 ## See Also
 
-[&available](available.md); [&closef](closef.md); [&consume](consume.md); [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&wait](wait.md)
+[&available](available.md); [&closef](closef.md); &consume; [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&wait](wait.md)

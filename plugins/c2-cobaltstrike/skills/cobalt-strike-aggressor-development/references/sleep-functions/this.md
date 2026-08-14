@@ -53,4 +53,4 @@ global: $x is bar!
 
 ## See Also
 
-[&global](global.md); [&local](local.md)
+[&global](global.md); &local

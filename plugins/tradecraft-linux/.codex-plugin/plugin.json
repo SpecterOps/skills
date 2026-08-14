@@ -12,15 +12,8 @@
     "longDescription": "Linux-focused workflows for execution tradecraft, persistence validation, service/user context, and operator evidence capture.",
     "developerName": "SpecterOps",
     "category": "Security",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
-    "defaultPrompt": [
-      "Use Tradecraft Linux to plan Linux execution validation.",
-      "Use Tradecraft Linux to triage Linux persistence opportunities.",
-      "Use Tradecraft Linux to document Linux operator evidence."
-    ],
+    "capabilities": [],
+    "defaultPrompt": [],
     "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg"

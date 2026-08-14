@@ -1,1 +1,2 @@
-# Reserved for PR-60. Add CI recipes here without editing the root justfile.
+# Run the exact same offline, read-only gate used by maintainers.
+ci: check

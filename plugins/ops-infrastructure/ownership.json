@@ -1,12 +1,14 @@
 {
   "plugin": "ops-infrastructure",
   "purpose": "Infrastructure operations, SSH, tunnel, and firewall workflows.",
+  "status": "active",
   "agents": [
     "ssh-operator"
   ],
   "skills": [
     "nftables-allow-source",
     "proxychains-tunnel",
-    "ssh-ops"
+    "ssh-ops",
+    "iac-attack-surface"
   ]
 }

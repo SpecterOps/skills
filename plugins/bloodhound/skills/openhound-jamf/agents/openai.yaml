@@ -1,6 +1,6 @@
 interface:
   display_name: "JamfHound / OpenHound Jamf"
-  short_description: "Analyze Jamf tenant, site, account, API-client, device, and hybrid paths."
+  short_description: "Analyze Jamf device, account, and hybrid paths."
   icon_small: ./assets/icon.svg
   icon_large: ./assets/icon.png
   default_prompt: "Use $openhound-jamf to analyze JamfHound/OpenHound Jamf tenant, site, account, group, API-client, policy, script, profile, computer, and hybrid identity/device attack paths."

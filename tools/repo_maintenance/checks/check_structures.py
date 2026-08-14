@@ -5,6 +5,8 @@ import tomllib
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from tools.repo_maintenance.files import relative_path
 from tools.repo_maintenance.models import CheckContext, CheckSpec, Diagnostic
 from tools.repo_maintenance.schemas import (
@@ -68,6 +70,7 @@ def run(context: CheckContext) -> list[Diagnostic]:
             TypeError,
             json.JSONDecodeError,
             tomllib.TOMLDecodeError,
+            yaml.YAMLError,
         ) as exc:
             diagnostics.append(
                 Diagnostic("core.structure", relative_path(context.root, path), str(exc))
