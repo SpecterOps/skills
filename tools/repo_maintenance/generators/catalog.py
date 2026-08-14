@@ -4,9 +4,6 @@ import argparse
 import json
 import os
 import re
-import shutil
-import stat
-import tempfile
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,6 +11,7 @@ from typing import Any
 
 from tools.repo_maintenance.models import Diagnostic
 from tools.repo_maintenance.schemas import load_json_text, load_schema, schema_errors
+from tools.repo_maintenance.transaction import install_text_outputs
 
 BEGIN = "<!-- BEGIN GENERATED PLUGIN CATALOG: run `just generate-catalog` -->"
 END = "<!-- END GENERATED PLUGIN CATALOG -->"
@@ -351,55 +349,7 @@ def generate(root: Path) -> None:
     outputs, diagnostics = expected_outputs(root)
     if diagnostics:
         raise RuntimeError("\n".join(item.render() for item in diagnostics))
-    originals: dict[Path, tuple[bytes | None, int]] = {}
-    for relative in outputs:
-        destination = root / relative
-        if destination.is_file():
-            originals[relative] = (
-                destination.read_bytes(),
-                stat.S_IMODE(destination.stat().st_mode),
-            )
-        else:
-            originals[relative] = (None, 0o644)
-    installed: list[Path] = []
-    ready_paths: list[Path] = []
-    with tempfile.TemporaryDirectory(prefix="skills-catalog-") as temporary:
-        stage = Path(temporary)
-        for relative, contents in outputs.items():
-            staged = stage / relative
-            staged.parent.mkdir(parents=True, exist_ok=True)
-            staged.write_text(contents, encoding="utf-8")
-        try:
-            for relative in outputs:
-                destination = root / relative
-                with tempfile.NamedTemporaryFile(
-                    dir=destination.parent, prefix=f".{destination.name}.", delete=False
-                ) as handle:
-                    ready = Path(handle.name)
-                ready_paths.append(ready)
-                shutil.copyfile(stage / relative, ready)
-                ready.chmod(originals[relative][1])
-                os.replace(ready, destination)
-                ready_paths.remove(ready)
-                installed.append(relative)
-        except OSError:
-            for relative in installed:
-                destination = root / relative
-                contents, mode = originals[relative]
-                if contents is None:
-                    destination.unlink(missing_ok=True)
-                    continue
-                with tempfile.NamedTemporaryFile(
-                    dir=destination.parent, prefix=f".{destination.name}.restore.", delete=False
-                ) as handle:
-                    restore = Path(handle.name)
-                    handle.write(contents)
-                restore.chmod(mode)
-                os.replace(restore, destination)
-            raise
-        finally:
-            for ready in ready_paths:
-                ready.unlink(missing_ok=True)
+    install_text_outputs(root, outputs, replace=os.replace)
 
 
 def main(argv: list[str] | None = None) -> int:

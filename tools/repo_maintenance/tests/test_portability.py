@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import hashlib
 import shutil
+import subprocess
 from pathlib import Path
 
 import pytest
 
+from tools.repo_maintenance import portability
 from tools.repo_maintenance.checks import check_portability, check_provenance
 from tools.repo_maintenance.models import CheckContext
 
@@ -61,6 +63,53 @@ def test_real_com_defaults_are_portable_and_koppeling_is_pinned(repo_root: Path)
     assert "c2eafe11e6c31e1f64438a88d283ce3b0e4536a8" in helper
     assert "checkout --detach $expectedCommit" in helper
     assert "Assert-ComHijackKoppelingCommit" in helper
+
+
+def test_powershell_paths_cross_process_boundary_through_environment(
+    tmp_path: Path, monkeypatch
+) -> None:
+    script = tmp_path / "plugins/example/scripts/Path With Spaces.ps1"
+    script.parent.mkdir(parents=True)
+    script.write_text("Write-Output 'ok'\n", encoding="utf-8")
+    calls = []
+
+    def run(command, **options):
+        calls.append((command, options))
+        return subprocess.CompletedProcess(command, 0, "", "")
+
+    monkeypatch.setattr(portability.shutil, "which", lambda name: "pwsh")
+    monkeypatch.setattr(portability, "_psscriptanalyzer_version", lambda root: "1.25.0")
+    monkeypatch.setattr(portability.subprocess, "run", run)
+
+    assert portability.powershell(tmp_path) == 0
+    path_calls = [
+        options for _, options in calls if portability.POWERSHELL_PATH_ENV in options.get("env", {})
+    ]
+    assert len(path_calls) == 2
+    for options in path_calls:
+        assert options["env"][portability.POWERSHELL_PATH_ENV] == str(script.resolve())
+    assert all(str(script) not in command for command, _ in calls)
+    assert all("$args[0]" not in " ".join(command) for command, _ in calls)
+    analysis = next(command for command, _ in calls if "Invoke-ScriptAnalyzer" in " ".join(command))
+    assert "Import-Module PSScriptAnalyzer" in " ".join(analysis)
+    assert "-RequiredVersion" in " ".join(analysis)
+
+
+def test_powershell_rejects_an_unavailable_pinned_analyzer_version(
+    tmp_path: Path, monkeypatch, capsys
+) -> None:
+    monkeypatch.setattr(portability.shutil, "which", lambda name: "pwsh")
+    monkeypatch.setattr(portability, "_psscriptanalyzer_version", lambda root: "1.25.0")
+
+    def run(command, **options):
+        script = " ".join(command)
+        returncode = 4 if "Get-Module -ListAvailable PSScriptAnalyzer" in script else 0
+        return subprocess.CompletedProcess(command, returncode, "", "")
+
+    monkeypatch.setattr(portability.subprocess, "run", run)
+
+    assert portability.powershell(tmp_path) == 1
+    assert "PSScriptAnalyzer 1.25.0 is required but not installed" in capsys.readouterr().out
 
 
 def _provenance_root(tmp_path: Path) -> tuple[Path, str]:

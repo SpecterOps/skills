@@ -60,3 +60,26 @@ def test_skill_inline_resource_paths_are_checked(tmp_path: Path, monkeypatch) ->
     diagnostics = check_links.run(CheckContext(root))
     assert len(diagnostics) == 1
     assert diagnostics[0].reason == "missing target: assets/missing.svg"
+
+
+def test_images_formatted_headings_and_resource_paths_with_spaces(
+    tmp_path: Path, monkeypatch
+) -> None:
+    root = tmp_path
+    skill = root / "plugins/demo/skills/example"
+    (skill / "assets").mkdir(parents=True)
+    (skill / "assets/diagram one.svg").write_text("<svg/>", encoding="utf-8")
+    target = skill / "target.md"
+    target.write_text("# Use `formatted` *heading*\n", encoding="utf-8")
+    document = skill / "SKILL.md"
+    document.write_text(
+        "![diagram](assets/diagram%20one.svg)\n"
+        "[heading](target.md#use-formatted-heading)\n"
+        "Use `assets/diagram one.svg`.\n"
+        "![missing](assets/missing.svg)\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(check_links, "repository_files", lambda root: [document, target])
+    diagnostics = check_links.run(CheckContext(root))
+    assert len(diagnostics) == 1
+    assert diagnostics[0].reason == "missing target: assets/missing.svg"

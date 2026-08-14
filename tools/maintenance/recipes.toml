@@ -1,0 +1,111 @@
+version = 1
+
+[[recipes]]
+name = "bootstrap-uv"
+network = true
+mutation = "local-cache"
+
+[[recipes]]
+name = "check"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-catalog"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-external-links"
+network = true
+mutation = "none"
+
+[[recipes]]
+name = "check-links"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-inventory"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-portability"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-powershell"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-provenance"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-secrets"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "check-upstream-bloodhound"
+network = true
+mutation = "none"
+
+[[recipes]]
+name = "ci"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "default"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "doctor"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "fmt"
+network = false
+mutation = "maintenance-source"
+
+[[recipes]]
+name = "fmt-check"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "generate-catalog"
+network = false
+mutation = "declared-output"
+
+[[recipes]]
+name = "generate-inventory"
+network = false
+mutation = "declared-output"
+
+[[recipes]]
+name = "scaffold-plugin-metadata"
+network = false
+mutation = "declared-output"
+
+[[recipes]]
+name = "setup"
+network = true
+mutation = "local-cache"
+
+[[recipes]]
+name = "test"
+network = false
+mutation = "none"
+
+[[recipes]]
+name = "validate"
+network = false
+mutation = "none"

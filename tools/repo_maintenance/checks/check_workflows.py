@@ -14,6 +14,11 @@ FORBIDDEN_RUN = (
     "generate-",
     "check-external",
     "check-upstream",
+    "git push",
+    "gh release",
+    "gh api",
+    "curl ",
+    "wget ",
 )
 
 
@@ -58,11 +63,11 @@ def validate(value: Any, path: str = ".github/workflows/quality.yml") -> list[Di
         timeout = job.get("timeout-minutes")
         if not isinstance(timeout, int) or timeout <= 0:
             issue(f"job {job_name!r} requires a positive timeout-minutes")
+        if job.get("continue-on-error") not in (None, False):
+            issue(f"job {job_name!r} must not continue on error")
         job_permissions = job.get("permissions")
-        if isinstance(job_permissions, dict) and any(
-            value == "write" for value in job_permissions.values()
-        ):
-            issue(f"job {job_name!r} grants write permission")
+        if job_permissions is not None and job_permissions != {"contents": "read"}:
+            issue(f"job {job_name!r} permissions must be exactly contents: read")
         steps = job.get("steps")
         if not isinstance(steps, list):
             issue(f"job {job_name!r} steps must be a list")
@@ -88,17 +93,18 @@ def validate(value: Any, path: str = ".github/workflows/quality.yml") -> list[Di
             if isinstance(command, str):
                 run_commands.append(command)
                 for forbidden in FORBIDDEN_RUN:
-                    if forbidden in command:
+                    if forbidden in command.lower():
                         issue(f"core workflow invokes forbidden command fragment {forbidden!r}")
-            if step.get("continue-on-error") is True:
+            if step.get("continue-on-error") not in (None, False):
                 issue(f"job {job_name!r} step {index} must not continue on error")
     combined = "\n".join(run_commands)
     for required in (
-        "uv==0.12.3",
-        "just --version 1.51.0 --locked",
+        "uv==0.12.4",
+        "just --version 1.58.0 --locked",
         "uv sync --project tools/maintenance --locked",
         "just ci",
-        "Install-Module PSScriptAnalyzer -RequiredVersion 1.24.0",
+        "Install-Module PSScriptAnalyzer -RequiredVersion 1.25.0 "
+        "-Scope CurrentUser -Force -ErrorAction Stop",
         "just check-powershell",
     ):
         if required not in combined:
