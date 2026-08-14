@@ -1,0 +1,12 @@
+{
+  "name": "SpecterOps Skills",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-trixie",
+  "features": {
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "1.97.1",
+      "profile": "minimal"
+    }
+  },
+  "postCreateCommand": "python3.13 -m tools.repo_maintenance.bootstrap_uv ensure && cargo install just --version 1.58.0 --locked && just setup && just doctor",
+  "remoteUser": "vscode"
+}

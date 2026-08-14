@@ -6,6 +6,28 @@
     "plugin": {"type": "string", "minLength": 1},
     "purpose": {"type": "string", "minLength": 1},
     "status": {"enum": ["active", "incubating", "deprecated"]},
+    "contacts": {
+      "type": "object",
+      "required": ["maintainers", "support"],
+      "properties": {
+        "maintainers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "support": {"type": "string", "format": "uri", "pattern": "^https://"}
+      },
+      "additionalProperties": false
+    },
+    "release": {
+      "type": "object",
+      "required": ["version", "channel"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "channel": {"enum": ["unreleased", "preview", "stable"]}
+      },
+      "additionalProperties": false
+    },
     "replacement": {"type": "string", "minLength": 1},
     "retirement": {"type": "string", "minLength": 1},
     "agents": {"type": "array", "items": {"type": "string"}},

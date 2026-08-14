@@ -155,6 +155,22 @@ def inspect(root: Path) -> tuple[list[Plugin], list[Diagnostic]]:
             diagnostics.append(
                 _diagnostic(codex_path.relative_to(root), f"invalid semantic version {version!r}")
             )
+        release = ownership.get("release")
+        if isinstance(release, dict):
+            if release.get("version") != version:
+                diagnostics.append(
+                    _diagnostic(
+                        ownership_path.relative_to(root),
+                        "release version must match the canonical Codex manifest",
+                    )
+                )
+            if ownership.get("status") == "incubating" and release.get("channel") != "unreleased":
+                diagnostics.append(
+                    _diagnostic(
+                        ownership_path.relative_to(root),
+                        "incubating plugin release channel must be 'unreleased'",
+                    )
+                )
         claude = manifests["claude"]
         if isinstance(claude, dict):
             for key in ("name", "version", "description"):

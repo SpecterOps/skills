@@ -97,9 +97,31 @@ def test_incubating_plugin_cannot_be_published_to_claude(tmp_path: Path) -> None
     assert any("cannot be published to Claude" in reason for reason in _reasons(root))
 
 
+def test_incubating_plugin_can_prepare_an_unpublished_claude_manifest(tmp_path: Path) -> None:
+    root = _fixture(
+        tmp_path,
+        status="incubating",
+        surfaces=("codex",),
+        capability=False,
+        claude_manifest=True,
+    )
+
+    assert _reasons(root) == []
+
+
 def test_declared_surface_requires_its_manifest(tmp_path: Path) -> None:
     root = _fixture(tmp_path, claude_manifest=False)
     assert "required claude manifest is missing" in _reasons(root)
+
+
+def test_release_version_must_match_the_canonical_manifest(tmp_path: Path) -> None:
+    root = _fixture(tmp_path)
+    path = root / "plugins/example/ownership.json"
+    ownership = json.loads(path.read_text(encoding="utf-8"))
+    ownership["release"] = {"version": "9.9.9", "channel": "stable"}
+    path.write_text(json.dumps(ownership), encoding="utf-8")
+
+    assert "release version must match the canonical Codex manifest" in _reasons(root)
 
 
 def test_duplicate_catalog_order_is_rejected(tmp_path: Path) -> None:
