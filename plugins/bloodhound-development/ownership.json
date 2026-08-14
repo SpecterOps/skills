@@ -1,6 +1,7 @@
 {
   "plugin": "bloodhound-development",
   "purpose": "Internal BloodHound Enterprise and Community Edition development, validation, and PR-readiness workflows.",
+  "status": "active",
   "agents": [],
   "skills": [
     "bhe-dev-bootstrap",

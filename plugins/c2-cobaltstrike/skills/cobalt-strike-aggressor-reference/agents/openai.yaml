@@ -1,6 +1,6 @@
 interface:
   display_name: "Cobalt Strike Aggressor Reference"
-  short_description: "Deprecated Aggressor reference entrypoint; use cobalt-strike-aggressor-development."
+  short_description: "Deprecated Aggressor Script reference entrypoint."
   icon_small: ./assets/icon.svg
   icon_large: ./assets/icon.png
   brand_color: "#2C2677"

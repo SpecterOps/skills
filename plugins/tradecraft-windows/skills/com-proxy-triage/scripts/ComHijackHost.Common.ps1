@@ -28,6 +28,23 @@ function Get-ComHijackKoppelingCloneUrl {
     return 'https://github.com/monoxgas/Koppeling.git'
 }
 
+function Get-ComHijackKoppelingCommit {
+    return 'c2eafe11e6c31e1f64438a88d283ce3b0e4536a8'
+}
+
+function Assert-ComHijackKoppelingCommit {
+    param([Parameter(Mandatory = $true)][string]$KoppelingRoot)
+
+    $expectedCommit = Get-ComHijackKoppelingCommit
+    $actualCommit = (& git -C $KoppelingRoot rev-parse HEAD 2>$null)
+    if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($actualCommit)) {
+        throw "Unable to verify the Koppeling checkout at '$KoppelingRoot'."
+    }
+    if ($actualCommit.Trim() -ne $expectedCommit) {
+        throw "Koppeling checkout at '$KoppelingRoot' is not pinned to $expectedCommit."
+    }
+}
+
 function Test-ComHijackAdministrator {
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
     $principal = [Security.Principal.WindowsPrincipal]::new($identity)
@@ -178,6 +195,7 @@ function Initialize-ComHijackKoppelingCache {
     }
 
     if (Test-Path -LiteralPath (Join-Path $cacheRoot 'Theif\Theif.vcxproj')) {
+        Assert-ComHijackKoppelingCommit -KoppelingRoot $cacheRoot
         return $cacheRoot
     }
 
@@ -189,10 +207,12 @@ function Initialize-ComHijackKoppelingCache {
     $repoRoot = Get-ComHijackRepoRoot -ScriptDirectory $ScriptDirectory
     $repoLocalKoppeling = Join-Path $repoRoot 'Koppeling'
     if (Test-Path -LiteralPath (Join-Path $repoLocalKoppeling 'Theif\Theif.vcxproj')) {
+        Assert-ComHijackKoppelingCommit -KoppelingRoot $repoLocalKoppeling
         if (Test-Path -LiteralPath $cacheRoot) {
             Remove-Item -LiteralPath $cacheRoot -Recurse -Force
         }
         Copy-Item -LiteralPath $repoLocalKoppeling -Destination $cacheRoot -Recurse -Force
+        Assert-ComHijackKoppelingCommit -KoppelingRoot $cacheRoot
         return $cacheRoot
     }
 
@@ -204,10 +224,15 @@ function Initialize-ComHijackKoppelingCache {
         Remove-Item -LiteralPath $cacheRoot -Recurse -Force
     }
 
-    & git clone --depth 1 (Get-ComHijackKoppelingCloneUrl) $cacheRoot
+    $expectedCommit = Get-ComHijackKoppelingCommit
+    & git clone --no-checkout (Get-ComHijackKoppelingCloneUrl) $cacheRoot
+    if ($LASTEXITCODE -eq 0) {
+        & git -C $cacheRoot checkout --detach $expectedCommit
+    }
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath (Join-Path $cacheRoot 'Theif\Theif.vcxproj'))) {
         throw 'Failed to hydrate the Koppeling cache checkout.'
     }
+    Assert-ComHijackKoppelingCommit -KoppelingRoot $cacheRoot
 
     return $cacheRoot
 }
@@ -238,6 +263,7 @@ function Resolve-ComHijackKoppelingRoot {
     foreach ($candidate in $candidates) {
         $resolvedCandidate = [System.IO.Path]::GetFullPath($candidate)
         if (Test-Path -LiteralPath (Join-Path $resolvedCandidate $RequiredRelativePath)) {
+            Assert-ComHijackKoppelingCommit -KoppelingRoot $resolvedCandidate
             return $resolvedCandidate
         }
     }

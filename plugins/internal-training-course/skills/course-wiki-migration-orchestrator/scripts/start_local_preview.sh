@@ -32,8 +32,10 @@ if ! hugo_bin="$(pick_hugo_bin)"; then
 fi
 
 cd "$repo_path"
-nohup "$hugo_bin" server --bind "$bind_addr" --baseURL "http://$bind_addr:$port" --port "$port" --disableFastRender >/tmp/course-wiki-hugo.log 2>&1 &
+preview_log="$(mktemp "${TMPDIR:-/tmp}/course-wiki-hugo.log.XXXXXX")"
+nohup "$hugo_bin" server --bind "$bind_addr" --baseURL "http://$bind_addr:$port" --port "$port" --disableFastRender >"$preview_log" 2>&1 &
 server_pid=$!
 echo "$server_pid"
 echo "http://$bind_addr:$port"
 echo "$hugo_bin"
+echo "$preview_log"

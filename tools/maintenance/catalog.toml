@@ -1,0 +1,104 @@
+version = 1
+
+[[plugins]]
+name = "workflows-development"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "code-review-and-qa"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "workflows-research"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "ops-reconnaissance"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "ops-appsec"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "ops-sccm"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "bloodhound"
+surfaces = ["codex", "claude"]
+mcp = "Manual"
+
+[[plugins]]
+name = "payloads"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "c2-extensions"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "report-drafting"
+surfaces = ["codex", "claude"]
+mcp = "Manual"
+
+[[plugins]]
+name = "reverse-engineering"
+surfaces = ["codex", "claude"]
+mcp = "Manual"
+
+[[plugins]]
+name = "report-timeline"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "codex-observability"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "ops-infrastructure"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "internal-training-course"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "social-engineering"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "ludus"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "c2-mythic"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "tradecraft-windows"
+surfaces = ["codex"]
+
+[[plugins]]
+name = "ops-adcs"
+surfaces = ["codex"]
+
+[[plugins]]
+name = "ops-mssql"
+surfaces = ["codex"]
+
+[[plugins]]
+name = "tradecraft-mac"
+surfaces = ["codex"]
+
+[[plugins]]
+name = "tradecraft-linux"
+surfaces = ["codex"]
+
+[[plugins]]
+name = "c2-cobaltstrike"
+surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "bloodhound-development"
+surfaces = ["codex", "claude"]

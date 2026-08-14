@@ -28,8 +28,7 @@
     "defaultPrompt": [
       "Use Workflows Development to scaffold a Python utility.",
       "Use Workflows Development before a risky git merge.",
-      "Use Workflows Development to scaffold a security utility.",
-      "Use Workflows Development to draft a README."
+      "Use Workflows Development to scaffold a security utility."
     ],
     "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.png",

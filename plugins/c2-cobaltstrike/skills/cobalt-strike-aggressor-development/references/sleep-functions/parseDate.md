@@ -18,7 +18,7 @@ parses the specified date string into a scalar long.
 
 `format` - the date/time format.
 
-- [2.1 Scalars: Time and Date Values](fundamentals.md#datetime) - summary of the date/time format
+- 2.1 Scalars: Time and Date Values - summary of the date/time format
 
 `"date string"` - a string that follows the specified format
 

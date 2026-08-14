@@ -54,4 +54,4 @@ println(available($handle) . " bytes are available");
 
 ## See Also
 
-[&closef](closef.md); [&consume](consume.md); [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)
+[&closef](closef.md); &consume; [&mark](mark.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)

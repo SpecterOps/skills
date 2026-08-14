@@ -54,4 +54,4 @@ Read: .is.an.example
 
 ## See Also
 
-[&available](available.md); [&closef](closef.md); [&consume](consume.md); [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)
+[&available](available.md); [&closef](closef.md); &consume; [&printEOF](printEOF.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)

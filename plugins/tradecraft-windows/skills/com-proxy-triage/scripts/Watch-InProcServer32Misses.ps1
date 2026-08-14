@@ -2,7 +2,7 @@ param(
     [int]$DurationSeconds = 0,
     [string]$Suffix = "InProcServer32",
     [uint32]$Status = 3221225524,
-    [string]$TracePath = "C:\Users\zach\Documents\Codex\2026-05-13\how-to-i-use-the-windbg\inprocserver32-regtrace.etl",
+    [string]$TracePath,
     [int]$PollMilliseconds = 1000,
     [int]$RootProcessId = 0,
     [switch]$IncludeDescendants,
@@ -14,6 +14,11 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $script:MachineInprocCache = @{}
+
+if ([string]::IsNullOrWhiteSpace($TracePath)) {
+    $traceName = "codex-inprocserver32-{0}.etl" -f ([Guid]::NewGuid().ToString("N"))
+    $TracePath = Join-Path ([System.IO.Path]::GetTempPath()) $traceName
+}
 
 function Test-IsAdministrator {
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent()

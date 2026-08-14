@@ -1,6 +1,7 @@
 {
   "plugin": "ops-sccm",
   "purpose": "Microsoft Configuration Manager reconnaissance and takeover validation workflows.",
+  "status": "active",
   "agents": [
     "sccm-ops"
   ],

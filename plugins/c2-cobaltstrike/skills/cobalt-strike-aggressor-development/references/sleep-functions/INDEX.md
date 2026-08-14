@@ -10,15 +10,15 @@ This directory contains split documentation for the Sleep programming language, 
 
 ### Core Concepts
 - [intro.md](intro.md) - Introduction to Sleep, support resources, and acknowledgements
-- [started.md](started.md) - Getting started with stand-alone scripts and the Sleep console
-- [fundamentals.md](fundamentals.md) - Scalars, scalar expressions, numbers, and strings
-- [datastruct.md](datastruct.md) - Arrays, stacks, lists, sets, and hashes
-- [flowcontrol.md](flowcontrol.md) - Comparisons, loops, exceptions, and assertions
-- [functions.md](functions.md) - Subroutines, scalar scope, closures, and continuations
-- [regex.md](regex.md) - Regular expression patterns and matching
-- [hoes.md](hoes.md) - Java object integration and object expressions
-- [io.md](io.md) - Input/Output handles, files, network, threads, and buffers
-- [embed.md](embed.md) - Sleep integration, extending Sleep, and working with scalars
+- started.md - Getting started with stand-alone scripts and the Sleep console
+- fundamentals.md - Scalars, scalar expressions, numbers, and strings
+- datastruct.md - Arrays, stacks, lists, sets, and hashes
+- flowcontrol.md - Comparisons, loops, exceptions, and assertions
+- functions.md - Subroutines, scalar scope, closures, and continuations
+- regex.md - Regular expression patterns and matching
+- hoes.md - Java object integration and object expressions
+- io.md - Input/Output handles, files, network, threads, and buffers
+- embed.md - Sleep integration, extending Sleep, and working with scalars
 
 ---
 
@@ -221,7 +221,7 @@ General utility and meta-programming functions.
 - [isa.md](isa.md) - Test if object is instance of class
 - [lambda.md](lambda.md) - Create anonymous function
 - [let.md](let.md) - Assign variables
-- [local.md](local.md) - Declare local variables
+- local.md - Declare local variables
 - [newInstance.md](newInstance.md) - Create proxy instance
 - [popl.md](popl.md) - Pop local scope
 - [profile.md](profile.md) - Get profiling statistics
