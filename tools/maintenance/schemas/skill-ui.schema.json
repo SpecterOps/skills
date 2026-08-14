@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["interface"],
+  "properties": {
+    "interface": {
+      "type": "object",
+      "required": ["display_name", "short_description", "default_prompt"],
+      "properties": {
+        "display_name": {"type": "string"},
+        "short_description": {"type": "string"},
+        "default_prompt": {"type": "string"},
+        "icon_small": {"type": "string"},
+        "icon_large": {"type": "string"},
+        "brand_color": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "dependencies": {"type": "object"},
+    "policy": {"type": "object"}
+  },
+  "additionalProperties": true
+}

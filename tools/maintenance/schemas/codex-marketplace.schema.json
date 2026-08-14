@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "interface", "plugins"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "interface": {"type": "object"},
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "source", "policy", "category"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "source": {"type": "object"},
+          "policy": {"type": "object"},
+          "category": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

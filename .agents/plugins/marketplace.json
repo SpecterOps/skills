@@ -239,7 +239,7 @@
         "path": "./plugins/ops-adcs"
       },
       "policy": {
-        "installation": "AVAILABLE",
+        "installation": "NOT_AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
@@ -251,7 +251,7 @@
         "path": "./plugins/ops-mssql"
       },
       "policy": {
-        "installation": "AVAILABLE",
+        "installation": "NOT_AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
@@ -263,7 +263,7 @@
         "path": "./plugins/tradecraft-mac"
       },
       "policy": {
-        "installation": "AVAILABLE",
+        "installation": "NOT_AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
@@ -275,7 +275,7 @@
         "path": "./plugins/tradecraft-linux"
       },
       "policy": {
-        "installation": "AVAILABLE",
+        "installation": "NOT_AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"

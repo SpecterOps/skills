@@ -24,7 +24,7 @@ packs data into a string of bytes. each format character corresponds to one or m
 
 `'format'` - a string describing the number of values to expect and their types.
 
-- [8.3 Binary I/O](io.md#3) - summary of pack/unpack template characters
+- 8.3 Binary I/O - summary of pack/unpack template characters
 
 `$x, ...` - an arbitrary piece of data. the pack format describes how many pieces of data to expect and what type to pack them into.
 

@@ -20,7 +20,7 @@ Determine if the string contains a substring that matches the specified pattern.
 
 `'pattern'` - a regular expression pattern that defines a substring to match for
 
-- [6. Regular Epxressions](regex.md) - tutorial on regular expression language
+- 6. Regular Epxressions - tutorial on regular expression language
 
 ## Side Effects / Notes
 

@@ -46,4 +46,4 @@ Done.
 
 ## See Also
 
-[&available](available.md); [&closef](closef.md); [&consume](consume.md); [&mark](mark.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)
+[&available](available.md); [&closef](closef.md); &consume; [&mark](mark.md); [&reset](reset.md); [&setEncoding](setEncoding.md); [&skip](skip.md); [&wait](wait.md)

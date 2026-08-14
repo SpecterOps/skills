@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "nonemptyString": {"type": "string", "minLength": 1, "pattern": "\\S"}
+  },
+  "type": "object",
+  "required": [
+    "course_id",
+    "course_title",
+    "source_scaffold_repo",
+    "legacy_course_root",
+    "legacy_participant_content",
+    "target_repo",
+    "target_branch",
+    "readme_title",
+    "landing_image",
+    "logo_light",
+    "logo_dark",
+    "local_preview_url",
+    "preview_url",
+    "commit_messages"
+  ],
+  "properties": {
+    "course_id": {"$ref": "#/$defs/nonemptyString"},
+    "course_title": {"$ref": "#/$defs/nonemptyString"},
+    "source_scaffold_repo": {"$ref": "#/$defs/nonemptyString"},
+    "legacy_course_root": {"$ref": "#/$defs/nonemptyString"},
+    "legacy_participant_content": {"$ref": "#/$defs/nonemptyString"},
+    "target_repo": {"$ref": "#/$defs/nonemptyString"},
+    "target_branch": {"$ref": "#/$defs/nonemptyString"},
+    "readme_title": {"$ref": "#/$defs/nonemptyString"},
+    "landing_image": {"$ref": "#/$defs/nonemptyString"},
+    "logo_light": {"$ref": "#/$defs/nonemptyString"},
+    "logo_dark": {"$ref": "#/$defs/nonemptyString"},
+    "local_preview_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+    "preview_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+    "commit_messages": {
+      "type": "object",
+      "required": ["stage1", "stage2"],
+      "properties": {
+        "stage1": {"$ref": "#/$defs/nonemptyString"},
+        "stage2": {"$ref": "#/$defs/nonemptyString"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

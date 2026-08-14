@@ -49,4 +49,4 @@ global: $x is bar!
 
 ## See Also
 
-[&local](local.md); [&this](this.md)
+&local; [&this](this.md)

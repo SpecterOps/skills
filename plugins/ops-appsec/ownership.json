@@ -1,6 +1,7 @@
 {
   "plugin": "ops-appsec",
   "purpose": "Application and code security assessment workflows for Specter Codex.",
+  "status": "active",
   "agents": [
     "security-researcher"
   ],

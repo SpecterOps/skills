@@ -50,4 +50,4 @@ Warning: Insecure &eval: 'println(2 + 2);' is tainted at taint.sl:4
 
 ## See Also
 
-[-istainted](pr_istainted.md); [&untaint](untaint.md)
+-istainted; [&untaint](untaint.md)

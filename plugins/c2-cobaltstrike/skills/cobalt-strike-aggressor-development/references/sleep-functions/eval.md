@@ -28,7 +28,7 @@ The result of the statements once parsed and evaluated.
 
 ## Errors
 
-- Throws [sleep.error.YourCodeSucksException](../docs/api/sleep/error/YourCodeSucksException.md) in the presence of a syntax error
+- Throws sleep.error.YourCodeSucksException in the presence of a syntax error
 
 ## Examples
 

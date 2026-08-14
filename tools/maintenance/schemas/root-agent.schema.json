@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "description", "model", "model_reasoning_effort", "sandbox_mode", "developer_instructions"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "model": {"type": "string", "minLength": 1},
+    "model_reasoning_effort": {"type": "string", "minLength": 1},
+    "sandbox_mode": {"type": "string", "minLength": 1},
+    "developer_instructions": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

@@ -26,7 +26,7 @@ The closure built from compiling the specified code.
 
 ## Errors
 
-- Throws a [sleep.error.YourCodeSucksException](../docs/api/sleep/error/YourCodeSucksException.md) if there are syntax errors
+- Throws a sleep.error.YourCodeSucksException if there are syntax errors
 
 ## Examples
 

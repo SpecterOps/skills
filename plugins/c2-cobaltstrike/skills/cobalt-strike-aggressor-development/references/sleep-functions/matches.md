@@ -20,7 +20,7 @@ returns the matches from "string" applied to the regex 'pattern'. if n is specif
 
 `'pattern'` - a regular expression pattern that defines wether or not we have a match
 
-- [6. Regular Epxressions](regex.md) - tutorial on regular expression language
+- 6. Regular Epxressions - tutorial on regular expression language
 
 ## Examples
 
