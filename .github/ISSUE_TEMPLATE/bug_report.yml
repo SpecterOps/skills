@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible problem with a plugin, skill, or repository workflow.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, customer data, or sensitive operational evidence.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Client or surface
+      options:
+        - Codex plugin
+        - Claude Code plugin
+        - npx skills
+        - Repository maintenance
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin or skill
+      description: Name the affected plugin or skill when applicable.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide minimal steps, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include client, operating system, and relevant tool versions.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Additional diagnostics
+      description: Include sanitized logs or validation output if useful.
