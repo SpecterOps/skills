@@ -91,7 +91,7 @@ def run(context: CheckContext) -> list[Diagnostic]:
         diagnostics.append(_issue(devcontainer_path, str(exc)))
     else:
         for fragment in (
-            f"python:1-{python.get('minor')}-bookworm",
+            f"devcontainers/python:{python.get('minor')}-",
             f"just --version {tools.get('just')} --locked",
             "tools.repo_maintenance.bootstrap_uv ensure",
             "just setup",
