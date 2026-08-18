@@ -102,3 +102,7 @@ surfaces = ["codex", "claude"]
 [[plugins]]
 name = "bloodhound-development"
 surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "go-review"
+surfaces = ["codex", "claude"]

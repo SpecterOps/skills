@@ -147,6 +147,13 @@
       "description": "Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work.",
       "version": "0.1.0",
       "category": "productivity"
+    },
+    {
+      "name": "go-review",
+      "source": "./plugins/go-review",
+      "description": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges",
+      "version": "0.1.0",
+      "category": "security"
     }
   ]
 }
