@@ -1,6 +1,7 @@
 {
   "plugin": "go-review",
   "purpose": "Go service security review workflows.",
+  "status": "active",
   "agents": [],
   "skills": [
     "go-review"

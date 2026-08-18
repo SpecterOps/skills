@@ -135,6 +135,7 @@ request expectations, and where to ask for help.
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Planned | - | - | Linux execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
 | [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
+| [go-review](plugins/go-review/README.md) | Yes | Yes | - | Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges |
 
 <!-- END GENERATED PLUGIN CATALOG -->
 
@@ -217,6 +218,7 @@ request expectations, and where to ask for help.
 | `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
 | `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
 | `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
+| `go-review` | `go-review` | [SKILL.md](plugins/go-review/skills/go-review/SKILL.md) |
 
 <!-- END GENERATED SKILL INVENTORY -->
 

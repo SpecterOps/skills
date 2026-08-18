@@ -303,6 +303,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "go-review",
+      "source": {
+        "source": "local",
+        "path": "./plugins/go-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
     }
   ]
 }

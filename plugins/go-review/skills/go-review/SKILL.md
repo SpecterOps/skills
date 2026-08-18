@@ -47,7 +47,7 @@ Collect these once with `AskUserQuestion` if they are not explicit:
 ### Phase 1: Resolve Plugin Root
 
 Resolve the directory containing `prompts/clusters/manifest.json` and
-`scripts/go_inventory.py` using `${CLAUDE_PLUGIN_ROOT}`, `${CODEX_PLUGIN_ROOT}`, then:
+[go_inventory.py](../../scripts/go_inventory.py) using `${CLAUDE_PLUGIN_ROOT}`, `${CODEX_PLUGIN_ROOT}`, then:
 
 ```sh
 find ~/.claude ~/.codex . -path '*/plugins/go-review/prompts/clusters/manifest.json' -print -quit 2>/dev/null
@@ -158,7 +158,7 @@ finding because a worker crashed after writing it.
 
 Run `go-review:go-review-dedup-judge`, then
 `go-review:go-review-fp-judge`, each with `output_dir` in the prompt. The FP
-judge also receives the absolute path to `scripts/generate_sarif.py`.
+judge also receives the absolute path to [generate_sarif.py](../../scripts/generate_sarif.py).
 
 Always run the SARIF safety net:
 
