@@ -7,7 +7,7 @@ The default beacon library can subsequently be overridden on UI Dialogs and Aggr
 ```
 http-beacon {
     set library "winhttp";
-    set data_required "false";'
+    set data_required "false";
 }
 
 http-beacon "variant-x" {
