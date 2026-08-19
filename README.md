@@ -133,7 +133,7 @@ request expectations, and where to ask for help.
 | [ops-mssql](plugins/ops-mssql/README.md) | Planned | - | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. Planned; no capability is currently packaged. |
 | [tradecraft-mac](plugins/tradecraft-mac/README.md) | Planned | - | - | macOS execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Planned | - | - | Linux execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
-| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows. |
+| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
 | [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges |
 
@@ -215,6 +215,7 @@ request expectations, and where to ask for help.
 | `com-proxy-triage` | `tradecraft-windows` | [SKILL.md](plugins/tradecraft-windows/skills/com-proxy-triage/SKILL.md) |
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
+| `cobalt-strike-malleable-c2-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-malleable-c2-development/SKILL.md) |
 | `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
 | `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
 | `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
