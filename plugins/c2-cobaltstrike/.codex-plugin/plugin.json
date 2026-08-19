@@ -1,7 +1,7 @@
 {
   "name": "c2-cobaltstrike",
   "version": "0.1.0",
-  "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
+  "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
   "author": {
     "name": "SpecterOps"
   },
@@ -13,13 +13,15 @@
     "cobalt-strike",
     "aggressor",
     "sleep",
-    "bof-loader"
+    "bof-loader",
+    "malleable-c2",
+    "c2-profile"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "C2 Cobalt Strike",
-    "shortDescription": "Cobalt Strike Aggressor and extension workflows.",
-    "longDescription": "Focused workflows for Cobalt Strike Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Cobalt Strike extension guidance.",
+    "shortDescription": "Cobalt Strike Aggressor and Malleable C2 workflows.",
+    "longDescription": "Focused workflows for Cobalt Strike Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Malleable C2 profile development.",
     "developerName": "SpecterOps",
     "category": "Security",
     "capabilities": [
@@ -29,7 +31,8 @@
     "defaultPrompt": [
       "Use C2 Cobalt Strike to write Aggressor Script.",
       "Use C2 Cobalt Strike to look up Sleep or Aggressor references.",
-      "Use C2 Cobalt Strike to build a Cobalt Strike extension workflow."
+      "Use C2 Cobalt Strike to build a Cobalt Strike extension workflow.",
+      "Use C2 Cobalt Strike to develop a Malleable C2 profile."
     ],
     "brandColor": "#2C2677",
     "composerIcon": "./assets/icon.png",

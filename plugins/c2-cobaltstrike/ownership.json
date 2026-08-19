@@ -1,12 +1,13 @@
 {
   "plugin": "c2-cobaltstrike",
-  "purpose": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and extension workflows.",
+  "purpose": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
   "status": "active",
   "agents": [
     "exploit-dev"
   ],
   "skills": [
     "cobalt-strike-aggressor-development",
-    "cobalt-strike-aggressor-reference"
+    "cobalt-strike-aggressor-reference",
+    "cobalt-strike-malleable-c2-development"
   ]
 }
