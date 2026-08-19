@@ -31,7 +31,6 @@
     "defaultPrompt": [
       "Use C2 Cobalt Strike to write Aggressor Script.",
       "Use C2 Cobalt Strike to look up Sleep or Aggressor references.",
-      "Use C2 Cobalt Strike to build a Cobalt Strike extension workflow.",
       "Use C2 Cobalt Strike to develop a Malleable C2 profile."
     ],
     "brandColor": "#2C2677",
