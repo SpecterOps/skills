@@ -1,6 +1,6 @@
 ---
 name: macos-initial-access
-description: Provide concise, macOS guidance for authorized initial-access delivery using app bundles, installer packages, and disk images, including current Gatekeeper behavior and pkgbuild and hdiutil examples.
+description: Provide macOS guidance for initial access using app bundles, installer packages, and disk images, including current Gatekeeper behavior and pkgbuild and hdiutil examples.
 metadata:
   author: "Outflank"
 ---
@@ -9,8 +9,8 @@ metadata:
 
 ## Overview
 
-- Some of the format-specific commands will only run on macOS.
-- Clearly label any behavior that depends on signing, quarantine, management policy, or Office configuration.
+- Some format-specific commands will only run on macOS.
+- Clearly label any behavior that depends on signing, quarantine, or management policy.
 - You aren't limited to the formats described in this skill.
 - Keep commands copyable, explain the expected directory layout in one sentence.
 
@@ -25,7 +25,7 @@ Explain these in one short paragraph unless the user asks for detail:
 
 ## Format routing
 
-Identify the format or formats the user asks about, then read only the matching reference files. Do not preload unrelated format references. If the user asks only about trust controls, read no format reference. If the user requests a comparison of all options, read all four.
+Identify the format or formats the user asks about, then read only the matching reference files. Do not preload unrelated format references. If the user asks only about trust controls, read no format reference. If the user requests a comparison of all options, read all three.
 
 - App bundles (`.app`): Applications containing an `Info.plist` and a Mach-O executable. See [references/app-bundles.md](references/app-bundles.md).
 - Installer packages (`.pkg`): Component or product packages containing payload files and optional `preinstall` or `postinstall` scripts, with system or current-user installation domains. See [references/installer-packages.md](references/installer-packages.md).
