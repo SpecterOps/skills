@@ -1,10 +1,10 @@
 # Tradecraft Linux
 
-Linux-focused workflows for execution tradecraft, persistence validation, service/user context, and operator evidence capture.
+Linux-focused workflows for process injection, execution tradecraft, persistence validation, service/user context, and operator evidence capture.
 
 ## Skills
 
-- None currently packaged in this plugin.
+- `linux-process-injection`
 
 ## Agents
 

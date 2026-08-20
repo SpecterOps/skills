@@ -132,7 +132,7 @@ request expectations, and where to ask for help.
 | [ops-adcs](plugins/ops-adcs/README.md) | Planned | - | - | Active Directory Certificate Services assessment and attack-path validation workflows. Planned; no capability is currently packaged. |
 | [ops-mssql](plugins/ops-mssql/README.md) | Planned | - | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. Planned; no capability is currently packaged. |
 | [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
-| [tradecraft-linux](plugins/tradecraft-linux/README.md) | Planned | - | - | Linux execution, persistence, and operator validation workflows. Planned; no capability is currently packaged. |
+| [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
 | [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges |
@@ -214,6 +214,7 @@ request expectations, and where to ask for help.
 | `mythic-translation-containers` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-translation-containers/SKILL.md) |
 | `com-proxy-triage` | `tradecraft-windows` | [SKILL.md](plugins/tradecraft-windows/skills/com-proxy-triage/SKILL.md) |
 | `macos-initial-access` | `tradecraft-mac` | [SKILL.md](plugins/tradecraft-mac/skills/macos-initial-access/SKILL.md) |
+| `linux-process-injection` | `tradecraft-linux` | [SKILL.md](plugins/tradecraft-linux/skills/linux-process-injection/SKILL.md) |
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `cobalt-strike-malleable-c2-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-malleable-c2-development/SKILL.md) |

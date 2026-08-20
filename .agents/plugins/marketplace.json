@@ -275,7 +275,7 @@
         "path": "./plugins/tradecraft-linux"
       },
       "policy": {
-        "installation": "NOT_AVAILABLE",
+        "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
