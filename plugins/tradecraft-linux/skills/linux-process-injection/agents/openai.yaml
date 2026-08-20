@@ -1,0 +1,10 @@
+interface:
+  display_name: "Linux Process Injection"
+  short_description: "Implement or assess feasibility of process injection on Linux."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $linux-process-injection to answer Linux process injection implementation questions."
+
+policy:
+  allow_implicit_invocation: true
