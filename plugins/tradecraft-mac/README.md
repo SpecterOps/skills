@@ -4,7 +4,7 @@ macOS-focused workflows for execution tradecraft, persistence validation, launch
 
 ## Skills
 
-- None currently packaged in this plugin.
+- `macos-initial-access`
 
 ## Agents
 

@@ -263,7 +263,7 @@
         "path": "./plugins/tradecraft-mac"
       },
       "policy": {
-        "installation": "NOT_AVAILABLE",
+        "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
