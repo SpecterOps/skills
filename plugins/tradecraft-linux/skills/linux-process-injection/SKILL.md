@@ -1,6 +1,6 @@
 ---
 name: linux-process-injection
-description: Use this skill when the user asks about Linux process injection.
+description: Use this skill when the user asks about Linux process injection, using ptrace for injection, LD_PRELOAD injection, writing to procfs, remote access via process_vm_writev, seccomp notify injection, PTRACE_POKETEXT, GOT overwrite, remote thread creation on Linux, or bypassing Yama ptrace restrictions.
 metadata:
   author: "Outflank"
 ---
@@ -9,10 +9,14 @@ metadata:
 
 ## Overview
 
-Start with [the capability matrix](./references/capability-matrix.md).
+Linux has no direct equivalents of Windows APIs like `VirtualAllocEx`, `VirtualProtectEx`, or `CreateRemoteThread`. Allocation, permission changes, and thread creation must be induced inside the target process rather than performed remotely. All live-process injection methods are gated by the ptrace access-check algorithm, which evaluates credentials, dumpability, capabilities, and LSM policy.
+
+There are two primary injection models:
 
 - Live process: modify an existing image with `ptrace`, `/proc/<pid>/mem`, or `process_vm_writev`. Use the model `overwrite -> execute -> recover`.
-- Controlled launch or exec: arrange loading into a new image with `LD_PRELOAD` or seccomp user notification. These do not retrofit an arbitrary running image.
+- Controlled launch or exec: arrange loading into a new image with `LD_PRELOAD` or seccomp user notification.
+
+Consult the [capability matrix](./references/capability-matrix.md) for feasibility checks.
 
 ## Workflow
 
@@ -25,7 +29,7 @@ Start with [the capability matrix](./references/capability-matrix.md).
 
 - Use `ptrace` for register control, thread stops, or the broadest live-process control.
 - Treat `/proc/<pid>/mem` writes through non-writable mappings as kernel-policy dependent.
-- Use `process_vm_writev` only for writable memory; verify byte counts and assume no atomicity.
+- Use `process_vm_writev` only for writable memory.
 - Treat `LD_PRELOAD` as controlled dynamic-loader behavior; static binaries, secure-execution mode, and environment sanitization can block it.
 - Treat seccomp notification as syscall mediation, not remote memory or register control. The seccomp-notify PoC installs a listener before `execve` and substitutes a staged shared-object FD for a selected loader `openat` call.
 
