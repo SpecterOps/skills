@@ -1,0 +1,10 @@
+interface:
+  display_name: "macOS Initial Access"
+  short_description: "Create macOS initial-access payloads"
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.png
+  brand_color: '#00B36B'
+  default_prompt: "Use $macos-initial-access to create an app bundle, installer package, or disk image for macOS."
+
+policy:
+  allow_implicit_invocation: true
