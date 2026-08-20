@@ -1,10 +1,12 @@
 {
   "plugin": "tradecraft-linux",
-  "purpose": "Linux execution, persistence, and operator validation workflows.",
-  "status": "incubating",
+  "purpose": "Linux process injection, execution, persistence, and operator validation workflows.",
+  "status": "active",
   "agents": [
     "exploit-dev",
     "poc-dev"
   ],
-  "skills": []
+  "skills": [
+    "linux-process-injection"
+  ]
 }

@@ -1,19 +1,24 @@
 {
   "name": "tradecraft-linux",
   "version": "0.1.0",
-  "description": "Linux execution, persistence, and operator validation workflows.",
+  "description": "Linux process injection, execution, persistence, and operator validation workflows.",
   "author": {
     "name": "SpecterOps"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Tradecraft Linux",
-    "shortDescription": "Linux execution and persistence workflows.",
-    "longDescription": "Linux-focused workflows for execution tradecraft, persistence validation, service/user context, and operator evidence capture.",
+    "shortDescription": "Linux process injection and execution workflows.",
+    "longDescription": "Linux-focused workflows for process injection, execution tradecraft, persistence validation, service/user context, and operator evidence capture.",
     "developerName": "SpecterOps",
     "category": "Security",
-    "capabilities": [],
-    "defaultPrompt": [],
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Tradecraft Linux to assess or implement Linux process injection."
+    ],
     "brandColor": "#00B36B",
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg"
@@ -24,6 +29,7 @@
     "specter",
     "tradecraft",
     "linux",
+    "process-injection",
     "persistence"
   ]
 }
