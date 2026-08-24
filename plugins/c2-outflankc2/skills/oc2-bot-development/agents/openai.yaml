@@ -1,0 +1,8 @@
+interface:
+  display_name: OC2 Bot Development
+  short_description: "Build event-driven automation bots for Outflank C2."
+  icon_small: ./assets/icon.svg
+  brand_color: '#2C2677'
+  default_prompt: Use $oc2-bot-development for this workflow.
+policy:
+  allow_implicit_invocation: true

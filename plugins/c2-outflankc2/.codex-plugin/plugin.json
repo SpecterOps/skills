@@ -1,0 +1,36 @@
+{
+  "name": "c2-outflankc2",
+  "version": "0.1.0",
+  "description": "Outflank C2 (OC2) BOF script and event-driven bot development workflows.",
+  "author": {
+    "name": "Outflank"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "c2",
+    "outflank-c2",
+    "oc2",
+    "bof",
+    "bot",
+    "python"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Outflank C2 Development",
+    "shortDescription": "Build OC2 BOF wrappers and event-driven bots.",
+    "longDescription": "Focused workflows for authoring Outflank C2 (OC2) Python task wrappers around Beacon Object Files and developing event-driven automation bots.",
+    "developerName": "Outflank",
+    "category": "Security",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Outflank C2 Development to create an OC2 BOF Python task script.",
+      "Use Outflank C2 Development to build an OC2 bot."
+    ],
+    "brandColor": "#2C2677",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}

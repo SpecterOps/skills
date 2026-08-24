@@ -106,3 +106,7 @@ surfaces = ["codex", "claude"]
 [[plugins]]
 name = "go-review"
 surfaces = ["codex", "claude"]
+
+[[plugins]]
+name = "c2-outflankc2"
+surfaces = ["codex", "claude"]
