@@ -154,6 +154,13 @@
       "description": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges",
       "version": "0.1.0",
       "category": "security"
+    },
+    {
+      "name": "c2-outflankc2",
+      "source": "./plugins/c2-outflankc2",
+      "description": "Outflank C2 (OC2) BOF script and event-driven bot development workflows.",
+      "version": "0.1.0",
+      "category": "security"
     }
   ]
 }

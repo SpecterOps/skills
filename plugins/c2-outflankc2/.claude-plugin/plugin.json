@@ -1,0 +1,17 @@
+{
+  "name": "c2-outflankc2",
+  "description": "Outflank C2 (OC2) BOF script and event-driven bot development workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Outflank"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "c2",
+    "outflank-c2",
+    "oc2",
+    "bof",
+    "bot",
+    "python"
+  ]
+}
