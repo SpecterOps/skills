@@ -2,16 +2,6 @@
   "plugin": "c2-outflankc2",
   "purpose": "Outflank C2 (OC2) BOF script and event-driven bot development workflows.",
   "status": "active",
-  "contacts": {
-    "maintainers": [
-      "Outflank"
-    ],
-    "support": "https://github.com/SpecterOps/skills/issues"
-  },
-  "release": {
-    "version": "0.1.0",
-    "channel": "preview"
-  },
   "agents": [],
   "skills": [
     "oc2-bof-script-development",
