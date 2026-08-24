@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OC2 BOF Script Development">
+  <rect width="64" height="64" rx="12" fill="#2C2677"/>
+  <path d="M13 18h11v6h-5v16h5v6H13zM51 18H40v6h5v16h-5v6h11z" fill="#fff"/>
+  <path d="M27 24h10v6H27zm0 10h10v6H27z" fill="#00B36B"/>
+</svg>

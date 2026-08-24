@@ -1,0 +1,8 @@
+interface:
+  display_name: OC2 BOF Script Development
+  short_description: "Develop Outflank C2 Python BOF task wrappers."
+  icon_small: ./assets/icon.svg
+  brand_color: '#2C2677'
+  default_prompt: Use $oc2-bof-script-development for this workflow.
+policy:
+  allow_implicit_invocation: true
