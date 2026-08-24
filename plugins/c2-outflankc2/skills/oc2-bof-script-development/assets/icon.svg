@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OC2 BOF Script Development">
-  <rect width="64" height="64" rx="12" fill="#2C2677"/>
-  <path d="M13 18h11v6h-5v16h5v6H13zM51 18H40v6h5v16h-5v6h11z" fill="#fff"/>
-  <path d="M27 24h10v6H27zm0 10h10v6H27z" fill="#00B36B"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="cobalt-strike-aggressor-development icon">
+  <rect width="128" height="128" rx="24" fill="#0D0A30"/>
+  <rect x="8" y="8" width="112" height="112" rx="21" fill="none" stroke="#2C2677" stroke-width="4"/>
+  <g><circle cx="64" cy="64" r="39" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="64" cy="64" r="24" fill="none" stroke="#8E92EB" stroke-width="6"/><circle cx="64" cy="64" r="9" fill="#00B36B" stroke="#00B36B" stroke-width="6"/><line x1="64" y1="22" x2="64" y2="42" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="64" y1="86" x2="64" y2="106" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="22" y1="64" x2="42" y2="64" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/><line x1="86" y1="64" x2="106" y2="64" stroke="#8E92EB" stroke-width="6" stroke-linecap="round"/></g>
+  <rect x="82" y="94" width="34" height="20" rx="8" fill="#00B36B"/>
+  <text x="99" y="109" fill="#0D0A30" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle">CSA</text>
 </svg>
