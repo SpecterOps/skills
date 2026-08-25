@@ -13,7 +13,7 @@ capabilities are welcome.
 
 ## Development environment
 
-The maintenance framework requires Python 3.13, just, and uv. Exact maintained
+The maintenance framework requires Python 3.13, Go 1.22 or newer, just, and uv. Exact maintained
 versions are recorded in `tools/maintenance/toolchain.toml`.
 
 The easiest setup is the checked-in Dev Container configuration. Open the
@@ -47,6 +47,7 @@ Useful narrower commands are:
 just fmt-check
 just validate
 just test
+just go-review-test
 just check-catalog
 just check-inventory
 just check-powershell
