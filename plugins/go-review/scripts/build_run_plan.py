@@ -106,8 +106,6 @@ def build_selection(
     flags: dict[str, bool],
     threat_model: str,
 ) -> list[dict[str, Any]]:
-    if not flags.get("has_service", False):
-        fail("go-review requires a detectable service surface (has_service=false)")
     if manifest.get("version") != 1:
         fail(f"unsupported manifest version: {manifest.get('version')!r}")
     if not isinstance(manifest.get("clusters"), list):
@@ -159,8 +157,6 @@ def build_selection(
                 "max_passes_per_worker": max_passes,
             }
         )
-    if not selected:
-        fail("no clusters selected after filtering")
     return selected
 
 
@@ -208,7 +204,7 @@ def _shared_prompt_lines(
     context_body: str,
 ) -> list[str]:
     return [
-        "You are a go-review worker in a parallel Go service security review.",
+        "You are a go-review worker in a Go package security review.",
         "Follow the worker protocol in your system prompt verbatim.",
         "",
         f"Output directory: {output_dir}",
@@ -327,7 +323,7 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
     primer_path: Path | None = None
-    if args.cache_primer:
+    if args.cache_primer and workers:
         primer_path = prompt_dir / "cache-primer.txt"
         primer_path.write_text(
             render_cache_primer_prompt(
@@ -351,7 +347,7 @@ def main(argv: list[str] | None = None) -> int:
             "severity_filter": args.severity_filter,
             "plugin_root": str(plugin_root),
             "manifest_path": str(manifest_path),
-            "cache_primer": args.cache_primer,
+            "cache_primer": bool(primer_path),
             **flags,
         },
         "workers": workers,

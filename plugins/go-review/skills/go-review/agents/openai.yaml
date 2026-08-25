@@ -1,6 +1,6 @@
 interface:
-  display_name: Go Review
-  short_description: Review Go services for security vulnerabilities.
-  default_prompt: Use $go-review to review this Go service.
+  display_name: "Go Review"
+  short_description: "Review Go packages for security vulnerabilities."
+  default_prompt: "Use $go-review to audit this Go package for security issues."
 policy:
   allow_implicit_invocation: true

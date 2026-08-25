@@ -1,7 +1,7 @@
 [project]
 name = "go-review-scripts"
-version = "0.1.0"
-description = "Go inventory, planner, artifact validation, and SARIF helpers"
+version = "0.3.0"
+description = "Planner, artifact validation, and SARIF helpers for go-review"
 requires-python = ">=3.11"
 dependencies = []
 

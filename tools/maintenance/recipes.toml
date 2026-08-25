@@ -91,6 +91,11 @@ network = false
 mutation = "declared-output"
 
 [[recipes]]
+name = "go-review-test"
+network = false
+mutation = "none"
+
+[[recipes]]
 name = "scaffold-plugin-metadata"
 network = false
 mutation = "declared-output"

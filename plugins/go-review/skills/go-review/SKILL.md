@@ -1,24 +1,23 @@
 ---
 name: go-review
-description: Performs comprehensive Go service security review for authentication and authorization flaws, request parsing issues, SSRF, SQL and command injection, template and filesystem bugs, crypto/session mistakes, concurrency hazards, and unsafe/cgo edges. Use when auditing Go HTTP or gRPC services, backend APIs, daemons, or network-facing Go applications.
-allowed-tools: Agent AskUserQuestion SendMessage TaskCreate TaskUpdate TaskList Read Write Bash
+description: Performs security review of arbitrary Go packages, including libraries, frameworks, CLIs, HTTP and gRPC services, and backend applications. Covers authentication and authorization, request parsing, SSRF, SQL and command injection, templates and filesystems, crypto/session handling, concurrency, and unsafe/cgo edges.
 ---
 
-# Go Service Security Review
+# Go Security Review
 
 Runs in the main conversation. The orchestrator builds a Go inventory, selects
-review clusters, spawns workers, validates artifacts, then runs dedup and
-FP/severity judges.
+review clusters, delegates or sequentially executes their worker protocols,
+validates artifacts, then runs dedup and FP/severity judges.
 
 ## When to Use
 
 - Auditing Go HTTP, gRPC, GraphQL, or RPC services
 - Reviewing backend APIs, daemons, gateways, proxies, or agents with network exposure
 - Investigating authorization, SSRF, SQL, template, filesystem, concurrency, or cgo risk
+- Reviewing Go libraries, frameworks, command-line tools, or packages without a service boundary
 
 ## When NOT to Use
 
-- Pure libraries with no service surface
 - Smart contracts or blockchain modules with chain-specific semantics
 - Kernel or eBPF code
 - General Go style review without a security objective
@@ -33,12 +32,13 @@ FP/severity judges.
 
 ## Required Inputs
 
-Collect these once with `AskUserQuestion` if they are not explicit:
+Collect these once if they are not explicit. Do not ask for a worker model by
+default; inherit the current session/client model. Honor a model only when the
+user explicitly names one that the client makes available.
 
 | Parameter | Values |
 |-----------|--------|
 | `threat_model` | `REMOTE`, `LOCAL_UNPRIVILEGED`, `BOTH` |
-| `worker_model` | `haiku`, `sonnet`, `opus` |
 | `severity_filter` | `all`, `medium`, `high` |
 | `scope_subpath` | optional; defaults to `.` |
 
@@ -47,34 +47,38 @@ Collect these once with `AskUserQuestion` if they are not explicit:
 ### Phase 1: Resolve Plugin Root
 
 Resolve the directory containing `prompts/clusters/manifest.json` and
-[go_inventory.py](../../scripts/go_inventory.py) using `${CLAUDE_PLUGIN_ROOT}`, `${CODEX_PLUGIN_ROOT}`, then:
+[go_inventory.go](../../scripts/go_inventory.go) from `${CODEX_PLUGIN_ROOT}`,
+`${CLAUDE_PLUGIN_ROOT}`, or the installed location of this skill. Do not scan a
+user's home directory. Abort with an actionable error if no root resolves.
 
-```sh
-find ~/.claude ~/.codex . -path '*/plugins/go-review/prompts/clusters/manifest.json' -print -quit 2>/dev/null
-```
-
-Abort if no root resolves.
+Require Go 1.22 or newer. The inventory is implemented with the Go standard
+library and does not fetch the target's module dependencies.
 
 ### Phase 2: Build Go Inventory
 
-Create `output_dir` at `.go-review-results/<utc timestamp>/` and pre-create the
-worker artifact directories:
+Choose `output_dir` as `.go-review-results/<UTC timestamp>/`, or use an external
+location requested by the user. Create it and run the inventory portably with:
 
 ```sh
-mkdir -p "${output_dir}/findings" "${output_dir}/findings-index.d" "${output_dir}/coverage"
-```
-
-Then run:
-
-```sh
-python3 "${GO_REVIEW_PLUGIN_ROOT}/scripts/go_inventory.py" \
+python3 "${GO_REVIEW_PLUGIN_ROOT}/scripts/prepare_review.py" \
   --repo-root "." \
   --scope-subpath "${scope_subpath}" \
-  --output "${output_dir}/go-inventory.json"
+  --output-dir "${output_dir}"
 ```
 
-Abort if the inventory reports zero `.go` files or `has_service=false`. This v1
-plugin intentionally targets service code, not generic libraries.
+Abort only if the inventory reports zero `.go` files. If `has_service=false`,
+skip the service-boundary and request-input clusters and continue with any
+other detected package capabilities.
+
+The inventory schema remains at version 1. Its implementation uses Go syntax
+trees for imports, declarations, calls, routes, goroutines, and channel types;
+do not replace these results with text searches over source files.
+
+This is conservative syntax analysis, not type or SSA analysis. It inventories
+all matching non-test `.go` files regardless of build tags, crosses nested Go
+modules within scope, and reports the review root's module in the top-level
+`module` field. Capability heuristics can still over-select a cluster; workers
+must verify reachability and data flow from source evidence.
 
 ### Phase 3: Write Context
 
@@ -121,22 +125,29 @@ python3 "${GO_REVIEW_PLUGIN_ROOT}/scripts/build_run_plan.py" \
 
 Read `plan.json`; do not manually re-derive cluster selection.
 
-### Phase 5: Spawn Workers
+### Phase 5: Run Worker Protocols
 
-Use these plugin subagents:
+The portable contracts are the bundled protocol files
+`agents/go-review-worker.md`, `agents/go-review-dedup-judge.md`, and
+`agents/go-review-fp-judge.md`. Do not assume those filenames are registered as
+callable agent names. Read the relevant protocol and pass it with each rendered
+prompt to the client-provided delegation mechanism. If delegation is not
+available, execute each assignment sequentially in the main session while
+preserving the same artifact contract.
 
-- `go-review:go-review-worker`
-- `go-review:go-review-dedup-judge`
-- `go-review:go-review-fp-judge`
-
-Use the same worker protocol as `c-review` and `rust-review`:
+Execution rules:
 
 - optional foreground cache primer
 - workers spawned foreground in waves of at most 16
 - no `run_in_background=true`
 - pass each rendered worker prompt verbatim
 - each worker writes findings, shard, and coverage artifacts
-- use the requested `worker_model` for every worker and the primer
+- inherit the current session/client model unless the user explicitly selected an available model
+
+If `plan.json` contains zero workers, create an empty `findings-index.txt`, note
+that no capability-gated clusters were selected in `run-summary.md`, and proceed
+to reporting. Do not treat an ordinary package with no selected clusters as a
+workflow failure.
 
 ### Phase 6: Validate Worker Artifacts
 
@@ -149,16 +160,24 @@ python3 "${GO_REVIEW_PLUGIN_ROOT}/scripts/validate_artifacts.py" \
   --claimed-count "worker-N=<count>"
 ```
 
-After all workers complete, build `findings-index.txt` from the union of worker
-shards and reconcile it against `findings/*.md`. Keep orphan findings in the
-index and record incomplete shards in `run-summary.md`; do not silently drop a
-finding because a worker crashed after writing it.
+After all workers complete, reconcile shards and initialize deterministic empty
+reports when applicable:
+
+```sh
+python3 "${GO_REVIEW_PLUGIN_ROOT}/scripts/finalize_run.py" "${output_dir}"
+```
+
+This builds `findings-index.txt` from the union of worker shards and
+`findings/*.md`, retains orphan findings, and records incomplete shards in
+`run-summary.md`; do not silently drop a finding because a worker crashed after
+writing it.
 
 ### Phase 7: Judges and Reports
 
-Run `go-review:go-review-dedup-judge`, then
-`go-review:go-review-fp-judge`, each with `output_dir` in the prompt. The FP
-judge also receives the absolute path to [generate_sarif.py](../../scripts/generate_sarif.py).
+Run the bundled dedup protocol, then the bundled FP protocol, each with
+`output_dir` in the prompt. The FP judge also receives the absolute path to
+[generate_sarif.py](../../scripts/generate_sarif.py). Use delegated workers when
+available or execute these protocols sequentially in the main session.
 
 Always run the SARIF safety net:
 
@@ -170,8 +189,22 @@ Return `REPORT.md`, `REPORT.sarif`, `go-inventory.json`, and `run-summary.md`.
 
 ## Success Criteria
 
-- `go-inventory.json` exists and reports a service surface
+- `go-inventory.json` exists and reports at least one Go file
 - every planned worker has a coverage file and shard
 - `findings-index.txt` exists even for zero findings
 - `dedup-summary.md`, `fp-summary.md`, `REPORT.md`, and `REPORT.sarif` exist
 - any truncated or failed worker is surfaced in `run-summary.md`
+
+## Artifact Sensitivity
+
+`.go-review-results/` may contain source excerpts, suspected vulnerabilities,
+and absolute local paths. Treat it as sensitive assessment data. Before sharing
+or committing it, review and redact the contents. Recommend that users ignore
+the directory in the target repository or choose an external output location,
+but do not modify `.gitignore` without permission.
+
+## Source Provenance
+
+The implementation approach and security-review taxonomy are annotated in
+[references/provenance.md](../../references/provenance.md). Treat those sources
+as guidance; findings still require evidence from the repository under review.

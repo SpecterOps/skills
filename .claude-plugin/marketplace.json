@@ -151,8 +151,8 @@
     {
       "name": "go-review",
       "source": "./plugins/go-review",
-      "description": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges",
-      "version": "0.1.0",
+      "description": "Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges",
+      "version": "0.3.0",
       "category": "security"
     },
     {
