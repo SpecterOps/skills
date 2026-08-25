@@ -135,7 +135,7 @@ request expectations, and where to ask for help.
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
 | [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
-| [go-review](plugins/go-review/README.md) | Yes | Yes | - | Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges |
+| [go-review](plugins/go-review/README.md) | Yes | Yes | - | Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges |
 | [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) BOF script and event-driven bot development workflows. |
 
 <!-- END GENERATED PLUGIN CATALOG -->

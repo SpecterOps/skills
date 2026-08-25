@@ -1,11 +1,13 @@
 {
   "name": "go-review",
-  "version": "0.1.0",
-  "description": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges",
+  "version": "0.3.0",
+  "description": "Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges",
   "author": {
     "name": "c0kernel"
   },
   "license": "UNLICENSED",
+  "homepage": "https://github.com/SpecterOps/skills/tree/main/plugins/go-review",
+  "repository": "https://github.com/SpecterOps/skills",
   "keywords": [
     "go",
     "golang",
@@ -21,8 +23,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Go Review",
-    "shortDescription": "Go service security review workflows.",
-    "longDescription": "Comprehensive Go service security review covering authorization, request handling, SSRF, SQL, command execution, templates, filesystem, crypto/session, concurrency, and unsafe/cgo edges.",
+    "shortDescription": "Security review for Go packages and services.",
+    "longDescription": "Security review for arbitrary Go packages, libraries, frameworks, CLIs, and services with AST-backed capability inventory and Markdown/SARIF reporting.",
     "developerName": "c0kernel",
     "category": "Security",
     "capabilities": [
@@ -30,7 +32,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Use Go Review to review this service."
+      "Use Go Review to audit this Go package."
     ]
   }
 }

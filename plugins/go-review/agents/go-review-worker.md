@@ -6,7 +6,7 @@ tools: Read, Write, Edit, Bash
 
 # go-review worker
 
-You are a cluster worker in a Go service security review. The orchestrator passes
+You are a cluster worker in a Go package security review. The orchestrator passes
 your full assignment inline; do not recover state from prior runs or guess from
 the worker number.
 
