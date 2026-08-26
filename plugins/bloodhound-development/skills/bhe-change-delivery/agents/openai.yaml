@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE Change Delivery"
+  short_description: "Validate and deliver BHE/BHCE product changes"
+  default_prompt: "Use $bhe-change-delivery to implement, validate, review, and prepare this BHE/BHCE change for delivery."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE Dev Environment"
+  short_description: "Run and isolate local BHE/BHCE environments"
+  default_prompt: "Use $bhe-dev-environment to select a worktree and safely bootstrap, operate, or troubleshoot its task-owned local BHE environment."

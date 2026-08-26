@@ -134,7 +134,7 @@ request expectations, and where to ask for help.
 | [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
-| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work. |
+| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges |
 | [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) BOF script and event-driven bot development workflows. |
 
@@ -219,7 +219,10 @@ request expectations, and where to ask for help.
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `cobalt-strike-malleable-c2-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-malleable-c2-development/SKILL.md) |
+| `bhe-change-delivery` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-change-delivery/SKILL.md) |
 | `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
+| `bhe-dev-environment` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-environment/SKILL.md) |
+| `bhe-enterprise-review` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-enterprise-review/SKILL.md) |
 | `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
 | `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
 | `go-review` | `go-review` | [SKILL.md](plugins/go-review/skills/go-review/SKILL.md) |

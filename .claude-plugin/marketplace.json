@@ -144,8 +144,8 @@
     {
       "name": "bloodhound-development",
       "source": "./plugins/bloodhound-development",
-      "description": "Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work.",
-      "version": "0.1.0",
+      "description": "Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows.",
+      "version": "0.2.0",
       "category": "productivity"
     },
     {

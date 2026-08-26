@@ -1,0 +1,40 @@
+{
+  "skill_name": "bhe-dev-environment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Set up a fully isolated local BHE stack for my new search feature so it can run alongside another task. Use slot 4 and load the normal sample data.",
+      "expected_output": "The agent resolves the task-owned worktree and existing stack records, runs the isolated helper's plan before up, preserves a unique ownership tuple, and reports the exact environment handoff.",
+      "files": [],
+      "expectations": [
+        "Reads the worktree/isolation guidance before changing stack state",
+        "Verifies that the worktree, stack name, Compose project, slot, and hostname are not owned by another task",
+        "Runs plan before up and does not bypass the helper with direct Compose commands",
+        "Does not skip sample data unless the user requested an empty database"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My local BHE login is broken. Reset every BHE Docker volume and run just init clean so we can start over.",
+      "expected_output": "The agent diagnoses the exact named environment and retained credential state first, explains that the requested reset is destructive, and requires exact authorization before deleting anything.",
+      "files": [],
+      "expectations": [
+        "Does not immediately run a reset, delete volumes, or operate an unidentified stack",
+        "Captures the actual login failure and checks whether retained database credentials explain it",
+        "Explains the exact state that would be destroyed before requesting authorization",
+        "Keeps unrelated task-owned environments out of scope"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review my completed BHE API change, update its parity record, and prepare the pull request.",
+      "expected_output": "The environment skill routes product delivery to bhe-change-delivery and review-only judgment to bhe-enterprise-review instead of loading or performing PR workflow itself.",
+      "files": [],
+      "expectations": [
+        "Routes the request to bhe-change-delivery",
+        "Does not claim ownership of parity, enterprise review, or PR preparation",
+        "Invokes bhe-dev-environment only if worktree or runtime operations are actually needed"
+      ]
+    }
+  ]
+}

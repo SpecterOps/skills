@@ -1,4 +1,6 @@
 interface:
-  display_name: "BHE Dev Bootstrap"
-  short_description: "Run, review, validate, and track BHE/BHCE development"
-  default_prompt: "Use $bhe-dev-bootstrap to set up, isolate, validate, review for enterprise readiness, or track BHE/BHCE parity for my local development work."
+  display_name: "BHE Dev Bootstrap (Deprecated)"
+  short_description: "Deprecated BHE entrypoint; use a focused BHE skill."
+  default_prompt: "Route this request to $bhe-dev-environment, $bhe-change-delivery, or $bhe-enterprise-review; $bhe-dev-bootstrap is a compatibility alias."
+policy:
+  allow_implicit_invocation: true

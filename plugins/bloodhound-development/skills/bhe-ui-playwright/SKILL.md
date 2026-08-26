@@ -9,7 +9,7 @@ Validate BHE frontend work in a real browser without adding Playwright to the pr
 
 ## Establish the Target
 
-1. Use `bhe-dev-bootstrap` to identify the task-owned worktree, stack slug, URL, and credentials.
+1. Use `bhe-dev-environment` to identify the task-owned worktree, stack slug, URL, and credentials.
 2. Verify the URL resolves only to `localhost`, `127.0.0.1`, or `*.localhost` before sending local credentials.
 3. Verify the UI endpoint returns successfully.
 4. Never reuse or restart another task's stack merely because it is available.

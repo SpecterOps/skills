@@ -1,0 +1,42 @@
+{
+  "skill_name": "bhe-enterprise-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this clean BHE candidate against origin/main. Target SHA, merge base, head SHA, Jira acceptance criteria, and BHCE scope are supplied. Return the enterprise receipt.",
+      "expected_output": "The agent performs a mutation-free review of the immutable diff and surrounding code, reports evidence-backed findings and unverified areas, and emits a receipt bound to the supplied SHAs.",
+      "files": [],
+      "expectations": [
+        "Verifies and records the target, merge-base, and head SHAs",
+        "Reads complete materially changed hand-authored files rather than only diff hunks",
+        "Assesses correctness, security, compatibility, reliability, operability, and maintainability",
+        "Reports file and line or symbol, impact, evidence, and smallest remediation for every finding",
+        "Emits PASS only with no open blocking or important findings and no unresolved decision",
+        "Does not edit, commit, push, operate a stack, or mutate a PR"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this BHE UI branch and directly fix anything important you find before approving it.",
+      "expected_output": "The review skill remains review-only: it reports findings and a non-PASS receipt when necessary, and routes remediation back to delivery instead of editing the candidate.",
+      "files": [],
+      "expectations": [
+        "Does not modify the candidate despite the request to fix findings",
+        "Checks Doodle reuse and any new or expanded MUI surface",
+        "Returns CHANGES REQUIRED when a blocking or important finding remains",
+        "Explains that bhe-change-delivery owns fixes and post-fix validation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Bootstrap a clean local BHE stack for a new feature and load AD and Entra sample data.",
+      "expected_output": "The review skill does not attempt environment setup and routes the request to bhe-dev-environment and bhe-sample-data-ingest.",
+      "files": [],
+      "expectations": [
+        "Routes environment ownership to bhe-dev-environment",
+        "Does not start a review or emit a review receipt",
+        "Does not operate Docker itself"
+      ]
+    }
+  ]
+}

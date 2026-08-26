@@ -2,7 +2,15 @@
 
 Read this reference before committing, preparing, creating, updating, or monitoring a BHE pull request.
 
-Before reaching **Prepare the Proposal**, complete [enterprise-code-review.md](enterprise-code-review.md). The proposed PR head must equal the enterprise review receipt's `head_sha`, and every applicable repository SHA must match the reviewed cross-repository candidate. Any product-code change after `PASS` invalidates that disposition. A focused closure review may certify narrow finding-driven fixes; a material redesign requires a fresh minimally briefed reviewer. A formatting-only or generated-only update may use a documented mechanical exception only when its source and representative output were already reviewed.
+Before reaching **Prepare the Proposal**, invoke `bhe-enterprise-review` and obtain its receipt. The proposed PR head must equal the receipt's `head_sha`, and every applicable repository SHA must match the reviewed cross-repository candidate. Any product-code change after `PASS` invalidates that disposition. A focused closure review may certify narrow finding-driven fixes; a material redesign requires a fresh minimally briefed reviewer. A formatting-only or generated-only update may use a documented mechanical exception only when its source and representative output were already reviewed.
+
+## PR Context Preflight
+
+Run `scripts/check-pr-context.sh` from the `bhe-change-delivery` skill once before drafting the proposal. Reuse its repository, visibility, root, branch, upstream, push-state, default-branch, and working-tree results rather than re-inferring them later.
+
+Compare the complete merge-base-to-head diff with the agreed intent. If it contains files or behavior outside the task, stop and inventory them. Proceed only after the user confirms they belong or the work is separated into an independently valid change; never discard or reset unexpected work without explicit direction.
+
+When `visibility` is `PUBLIC`, inspect the proposed title and body, branch name, commits, comments, screenshots, recordings, and diff for internal URLs, private identifiers, customer data, private project names, and internal process details. Present the complete sanitized proposal and warn that the resulting public Git history may remain discoverable after closure or branch deletion. Obtain explicit confirmation immediately before creating the PR.
 
 ## Jira Context Gate
 
@@ -182,7 +190,7 @@ For work spanning tasks, leave a recoverable handoff with `git log --oneline -5`
 For meaningful changes:
 
 ```bash
-PARITY_LOG="<bhe-dev-bootstrap skill directory>/scripts/bhe-parity-log.sh"
+PARITY_LOG="<bhe-change-delivery skill directory>/scripts/bhe-parity-log.sh"
 
 "$PARITY_LOG" check --task <task-slug> --stage pr
 "$PARITY_LOG" show --task <task-slug>
@@ -275,7 +283,7 @@ git -C bhce merge-base --is-ancestor "$bhce_pin" origin/main
 
 An ancestry check exit code of `0` is valid; `1` means the histories diverged or the pin is not an ancestor. Resolve the live BHE ref directly instead of substituting a PR's recorded base SHA.
 
-For BHCE feature work, use BHCE `origin/main` as the feature base regardless of the detached commit initially checked out by BHE. Verify the BHCE remote and branch setup using **Start BHCE Work from BHCE Main** in [worktrees-and-isolation.md](worktrees-and-isolation.md).
+For BHCE feature work, use BHCE `origin/main` as the feature base regardless of the detached commit initially checked out by BHE. Invoke `bhe-dev-environment` and follow **Start BHCE Work from BHCE Main** in its `worktrees-and-isolation.md` reference.
 
 If the inherited BHE pin is not an ancestor but its tree matches BHCE `origin/main`, record the exact SHAs and classify it as a tree-equivalent baseline condition. Do not rebase the BHCE feature onto the detached pin, rebuild a correctly based feature branch, or treat the expected local `M bhce` checkout as a merge conflict. Investigate a differing tree as a compatibility risk.
 
@@ -370,7 +378,7 @@ Unless the user explicitly asks to keep the environment running for a near-term 
 4. Stop the owned standard stack with `bhe-local dev down` when available or `just bhe-dev down` from its owning worktree. Stop an isolated stack with the recorded ownership tuple:
 
    ```bash
-   "<bhe-dev-bootstrap skill directory>/scripts/bhe-isolated-stack.sh" \
+   "<bhe-dev-environment skill directory>/scripts/bhe-isolated-stack.sh" \
      down --name <task-slug> --slot <slot> --repo <worktree>
    ```
 

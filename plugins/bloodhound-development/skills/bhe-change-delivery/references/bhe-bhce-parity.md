@@ -38,7 +38,7 @@ Test the user-visible result in both products. Do not require identical DOM stru
 Initialize the task once:
 
 ```bash
-PARITY_LOG="<bhe-dev-bootstrap skill directory>/scripts/bhe-parity-log.sh"
+PARITY_LOG="<bhe-change-delivery skill directory>/scripts/bhe-parity-log.sh"
 
 "$PARITY_LOG" init --task <task-slug> --repo <absolute-worktree-path>
 ```

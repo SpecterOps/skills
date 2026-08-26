@@ -1,0 +1,42 @@
+{
+  "skill_name": "bhe-change-delivery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement the BHE frontend ticket in the current task worktree, validate it, and get everything ready for a PR. Do not create the PR yet.",
+      "expected_output": "The agent implements against authoritative intent, checks Doodle before MUI, records BHE/BHCE parity, validates the behavior, obtains enterprise review, and presents a template-compliant PR proposal without remote mutation.",
+      "files": [],
+      "expectations": [
+        "Uses bhe-dev-environment for any worktree or stack operation",
+        "Checks existing Doodle components and warns explicitly before any justified MUI expansion",
+        "Records and resolves a BHE/BHCE parity disposition",
+        "Invokes bhe-ui-playwright for browser-visible validation",
+        "Obtains a current SHA-bound bhe-enterprise-review receipt before PR preparation",
+        "Does not create, push to, or update a PR"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This test sometimes fails in CI but passes locally. Please guess the likely race and patch it; I no longer have the CI logs.",
+      "expected_output": "The agent refuses to fabricate a root cause, checks cheap historical exits, and requests the actual failed command, error, and trace before proposing a fix.",
+      "files": [],
+      "expectations": [
+        "Does not propose or implement a speculative code change",
+        "Checks whether the failure is already fixed, already has an open PR, is deterministic, or is broad infrastructure noise",
+        "Requests the exact CI error and relevant trace when evidence is unavailable",
+        "Does not skip the test or weaken its assertion"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Start the existing task-owned BHE Docker stack and tell me its URL and credentials. No code changes are needed.",
+      "expected_output": "The delivery skill routes the environment-only request to bhe-dev-environment without initiating parity, enterprise review, or PR gates.",
+      "files": [],
+      "expectations": [
+        "Routes stack ownership and startup to bhe-dev-environment",
+        "Does not initialize a parity ledger",
+        "Does not invoke enterprise review or PR readiness"
+      ]
+    }
+  ]
+}
