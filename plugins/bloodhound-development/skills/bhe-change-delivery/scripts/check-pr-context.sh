@@ -34,9 +34,11 @@ esac
 upstream=$(git -C "$repo_root" rev-parse --abbrev-ref '@{upstream}' 2>/dev/null || true)
 already_pushed=false
 if [[ -n $upstream ]]; then
-  already_pushed=true
+  git -C "$repo_root" merge-base --is-ancestor HEAD "$upstream" &&
+    already_pushed=true
 elif git -C "$repo_root" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
-  already_pushed=true
+  git -C "$repo_root" merge-base --is-ancestor HEAD "origin/$branch" &&
+    already_pushed=true
 fi
 
 working_tree_clean=true

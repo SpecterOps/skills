@@ -208,6 +208,15 @@ test_pr_context() {
   [[ $(jq -r '.working_tree_clean' "$output") == true ]] || fail "clean-state mismatch"
   pass "PR preflight resolves visibility, branch, and pushed state"
 
+  printf 'ahead\n' >>"$repo/fixture.txt"
+  git -C "$repo" add fixture.txt
+  git -C "$repo" -c commit.gpgsign=false commit -qm ahead
+  (cd "$repo" && PATH="$fake_bin:$PATH" FAKE_GH_VISIBILITY=PRIVATE "$pr_context") >"$output"
+  [[ $(jq -r '.already_pushed' "$output") == false ]] ||
+    fail "ahead-of-upstream branch reported as pushed"
+  [[ $(jq -r '.working_tree_clean' "$output") == true ]] || fail "ahead branch should be clean"
+  pass "PR preflight rejects a clean branch with unpushed commits"
+
   git -C "$repo" checkout -qb local-only
   printf 'dirty\n' >>"$repo/fixture.txt"
   (cd "$repo" && PATH="$fake_bin:$PATH" FAKE_GH_VISIBILITY=PRIVATE "$pr_context") >"$output"
