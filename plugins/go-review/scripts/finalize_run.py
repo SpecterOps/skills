@@ -10,6 +10,18 @@ import sys
 from pathlib import Path
 
 
+def resolve_finding_path(path: Path, findings_root: Path) -> tuple[Path | None, str | None]:
+    """Resolve and validate a finding path before adding it to the report index."""
+    candidate = path.resolve()
+    if candidate.parent != findings_root:
+        return None, "out-of-bounds"
+    if candidate.suffix != ".md":
+        return None, "non-Markdown"
+    if not candidate.is_file():
+        return None, "missing"
+    return candidate, None
+
+
 def reconcile(output_dir: Path) -> tuple[list[Path], list[str]]:
     findings_dir = output_dir / "findings"
     findings_root = findings_dir.resolve()
@@ -25,17 +37,20 @@ def reconcile(output_dir: Path) -> tuple[list[Path], list[str]]:
         for raw in shard.read_text(encoding="utf-8").splitlines():
             if raw.strip():
                 candidate = Path(raw.strip())
-                candidate = (
-                    (output_dir / candidate).resolve() if not candidate.is_absolute() else candidate.resolve()
-                )
-                if candidate.parent != findings_root or candidate.suffix != ".md":
-                    warnings.append(f"- {worker_id}: ignored out-of-bounds shard path: {candidate}")
+                if not candidate.is_absolute():
+                    candidate = output_dir / candidate
+                resolved, reason = resolve_finding_path(candidate, findings_root)
+                if resolved is None:
+                    warnings.append(f"- {worker_id}: ignored {reason} shard path: {candidate.resolve()}")
                     continue
-                if not candidate.is_file():
-                    warnings.append(f"- {worker_id}: shard references missing finding: {candidate}")
-                    continue
-                indexed.add(candidate)
-    disk_findings = {path.resolve() for path in findings_dir.glob("*.md")}
+                indexed.add(resolved)
+    disk_findings: set[Path] = set()
+    for path in findings_dir.glob("*.md"):
+        resolved, reason = resolve_finding_path(path, findings_root)
+        if resolved is None:
+            warnings.append(f"- ignored {reason} orphan finding path: {path.resolve()}")
+            continue
+        disk_findings.add(resolved)
     for orphan in sorted(disk_findings - indexed):
         warnings.append(f"- orphan finding retained: {orphan}")
     findings = sorted(indexed | disk_findings)

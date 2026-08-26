@@ -52,7 +52,9 @@ Resolve the directory containing `prompts/clusters/manifest.json` and
 user's home directory. Abort with an actionable error if no root resolves.
 
 Require Go 1.22 or newer. The inventory is implemented with the Go standard
-library and does not fetch the target's module dependencies.
+library, uses the locally installed toolchain without automatic downloads, and
+does not fetch the target's module dependencies. Source using syntax newer than
+the installed Go version can still fail to parse.
 
 ### Phase 2: Build Go Inventory
 
