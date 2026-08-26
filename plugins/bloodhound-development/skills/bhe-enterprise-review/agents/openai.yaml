@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE Enterprise Review"
+  short_description: "Review an immutable BHE/BHCE candidate"
+  default_prompt: "Use $bhe-enterprise-review to perform a review-only enterprise assessment of this pinned BHE/BHCE candidate."

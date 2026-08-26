@@ -5,6 +5,9 @@
   "agents": [],
   "skills": [
     "bhe-dev-bootstrap",
+    "bhe-dev-environment",
+    "bhe-change-delivery",
+    "bhe-enterprise-review",
     "bhe-ui-playwright",
     "bhe-sample-data-ingest"
   ]

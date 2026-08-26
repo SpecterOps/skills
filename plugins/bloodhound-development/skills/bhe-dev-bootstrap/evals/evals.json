@@ -1,0 +1,38 @@
+{
+  "skill_name": "bhe-dev-bootstrap",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the old BHE dev skill to start an isolated local stack for this feature branch.",
+      "expected_output": "The deprecated entrypoint routes environment ownership and stack startup to bhe-dev-environment.",
+      "files": [],
+      "expectations": [
+        "States that bhe-dev-bootstrap is deprecated",
+        "Routes the request to bhe-dev-environment",
+        "Does not duplicate the environment procedure inside the compatibility skill"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Use bhe-dev-bootstrap to implement this API change and open a pull request.",
+      "expected_output": "The deprecated entrypoint routes implementation and pull-request delivery to bhe-change-delivery.",
+      "files": [],
+      "expectations": [
+        "States that bhe-dev-bootstrap is deprecated",
+        "Routes the product-changing request to bhe-change-delivery",
+        "Does not treat environment bootstrap as the owner of PR delivery"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Use our old BHE development skill to review this clean committed candidate without changing it.",
+      "expected_output": "The deprecated entrypoint routes the mutation-free review to bhe-enterprise-review.",
+      "files": [],
+      "expectations": [
+        "States that bhe-dev-bootstrap is deprecated",
+        "Routes the review-only request to bhe-enterprise-review",
+        "Preserves the request's mutation-free boundary"
+      ]
+    }
+  ]
+}
