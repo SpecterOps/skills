@@ -10,9 +10,11 @@ Status: active. Supported clients: Codex and Claude.
 - Go 1.22 or newer for the AST-backed source inventory
 - Python 3.11 or newer for run planning, artifact validation, and SARIF generation
 
-The inventory uses only the Go standard library and does not download analyzer
-dependencies. Reviewing a target with private modules does not require the
-inventory step to resolve or fetch those modules.
+The inventory uses only the Go standard library and runs with the locally
+installed Go toolchain; it does not download analyzer dependencies or Go
+toolchains. Reviewing a target with private modules does not require the
+inventory step to resolve or fetch those modules. Source using syntax newer
+than the installed Go version can still fail to parse.
 
 ## Usage
 

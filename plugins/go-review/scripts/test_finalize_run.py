@@ -47,6 +47,39 @@ class FinalizeRunTests(unittest.TestCase):
             self.assertEqual(findings, [])
             self.assertTrue(any("out-of-bounds" in item for item in warnings))
 
+    def test_orphan_symlink_outside_findings_is_ignored(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)
+            findings_dir = output / "findings"
+            findings_dir.mkdir()
+            (output / "findings-index.d").mkdir()
+            outside = output / "outside.md"
+            outside.write_text("---\nid: OUTSIDE-001\n---\n")
+            (findings_dir / "LINK-001.md").symlink_to(outside)
+            (output / "plan.json").write_text(json.dumps({"workers": []}))
+
+            findings, warnings = finalize_run.reconcile(output)
+
+            self.assertEqual(findings, [])
+            self.assertNotIn(str(outside.resolve()), (output / "findings-index.txt").read_text())
+            self.assertTrue(any("out-of-bounds orphan" in item for item in warnings))
+
+    def test_broken_orphan_symlink_keeps_empty_report_path(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)
+            findings_dir = output / "findings"
+            findings_dir.mkdir()
+            (output / "findings-index.d").mkdir()
+            (findings_dir / "BROKEN-001.md").symlink_to(output / "missing.md")
+            (output / "plan.json").write_text(json.dumps({"workers": []}))
+
+            with mock.patch("finalize_run.subprocess.run") as run:
+                self.assertEqual(finalize_run.main([str(output)]), 0)
+
+            run.assert_called_once()
+            self.assertEqual((output / "findings-index.txt").read_text(), "")
+            self.assertTrue(any("out-of-bounds orphan" in item for item in (output / "run-summary.md").read_text().splitlines()))
+
 
 if __name__ == "__main__":
     unittest.main()

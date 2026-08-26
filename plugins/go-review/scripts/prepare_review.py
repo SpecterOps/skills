@@ -30,6 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     with tempfile.TemporaryDirectory(prefix="go-review-gocache-") as go_cache:
         environment = os.environ.copy()
         environment["GOCACHE"] = go_cache
+        environment["GOTOOLCHAIN"] = "local"
         completed = subprocess.run(
             [
                 "go",
@@ -46,6 +47,7 @@ def main(argv: list[str] | None = None) -> int:
             capture_output=True,
             text=True,
             env=environment,
+            cwd=script_root,
         )
     if completed.returncode:
         sys.stderr.write(completed.stderr)
