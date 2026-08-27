@@ -41,7 +41,9 @@ Read only the references needed for the current task:
 
 ## Delegated Environment Ownership
 
-When delegation is explicitly authorized and useful, assign at most one environment operator for a task-owned stack. Resolve the worktree and stack identity before mutation, or limit the delegate to read-only discovery when ownership is ambiguous. Require a handoff containing the worktree, branch, stack kind and identity, Compose project, slot and URL when applicable, health and login state, sample-data state, commands used, and exact safe restart and shutdown commands. No other agent may operate that stack concurrently.
+This skill is designed to run as the single environment-operator lane under `bhe-change-delivery` when environment work can overlap useful investigation or implementation. The orchestrator should delegate this whole lane rather than individual Docker commands. When used standalone or when no useful parallel work exists, operate the environment directly without spawning another agent.
+
+Assign at most one environment operator for a task-owned stack. Resolve the worktree and stack identity before mutation, or limit the operator to read-only discovery when ownership is ambiguous. The same operator owns sample-data mutation through `bhe-sample-data-ingest`; do not assign ingest to a second concurrent agent. Require a handoff containing the worktree, branch, stack kind and identity, Compose project, slot and URL when applicable, health and login state, sample-data state, commands used, and exact safe restart and shutdown commands. No other agent may operate that stack concurrently.
 
 Delegation never authorizes a destructive reset, another task's environment, a remote agreement, or a remote PR mutation.
 

@@ -7,9 +7,11 @@
       "expected_output": "The agent resolves the task-owned worktree and existing stack records, runs the isolated helper's plan before up, preserves a unique ownership tuple, and reports the exact environment handoff.",
       "files": [],
       "expectations": [
+        "Runs as the one exclusive environment-operator lane when change delivery delegates the environment",
         "Reads the worktree/isolation guidance before changing stack state",
         "Verifies that the worktree, stack name, Compose project, slot, and hostname are not owned by another task",
         "Runs plan before up and does not bypass the helper with direct Compose commands",
+        "Keeps sample-data mutation in the same operator lane and does not assign a concurrent ingest agent",
         "Does not skip sample data unless the user requested an empty database"
       ]
     },

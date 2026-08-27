@@ -7,6 +7,8 @@ description: Perform a mutation-free enterprise code review of a clean, immutabl
 
 Run this gate after implementation and focused validation stabilize, before preparing the PR proposal. The goal is production-quality code that solves the current problem without creating avoidable maintenance cost. Apply the checks proportionally: do not demand speculative abstractions or unrelated cleanup.
 
+This skill is designed to be invoked by `bhe-change-delivery` in a fresh independent sub-agent context with raw intent and pinned repository SHAs. Once assigned, the reviewer owns one accountable verdict and must not delegate the review again. If independent delegation is unavailable, the implementing agent may use this skill directly only as a disclosed self-review.
+
 ## Review-Only Contract
 
 Review the supplied candidate directly. A read-only fetch may refresh target refs, but do not edit the working tree or index, commit, push, operate a development stack, modify Jira or a PR, rerun remote checks, request mutation approvals, or delegate the review again. The delivery agent retains ownership of implementation, validation, integration, and all candidate or external-state mutations.

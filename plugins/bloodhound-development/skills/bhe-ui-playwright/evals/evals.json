@@ -1,0 +1,39 @@
+{
+  "skill_name": "bhe-ui-playwright",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Change delivery assigned you the browser-validation lane for a BHE frontend change. The environment operator supplied a stable task URL, credentials, and stack identity.",
+      "expected_output": "The agent exclusively owns browser validation and its evidence, uses the supplied stable target, and returns a focused handoff without mutating stack state.",
+      "files": [],
+      "expectations": [
+        "Acts as the single browser-validation agent for the task target",
+        "Runs the baseline and changed-behavior scenarios against the supplied environment",
+        "Owns Playwright output, browser errors, screenshots, traces, and the validation handoff",
+        "Does not start, stop, seed, reset, or otherwise mutate the stack"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Validate this small BHE UI regression directly; no orchestrator or parallel work is involved and the local task stack is already healthy.",
+      "expected_output": "The agent performs the focused validation directly instead of spawning another agent solely to satisfy a delegation pattern.",
+      "files": [],
+      "expectations": [
+        "Does not spawn a sub-agent when no useful parallelism or independence benefit exists",
+        "Keeps all browser activity scoped to the task-owned local target",
+        "Returns the required browser, accessibility, and line-count evidence"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The assigned BHE URL is down. Restart its Docker stack and then continue the delegated Playwright run.",
+      "expected_output": "The browser agent does not mutate stack state and routes the restart to the exclusive bhe-dev-environment operator before resuming validation.",
+      "files": [],
+      "expectations": [
+        "Does not run Docker or restart the stack",
+        "Routes the environment mutation to bhe-dev-environment",
+        "Waits for a stable environment handoff before sending credentials or resuming browser validation"
+      ]
+    }
+  ]
+}

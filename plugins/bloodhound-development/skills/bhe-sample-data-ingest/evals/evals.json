@@ -1,0 +1,39 @@
+{
+  "skill_name": "bhe-sample-data-ingest",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "You are the delegated BHE environment operator. Load both official sample datasets into the task-owned isolated stack and report when analysis completes.",
+      "expected_output": "The same exclusive environment operator performs ingest, verifies completion, and reports the resulting environments without creating a second ingest agent.",
+      "files": [],
+      "expectations": [
+        "Keeps ingest inside the existing environment-operator lane",
+        "Does not delegate shared-state mutation to a concurrent agent",
+        "Verifies the exact task-owned target before authenticating or uploading",
+        "Reports job completion, failures, and available AD and Entra environments"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Load the AD sample dataset into my already-running standalone BHE development stack. No change-delivery orchestrator is involved.",
+      "expected_output": "The agent establishes sole mutation ownership of the named stack and performs the focused AD ingest directly.",
+      "files": [],
+      "expectations": [
+        "Checks that no other agent is operating or ingesting into the target stack",
+        "Does not spawn a sub-agent when no useful parallel lane exists",
+        "Uses the requested AD-only dataset and verifies completion"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Speed this up by having one agent ingest AD and another ingest Entra into the same local BHE stack at the same time.",
+      "expected_output": "The skill refuses concurrent mutation of the same stack and keeps both datasets under one environment operator and ingest lifecycle.",
+      "files": [],
+      "expectations": [
+        "Does not create concurrent ingest agents for one stack",
+        "Explains the shared job and stack-state ownership conflict",
+        "Runs the requested datasets sequentially within one operator lane"
+      ]
+    }
+  ]
+}

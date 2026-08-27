@@ -7,11 +7,13 @@
       "expected_output": "The agent implements against authoritative intent, checks Doodle before MUI, records BHE/BHCE parity, validates the behavior, obtains enterprise review, and presents a template-compliant PR proposal without remote mutation.",
       "files": [],
       "expectations": [
+        "Proactively delegates useful non-overlapping implementation or validation lanes when sub-agents are available",
         "Uses bhe-dev-environment for any worktree or stack operation",
+        "Keeps sample ingest in the exclusive environment-operator lane and browser validation in one separate non-mutating lane",
         "Checks existing Doodle components and warns explicitly before any justified MUI expansion",
         "Records and resolves a BHE/BHCE parity disposition",
         "Invokes bhe-ui-playwright for browser-visible validation",
-        "Obtains a current SHA-bound bhe-enterprise-review receipt before PR preparation",
+        "Uses a fresh independent bhe-enterprise-review sub-agent when available and obtains a current SHA-bound receipt before PR preparation",
         "Does not create, push to, or update a PR"
       ]
     },

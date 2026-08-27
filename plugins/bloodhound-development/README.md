@@ -12,3 +12,5 @@ Internal workflows for developing and validating BloodHound Enterprise and Blood
 - `bhe-sample-data-ingest` — load and verify the official AD and Entra sample datasets in a local development instance.
 
 The analyst-oriented `bloodhound` plugin remains a separate dependency for query, AD/Azure, and OpenGraph domain workflows.
+
+`bhe-change-delivery` is the primary orchestrator. It proactively delegates independent investigation, implementation, environment, browser-validation, and review lanes when useful. Leaf skills retain single-owner boundaries: one environment operator owns stack state and sample ingest, one browser agent owns Playwright evidence, and one fresh reviewer owns the immutable enterprise verdict.

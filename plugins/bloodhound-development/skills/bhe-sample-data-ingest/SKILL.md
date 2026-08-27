@@ -9,6 +9,8 @@ description: Download and ingest official BloodHound sample data into a local Bl
 
 Use this skill to repeatably load the official BloodHound sample datasets into a local BHE/BHCE dev environment. Keep this separate from general BHE bootstrap: this skill assumes the app is already running or guides the user to start it first.
 
+Sample ingest belongs to the exclusive `bhe-dev-environment` operator because it mutates shared stack state. Under `bhe-change-delivery`, the environment operator should invoke and perform this skill within the same lane; do not create a second concurrent ingest agent. When used standalone, first establish that no other agent is operating or ingesting into the target stack, then retain sole mutation ownership through completion or failure handoff.
+
 Official docs: `https://bloodhound.specterops.io/get-started/quickstart/ce-ingest-sample-data#ingest-sample-data`
 
 ## Preconditions

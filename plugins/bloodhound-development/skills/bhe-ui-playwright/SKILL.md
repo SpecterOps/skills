@@ -7,6 +7,12 @@ description: Validate BloodHound Enterprise (BHE) frontend changes with Playwrig
 
 Validate BHE frontend work in a real browser without adding Playwright to the product repository unless the user explicitly requests it.
 
+## Delegated Browser-Validation Lane
+
+This skill is designed to run as one focused browser-validation lane under `bhe-change-delivery` when it can overlap other independent work or provide cleaner validation ownership. Assign at most one browser agent to a task-owned target. Start only after the `bhe-dev-environment` operator reports a stable URL, credentials, and stack identity. The browser agent owns Playwright, screenshots, traces, browser-console evidence, and its validation handoff, but must not start, stop, seed, reset, or otherwise mutate the stack. Route stack changes back to the environment operator.
+
+When this skill is used standalone or no useful parallel work exists, perform validation directly without spawning another agent.
+
 ## Establish the Target
 
 1. Use `bhe-dev-environment` to identify the task-owned worktree, stack slug, URL, and credentials.
