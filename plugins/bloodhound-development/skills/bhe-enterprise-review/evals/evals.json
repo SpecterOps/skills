@@ -7,6 +7,7 @@
       "expected_output": "The agent performs a mutation-free review of the immutable diff and surrounding code, reports evidence-backed findings and unverified areas, and emits a receipt bound to the supplied SHAs.",
       "files": [],
       "expectations": [
+        "Runs as one fresh independent reviewer when invoked by change delivery and does not delegate the verdict again",
         "Verifies and records the target, merge-base, and head SHAs",
         "Reads complete materially changed hand-authored files rather than only diff hunks",
         "Assesses correctness, security, compatibility, reliability, operability, and maintainability",

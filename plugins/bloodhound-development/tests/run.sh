@@ -227,7 +227,7 @@ test_pr_context() {
 
 test_eval_schemas() {
   local skill eval_file
-  for skill in bhe-dev-bootstrap bhe-dev-environment bhe-change-delivery bhe-enterprise-review; do
+  for skill in bhe-dev-bootstrap bhe-dev-environment bhe-change-delivery bhe-enterprise-review bhe-ui-playwright bhe-sample-data-ingest; do
     eval_file=$plugin_dir/skills/$skill/evals/evals.json
     jq -e --arg skill "$skill" '
       .skill_name == $skill and
@@ -241,7 +241,7 @@ test_eval_schemas() {
         (.expectations | type) == "array" and length > 0)
     ' "$eval_file" >/dev/null || fail "invalid eval schema: $eval_file"
   done
-  pass "split skills ship canonical behavioral eval definitions"
+  pass "BHE workflow skills ship canonical behavioral eval definitions"
 }
 
 require_tools

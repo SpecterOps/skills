@@ -35,11 +35,20 @@ Before editing:
 
 Use a fresh production-baseline worktree for new PR-bound work unless the user explicitly selected an existing worktree or branch.
 
-## Delegate Deliberately
+## Orchestrate Independent Lanes
 
-When delegation is explicitly authorized, keep the primary agent accountable for integration, cross-repository decisions, final verification, approval requests, and remote mutations. Partition implementation by non-overlapping files, packages, repositories, or operational surfaces. Give delegates the raw authoritative intent, exact worktree and branch, BHE/BHCE scope, validation expectations, and exclusive ownership. Require changed files, commands and tests, failures, assumptions, and remaining risks in the handoff.
+When sub-agents are available, proactively delegate in-scope work that can proceed independently and would materially reduce elapsed time or improve independent judgment. The user's request to complete the product change is sufficient authorization for this internal delegation unless the user says not to delegate; it does not authorize broader scope or additional external mutations. Do not wait for a separate invitation to delegate useful investigation, non-overlapping implementation, focused validation, or review work, and do not block progress merely waiting for an agent slot.
 
-Do not delegate tightly coupled edits merely to increase agent count. Never allow a delegate to create or update a remote PR, accept external agreements, perform destructive resets, or operate another task's environment.
+Keep the primary agent accountable for integration, cross-repository decisions, final verification, approval requests, and all remote mutations. Partition implementation by non-overlapping files, packages, repositories, or operational surfaces. Give each delegate the raw authoritative intent, exact worktree and branch, BHE/BHCE scope, validation expectations, and exclusive ownership. Require changed files, commands and tests, failures, assumptions, and remaining risks in the handoff.
+
+Use these ownership lanes:
+
+- Assign at most one `bhe-dev-environment` operator for the task-owned stack. That same lane owns `bhe-sample-data-ingest`; do not run ingest concurrently from another agent.
+- Assign at most one `bhe-ui-playwright` browser-validation agent after the environment operator reports a stable target. The browser agent must not mutate stack state.
+- Invoke `bhe-enterprise-review` in a fresh, independent review context for the immutable committed candidate. Supply raw intent and pinned SHAs, not author reasoning or a desired verdict.
+- Delegate investigation and implementation only across non-overlapping ownership boundaries; sequence tightly coupled edits and integration work.
+
+Do not delegate merely to increase agent count. Never allow a delegate to create or update a remote PR, accept external agreements, perform destructive resets, or operate another task's environment.
 
 ## Track BHE/BHCE Compatibility
 
@@ -80,7 +89,7 @@ Fix the identified source rather than skipping the test or weakening the asserti
 
 ## Run the Enterprise Review Gate
 
-After implementation and focused validation stabilize, invoke `bhe-enterprise-review` on a clean immutable committed candidate. Provide the exact repository/worktree, live target ref, pinned target, merge-base and head SHAs, raw intent and acceptance criteria, BHE/BHCE scope, and sister-repository SHA when applicable. Do not prime the reviewer with implementation reasoning, expected findings, or a desired verdict.
+After implementation and focused validation stabilize, invoke `bhe-enterprise-review` in a fresh independent sub-agent context on a clean immutable committed candidate whenever sub-agents are available. Provide the exact repository/worktree, live target ref, pinned target, merge-base and head SHAs, raw intent and acceptance criteria, BHE/BHCE scope, and sister-repository SHA when applicable. Do not prime the reviewer with implementation reasoning, expected findings, or a desired verdict. If independent delegation is unavailable, perform and disclose a self-review rather than skipping the gate.
 
 Independently verify findings before acting. Fix valid blocking and important findings, rerun affected validation, and obtain a new receipt for the resulting exact head. A product-code change after `PASS` invalidates the receipt. Do not prepare a PR proposal while blocking or important findings remain, an unresolved decision exists, or the receipt is absent, stale, or non-`PASS`.
 
