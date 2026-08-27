@@ -58,4 +58,4 @@ validate target="": _require-uv
     UV_PYTHON_DOWNLOADS=never "$uv_cmd" run --project tools/maintenance --frozen --no-sync python -m tools.repo_maintenance validate {{quote(target)}}
 
 # Run the complete offline, read-only quality gate.
-check: fmt-check validate test go-review-test
+check: fmt-check validate test go-review-test bhe-development-test
