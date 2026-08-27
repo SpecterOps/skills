@@ -32,13 +32,29 @@ esac
 [[ -n $default_branch ]] || die "GitHub metadata did not include a default branch"
 
 upstream=$(git -C "$repo_root" rev-parse --abbrev-ref '@{upstream}' 2>/dev/null || true)
+head_sha=$(git -C "$repo_root" rev-parse HEAD)
+remote_ref=
+remote_head_sha=
 already_pushed=false
 if [[ -n $upstream ]]; then
-  git -C "$repo_root" merge-base --is-ancestor HEAD "$upstream" &&
-    already_pushed=true
+  remote_ref=$upstream
 elif git -C "$repo_root" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
-  git -C "$repo_root" merge-base --is-ancestor HEAD "origin/$branch" &&
+  remote_ref="origin/$branch"
+fi
+
+push_state=unpublished
+if [[ -n $remote_ref ]]; then
+  remote_head_sha=$(git -C "$repo_root" rev-parse "$remote_ref")
+  if [[ $head_sha == "$remote_head_sha" ]]; then
+    push_state=synchronized
     already_pushed=true
+  elif git -C "$repo_root" merge-base --is-ancestor "$remote_ref" HEAD; then
+    push_state=ahead
+  elif git -C "$repo_root" merge-base --is-ancestor HEAD "$remote_ref"; then
+    push_state=behind
+  else
+    push_state=diverged
+  fi
 fi
 
 working_tree_clean=true
@@ -51,10 +67,16 @@ jq -n \
   --arg remote_url "$remote_url" \
   --arg branch "$branch" \
   --arg upstream "$upstream" \
+  --arg head_sha "$head_sha" \
+  --arg remote_head_sha "$remote_head_sha" \
+  --arg push_state "$push_state" \
   --arg default_branch "$default_branch" \
   --argjson already_pushed "$already_pushed" \
   --argjson working_tree_clean "$working_tree_clean" \
   '{repo:$repo, visibility:$visibility, root:$root, remote_url:$remote_url,
     branch:$branch, upstream:($upstream | if length == 0 then null else . end),
+    head_sha:$head_sha,
+    remote_head_sha:($remote_head_sha | if length == 0 then null else . end),
+    push_state:$push_state,
     already_pushed:$already_pushed, default_branch:$default_branch,
     working_tree_clean:$working_tree_clean}'

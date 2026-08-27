@@ -6,6 +6,11 @@ network = true
 mutation = "local-cache"
 
 [[recipes]]
+name = "bhe-development-test"
+network = false
+mutation = "none"
+
+[[recipes]]
 name = "check"
 network = false
 mutation = "none"
