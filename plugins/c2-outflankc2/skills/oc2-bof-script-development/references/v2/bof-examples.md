@@ -1,4 +1,4 @@
-# OC2 BOF Wrapper Examples
+# OC2 V2 BOF Wrapper Examples
 
 ## Minimal Wrapper
 
