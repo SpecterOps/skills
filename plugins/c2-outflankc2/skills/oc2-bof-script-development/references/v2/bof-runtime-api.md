@@ -1,6 +1,4 @@
-# OC2 BOF Runtime API
-
-This summarizes OC2 2.11.4. Confirm it against the target deployment.
+# OC2 V2 BOF Runtime API
 
 ## Constructor
 

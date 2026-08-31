@@ -1,4 +1,4 @@
-# OC2 BOF Authoring Model
+# OC2 V2 BOF Authoring Model
 
 ## Packaging
 
