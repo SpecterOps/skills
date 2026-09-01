@@ -53,12 +53,12 @@ Include focused committed Playwright coverage in the implementation PR by defaul
 
 ## Iteration Workflow
 
-1. Establish the Playwright baseline before changing product code. Require it to pass unless an explicitly diagnostic or coverage-baselining ticket permits known failures.
+1. When the selected disposition uses Playwright, establish the Playwright baseline before changing product code. Require it to pass unless an explicitly diagnostic or coverage-baselining ticket permits known failures.
 2. Record the Playwright disposition and the behavior or risk it covers.
 3. Make the smallest feature change and its focused unit tests.
 4. For `committed-playwright`, add or extend the smallest meaningful repository scenario; for `standalone-playwright-only`, extend the external scenario only for behavior introduced in that iteration.
 5. Run focused unit, type, lint, and formatting checks.
-6. Run the targeted repository spec when applicable and Playwright validation against the task-owned stack.
+6. Run the targeted repository spec and task-owned-stack Playwright validation when applicable to the selected disposition.
 7. Before PR handoff, run the full repository suite when the ticket, repository instructions, or regression scope requires it.
 8. Verify the endpoint remains healthy and inspect browser errors.
 9. Report cumulative line counts and the final disposition before handing control back to the user.
