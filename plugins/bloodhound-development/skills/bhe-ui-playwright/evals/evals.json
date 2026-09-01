@@ -10,6 +10,7 @@
         "Acts as the single browser-validation agent for the task target",
         "Runs the baseline and changed-behavior scenarios against the supplied environment",
         "Owns Playwright output, browser errors, screenshots, traces, and the validation handoff",
+        "Records and reports a durable Playwright coverage disposition with its rationale",
         "Does not start, stop, seed, reset, or otherwise mutate the stack"
       ]
     },
@@ -21,7 +22,7 @@
       "expectations": [
         "Does not spawn a sub-agent when no useful parallelism or independence benefit exists",
         "Keeps all browser activity scoped to the task-owned local target",
-        "Returns the required browser, accessibility, and line-count evidence"
+        "Returns the required browser, accessibility, screenshot, coverage-disposition, CI-enforcement, and line-count evidence"
       ]
     },
     {
@@ -33,6 +34,31 @@
         "Does not run Docker or restart the stack",
         "Routes the environment mutation to bhe-dev-environment",
         "Waits for a stable environment handoff before sending credentials or resuming browser validation"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "A BHE change adds a stable multi-step dialog workflow. The repository already has a supported mocked Playwright suite, while the task-owned stack can provide complementary real-backend validation. Decide the coverage and PR packaging.",
+      "expected_output": "The agent selects focused repository-owned Playwright coverage for the durable workflow, validates the real stack separately when useful, and packages the required regression test with the implementation PR unless a documented split criterion applies.",
+      "files": [],
+      "expectations": [
+        "Chooses committed-playwright with a behavior- and risk-based rationale",
+        "Adds or extends the smallest deterministic repository scenario using existing fixtures and narrowly scoped mocks",
+        "Treats standalone real-stack validation as complementary rather than a substitute for durable coverage",
+        "Keeps the committed test in the implementation PR unless a stated split-PR criterion applies",
+        "Reports targeted and full-suite results and whether the suite is CI-enforced"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Prepare browser-validation evidence for a PR-bound BHE visual change after the scenarios and accessibility checks pass.",
+      "expected_output": "The agent captures representative reviewer evidence from the validated task-owned environment and does not call the UI PR ready until stable PR-accessible screenshots can be supplied.",
+      "files": [],
+      "expectations": [
+        "Captures at least one representative final-state screenshot and additional states when they materially improve review coverage",
+        "Keeps local screenshots outside the product diff and sanitizes artifacts intended for public use",
+        "Reports screenshot paths and captions needed for stable PR-accessible uploads",
+        "Does not claim PR readiness while required screenshot evidence is missing"
       ]
     }
   ]

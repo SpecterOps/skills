@@ -63,6 +63,7 @@ Read the complete content of every materially changed hand-authored file, not on
 - Confirm the implementation directly serves the agreed behavior and acceptance criteria.
 - Prefer existing domain concepts, utilities, components, and extension points when they are a clean fit.
 - For frontend changes, inspect the diff and relevant surrounding code for Doodle UI reuse. Prefer existing Doodle components, compositions, tokens, and accessibility behavior over new local equivalents.
+- For Doodle typography composition, prefer the public `Typography` component when it can own the rendered element. Preserve a required semantic, behavioral, or third-party primitive and apply `TypographyVariants` when that primitive must retain rendering ownership. Verify semantic tags, forwarded props and refs, and accessibility behavior; flag redundant native-element and equivalent-variant combinations that obscure intent.
 - Flag any new or expanded Material UI (MUI) import, component, token, theme dependency, wrapper, or package dependency. Require evidence that the author checked viable Doodle alternatives and an explicit `MUI exception:` warning that states why Doodle cannot satisfy the requirement and how the MUI usage is contained. Treat an unjustified or undisclosed MUI expansion as an `important` finding; escalate to `blocking` when it creates a material architecture, accessibility, compatibility, or migration risk.
 - Do not demand unrelated wholesale MUI migration. When the change already touches an MUI surface, assess whether a focused Doodle replacement is safe and proportionate; otherwise require that the change avoid increasing the MUI footprint and record any migration work as a concrete follow-up.
 - Reject duplicate sources of truth, parallel abstractions, unnecessary layers, premature generalization, and configuration added only for hypothetical use.
@@ -103,8 +104,9 @@ Read the complete content of every materially changed hand-authored file, not on
 - Keep functions, components, and modules small enough to reason about, but do not fragment cohesive logic.
 - Make invalid states difficult to represent when the repository's language and patterns support it.
 - Add comments for non-obvious rationale, constraints, or tradeoffs; do not narrate syntax.
-- Ensure tests protect behavior and important failure modes, not implementation trivia. Avoid broad snapshots when focused assertions provide clearer protection.
-- Verify documentation, examples, generated artifacts, and cleanup instructions when the change alters developer or operator behavior.
+- Ensure each changed test protects an identifiable behavior, contract, failure mode, or demonstrated regression at the component or token that owns it. Avoid repeating exact class-list assertions across consumers when the canonical component already covers the mapping, and avoid broad snapshots when focused assertions provide clearer protection. Require browser or visual evidence, rather than redundant unit assertions, for purely presentational integration when appropriate.
+- Treat Storybook stories as public API documentation. Verify that descriptions teach intended use, controls agree with rendering, displayed snippets are valid and semantic, and examples use realistic compositions without custom code-output markup that can drift from the rendered component.
+- Keep documentation proportional to durable consumer or operator needs. Verify required setup, supported usage, migration action, and non-obvious constraints when applicable; flag temporary implementation rationale, duplicated planning context, or self-evident internal details that add maintenance burden without helping a reader act or reason correctly.
 
 ## Determine the Disposition
 

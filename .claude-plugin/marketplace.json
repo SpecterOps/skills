@@ -145,7 +145,7 @@
       "name": "bloodhound-development",
       "source": "./plugins/bloodhound-development",
       "description": "Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "productivity"
     },
     {

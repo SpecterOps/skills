@@ -8,7 +8,7 @@ Internal workflows for developing and validating BloodHound Enterprise and Blood
 - `bhe-dev-environment` — select or create task-owned worktrees and safely bootstrap, isolate, troubleshoot, and release local stacks.
 - `bhe-change-delivery` — implement and validate product changes, track BHE/BHCE parity, prepare PR trust packages, and follow changes through CI and review.
 - `bhe-enterprise-review` — perform a mutation-free review of an immutable BHE/BHCE candidate and emit a SHA-bound review receipt.
-- `bhe-ui-playwright` — validate BHE frontend behavior, browser errors, failed requests, accessibility, and optional Lighthouse diagnostics.
+- `bhe-ui-playwright` — validate BHE/BHCE frontend behavior, choose durable Playwright coverage, capture reviewer evidence, and report browser, accessibility, and CI-enforcement results.
 - `bhe-sample-data-ingest` — load and verify the official AD and Entra sample datasets in a local development instance.
 
 The analyst-oriented `bloodhound` plugin remains a separate dependency for query, AD/Azure, and OpenGraph domain workflows.

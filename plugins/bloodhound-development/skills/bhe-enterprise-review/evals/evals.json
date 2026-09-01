@@ -18,12 +18,16 @@
     },
     {
       "id": 2,
-      "prompt": "Review this BHE UI branch and directly fix anything important you find before approving it.",
+      "prompt": "Review this BHE UI branch, including its Doodle typography composition, tests, Storybook stories, and package documentation, and directly fix anything important you find before approving it.",
       "expected_output": "The review skill remains review-only: it reports findings and a non-PASS receipt when necessary, and routes remediation back to delivery instead of editing the candidate.",
       "files": [],
       "expectations": [
         "Does not modify the candidate despite the request to fix findings",
         "Checks Doodle reuse and any new or expanded MUI surface",
+        "Checks whether Typography or TypographyVariants correctly owns rendering and preserves semantics, props, refs, and accessibility",
+        "Checks that tests protect the canonical contract without redundant consumer implementation assertions",
+        "Treats Storybook as public API documentation and rejects drift between controls, snippets, and rendered examples",
+        "Assesses documentation for durable consumer needs without demanding temporary implementation rationale",
         "Returns CHANGES REQUIRED when a blocking or important finding remains",
         "Explains that bhe-change-delivery owns fixes and post-fix validation"
       ]

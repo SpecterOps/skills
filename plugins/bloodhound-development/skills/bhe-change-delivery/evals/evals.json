@@ -13,6 +13,7 @@
         "Checks existing Doodle components and warns explicitly before any justified MUI expansion",
         "Records and resolves a BHE/BHCE parity disposition",
         "Invokes bhe-ui-playwright for browser-visible validation",
+        "Requires representative sanitized screenshots with stable PR-accessible URLs for the browser-visible PR",
         "Uses a fresh independent bhe-enterprise-review sub-agent when available and obtains a current SHA-bound receipt before PR preparation",
         "Does not create, push to, or update a PR"
       ]
@@ -38,6 +39,32 @@
         "Routes stack ownership and startup to bhe-dev-environment",
         "Does not initialize a parity ledger",
         "Does not invoke enterprise review or PR readiness"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Add a Doodle typography variant for a semantic third-party primitive, document it in Storybook, and add tests everywhere the new styling is consumed.",
+      "expected_output": "The agent preserves rendering ownership with TypographyVariants, documents the public behavior through a realistic Storybook story, and concentrates automated assertions at the canonical contract owner instead of duplicating implementation-detail tests across consumers.",
+      "files": [],
+      "expectations": [
+        "Uses TypographyVariants because the required semantic or third-party primitive must own rendering",
+        "Verifies element semantics, forwarded props and refs, and accessibility behavior",
+        "Tests mappings and semantic defaults at the canonical component or token owner without redundant consumer class-list assertions",
+        "Keeps Storybook controls, descriptions, rendered examples, and displayed snippets accurate and semantic",
+        "Adds only durable consumer documentation such as setup, supported usage, migration action, or non-obvious constraints"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The open PR is green. CodeRabbit left one fixed comment and one suggestion we intentionally declined; a human thread is still open. Wrap up the PR.",
+      "expected_output": "The agent verifies and assigns an explicit disposition to every automated and human review thread, presents any replies or resolution actions for approval, and does not declare feedback closed while an unresolved thread lacks an owner and rationale.",
+      "files": [],
+      "expectations": [
+        "Audits every human and automated review thread rather than only actionable CodeRabbit findings",
+        "Classifies each thread as addressed, no change intended, or deferred/out of scope with evidence and ownership",
+        "Requests explicit approval before posting or editing replies or resolving or reopening threads",
+        "Does not silently dismiss duplicated, stale, non-blocking, or no-code-change feedback",
+        "Reports any thread that remains open with its disposition, owner, and reason"
       ]
     }
   ]

@@ -1,6 +1,6 @@
 {
   "name": "bloodhound-development",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows.",
   "author": {
     "name": "SpecterOps"

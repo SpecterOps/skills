@@ -42,7 +42,7 @@ Use `.github/pull_request_template.md` as the default. Use a specialized file un
 
 Preserve the selected template's section order, headings, issue-resolution syntax, change-type choices, and checklist. Replace instructional placeholders with concise project-specific content, select only applicable change types, and mark checklist items complete only when verified. Keep an inapplicable checkbox unchecked unless the template or repository convention says to remove it.
 
-For browser-visible changes, capture focused screenshots from the task-owned validated environment when they materially help reviewers understand the result. Keep capture tooling and local images outside the product diff. Include screenshots in the template's screenshot section only after they have a stable PR-accessible URL; otherwise present the images and filled template to the user for approval before updating the PR.
+For every browser-visible change, capture focused screenshots from the task-owned validated environment and include them in the template's screenshot section before creating or updating the PR. This evidence is mandatory even when automated tests pass. Include at least one representative final state, plus additional themes, responsive breakpoints, empty/error states, or before-and-after views when they are relevant to the change. Keep capture tooling and local images outside the product diff, sanitize public artifacts, and use stable PR-accessible URLs. If stable screenshot evidence cannot be produced, treat that as a delivery blocker and ask for direction instead of silently omitting it.
 
 Before creating or updating a PR, compare the proposed body with the selected template and confirm that no required section or checklist was omitted. If an existing PR body bypassed the template, prepare a template-compliant replacement and obtain the required approval before updating it.
 
@@ -128,7 +128,7 @@ After a parent PR merges, fetch the live target branch, rebase or retarget the n
 
 Treat the internal **Merge Requests — Or How To Merge With Confidence Across Dual Monorepos** runbook as an additional readiness gate. Its merge-request guidance applies to pull requests as well; translate legacy GitLab `MR`/`!####` notation into the link format used by the repository's current hosting platform.
 
-For a change contained entirely in either BHCE or `bloodhound-enterprise`, fill out that repository's default PR template completely. Include the assigned ticket, the change's context and motivation, reproducible testing evidence, screenshots when they aid replication or review, and a truthfully completed checklist. No cross-repository coordination is required when there is no sister PR and no submodule change.
+For a change contained entirely in either BHCE or `bloodhound-enterprise`, fill out that repository's default PR template completely. Include the assigned ticket, the change's context and motivation, reproducible testing evidence, mandatory screenshots for browser-visible changes, and a truthfully completed checklist. No cross-repository coordination is required when there is no sister PR and no submodule change.
 
 For enterprise development, make the BHCE submodule update intentional:
 
@@ -254,6 +254,7 @@ Ask for explicit confirmation immediately before:
 
 - creating or submitting a new PR;
 - changing the title, body, checklist, labels, or other remote metadata of an existing PR;
+- posting or editing review replies, or resolving or reopening review threads;
 - pushing additional commits to a branch with an existing open PR;
 - rebasing or force-pushing a branch with an existing open PR;
 - rerunning, canceling, or otherwise mutating remote CI checks.
@@ -336,7 +337,7 @@ Configure the heartbeat to:
 - report only material changes: a failed check, new actionable review feedback, a PR-state change, or all checks becoming terminal;
 - inspect failed job logs enough to distinguish branch-related failures from unrelated baseline or infrastructure failures;
 - avoid modifying code, pushing, rerunning jobs, dismissing feedback, or updating the PR without the applicable approval;
-- continue through CodeRabbit completion and disposition of its actionable feedback for that head; if a finding requires a new push, monitor the approved replacement head instead;
+- continue through CodeRabbit completion and explicit disposition of every review thread for that head; if a finding requires a new push, monitor the approved replacement head instead;
 - after terminal CI and feedback closure, execute **Release Task-Owned Docker Resources** unless the user requested a near-term keep-alive, and report the cleanup result before ending the heartbeat;
 - stop polling only after reporting the terminal result and feedback disposition for the final monitored head;
 - resume or replace monitoring after a later approved push changes the head commit.
@@ -357,6 +358,16 @@ Treat automated review comments as hypotheses:
 2. Inspect the code before agreeing.
 3. Explain why no change is needed, or prepare a local fix.
 4. Obtain explicit approval before pushing the fix to the open PR.
+
+### Review Feedback Closure
+
+Do not leave review feedback dangling, including comments that do not require a code change. Audit every human and automated review thread before reporting feedback closure. Give each thread an explicit disposition:
+
+- **Addressed:** implement the change, reply with the relevant commit or validation evidence, and resolve the thread when the author owns resolution.
+- **No change intended:** reply with the verified rationale, acknowledge any accepted tradeoff or remaining risk, and resolve the thread when the concern has been fully answered and the author owns resolution.
+- **Deferred or out of scope:** reply with the reason and a concrete follow-up owner or tracking item; do not use deferral to bypass a blocking concern.
+
+If the reviewer owns final resolution, post the disposition and leave the thread available for re-review. Never silently dismiss, auto-resolve, or omit a comment merely because it is non-blocking, duplicated, stale, or not expected to change the PR. Before declaring review feedback closed, report any remaining unresolved threads with their disposition, owner, and reason they remain open.
 
 For CI failures, inspect the failed job rather than all logs:
 
