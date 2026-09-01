@@ -60,6 +60,19 @@
         "Reports screenshot paths and captions needed for stable PR-accessible uploads",
         "Does not claim PR readiness while required screenshot evidence is missing"
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "Hand off validation for a BHE dialog change. The targeted Playwright scenario passed and you captured a screenshot, but one permission state and the responsive layout were not exercised.",
+      "expected_output": "The agent maps the acceptance behavior to the scenario, command, result, and supporting artifacts; classifies how the evidence was executed; and explicitly reports the unverified states instead of treating a passing test or screenshot as sufficient proof.",
+      "files": [],
+      "expectations": [
+        "Connects each claimed behavior or regression risk to the scenario that exercises it",
+        "Reports the exact command, observed result, and relevant screenshot, trace, console, network, or accessibility evidence",
+        "States whether each evidence source is CI-enforced, manually executed, or exploratory",
+        "Discloses the unverified permission and responsive states",
+        "Explains what the evidence demonstrates rather than reporting only a test name, screenshot, or generic pass"
+      ]
     }
   ]
 }

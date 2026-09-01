@@ -20,7 +20,18 @@ For code-changing tasks, preserve the existing Codex task title text exactly and
 - Invoke `bhe-sample-data-ingest` when a standard stack needs official AD or Entra data.
 - When the private `bloodhound` plugin is installed, use its domain skills for Cypher, AD/ADCS, Entra/Azure, OpenGraph, or OpenHound semantics. Those skills supplement rather than replace BHE/BHCE parity, repository tests, enterprise review, accessibility validation, or PR approval gates.
 
-Read [bhe-bhce-parity.md](references/bhe-bhce-parity.md) for every meaningful behavior or contract change. Read [pr-readiness.md](references/pr-readiness.md) before committing, preparing, creating, updating, rebasing, or monitoring a PR. Do not preload both references for unrelated work.
+Read [development-operating-loop.md](references/development-operating-loop.md) for consequential, ambiguous, cross-cutting, or hard-to-verify product work. Read [api-sliced-onion.md](references/api-sliced-onion.md) when changing API handlers, services, persistence, module registration, or their tests. Read [bhe-bhce-parity.md](references/bhe-bhce-parity.md) for every meaningful behavior or contract change. Read [pr-readiness.md](references/pr-readiness.md) before committing, preparing, creating, updating, rebasing, or monitoring a PR. Load only the references relevant to the current phase and work surface.
+
+## Development Operating Loop
+
+Scale the ceremony to the ambiguity, consequence, and verification difficulty of the change.
+
+1. **Inspect before editing.** Establish current behavior, authoritative intent, applicable repository instructions and architecture decisions, relevant BHE/BHCE surfaces, a focused baseline, and the evidence needed for acceptance. Separate observed facts from assumptions.
+2. **Plan the smallest coherent change.** Record ownership, compatibility, risks, non-goals, verification, and any consequential decision that requires user direction.
+3. **Execute in bounded iterations.** Make narrow, recoverable changes and run the smallest meaningful check after each iteration. If observed behavior invalidates the plan, stop, update the plan, and explain what changed in the understanding of the system.
+4. **Verify with observable evidence.** Run acceptance checks, inspect the complete diff, resolve parity, and complete the immutable enterprise-review gate. Report failures and unverified areas without converting them into inferred success.
+
+Do not require a written plan artifact for trivial or purely mechanical work. For consequential work, preserve the reviewed plan, observed facts, and verification evidence in a clean task handoff rather than relying on conversational history.
 
 ## Resolve Intent and Scope
 

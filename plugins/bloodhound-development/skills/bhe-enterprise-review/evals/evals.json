@@ -42,6 +42,19 @@
         "Does not start a review or emit a review receipt",
         "Does not operate Docker itself"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Review an immutable API candidate that moves SQL construction into a service package. The candidate also edits the API architecture ADR to say services may query PostgreSQL directly, while the pinned target ADR requires AppDB isolation.",
+      "expected_output": "The reviewer uses the pinned target-revision ADR as the architecture trust root, treats the candidate ADR edit as review content rather than new authority, traces imports and runtime ownership, and returns CHANGES REQUIRED with an evidence-backed architecture finding.",
+      "files": [],
+      "expectations": [
+        "Reads the accepted API Layered Architecture ADR from the pinned target revision",
+        "Does not allow the candidate ADR edit to redefine or weaken the gate",
+        "Traces service, AppDB, PostgreSQL, handler, interface, registration, and test boundaries",
+        "Flags direct SQL or PostgreSQL access from services at blocking or important severity according to impact",
+        "Does not edit the candidate and emits a SHA-bound CHANGES REQUIRED receipt"
+      ]
     }
   ]
 }

@@ -66,6 +66,20 @@
         "Does not silently dismiss duplicated, stale, non-blocking, or no-code-change feedback",
         "Reports any thread that remains open with its disposition, owner, and reason"
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "Add a new field to a BHCE API response. The current handler reads directly from PostgreSQL and there are several partially migrated analysis packages. Implement and validate the change for BHE and BHCE.",
+      "expected_output": "The agent inspects the target-revision API architecture ADR and current call path before editing, distinguishes legacy or transitional structure from the intended sliced-onion owner, plans the smallest compatible change, executes bounded iterations, and verifies each affected layer plus BHE/BHCE behavior with observable evidence.",
+      "files": [],
+      "expectations": [
+        "Reads the applicable target-revision API Layered Architecture ADR rather than relying on a copied worktree document",
+        "Separates observed current behavior, assumptions, and unresolved migration decisions before editing",
+        "Identifies handler, service, AppDB, PostgreSQL, registration, and consumer-owned interface responsibilities that apply",
+        "Maps acceptance criteria to focused layer tests and required integration evidence",
+        "Stops and revises the plan if inspection shows the proposed ownership conflicts with the target ADR or current migration state",
+        "Records and verifies BHE/BHCE parity without treating passing tests alone as architecture conformance"
+      ]
     }
   ]
 }

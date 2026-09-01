@@ -65,6 +65,19 @@ Include focused committed Playwright coverage in the implementation PR by defaul
 
 Do not commit, push, or prepare a PR unless the user separately requests it.
 
+## Report Criterion-to-Evidence Results
+
+At each meaningful handoff, connect validation to the behavior it is intended to prove. Report:
+
+- the acceptance criterion, user-visible behavior, or regression risk;
+- the repository or standalone scenario that exercises it;
+- the exact command and observed result;
+- relevant screenshot, trace, video, console, network, or accessibility evidence;
+- whether the evidence is CI-enforced, manually executed, or exploratory;
+- any state, browser, permission, theme, responsive condition, canvas behavior, or accessibility property that remains unverified.
+
+Do not substitute a test name, screenshot, or statement that Playwright passed for an explanation of what the evidence demonstrates. When implementation changes invalidate earlier evidence, rerun the affected scenario before handoff.
+
 ## Write Reliable Scenarios
 
 - Prefer role, label, placeholder, and test-id locators over CSS or DOM structure.
