@@ -2,24 +2,6 @@
 
 Reusable agent skills, plugins, and agent definitions for SpecterOps.
 
-## Use With Claude Code
-
-Each plugin lives under `plugins/<name>/` and includes a Claude Code manifest at `.claude-plugin/plugin.json`.
-
-For local development:
-
-```text
-/plugin marketplace add /Users/<user>/Projects/skills
-/plugin install <plugin-name>@specterops-skills
-```
-
-For a hosted repository:
-
-```text
-/plugin marketplace add SpecterOps/skills
-/plugin install <plugin-name>@specterops-skills
-```
-
 ## Use With Codex
 
 Each plugin includes a Codex manifest at `.codex-plugin/plugin.json`.
@@ -82,6 +64,24 @@ Codex officially supports MCP servers through declarative `mcp_servers` configur
    ```
 
 Restart Codex after changing MCP configuration, then confirm the tools appear under `/mcp` before relying on MCP-assisted skills.
+
+## Use With Claude Code
+
+Each plugin lives under `plugins/<name>/` and includes a Claude Code manifest at `.claude-plugin/plugin.json`.
+
+For local development:
+
+```text
+/plugin marketplace add /Users/<user>/Projects/skills
+/plugin install <plugin-name>@specterops-skills
+```
+
+For a hosted repository:
+
+```text
+/plugin marketplace add SpecterOps/skills
+/plugin install <plugin-name>@specterops-skills
+```
 
 ## Use With npx skills
 
