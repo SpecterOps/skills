@@ -173,18 +173,6 @@
       "category": "Infrastructure"
     },
     {
-      "name": "internal-training-course",
-      "source": {
-        "source": "local",
-        "path": "./plugins/internal-training-course"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Internal"
-    },
-    {
       "name": "social-engineering",
       "source": {
         "source": "local",
@@ -291,18 +279,6 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Security"
-    },
-    {
-      "name": "bloodhound-development",
-      "source": {
-        "source": "local",
-        "path": "./plugins/bloodhound-development"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
     },
     {
       "name": "go-review",

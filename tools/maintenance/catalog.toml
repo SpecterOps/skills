@@ -60,10 +60,6 @@ name = "ops-infrastructure"
 surfaces = ["codex", "claude"]
 
 [[plugins]]
-name = "internal-training-course"
-surfaces = ["codex", "claude"]
-
-[[plugins]]
 name = "social-engineering"
 surfaces = ["codex", "claude"]
 
@@ -97,10 +93,6 @@ surfaces = ["codex"]
 
 [[plugins]]
 name = "c2-cobaltstrike"
-surfaces = ["codex", "claude"]
-
-[[plugins]]
-name = "bloodhound-development"
 surfaces = ["codex", "claude"]
 
 [[plugins]]

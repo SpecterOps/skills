@@ -124,7 +124,6 @@ request expectations, and where to ask for help.
 | [report-timeline](plugins/report-timeline/README.md) | Yes | Yes | - | Report timeline ingestion, consolidation, and evidence packaging workflows. |
 | [codex-observability](plugins/codex-observability/README.md) | Yes | Yes | - | Codex activity reporting and telemetry workflows. |
 | [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows. |
-| [internal-training-course](plugins/internal-training-course/README.md) | Yes | Yes | - | Internal training course wiki migration, scaffolding, content migration, and QA workflows. |
 | [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
 | [ludus](plugins/ludus/README.md) | Yes | Yes | - | Ludus cyber range configuration and management skill with full API, CLI, and deployment references |
 | [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, and listener/profile guidance. |
@@ -134,7 +133,6 @@ request expectations, and where to ask for help.
 | [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
-| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges |
 | [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) BOF script and event-driven bot development workflows. |
 
@@ -199,10 +197,6 @@ request expectations, and where to ask for help.
 | `nftables-allow-source` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/nftables-allow-source/SKILL.md) |
 | `proxychains-tunnel` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/proxychains-tunnel/SKILL.md) |
 | `ssh-ops` | `ops-infrastructure` | [SKILL.md](plugins/ops-infrastructure/skills/ssh-ops/SKILL.md) |
-| `course-wiki-migration-orchestrator` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-migration-orchestrator/SKILL.md) |
-| `course-wiki-stage1-scaffold` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage1-scaffold/SKILL.md) |
-| `course-wiki-stage2-content-migration` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage2-content-migration/SKILL.md) |
-| `course-wiki-stage3-qa` | `internal-training-course` | [SKILL.md](plugins/internal-training-course/skills/course-wiki-stage3-qa/SKILL.md) |
 | `credential-harvest-landing-page-copy` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/credential-harvest-landing-page-copy/SKILL.md) |
 | `phishing-campaign-builder` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/phishing-campaign-builder/SKILL.md) |
 | `phishing-email-html` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/phishing-email-html/SKILL.md) |
@@ -219,12 +213,6 @@ request expectations, and where to ask for help.
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `cobalt-strike-malleable-c2-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-malleable-c2-development/SKILL.md) |
-| `bhe-change-delivery` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-change-delivery/SKILL.md) |
-| `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
-| `bhe-dev-environment` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-environment/SKILL.md) |
-| `bhe-enterprise-review` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-enterprise-review/SKILL.md) |
-| `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
-| `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
 | `go-review` | `go-review` | [SKILL.md](plugins/go-review/skills/go-review/SKILL.md) |
 | `oc2-bof-script-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bof-script-development/SKILL.md) |
 | `oc2-bot-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bot-development/SKILL.md) |
@@ -248,7 +236,6 @@ request expectations, and where to ask for help.
 | `architect` | [agents/architect.toml](agents/architect.toml) |
 | `bloodhound-analyst` | [agents/bloodhound-analyst.toml](agents/bloodhound-analyst.toml) |
 | `code-reviewer` | [agents/code-reviewer.toml](agents/code-reviewer.toml) |
-| `course-migration` | [agents/course-migration.toml](agents/course-migration.toml) |
 | `domain-ops` | [agents/domain-ops.toml](agents/domain-ops.toml) |
 | `exploit-dev` | [agents/exploit-dev.toml](agents/exploit-dev.toml) |
 | `internal-network-recon` | [agents/internal-network-recon.toml](agents/internal-network-recon.toml) |

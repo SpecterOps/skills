@@ -107,13 +107,6 @@
       "category": "infrastructure"
     },
     {
-      "name": "internal-training-course",
-      "source": "./plugins/internal-training-course",
-      "description": "Internal training course wiki migration, scaffolding, content migration, and QA workflows.",
-      "version": "0.1.0",
-      "category": "internal"
-    },
-    {
       "name": "social-engineering",
       "source": "./plugins/social-engineering",
       "description": "Social engineering research and phishing pretext workflows.",
@@ -140,13 +133,6 @@
       "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
       "version": "0.1.0",
       "category": "security"
-    },
-    {
-      "name": "bloodhound-development",
-      "source": "./plugins/bloodhound-development",
-      "description": "Operate isolated BHE environments, deliver BHE/BHCE changes, and run focused enterprise review and validation workflows.",
-      "version": "0.2.1",
-      "category": "productivity"
     },
     {
       "name": "go-review",
