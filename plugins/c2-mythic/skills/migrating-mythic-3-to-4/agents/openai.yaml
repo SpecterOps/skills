@@ -1,0 +1,7 @@
+interface:
+  display_name: "Mythic 3 to 4 Migration"
+  short_description: "Migrate Mythic v3 integrations and services to v4."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
+  brand_color: "#00B36B"
+  default_prompt: "Use $migrating-mythic-3-to-4 to audit and migrate this Mythic v3 integration to v4."

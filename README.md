@@ -126,7 +126,7 @@ request expectations, and where to ask for help.
 | [ops-infrastructure](plugins/ops-infrastructure/README.md) | Yes | Yes | - | Infrastructure operations, SSH, tunnel, firewall, and offensive IaC attack-surface workflows. |
 | [social-engineering](plugins/social-engineering/README.md) | Yes | Yes | - | Social engineering research and phishing pretext workflows. |
 | [ludus](plugins/ludus/README.md) | Yes | Yes | - | Ludus cyber range configuration and management skill with full API, CLI, and deployment references |
-| [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, and listener/profile guidance. |
+| [c2-mythic](plugins/c2-mythic/README.md) | Yes | Yes | - | Mythic C2 framework implant and C2 profile development workflows with agent message protocols, payload type definitions, listener/profile guidance, and Mythic 3.4-to-4 migration support. |
 | [tradecraft-windows](plugins/tradecraft-windows/README.md) | Yes | - | - | Windows execution, persistence, and COM proxy validation workflows. |
 | [ops-adcs](plugins/ops-adcs/README.md) | Planned | - | - | Active Directory Certificate Services assessment and attack-path validation workflows. Planned; no capability is currently packaged. |
 | [ops-mssql](plugins/ops-mssql/README.md) | Planned | - | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. Planned; no capability is currently packaged. |
@@ -204,6 +204,7 @@ request expectations, and where to ask for help.
 | `pretext-brainstormer` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/pretext-brainstormer/SKILL.md) |
 | `vishing-pretext` | `social-engineering` | [SKILL.md](plugins/social-engineering/skills/vishing-pretext/SKILL.md) |
 | `ludus-development` | `ludus` | [SKILL.md](plugins/ludus/skills/ludus-development/SKILL.md) |
+| `migrating-mythic-3-to-4` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/migrating-mythic-3-to-4/SKILL.md) |
 | `mythic-implant-development` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-implant-development/SKILL.md) |
 | `mythic-profiles` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-profiles/SKILL.md) |
 | `mythic-translation-containers` | `c2-mythic` | [SKILL.md](plugins/c2-mythic/skills/mythic-translation-containers/SKILL.md) |

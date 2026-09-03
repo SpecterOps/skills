@@ -1,6 +1,6 @@
 {
   "plugin": "c2-mythic",
-  "purpose": "Mythic C2 framework implant, C2 profile, and translation container development workflows.",
+  "purpose": "Mythic C2 framework implant, C2 profile, and translation container development workflows, with Mythic 3.4-to-4 migration support.",
   "status": "active",
   "agents": [
     "exploit-dev",
@@ -9,6 +9,7 @@
   "skills": [
     "mythic-implant-development",
     "mythic-profiles",
-    "mythic-translation-containers"
+    "mythic-translation-containers",
+    "migrating-mythic-3-to-4"
   ]
 }
