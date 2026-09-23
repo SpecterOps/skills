@@ -1,0 +1,35 @@
+http:
+  routers:
+    bhe-api:
+      rule: Host(`__BHE_HOSTNAME__`) && PathPrefix(`/api`)
+      service: bhe-api
+    bhe-ui:
+      rule: Host(`__BHE_HOSTNAME__`)
+      service: bhe-ui
+    pgadmin:
+      rule: Host(`__PGADMIN_HOSTNAME__`)
+      service: pgadmin
+    pgbadger:
+      rule: Host(`__PGBADGER_HOSTNAME__`)
+      service: pgbadger
+
+  services:
+    bhe-api:
+      loadBalancer:
+        healthCheck:
+          path: /health
+          interval: 10s
+        servers:
+          - url: http://bhe-api:8080
+    bhe-ui:
+      loadBalancer:
+        servers:
+          - url: http://bhe-ui:3000
+    pgadmin:
+      loadBalancer:
+        servers:
+          - url: http://bhe-pgadmin:5050
+    pgbadger:
+      loadBalancer:
+        servers:
+          - url: http://bhe-pgbadger-web:8181

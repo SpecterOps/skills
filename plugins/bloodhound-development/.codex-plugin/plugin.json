@@ -1,0 +1,40 @@
+{
+  "name": "bloodhound-development",
+  "version": "0.1.0",
+  "description": "Bootstrap, isolate, validate, review, and test BloodHound Enterprise and Community Edition development work.",
+  "author": {
+    "name": "SpecterOps"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "specterops",
+    "bloodhound",
+    "enterprise",
+    "development",
+    "playwright",
+    "docker",
+    "worktrees"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "BloodHound Development",
+    "shortDescription": "Develop and validate BHE/BHCE features safely.",
+    "longDescription": "Internal workflows for isolated BloodHound Enterprise development stacks, BHE/BHCE compatibility review, official sample-data ingest, browser and accessibility validation, and PR readiness.",
+    "developerName": "SpecterOps",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Set up an isolated BloodHound Enterprise development environment for this feature.",
+      "Validate this BHE frontend change against its task-owned local stack.",
+      "Load official AD and Entra sample data into this local BloodHound development instance.",
+      "Review this BHE change for BHE/BHCE compatibility and PR readiness."
+    ],
+    "brandColor": "#8E92EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

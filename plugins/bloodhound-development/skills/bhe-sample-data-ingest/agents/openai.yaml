@@ -1,0 +1,4 @@
+interface:
+  display_name: "BHE Sample Data Ingest"
+  short_description: "Load AD and Entra sample data"
+  default_prompt: "Use $bhe-sample-data-ingest to download and ingest BloodHound sample data into my local BHE instance."
