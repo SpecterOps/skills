@@ -1,0 +1,16 @@
+interface:
+  display_name: "Cobalt Strike Operations"
+  short_description: "Operate Cobalt Strike through its MCP server."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.svg
+  brand_color: "#2C2677"
+  default_prompt: "Use $cobalt-strike-ops for Cobalt Strike operations through the MCP."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "cobaltstrike"
+      description: "Cobalt Strike MCP server"
+
+policy:
+  allow_implicit_invocation: true

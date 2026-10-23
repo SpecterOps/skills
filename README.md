@@ -132,7 +132,7 @@ request expectations, and where to ask for help.
 | [ops-mssql](plugins/ops-mssql/README.md) | Planned | - | - | Microsoft SQL Server reconnaissance, privilege mapping, and assessment workflows. Planned; no capability is currently packaged. |
 | [tradecraft-mac](plugins/tradecraft-mac/README.md) | Yes | - | - | macOS execution, persistence, and operator validation workflows. |
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
-| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
+| [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike operations, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges |
 | [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) BOF script and event-driven bot development workflows. |
 
@@ -213,6 +213,7 @@ request expectations, and where to ask for help.
 | `cobalt-strike-aggressor-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-development/SKILL.md) |
 | `cobalt-strike-aggressor-reference` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-aggressor-reference/SKILL.md) |
 | `cobalt-strike-malleable-c2-development` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-malleable-c2-development/SKILL.md) |
+| `cobalt-strike-ops` | `c2-cobaltstrike` | [SKILL.md](plugins/c2-cobaltstrike/skills/cobalt-strike-ops/SKILL.md) |
 | `go-review` | `go-review` | [SKILL.md](plugins/go-review/skills/go-review/SKILL.md) |
 | `oc2-bof-script-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bof-script-development/SKILL.md) |
 | `oc2-bot-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bot-development/SKILL.md) |
@@ -267,5 +268,6 @@ request expectations, and where to ask for help.
 | `ghostwriter` | `report-drafting` | Configure directly in Codex with `uv --directory /path/to/GhostWriterMCP run python -m ghostwritermcp.server`. |
 | `binary_ninja_mcp` | `reverse-engineering` | Configure directly in Codex with `npx -y binary-ninja-mcp --host localhost --port 9009` after installing `fosdickio/binary_ninja_mcp` in Binary Ninja. |
 | `ghidra` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server. |
+| `cobaltstrike` | `c2-cobaltstrike` | Run the Cobalt Strike MCP server on the team server host. |
 
 <!-- END GENERATED MCP INVENTORY -->

@@ -19,3 +19,8 @@ configuration = "Configure directly in Codex with `npx -y binary-ninja-mcp --hos
 server = "ghidra"
 plugin = "reverse-engineering"
 configuration = "Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server."
+
+[[mcp]]
+server = "cobaltstrike"
+plugin = "c2-cobaltstrike"
+configuration = "Run the Cobalt Strike MCP server on the team server host."
