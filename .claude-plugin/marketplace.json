@@ -130,7 +130,7 @@
     {
       "name": "c2-cobaltstrike",
       "source": "./plugins/c2-cobaltstrike",
-      "description": "Cobalt Strike Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
+      "description": "Cobalt Strike operations, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
       "version": "0.1.0",
       "category": "security"
     },
