@@ -147,6 +147,13 @@
       "description": "Outflank C2 (OC2) BOF script and event-driven bot development workflows.",
       "version": "0.1.0",
       "category": "security"
+    },
+    {
+      "name": "bloodhound-development",
+      "source": "./plugins/bloodhound-development",
+      "description": "Internal BloodHound Enterprise and Community Edition development, validation, and PR-readiness workflows.",
+      "version": "0.1.0",
+      "category": "productivity"
     }
   ]
 }
