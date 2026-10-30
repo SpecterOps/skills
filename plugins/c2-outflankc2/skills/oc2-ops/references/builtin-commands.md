@@ -5,6 +5,7 @@ The following commands are built into Outflank C2.
 - burn: Switch to the next communication channel.
 - cat: Reads a file and writes it to the terminal output.
 - cd: Changes the current working directory.
+- check_tcc: Check TCC file permissions.
 - config: Interact with the configuration of the implant.
 - cp: Copies a file.
 - delay: Delays the execution with a one-off timeout in miliseconds.
@@ -14,6 +15,7 @@ The following commands are built into Outflank C2.
 - env: Lists all the environment variables.
 - exec_bof: Execute a Beacon Object File.
 - exec_command: Execute a command using the regular Command Shell or PowerShell interpreter on Windows or the default shell on macOS/Linux.
+- exec_jxa: Execute a JXA script.
 - exit: Exits the implant thread or full process.
 - fullcheckin: Re-retrieve all information about the implant.
 - getprivs: Enable as many system privileges as possible on your current thread or process token.
@@ -21,6 +23,8 @@ The following commands are built into Outflank C2.
 - ip: Returns all IPv4 and IPv6 addresses.
 - kill: Kill a process with the given process ID.
 - link: Link an SMB, tcp, or file based implant.
+- list_apps: List currently running Applications.
+- list_entitlements: List the entitlements for a target process.
 - load_library: Manually load the specified module into the address space of the current process.
 - ls: List files
 - mkdir: Creates a directory.
