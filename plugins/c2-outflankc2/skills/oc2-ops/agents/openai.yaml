@@ -1,0 +1,16 @@
+interface:
+  display_name: "Outflank C2 Operations"
+  short_description: "Operate Outflank C2 through its MCP server."
+  icon_small: ./assets/icon.svg
+  icon_large: ./assets/icon.svg
+  brand_color: "#2C2677"
+  default_prompt: "Use $oc2-ops for Outflank C2 operations through the MCP."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "oc2"
+      description: "Outflank C2 MCP server"
+
+policy:
+  allow_implicit_invocation: true

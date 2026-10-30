@@ -24,3 +24,8 @@ configuration = "Configure directly in Codex with the command or endpoint docume
 server = "cobaltstrike"
 plugin = "c2-cobaltstrike"
 configuration = "Run the Cobalt Strike MCP server on the team server host."
+
+[[mcp]]
+server = "oc2"
+plugin = "c2-outflankc2"
+configuration = "Enable the MCP service in your OC2 deployment and configure its MCP endpoint directly in your MCP client as `oc2`, authenticating with your user PAT."

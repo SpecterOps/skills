@@ -134,7 +134,7 @@ request expectations, and where to ask for help.
 | [tradecraft-linux](plugins/tradecraft-linux/README.md) | Yes | - | - | Linux process injection, execution, persistence, and operator validation workflows. |
 | [c2-cobaltstrike](plugins/c2-cobaltstrike/README.md) | Yes | Yes | - | Cobalt Strike operations, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows. |
 | [go-review](plugins/go-review/README.md) | Yes | Yes | - | Security review for Go packages and services covering trust boundaries, injection, filesystem, crypto, concurrency, and unsafe/cgo edges |
-| [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) BOF script and event-driven bot development workflows. |
+| [c2-outflankc2](plugins/c2-outflankc2/README.md) | Yes | Yes | - | Outflank C2 (OC2) operations, BOF scripts, and event-driven bot development workflows. |
 
 <!-- END GENERATED PLUGIN CATALOG -->
 
@@ -217,6 +217,7 @@ request expectations, and where to ask for help.
 | `go-review` | `go-review` | [SKILL.md](plugins/go-review/skills/go-review/SKILL.md) |
 | `oc2-bof-script-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bof-script-development/SKILL.md) |
 | `oc2-bot-development` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-bot-development/SKILL.md) |
+| `oc2-ops` | `c2-outflankc2` | [SKILL.md](plugins/c2-outflankc2/skills/oc2-ops/SKILL.md) |
 
 <!-- END GENERATED SKILL INVENTORY -->
 
@@ -269,5 +270,6 @@ request expectations, and where to ask for help.
 | `binary_ninja_mcp` | `reverse-engineering` | Configure directly in Codex with `npx -y binary-ninja-mcp --host localhost --port 9009` after installing `fosdickio/binary_ninja_mcp` in Binary Ninja. |
 | `ghidra` | `reverse-engineering` | Configure directly in Codex with the command or endpoint documented by your Ghidra MCP server. |
 | `cobaltstrike` | `c2-cobaltstrike` | Run the Cobalt Strike MCP server on the team server host. |
+| `oc2` | `c2-outflankc2` | Enable the MCP service in your OC2 deployment and configure its MCP endpoint directly in your MCP client as `oc2`, authenticating with your user PAT. |
 
 <!-- END GENERATED MCP INVENTORY -->

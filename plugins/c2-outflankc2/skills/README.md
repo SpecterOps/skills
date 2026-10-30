@@ -2,3 +2,4 @@
 
 - `oc2-bof-script-development`
 - `oc2-bot-development`
+- `oc2-ops`
