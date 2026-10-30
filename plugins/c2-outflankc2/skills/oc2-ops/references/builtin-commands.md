@@ -19,7 +19,7 @@ The following commands are built into Outflank C2.
 - exit: Exits the implant thread or full process.
 - fullcheckin: Re-retrieve all information about the implant.
 - getprivs: Enable as many system privileges as possible on your current thread or process token.
-- help: Display available commands
+- help: Display available commands.
 - ip: Returns all IPv4 and IPv6 addresses.
 - kill: Kill a process with the given process ID.
 - link: Link an SMB, tcp, or file based implant.
@@ -31,8 +31,8 @@ The following commands are built into Outflank C2.
 - mv: Moves a file.
 - note: Stores a note with the implant.
 - portforward: Manage TCP/UDP port-forward tunnels for the current implant.
-- ps: List running processes
-- pwd: Returns the current working directory
+- ps: List running processes.
+- pwd: Returns the current working directory.
 - rm: Deletes a file.
 - rmdir: Deletes a directory.
 - rportforward: Manage reverse port-forward tunnels for the current implant.
