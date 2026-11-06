@@ -44,4 +44,6 @@ Then proceed with the full smoke test default.
 
 Spawn the `qa` agent and pass the constructed prompt. The `qa` agent owns the browser session, interaction, and reporting.
 
+When the assigned flow already has agent-qa tests, or the user explicitly selects agent-qa, read [agent-qa regression evidence](references/agent-qa.md). Include the relevant guidance, selected test paths, and authorized URL in the delegated prompt. Use its run evidence alongside this skill's smoke test and Lighthouse requirements; otherwise keep the existing QA workflow.
+
 Do not interact with the browser directly from this skill — that is the agent's responsibility.
