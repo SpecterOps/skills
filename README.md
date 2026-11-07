@@ -117,6 +117,7 @@ request expectations, and where to ask for help.
 | [ops-appsec](plugins/ops-appsec/README.md) | Yes | Yes | - | Application and code security assessment workflows for Specter Codex. |
 | [ops-sccm](plugins/ops-sccm/README.md) | Yes | Yes | - | Microsoft Configuration Manager reconnaissance and takeover validation workflows. |
 | [bloodhound](plugins/bloodhound/README.md) | Yes | Yes | Manual | BloodHound, AzureHound, GitHound/JamfHound/OktaHound OpenGraph attack-path query workflows, SCIM bridge references, and optional BloodHound MCP packaging. |
+| [bloodhound-development](plugins/bloodhound-development/README.md) | Yes | Yes | - | Internal BHE/BHCE environment isolation, sample-data, UI validation, compatibility, and PR-readiness workflows. |
 | [payloads](plugins/payloads/README.md) | Yes | Yes | - | Reusable Electron payload packaging, persistence, audit, and discovery workflows. |
 | [c2-extensions](plugins/c2-extensions/README.md) | Yes | Yes | - | Beacon Object File development and reusable C2 extension workflows. |
 | [report-drafting](plugins/report-drafting/README.md) | Yes | Yes | Manual | Finding, report drafting, Ghostwriter MCP, and operation log workflows for security assessment deliverables. |
@@ -172,6 +173,9 @@ request expectations, and where to ask for help.
 | `openhound-github` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-github/SKILL.md) |
 | `openhound-jamf` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-jamf/SKILL.md) |
 | `openhound-okta` | `bloodhound` | [SKILL.md](plugins/bloodhound/skills/openhound-okta/SKILL.md) |
+| `bhe-dev-bootstrap` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-dev-bootstrap/SKILL.md) |
+| `bhe-ui-playwright` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-ui-playwright/SKILL.md) |
+| `bhe-sample-data-ingest` | `bloodhound-development` | [SKILL.md](plugins/bloodhound-development/skills/bhe-sample-data-ingest/SKILL.md) |
 | `electron-app-audit` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-app-audit/SKILL.md) |
 | `electron-candidate-discovery` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-candidate-discovery/SKILL.md) |
 | `electron-install-persistence` | `payloads` | [SKILL.md](plugins/payloads/skills/electron-install-persistence/SKILL.md) |
