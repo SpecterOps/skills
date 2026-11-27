@@ -1,0 +1,6 @@
+interface:
+  display_name: Cobalt Strike Beacon Interpreter
+  short_description: Author and review Beacon Interpreter scripts.
+  default_prompt: Use $cobalt-strike-beacon-interpreter to review this C script for compatibility.
+policy:
+  allow_implicit_invocation: true

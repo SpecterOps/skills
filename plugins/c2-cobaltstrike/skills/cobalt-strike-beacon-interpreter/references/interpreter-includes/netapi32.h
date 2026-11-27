@@ -1,0 +1,60 @@
+#ifndef BUILTINS_NETAPI32_H
+#define BUILTINS_NETAPI32_H
+
+NETAPI32$NetUserAdd: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetUserEnum: u32 (ptr, u32, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetUserGetInfo: u32 (ptr, ptr, u32, ptr);
+NETAPI32$NetUserSetInfo: u32 (ptr, ptr, u32, ptr, ptr);
+NETAPI32$NetUserDel: u32 (ptr, ptr);
+NETAPI32$NetUserGetGroups: u32 (ptr, ptr, u32, ptr, u32, ptr, ptr);
+NETAPI32$NetUserSetGroups: u32 (ptr, ptr, u32, ptr, u32);
+NETAPI32$NetUserGetLocalGroups: u32 (ptr, ptr, u32, u32, ptr, u32, ptr, ptr);
+NETAPI32$NetUserModalsGet: u32 (ptr, u32, ptr);
+NETAPI32$NetUserModalsSet: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetUserChangePassword: u32 (ptr, ptr, ptr, ptr);
+NETAPI32$NetGroupAdd: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetGroupAddUser: u32 (ptr, ptr, ptr);
+NETAPI32$NetGroupEnum: u32 (ptr, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetGroupGetInfo: u32 (ptr, ptr, u32, ptr);
+NETAPI32$NetGroupSetInfo: u32 (ptr, ptr, u32, ptr, ptr);
+NETAPI32$NetGroupDel: u32 (ptr, ptr);
+NETAPI32$NetGroupDelUser: u32 (ptr, ptr, ptr);
+NETAPI32$NetGroupGetUsers: u32 (ptr, ptr, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetGroupSetUsers: u32 (ptr, ptr, u32, ptr, u32);
+NETAPI32$NetLocalGroupAdd: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetLocalGroupAddMember: u32 (ptr, ptr, ptr);
+NETAPI32$NetLocalGroupEnum: u32 (ptr, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetLocalGroupGetInfo: u32 (ptr, ptr, u32, ptr);
+NETAPI32$NetLocalGroupSetInfo: u32 (ptr, ptr, u32, ptr, ptr);
+NETAPI32$NetLocalGroupDel: u32 (ptr, ptr);
+NETAPI32$NetLocalGroupDelMember: u32 (ptr, ptr, ptr);
+NETAPI32$NetLocalGroupGetMembers: u32 (ptr, ptr, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetLocalGroupSetMembers: u32 (ptr, ptr, u32, ptr, u32);
+NETAPI32$NetLocalGroupAddMembers: u32 (ptr, ptr, u32, ptr, u32);
+NETAPI32$NetLocalGroupDelMembers: u32 (ptr, ptr, u32, ptr, u32);
+NETAPI32$NetQueryDisplayInformation: u32 (ptr, u32, u32, u32, u32, ptr, ptr);
+NETAPI32$NetGetDisplayInformationIndex: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetAccessAdd: u32 (ptr, u32, ptr, ptr);
+NETAPI32$NetAccessEnum: u32 (ptr, ptr, u32, u32, ptr, u32, ptr, ptr, ptr);
+NETAPI32$NetAccessGetInfo: u32 (ptr, ptr, u32, ptr);
+NETAPI32$NetAccessSetInfo: u32 (ptr, ptr, u32, ptr, ptr);
+NETAPI32$NetAccessDel: u32 (ptr, ptr);
+NETAPI32$NetAccessGetUserPerms: u32 (ptr, ptr, ptr, ptr);
+NETAPI32$NetValidatePasswordPolicy: u32 (ptr, ptr, u32, ptr, ptr);
+NETAPI32$NetValidatePasswordPolicyFree: u32 (ptr);
+NETAPI32$NetGetDCName: u32 (ptr, ptr, ptr);
+NETAPI32$NetGetAnyDCName: u32 (ptr, ptr, ptr);
+NETAPI32$I_NetLogonControl: u32 (ptr, u32, u32, ptr);
+NETAPI32$I_NetLogonControl2: u32 (ptr, u32, u32, ptr, ptr);
+NETAPI32$NetEnumerateTrustedDomains: i32 (ptr, ptr);
+NETAPI32$NetAddServiceAccount: i32 (ptr, ptr, ptr, u32);
+NETAPI32$NetRemoveServiceAccount: i32 (ptr, ptr, u32);
+NETAPI32$NetIsServiceAccount: i32 (ptr, ptr, ptr);
+NETAPI32$NetEnumerateServiceAccounts: i32 (ptr, u32, ptr, ptr);
+NETAPI32$NetApiBufferAllocate: u32 (u32, ptr);
+NETAPI32$NetApiBufferFree: u32 (ptr);
+NETAPI32$NetApiBufferReallocate: u32 (ptr, u32, ptr);
+NETAPI32$NetApiBufferSize: u32 (ptr, ptr);
+NETAPI32$NetapipBufferAllocate: u32 (u32, ptr);
+
+#endif /* BUILTINS_NETAPI32_H */
