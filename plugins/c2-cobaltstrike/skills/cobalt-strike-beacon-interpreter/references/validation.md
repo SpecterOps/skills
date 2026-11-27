@@ -31,5 +31,6 @@ test environment. For x86, apply the documented architecture selection before
 includes. Do not assume the demo's native function calls are pure compilation
 tests. Runtime checks are separate from offline package validation.
 
-Keep portable validation summaries in the repository's compatibility record.
+Record portable validation summaries in this guide, together with the source
+commit from the [provenance record](provenance.json).
 Do not include target identifiers or operational logs in distributed resources.

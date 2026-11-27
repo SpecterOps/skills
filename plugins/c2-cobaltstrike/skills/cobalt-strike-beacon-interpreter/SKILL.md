@@ -14,9 +14,9 @@ smallest corrections. Preserve the user's requested behavior and edit scope.
 
 1. Identify the requested behavior, supplied script, argument format, target
    architecture, and available interpreter version. Read the
-   [provenance record](references/provenance.json) before making a version or
-   runtime-support claim. If missing target details change the code, ask for
-   them; otherwise state the relevant assumptions.
+   [provenance record](references/provenance.json) for the source commit. If
+   missing target details change the code, ask for them. State any assumptions
+   that affect the result.
 2. Apply the essential rules below. Consult the
    [compatibility guide](references/compatibility.md) for argument packing,
    language restrictions, header selection, FFI, or VM details relevant to the
@@ -30,8 +30,8 @@ smallest corrections. Preserve the user's requested behavior and edit scope.
    skill if it is available and needed; this skill remains usable on its own.
 5. Check argument parsing, entry logic, declarations, resource cleanup, output
    volume, and architecture assumptions. Report which checks were actually run.
-   Use the [validation guide](references/validation.md) for a runtime check or
-   evaluation. Authoring a script does not itself request execution on a Beacon.
+   Use the [validation guide](references/validation.md) to review available
+   evidence and plan a requested runtime check. Authoring a script does not itself request execution on a Beacon.
 
 All linked paths are relative to this skill directory, independent of the
 current working directory or the containing plugin's name.

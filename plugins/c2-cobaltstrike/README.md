@@ -21,10 +21,30 @@ Use `$cobalt-strike-beacon-interpreter` in Codex or
 includes offline compatibility guidance, headers, and an example for writing
 and reviewing Interpreter C scripts.
 
-This bundle is imported from [Cobalt-Strike/beacon-interpreter](https://github.com/Cobalt-Strike/beacon-interpreter)
-at [commit `7fbd3014608cf0941455a586d78ec244ae0fcf7e`](https://github.com/Cobalt-Strike/beacon-interpreter/tree/7fbd3014608cf0941455a586d78ec244ae0fcf7e/skills/cobalt-strike-beacon-interpreter).
-Make skill changes upstream, then refresh this directory from a reviewed commit
-and update the pin. The bundle includes its Apache-2.0 license and provenance.
+SpecterOps maintains the skill instructions and validation guide. The bundled
+reference files come from [Cobalt-Strike/beacon-interpreter](https://github.com/Cobalt-Strike/beacon-interpreter).
+The [provenance record](skills/cobalt-strike-beacon-interpreter/references/provenance.json)
+lists the upstream commit and file hashes.
+
+### Refresh the bundled resources
+
+1. In a Cobalt Strike checkout, export the resources from a reviewed commit.
+   Replace `COMMIT_SHA` with the full upstream SHA.
+
+   ```sh
+   python tools/export_skill_resources.py COMMIT_SHA beacon-interpreter-resources.zip
+   ```
+
+2. From the SpecterOps repository root, import the ZIP and verify the snapshot.
+   Set `ARCHIVE` to the path of the exported ZIP.
+
+   ```sh
+   python -m tools.repo_maintenance.import_beacon_interpreter_resources ARCHIVE
+   python -m tools.repo_maintenance.import_beacon_interpreter_resources ARCHIVE --check
+   ```
+
+3. Update the plugin version in both manifests, then run `just generate-catalog`,
+   `just generate-inventory`, and `just check`.
 
 ## Cobalt Strike MCP setup
 

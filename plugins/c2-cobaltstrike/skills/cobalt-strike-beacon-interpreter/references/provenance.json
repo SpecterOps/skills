@@ -1,13 +1,6 @@
 {
   "source_repository": "https://github.com/Cobalt-Strike/beacon-interpreter",
-  "source_revision": "6be39c1bb07dd4aab79220a4330cae46cf72a6ba",
-  "cobalt_strike_version": null,
-  "runtime_validation": [],
-  "notes": [
-    "The source revision identifies the original guide, header, and demo baseline. Bundled file hashes identify the actual packaged contents, including subsequent local edits.",
-    "The baseline does not identify its Cobalt Strike release. No minimum supported release or tested architecture is claimed.",
-    "Runtime validation requires the Cobalt Strike interpreter and a matching Team Server header set; ordinary C compiler checks are not equivalent."
-  ],
+  "source_revision": "27e083cf5c8ab04e276c9046f8b7a8f651ed505c",
   "hash_format": "sha256 with CRLF normalized to LF",
   "files": {
     "assets/interpreter_demo.c": {
