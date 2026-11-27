@@ -1,7 +1,7 @@
 {
   "name": "c2-cobaltstrike",
-  "version": "0.1.0",
-  "description": "Cobalt Strike operations, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
+  "version": "0.2.0",
+  "description": "Cobalt Strike operations, Beacon Interpreter C, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
   "author": {
     "name": "SpecterOps"
   },
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "C2 Cobalt Strike",
     "shortDescription": "Cobalt Strike operations, Aggressor, and Malleable C2 workflows.",
-    "longDescription": "Focused workflows for Cobalt Strike operations through its MCP server, Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Malleable C2 profile development.",
+    "longDescription": "Focused workflows for Cobalt Strike operations through its MCP server, Beacon Interpreter C scripts, Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Malleable C2 profile development.",
     "developerName": "SpecterOps",
     "category": "Security",
     "capabilities": [

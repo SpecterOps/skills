@@ -1,7 +1,7 @@
 {
   "name": "c2-cobaltstrike",
-  "description": "Cobalt Strike operations, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
-  "version": "0.1.0",
+  "description": "Cobalt Strike operations, Beacon Interpreter C, Aggressor Script, Sleep, BOF loader, and Malleable C2 profile workflows.",
+  "version": "0.2.0",
   "author": {
     "name": "SpecterOps"
   }

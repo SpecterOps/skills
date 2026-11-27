@@ -1,17 +1,30 @@
 # C2 Cobalt Strike
 
-Focused workflows for Cobalt Strike operations, Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Malleable C2 profile development.
+Focused workflows for Cobalt Strike operations, Beacon Interpreter C scripts, Aggressor scripts, Sleep language references, BOF loader work, aliases, hooks, and Malleable C2 profile development.
 
 ## Skills
 
 - `cobalt-strike-aggressor-development`
 - `cobalt-strike-aggressor-reference`
+- [`cobalt-strike-beacon-interpreter`](skills/cobalt-strike-beacon-interpreter/SKILL.md)
 - `cobalt-strike-malleable-c2-development`
 - `cobalt-strike-ops`
 
 ## Agents
 
 - `exploit-dev`
+
+## Beacon Interpreter
+
+Use `$cobalt-strike-beacon-interpreter` in Codex or
+`/c2-cobaltstrike:cobalt-strike-beacon-interpreter` in Claude Code. The skill
+includes offline compatibility guidance, headers, and an example for writing
+and reviewing Interpreter C scripts.
+
+This bundle is imported from [Cobalt-Strike/beacon-interpreter](https://github.com/Cobalt-Strike/beacon-interpreter)
+at [commit `f76c3bac858201cfb909e43895c71e1390221e02`](https://github.com/Cobalt-Strike/beacon-interpreter/tree/f76c3bac858201cfb909e43895c71e1390221e02/skills/cobalt-strike-beacon-interpreter).
+Make skill changes upstream, then refresh this directory from a reviewed commit
+and update the pin. The bundle includes its Apache-2.0 license and provenance.
 
 ## Cobalt Strike MCP setup
 

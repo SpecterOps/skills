@@ -1,0 +1,162 @@
+{
+  "source_repository": "https://github.com/Cobalt-Strike/beacon-interpreter",
+  "source_revision": "6be39c1bb07dd4aab79220a4330cae46cf72a6ba",
+  "cobalt_strike_version": null,
+  "runtime_validation": [],
+  "notes": [
+    "The source revision identifies the original guide, header, and demo baseline. Bundled file hashes identify the actual packaged contents, including subsequent local edits.",
+    "The baseline does not identify its Cobalt Strike release. No minimum supported release or tested architecture is claimed.",
+    "Runtime validation requires the Cobalt Strike interpreter and a matching Team Server header set; ordinary C compiler checks are not equivalent."
+  ],
+  "hash_format": "sha256 with CRLF normalized to LF",
+  "files": {
+    "assets/interpreter_demo.c": {
+      "source": "interpreter_demo.c",
+      "sha256": "18508bfcf03671ba84717904887772473201bd7b5e31acb322fec4edac3652d1"
+    },
+    "LICENSE": {
+      "source": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "references/compatibility.md": {
+      "source": "skills.md",
+      "sha256": "0e7fb6460123520be6b7d14c30ddb63458da5dd34dd0efe21782268adaae97c9"
+    },
+    "references/interpreter-includes/advapi.h": {
+      "source": "interpreter-includes/advapi.h",
+      "sha256": "42bb5aed5396fc06b18b76c0c806ecd8e09aeec90bf08b00404e0c8c4e778bf9"
+    },
+    "references/interpreter-includes/beacon.h": {
+      "source": "interpreter-includes/beacon.h",
+      "sha256": "a935a537954946f3f2410370eb727b6e098b9e9a0b1200a7ad8049132bd15faa"
+    },
+    "references/interpreter-includes/combaseapi.h": {
+      "source": "interpreter-includes/combaseapi.h",
+      "sha256": "2b61bd2589e96c03b03567ce05bf2a1ed88b11259094585989715f1786ad0a6b"
+    },
+    "references/interpreter-includes/dnsapi.h": {
+      "source": "interpreter-includes/dnsapi.h",
+      "sha256": "948f7fafc3df8f42a74605260a7f49fea4f2d8311345278f23dc9df7f896d170"
+    },
+    "references/interpreter-includes/file.h": {
+      "source": "interpreter-includes/file.h",
+      "sha256": "d2d6c21cdba4e3b73efafb1f50c36f3f973611686648a0e3f516857d98de9ff3"
+    },
+    "references/interpreter-includes/internal.h": {
+      "source": "interpreter-includes/internal.h",
+      "sha256": "362bd2c0bcff2ed0b32e75ce0779ba47dfbd0810a7cace212216c1d1c6371481"
+    },
+    "references/interpreter-includes/iphlpapi.h": {
+      "source": "interpreter-includes/iphlpapi.h",
+      "sha256": "ef5bff85788e4cc9009b2c7f4665263d8694e984694409ad08c5e5df0846b4da"
+    },
+    "references/interpreter-includes/ipifcons.h": {
+      "source": "interpreter-includes/ipifcons.h",
+      "sha256": "7afa55555e8d2146fe3bd0e7e74bf161f334b2a0fa0f5248cca439e80297b08f"
+    },
+    "references/interpreter-includes/iprtrmib.h": {
+      "source": "interpreter-includes/iprtrmib.h",
+      "sha256": "26df7483589c00ea4446d076d7f7d1c7f518949eef7a5601a02de92be0b28a1d"
+    },
+    "references/interpreter-includes/iptypes.h": {
+      "source": "interpreter-includes/iptypes.h",
+      "sha256": "f315f7cd6f0a514a899d3e77cd9da2c729d290946e8089cf0a59386ac0299128"
+    },
+    "references/interpreter-includes/limits.h": {
+      "source": "interpreter-includes/limits.h",
+      "sha256": "afe20fa8fdab2f9960a59bcc3cf595f2efc319dd1d97cb26f82c5b89067bebcc"
+    },
+    "references/interpreter-includes/msvcrt.h": {
+      "source": "interpreter-includes/msvcrt.h",
+      "sha256": "ba0e87a0ae9bde3b8e75cba8753873e667ef4dd25dace99bdfa533e341e3e6dd"
+    },
+    "references/interpreter-includes/netapi32.h": {
+      "source": "interpreter-includes/netapi32.h",
+      "sha256": "a9d16635993e94fd53e817f6d5d9196d4c7b184137aae70a9f98a8f3b61b4033"
+    },
+    "references/interpreter-includes/ntapi.h": {
+      "source": "interpreter-includes/ntapi.h",
+      "sha256": "21c1038087e835f03baa00c952dc8e96386eb7586a07e5a7a6cc440bd481423a"
+    },
+    "references/interpreter-includes/ntsecapi.h": {
+      "source": "interpreter-includes/ntsecapi.h",
+      "sha256": "d3adff6a2653f3991c26ec17636ce3f922c190262582af8753d1ab93c5d3d5b4"
+    },
+    "references/interpreter-includes/oaidl.h": {
+      "source": "interpreter-includes/oaidl.h",
+      "sha256": "a0ac67f67d56cf0e21df3a5188615d63b411cad2b353974b012a2365be738da4"
+    },
+    "references/interpreter-includes/oleauto.h": {
+      "source": "interpreter-includes/oleauto.h",
+      "sha256": "100d5bb81a0ce63ac700ff57ebf6d2ce4acf7c4f4af6c01415df36659becef5c"
+    },
+    "references/interpreter-includes/psapi.h": {
+      "source": "interpreter-includes/psapi.h",
+      "sha256": "b8f29b4289621ef439c2c4393f555ce15992a5b59dc69fbd0db7d8e4a85e47ae"
+    },
+    "references/interpreter-includes/secur32.h": {
+      "source": "interpreter-includes/secur32.h",
+      "sha256": "dc2ff44127b94fe59bf38be990c155ede51dbfb3b4af93674be0395de3c09f93"
+    },
+    "references/interpreter-includes/shlwapi.h": {
+      "source": "interpreter-includes/shlwapi.h",
+      "sha256": "d177657931313502d46b31b1ad0bf7839b65906f7cf756ae048c86407b550b9f"
+    },
+    "references/interpreter-includes/tcpmib.h": {
+      "source": "interpreter-includes/tcpmib.h",
+      "sha256": "88acb7737135dc967d9acb0a991b1a7429a67bdd2e46133d0fe74762179940a2"
+    },
+    "references/interpreter-includes/tlhelp32.h": {
+      "source": "interpreter-includes/tlhelp32.h",
+      "sha256": "ff85a4bf9c212b66dc16c6ac9ae19cfae450029abe2202ce6ab1ce56c111d461"
+    },
+    "references/interpreter-includes/udpmib.h": {
+      "source": "interpreter-includes/udpmib.h",
+      "sha256": "d1bd688f911c6ac9fb359c89b90d42a14d32f871d5abb124b02300357d8d8f12"
+    },
+    "references/interpreter-includes/version.h": {
+      "source": "interpreter-includes/version.h",
+      "sha256": "1dd956d47e6bef21ec459414f1a9455802e039d8f1a4b9c038dd69c63fc4c24d"
+    },
+    "references/interpreter-includes/winbaseapi.h": {
+      "source": "interpreter-includes/winbaseapi.h",
+      "sha256": "25c8c093d4c4ef9ed137529c77aa657c8c04e1e24590f00d955af102959e6d71"
+    },
+    "references/interpreter-includes/wincrypt.h": {
+      "source": "interpreter-includes/wincrypt.h",
+      "sha256": "5529b001a1aa37516eb9a9d03769f7b6d6f310de4d8a961eea5b0cddb39c7a1c"
+    },
+    "references/interpreter-includes/windows.h": {
+      "source": "interpreter-includes/windows.h",
+      "sha256": "f8bd82c15818980aacdc3772e8080b6eff32f615e5091bf3418c1eecd4e55361"
+    },
+    "references/interpreter-includes/winerror.h": {
+      "source": "interpreter-includes/winerror.h",
+      "sha256": "bf78e9679e6a4cd6b987f494f9045239156154dde8156b6bdb4fb3c90b3f35cb"
+    },
+    "references/interpreter-includes/winnt.h": {
+      "source": "interpreter-includes/winnt.h",
+      "sha256": "db058d247e5a0b8d1095b748c5e9a2ebf2f901ed7095c93a55323acee22f4429"
+    },
+    "references/interpreter-includes/winreg.h": {
+      "source": "interpreter-includes/winreg.h",
+      "sha256": "5a29a07cc68f3db633c614dfa2e5b3ecd5ac39067d75381242ac6bdf146cfaee"
+    },
+    "references/interpreter-includes/winsock2.h": {
+      "source": "interpreter-includes/winsock2.h",
+      "sha256": "bb3bb4a138f84a4ee6184c9b78c5d83a7c13076f1eba00a41124bd703c7fdc8a"
+    },
+    "references/interpreter-includes/wintypes.h": {
+      "source": "interpreter-includes/wintypes.h",
+      "sha256": "97a1d81ea8e4c7199f2197203c77cb89b429ccccf991b30e388d9cb3821d5cbe"
+    },
+    "references/interpreter-includes/ws2_32.h": {
+      "source": "interpreter-includes/ws2_32.h",
+      "sha256": "cbb7158fe87117488714cda87cccd8d4d7d962546e7f4eb2a03df43ab4a9f8b1"
+    },
+    "references/interpreter-includes/wtsapi32.h": {
+      "source": "interpreter-includes/wtsapi32.h",
+      "sha256": "a82b39da2205f77ba0b78139a2026d05f9bc22a9b9a45d1e0b7dd67c2f35cda8"
+    }
+  }
+}

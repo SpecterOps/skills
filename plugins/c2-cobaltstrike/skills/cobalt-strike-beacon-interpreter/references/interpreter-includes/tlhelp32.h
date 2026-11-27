@@ -1,0 +1,123 @@
+#ifndef BUILTINS_TLHELP32_H
+#define BUILTINS_TLHELP32_H
+
+#include <winnt.h>
+
+#define MAX_MODULE_NAME32 255
+
+/* Snapshot flags */
+#define TH32CS_SNAPHEAPLIST 0x00000001
+#define TH32CS_SNAPPROCESS  0x00000002
+#define TH32CS_SNAPTHREAD   0x00000004
+#define TH32CS_SNAPMODULE   0x00000008
+#define TH32CS_SNAPMODULE32 0x00000010
+#define TH32CS_SNAPALL (TH32CS_SNAPHEAPLIST | TH32CS_SNAPPROCESS | TH32CS_SNAPTHREAD | TH32CS_SNAPMODULE)
+#define TH32CS_INHERIT 0x80000000
+
+/* HEAPLIST32 flags */
+#define HF32_DEFAULT 1
+#define HF32_SHARED  2
+
+/* HEAPENTRY32 flags */
+#define LF32_FIXED    0x00000001
+#define LF32_FREE     0x00000002
+#define LF32_MOVEABLE 0x00000004
+
+typedef struct tagHEAPLIST32 {
+    SIZE_T dwSize;
+    DWORD th32ProcessID;
+    ULONG_PTR th32HeapID;
+    DWORD dwFlags;
+} HEAPLIST32, *PHEAPLIST32, *LPHEAPLIST32;
+
+typedef struct tagHEAPENTRY32 {
+    SIZE_T dwSize;
+    HANDLE hHandle;
+    ULONG_PTR dwAddress;
+    SIZE_T dwBlockSize;
+    DWORD dwFlags;
+    DWORD dwLockCount;
+    DWORD dwResvd;
+    DWORD th32ProcessID;
+    ULONG_PTR th32HeapID;
+} HEAPENTRY32, *PHEAPENTRY32, *LPHEAPENTRY32;
+
+typedef struct tagPROCESSENTRY32W {
+    DWORD dwSize;
+    DWORD cntUsage;
+    DWORD th32ProcessID;
+    ULONG_PTR th32DefaultHeapID;
+    DWORD th32ModuleID;
+    DWORD cntThreads;
+    DWORD th32ParentProcessID;
+    LONG pcPriClassBase;
+    DWORD dwFlags;
+    WCHAR szExeFile[MAX_PATH];
+} PROCESSENTRY32W, *PPROCESSENTRY32W, *LPPROCESSENTRY32W;
+
+typedef struct tagPROCESSENTRY32 {
+    DWORD dwSize;
+    DWORD cntUsage;
+    DWORD th32ProcessID;
+    ULONG_PTR th32DefaultHeapID;
+    DWORD th32ModuleID;
+    DWORD cntThreads;
+    DWORD th32ParentProcessID;
+    LONG pcPriClassBase;
+    DWORD dwFlags;
+    CHAR szExeFile[MAX_PATH];
+} PROCESSENTRY32A, *PPROCESSENTRY32A, *LPPROCESSENTRY32A;
+
+typedef struct tagTHREADENTRY32 {
+    DWORD dwSize;
+    DWORD cntUsage;
+    DWORD th32ThreadID;
+    DWORD th32OwnerProcessID;
+    LONG tpBasePri;
+    LONG tpDeltaPri;
+    DWORD dwFlags;
+} THREADENTRY32, *PTHREADENTRY32, *LPTHREADENTRY32;
+
+typedef struct tagMODULEENTRY32W {
+    DWORD dwSize;
+    DWORD th32ModuleID;
+    DWORD th32ProcessID;
+    DWORD GlblcntUsage;
+    DWORD ProccntUsage;
+    BYTE *modBaseAddr;
+    DWORD modBaseSize;
+    HMODULE hModule;
+    WCHAR szModule[MAX_MODULE_NAME32 + 1];
+    WCHAR szExePath[MAX_PATH];
+} MODULEENTRY32W, *PMODULEENTRY32W, *LPMODULEENTRY32W;
+
+typedef struct tagMODULEENTRY32 {
+    DWORD dwSize;
+    DWORD th32ModuleID;
+    DWORD th32ProcessID;
+    DWORD GlblcntUsage;
+    DWORD ProccntUsage;
+    BYTE *modBaseAddr;
+    DWORD modBaseSize;
+    HMODULE hModule;
+    CHAR szModule[MAX_MODULE_NAME32 + 1];
+    CHAR szExePath[MAX_PATH];
+} MODULEENTRY32A, *PMODULEENTRY32A, *LPMODULEENTRY32A;
+
+#ifdef UNICODE
+typedef PROCESSENTRY32W PROCESSENTRY32;
+typedef PPROCESSENTRY32W PPROCESSENTRY32;
+typedef LPPROCESSENTRY32W LPPROCESSENTRY32;
+typedef MODULEENTRY32W MODULEENTRY32;
+typedef PMODULEENTRY32W PMODULEENTRY32;
+typedef LPMODULEENTRY32W LPMODULEENTRY32;
+#else
+typedef PROCESSENTRY32A PROCESSENTRY32;
+typedef PPROCESSENTRY32A PPROCESSENTRY32;
+typedef LPPROCESSENTRY32A LPPROCESSENTRY32;
+typedef MODULEENTRY32A MODULEENTRY32;
+typedef PMODULEENTRY32A PMODULEENTRY32;
+typedef LPMODULEENTRY32A LPMODULEENTRY32;
+#endif
+
+#endif
