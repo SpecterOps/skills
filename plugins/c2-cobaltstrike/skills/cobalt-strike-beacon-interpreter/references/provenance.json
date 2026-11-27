@@ -1,6 +1,6 @@
 {
   "source_repository": "https://github.com/Cobalt-Strike/beacon-interpreter",
-  "source_revision": "27e083cf5c8ab04e276c9046f8b7a8f651ed505c",
+  "source_revision": "52fc3b735d3431a75fcf9c853b466914a686c4e2",
   "hash_format": "sha256 with CRLF normalized to LF",
   "files": {
     "assets/interpreter_demo.c": {
