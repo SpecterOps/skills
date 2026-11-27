@@ -22,7 +22,7 @@ includes offline compatibility guidance, headers, and an example for writing
 and reviewing Interpreter C scripts.
 
 This bundle is imported from [Cobalt-Strike/beacon-interpreter](https://github.com/Cobalt-Strike/beacon-interpreter)
-at [commit `f76c3bac858201cfb909e43895c71e1390221e02`](https://github.com/Cobalt-Strike/beacon-interpreter/tree/f76c3bac858201cfb909e43895c71e1390221e02/skills/cobalt-strike-beacon-interpreter).
+at [commit `1abd402a880c588d46f290144a5fea4a32e6e5ee`](https://github.com/Cobalt-Strike/beacon-interpreter/tree/1abd402a880c588d46f290144a5fea4a32e6e5ee/skills/cobalt-strike-beacon-interpreter).
 Make skill changes upstream, then refresh this directory from a reviewed commit
 and update the pin. The bundle includes its Apache-2.0 license and provenance.
 
